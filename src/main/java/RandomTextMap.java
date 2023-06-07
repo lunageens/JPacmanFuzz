@@ -3,9 +3,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Random;
 
-public class RandomMap {
-
-    // TODO Random max?
+public class RandomTextMap {
     private static final int MAX_MAP_WIDTH = 20;
     private static final int MAX_MAP_HEIGHT = 20;
 
@@ -24,7 +22,7 @@ public class RandomMap {
     /**
      * Makes a Random Map File.
      */
-    public RandomMap() {
+    public RandomTextMap() {
 
         Random random = new Random();
 
@@ -35,15 +33,18 @@ public class RandomMap {
         char[][] map = new char[MAP_WIDTH][MAP_HEIGHT];
 
         // Populate the map with random elements
-        // TODO Set wall random as well. Rows and col starts at 0!
         for (int row = 0; row < MAP_WIDTH; row++) {
             for (int col = 0; col < MAP_HEIGHT; col++) {
                 // Set empty cell, wall, monster, or Pacman randomly
                 int rand = random.nextInt(4); // 0 (included), 1, 2 and 3 (4 not included)
-                    if (rand < 1){ map[row][col] = 'W';
-                    } else if (rand < 2) { map[row][col] = 'M'; // Monster
-                    } else if (rand < 3) { map[row][col] = 'P'; // Pacman - Can only be one pacman?
-                    } else {  map[row][col] = '0'; // Empty cell
+                if (rand < 1) {
+                    map[row][col] = 'W';
+                } else if (rand < 2) {
+                    map[row][col] = 'M'; // Monster
+                } else if (rand < 3) {
+                    map[row][col] = 'P'; // Pacman - Can only be one pacman?
+                } else {
+                    map[row][col] = '0'; // Empty cell
                 }
             }
         }
@@ -55,7 +56,6 @@ public class RandomMap {
      * After executing this method (successfully or not), the boolean mapFileCreated is set to true.
      */
     private void createMapFile() {
-
         // Save the map to a file
         try {
             File mapFile = File.createTempFile("map", ".map");
@@ -79,18 +79,14 @@ public class RandomMap {
      * This way only one mapFile per instance.
      */
     public File getMapFile() {
-        if (!mapFileCreated){createMapFile();}         // If map isn't saved yet to variable:
+        if (!mapFileCreated) {
+            createMapFile();
+        }         // If map isn't saved yet to variable:
         return mapFile;
     }
 
-    // TODO Clean-up here?
-    /**
-     * Delete map file.
-     */
-    public void deleteMapFile(){
-        boolean successFullyDeleted = mapFile.delete();
-        if (!successFullyDeleted){System.out.println("Map file not successfully deleted.");}
-        this.mapFileDeleted = true; // true even if not successfully deleted
+    public String getIdenticalLineWidths() {
+      if (MAP_HEIGHT == MAP_WIDTH){ return "True"; }
+      else return "False";
     }
-
 }
