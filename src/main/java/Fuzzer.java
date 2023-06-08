@@ -1,168 +1,187 @@
-import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import dataProviders.ConfigFileReader;
+import managers.FileReaderManager;
+import outputProviders.FileHandler;
+import outputProviders.IterationResult;
+import outputProviders.LogFileHandler;
+import outputProviders.MapFileHandler;
+import randomGenerators.RandomActionSequenceGenerator;
+import randomGenerators.map.MapGenerator;
+import randomGenerators.map.RandomMapGenerator;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+// TODO Javadoc
+// TODO README.md
+
+
+/**
+ * The Fuzzer class is the main class that runs the fuzzing process.
+ * <p>
+ * It generates random action sequences and maps, executes a game simulation,
+ * <p>
+ * and collects and analyzes the results.
+ */
 public class Fuzzer {
 
-    // TODO configurations and reader?
-    private static final int MAX_ITERATIONS = 100;
-    private static final long TIME_BUDGET_MS = 15 * 60000; // 15 Minutes
+    /**
+     * Instance of ConfigFileReader used to read configurations in the properties file.
+     */
+    private static final ConfigFileReader configFileReader = FileReaderManager.getInstance().getConfigReader();
 
-    private static File logFile;
+    /**
+     * Number of iterations the fuzz should do (how many times to run the program with another unique random map file
+     * and action sequence). Specified in configurations file.
+     */
+    private static final int MAX_ITERATIONS = configFileReader.getMaxIterations();
 
+    /**
+     * If the program reaches this amount of time before doing all the specified iterations, we should also
+     * stop fuzzing. Specified in configurations file.
+     */
+    private static final long TIME_BUDGET_MS = configFileReader.getMaxTime();
+
+
+    /**
+
+     The main entry point of the fuzzing process.
+
+     @param args The command-line arguments.
+     */
     public static void main(String[] args) {
         long startTime = System.currentTimeMillis();
-        int exitCode0 = 0;
-        int exitCode10 = 0;
-        int exitCode1 = 0;
-        int exitCodeUnknown = 0;
+        long elapsedTime = 0;
+
+        // A new file and sequence generator
+        RandomActionSequenceGenerator randomActionSequenceGenerator = new RandomActionSequenceGenerator();
+        MapGenerator mapGenerator = new RandomMapGenerator();
+
+        // New file handlers
+        // Create the needed directories and clean them up if that is needed
+        FileHandler fileHandler = new FileHandler();
+        fileHandler.initializeDirectories();
+        LogFileHandler logFileHandler = new LogFileHandler();
+        MapFileHandler mapFileHandler = new MapFileHandler();
+
+        // Store results of the process ran
+        List<IterationResult> iterationResults = new ArrayList<>();
+        Map<Integer, List<IterationResult>> iterationResultsByErrorCode = new HashMap<>();
+        Map<String, List<IterationResult>> iterationResultsByOutputMessage = new HashMap<>();
 
         // How many times does a random file and sequence has to be created?
         for (int i = 0; i < MAX_ITERATIONS; i++) {
 
-            // Pick random file type
-            Random random = new Random();
-            boolean fileType = random.nextBoolean();
+            // Pick random file type for the map, or do only text type + create random sequence
+            // Map files are stored in actual temporarily
+            String mapFilePath = mapGenerator.generateRandomMap();
+            String actionSequence = randomActionSequenceGenerator.generateRandomActionSequence();
 
-            // Generate random inputs for the map file
-            File mapFile;
-            String mapFileType;
-            String identicalLineWidths = "N.A.";
-            if (fileType) {
-                mapFileType = "Binary";
-                RandomBinaryMap randomBinaryMap = new RandomBinaryMap();
-                mapFile = randomBinaryMap.getRandomBinaryFile();
-            } else {
-                mapFileType = "Text";
-                RandomTextMap randomTextMap = new RandomTextMap();
-                mapFile = randomTextMap.getMapFile();
-                identicalLineWidths = randomTextMap.getIdenticalLineWidths();
-            }
+            // Try to execute pacman and retrieve exitcode and other results. Alter count of the correct exitcode.
+            // If wrong exit code, save file.
+            try {
+                // Retrieve output data process
+                Process process = executeJPacman(mapFilePath, actionSequence);
+                int exitCode = process.waitFor();
+                if ((exitCode != 0) && (exitCode != 1) && (exitCode != 10)) {
+                    exitCode = -1;
+                } // If unknown, -1
+                String outputMessages = readOutputMessages(process);
 
-            // Generate random action sequence
-            RandomActionSequence randomActionSequence = new RandomActionSequence();
-            String actionSequence = randomActionSequence.getActionSequence();
+                // Store output data process in iteration results list
+                IterationResult iterationResult = new IterationResult(i + 1, mapFilePath, actionSequence, exitCode, outputMessages);
+                iterationResults.add(iterationResult);
 
-            // Execute Jpacman with the generated inputs
-            List results = executeJpacman(mapFile.getPath(), actionSequence);
-            int exitCode = (int) results.get(0);
-            String outputMessages = (String) results.get(1);
+                // Update iteration results by error code
+                List<IterationResult> errorCodeResults = iterationResultsByErrorCode.getOrDefault(exitCode, new ArrayList<>());
+                errorCodeResults.add(iterationResult);
+                iterationResultsByErrorCode.put(exitCode, errorCodeResults);
 
-            // Check the exit code and handle accordingly
-            if (exitCode == 0) {  // Normal termination
-                System.out.println("Program terminated normally.");
-                exitCode0 = exitCode0 + 1;
-                writeLogEntry(exitCode, outputMessages, mapFile, mapFileType, identicalLineWidths, actionSequence);
-                cleanup(mapFile, randomActionSequence);  // Clean-up file and string
-            } else {// if not terminated normally, write log
+                // Update iteration results by message output
+                List<IterationResult> outputMessageResults = iterationResultsByOutputMessage.getOrDefault(outputMessages, new ArrayList<>());
+                outputMessageResults.add(iterationResult);
+                iterationResultsByOutputMessage.put(outputMessages, outputMessageResults);
 
-                if (exitCode == 10) {  // Normal termination
-                    System.out.println("Program rejected the input.");
-                    exitCode10 = exitCode10 + 1;
-                } else if (exitCode == 1) {    // Crash
-                    System.out.println("Program crashed.");
-                    exitCode1 = exitCode1 + 1;
-                } else {  // Handle other exit codes
-                    System.out.println("Unknown exit code: " + exitCode);
-                    exitCodeUnknown = exitCodeUnknown + 1;
+                // Clean up when process ran without problems
+                // Move map to correct permanent directory if needed
+                if (exitCode == 0) {
+                    mapFileHandler.deleteMapFile(mapFilePath);
+                } else {
+                    mapFileHandler.moveMapFileToErrorDirectory(mapFilePath, exitCode);
                 }
+            } catch (IOException |
+                     InterruptedException e) {
+                System.out.println("Exception during process building.");
+                e.printStackTrace();
             }
 
-
-
-            // Check if time budget is exhausted
+            // Check if time budget has been exhausted
             long endTime = System.currentTimeMillis();
-            long elapsedTime = endTime - startTime;
+            elapsedTime = endTime - startTime;
             if (elapsedTime >= TIME_BUDGET_MS) {
                 System.out.println("Time limit reached.");
                 break;
             }
 
-            if (i == MAX_ITERATIONS - 1){ System.out.println("Maximum iterations reached.");}
         }
 
-        if (exitCode0 != 0){System.out.println("Program terminated normally " + exitCode0 + " time(s).");}
-        if (exitCode10 != 10){System.out.println("Program rejected the output " + exitCode10 + " time(s).");}
-        if (exitCode1 != 0){System.out.println("Program crashed " + exitCode1 + " time(s).");}
-        if (exitCodeUnknown != 0){System.out.println("Program exited with unknown code " + exitCodeUnknown + " time(s).");}
-    }
+        // Write the text logfile.
+        logFileHandler.writeIterationResults(iterationResults);
+        logFileHandler.writeSummary(iterationResults);
+        logFileHandler.close();
 
-    private static List executeJpacman(String mapFile, String actionSequence) {
-        List results = new ArrayList<>();
-        ProcessBuilder processBuilder = new ProcessBuilder("java", "-jar", "jpacman-3.0.1.jar", mapFile, actionSequence);
-        processBuilder.redirectErrorStream(true);
-        try {
-            Process process = processBuilder.start(); // command
+        // Write the CSV logfile.
+        logFileHandler.generateLogOverview(iterationResultsByErrorCode, iterationResultsByOutputMessage);
 
-            BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
-            String line;
-            StringBuilder outputBuilder = new StringBuilder();
-            while ((line = reader.readLine()) != null){ outputBuilder.append(line).append("\n");}
-
-            int exitCode = process.waitFor(); // wait for process to complete
-            results.add(exitCode);
-
-            String outputMessages = null;
-            if (exitCode != 0){ // check if it is crash or rejection
-                outputMessages = outputBuilder.toString(); }
-            results.add(outputMessages);
-        } catch (IOException | InterruptedException e) {
-            e.printStackTrace();
-            results.add(-1);
-            results.add("Exception during process building");
+        if (FileHandler.cleanDirectories) {
+            fileHandler.cleanDirectory(FileHandler.previousLogsDirectoryPath);
+            fileHandler.cleanDirectory(FileHandler.previousMapsDirectoryPath);
         }
-        return results;
-    }
 
-    // TODO fix dat dit terug werkt met methods per klasse
-    private static void cleanup(File mapFile, RandomActionSequence randomActionSequence) {
-        mapFile.delete();
-        // Clean up any temporary files or resources used during the fuzzing process
-        // For example, you can delete any generated map files that are no longer needed
-        // You can use the File.delete() method to delete the files
-        // Example: new File("path/to/file.map").delete();
-    }
-
-    public static File getLogFile(){
-        if (logFile == null){ logFile = createLogFile(); }
-        return logFile;
-    }
-
-    public static File createLogFile() {
-        try {
-            // tODO Configs logdirecotry
-            File logDirectory =new File("C:\\ST\\JPacmanFuzz");
-            File logFile = File.createTempFile("log_", ".txt", logDirectory);
-            Fuzzer.logFile = logFile;
-        } catch (IOException e) {
-            e.printStackTrace();
+        if (FileHandler.logHistory) {
+            logFileHandler.generateLogHistory(iterationResultsByErrorCode, elapsedTime);
+            logFileHandler.generateLogErrorHistory(iterationResultsByOutputMessage);
         }
-        return Fuzzer.logFile;
+
     }
 
 
-    public static void writeLogEntry(int exitCode, String outputMessages, File mapFile, String mapFileType, String identicalLineWidths, String actionSequence){
-        File logFile = getLogFile();
-        try {
-            // Write the information to the log file
-            BufferedWriter writer = new BufferedWriter(new FileWriter(logFile));
-            writer.write("----------------------------------------------------");
-            writer.write("Exit Code: " + exitCode + "\n");
-            writer.write("Output Messages:\n");
-            writer.write(outputMessages);
-            writer.write("Map File path: " + mapFile.getAbsolutePath() + "\n");
-            writer.write("Map File type: " + mapFileType);
-            writer.write("Map File had identical line widths: " + identicalLineWidths);
-            writer.write("Action Sequence: " + actionSequence + "\n");
+    /**
+     * Executes JPacman with the given map file and action sequence.
+     *
+     * @param mapFilePath    The file path of the map file.
+     * @param actionSequence The random action sequence.
+     * @return The process of the JPacman execution.
+     * @throws IOException If an I/O error occurs.
+     */
+    private static Process executeJPacman(String mapFilePath, String actionSequence) throws IOException {
+        ProcessBuilder processBuilder = new ProcessBuilder("java", "-jar", "jpacman-3.0.1.jar", mapFilePath, actionSequence);
+        return processBuilder.start();
+    }
 
-            writer.close();
-
-            System.out.println("Log entry saved: " + logFile.getAbsolutePath());
-        } catch (IOException e) {
-            e.printStackTrace();
+    /**
+     * Reads and returns the output messages from the process.
+     *
+     * @param process The process to read the output messages from.
+     * @return The output messages as a string.
+     * @throws IOException If an I/O error occurs.
+     */
+    private static String readOutputMessages(Process process) throws IOException {
+        // Read and return the output messages from the process
+        BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+        StringBuilder output = new StringBuilder();
+        String line;
+        while ((line = reader.readLine()) != null) {
+            line = line.replace("**** ", "");
+            output.append(line).append("\n");
         }
+        return output.toString();
     }
+
 }
 
 
