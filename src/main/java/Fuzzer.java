@@ -16,10 +16,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-// TODO Javadoc
-// TODO README.md
-
-
 /**
  * The Fuzzer class is the main class that runs the fuzzing process.
  * <p>
@@ -57,7 +53,13 @@ public class Fuzzer {
         long startTime = System.currentTimeMillis();
         long elapsedTime = 0;
 
-        // A new file and sequence generator
+        // In case of custom maps or sequences
+        // Add your custom map file paths to this list
+        List<String> customMaps = new ArrayList<>();
+        // Add your custom action sequences to this list
+        List<String> customSequences = new ArrayList<>();
+
+        // In case of random maps or sequences, we need a new file and sequence generator
         RandomActionSequenceGenerator randomActionSequenceGenerator = new RandomActionSequenceGenerator();
         MapGenerator mapGenerator = new RandomMapGenerator();
 
@@ -76,10 +78,14 @@ public class Fuzzer {
         // How many times does a random file and sequence has to be created?
         for (int i = 0; i < MAX_ITERATIONS; i++) {
 
-            // Pick random file type for the map, or do only text type + create random sequence
-            // Map files are stored in actual temporarily
-            String mapFilePath = mapGenerator.generateRandomMap();
-            String actionSequence = randomActionSequenceGenerator.generateRandomActionSequence();
+            // Use custom sequences and maps
+            // If no more, generate randomly with configs
+            String mapFilePath;
+            String actionSequence;
+            if (!customMaps.isEmpty()){mapFilePath = customMaps.remove(0);} // Use custom map file
+            else {mapFilePath = mapGenerator.generateRandomMap();} // generate randomly
+            if (!customSequences.isEmpty()){actionSequence = customSequences.remove(0);}
+            else {actionSequence = randomActionSequenceGenerator.generateRandomActionSequence();}
 
             // Try to execute pacman and retrieve exitcode and other results. Alter count of the correct exitcode.
             // If wrong exit code, save file.

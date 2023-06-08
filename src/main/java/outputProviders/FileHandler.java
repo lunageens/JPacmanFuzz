@@ -324,27 +324,30 @@ public class FileHandler {
     public void cleanDirectory(String pathToNeededCleanedDirectory) {
         try {
             Path toCleanMapsDirectory = Paths.get(pathToNeededCleanedDirectory);
-            Files.walkFileTree(toCleanMapsDirectory, new SimpleFileVisitor<>() {
 
-                // Delete files
-                @Override
-                public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
-                    // If u want to keep certain files
-                    // Specify here
-                    // if (!file.toString().equals(fileToKeepPath)) {
-                    Files.deleteIfExists(file);
-                    // }
-                    return FileVisitResult.CONTINUE;
-                }
+            if (Files.exists(toCleanMapsDirectory)) {
+                Files.walkFileTree(toCleanMapsDirectory, new SimpleFileVisitor<>() {
 
-                // Delete directories
-                @Override
-                public FileVisitResult postVisitDirectory(Path dir, IOException exc) throws IOException {
-                    Files.deleteIfExists(dir);
-                    return FileVisitResult.CONTINUE;
-                }
+                    // Delete files
+                    @Override
+                    public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
+                        // If u want to keep certain files
+                        // Specify here
+                        // if (!file.toString().equals(fileToKeepPath)) {
+                        Files.deleteIfExists(file);
+                        // }
+                        return FileVisitResult.CONTINUE;
+                    }
 
-            });
+                    // Delete directories
+                    @Override
+                    public FileVisitResult postVisitDirectory(Path dir, IOException exc) throws IOException {
+                        Files.deleteIfExists(dir);
+                        return FileVisitResult.CONTINUE;
+                    }
+
+                });
+            }
 
         } catch (IOException e) {
             e.printStackTrace();

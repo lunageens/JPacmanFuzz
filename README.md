@@ -1,10 +1,11 @@
-# Fuzzer - Automated Testing Tool for JPacman
+# *Fuzzer - Automated Testing Tool for JPacman*
 The Fuzzer is an automated testing tool designed to perform fuzz testing on the JPacman application. 
 It is a black-box fuzzer, meaning that the JPacman application code is not visible while fuzzing.
 One can execute the jpacman code with the help of the jpacman-3.0.1 jar file. 
 The fuzzer generates random maps and action sequences to test the functionality and stability of the JPacman game.
 
-## Features
+## *A general overview of the project*
+### Features
 - Generates random maps and action sequences for testing. 
 - Executes the JPacman application with the generated inputs. 
 - Captures and analyzes the output and exit codes of the JPacman process. 
@@ -12,17 +13,17 @@ The fuzzer generates random maps and action sequences to test the functionality 
 - Supports both text-based and binary map file formats. 
 - Provides configurable options for maximum iterations, time budget, map dimensions, and more.
 
-## Prerequisites
+### Prerequisites
 - Java Development Kit (JDK) 8 or above 
 - JPacman application (version 3.0.1 or compatible) 
 - Configuration file (see "Configuration" section for details)
 
-## Installation
+### Installation
 Clone the Fuzzer repository to your local machine.
 Ensure that the JPacman application is available in the project directory or specify its location in the configuration file.
 Update the configuration file with the desired settings (see "Configuration" section for details).
 
-## Configuration
+### Configuration
 The configuration file (config.properties) allows you to customize various aspects of the fuzzing process. You can modify the following settings:
 
 - fileType: Specifies the type of map files to be generated. Valid values: TEXT, BINARY, ALL. Default: ALL
@@ -42,7 +43,7 @@ The configuration file (config.properties) allows you to customize various aspec
 Please fill in the appropriate values for each setting according to your needs. The default values are provided as a reference, 
 but feel free to adjust them as required.
 
-## Usage
+### Usage
 Ensure that the JPacman application is available in the project directory or specify its location in the configuration file.
 Update the configuration file (config.properties) with the desired settings.
 Run the Fuzzer class as the main entry point of the application.
@@ -51,7 +52,7 @@ and capture the results.
 After the fuzzing process completes, the logs and summary reports will be stored in the specified directories.
 Review the logs and reports to analyze the results of the fuzzing process.
 
-## Results
+### Results
 The Fuzzer provides various types of output and results:
 
 - Log files: Detailed logs of each iteration, including map file, action sequence, exit code, and output messages.
@@ -59,6 +60,28 @@ The Fuzzer provides various types of output and results:
 - Map files: Generated map files stored in the designated directory.
 - Javadoc: Published on Netifly as well, on the following [link](https://jpacmanfuzzsite.netlify.app/). 
 
-## Acknowledgements
+### Acknowledgements
 The Fuzzer was developed by Luna Geens as a project for the Software Testing course of the University of Antwerp.
 We would like to express our gratitude to the creators of JPacman for providing an excellent application to test and fuzz.
+
+## Lessons learned about the JPacman project
+
+### Fuzz 1: Random manual testing with binary files only.
+Context: 
+- In this stage, the maps are binary with a normal maximum size. The bytes are chosen randomly. The name of the map file is normal.
+- The action sequence will exist out of 5 characters (randomly chosen out the valid options E, S, U, D, Q, W, L and R). It will have a normal name. 
+
+Configs:
+- typeFile=bin
+- maxIterations=1000
+- maxTime=900000
+
+Results:
+The results are stored in the fuzzresults_lessons/fuzz1_binary directory
+Putting the typeFile=bin in configs and running the Fuzz class would give u something like this:
+
+
+Open the binary files in a binary editor like HeX to see for yourself.
+
+![Manual random testing with binary files and correct action sequence](C:\ST\JPacmanFuzz\fuzzresults_lessons\fuzz1_binary\img.png "Fuzz 1")
+
