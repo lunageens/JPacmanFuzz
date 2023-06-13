@@ -36,3 +36,6 @@ build/
 
 ### Mac OS ###
 .DS_Store
+/fuzzresults_lessons/fuzz3_filetypes/custom_maps/FilePermission_None_sample.map
+/fuzzresults_lessons/fuzz3_filetypes/custom_maps/FileEncryption.txt
+/node_modules/
