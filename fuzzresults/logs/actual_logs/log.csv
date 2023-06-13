@@ -1,0 +1,11 @@
+Iteration,Error Code,Output Messages,String sequence,Map File Type,Map File custom attribute,Map File Path
+1,10,More than one player ,SWE,TXT,MW, C:\ST\JPacmanFuzz\fuzzresults\maps\actual_maps\exitcode10_rejected\map_1.txt
+2,10,More than one player ,SWE,TXT,MWP, C:\ST\JPacmanFuzz\fuzzresults\maps\actual_maps\exitcode10_rejected\map_2.txt
+3,10,More than one player ,SWE,TXT,OPF, C:\ST\JPacmanFuzz\fuzzresults\maps\actual_maps\exitcode10_rejected\map_3.txt
+4,10,More than one player ,SWE,TXT,OPE, C:\ST\JPacmanFuzz\fuzzresults\maps\actual_maps\exitcode10_rejected\map_4.txt
+5,10,More than one player ,SWE,TXT,N.A., C:\ST\JPacmanFuzz\fuzzresults\maps\actual_maps\exitcode10_rejected\map_5.txt
+6,10,More than one player ,SWE,TXT,N.A., C:\ST\JPacmanFuzz\fuzzresults\maps\actual_maps\exitcode10_rejected\map_6.txt
+7,10,More than one player ,SWE,TXT,N.A., C:\ST\JPacmanFuzz\fuzzresults\maps\actual_maps\exitcode10_rejected\map_7.txt
+8,10,More than one player ,SWE,TXT,N.A., C:\ST\JPacmanFuzz\fuzzresults\maps\actual_maps\exitcode10_rejected\map_8.txt
+9,10,More than one player ,SWE,TXT,N.A., C:\ST\JPacmanFuzz\fuzzresults\maps\actual_maps\exitcode10_rejected\map_9.txt
+10,10,More than one player ,SWE,TXT,N.A., C:\ST\JPacmanFuzz\fuzzresults\maps\actual_maps\exitcode10_rejected\map_10.txt

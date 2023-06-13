@@ -1,0 +1,84 @@
+Iteration: 1
+Map File Type: TXT
+Map File Path: C:\ST\JPacmanFuzz\fuzzresults\maps\actual_maps\exitcode10_rejected\map_1.txt
+Map File custom attribute: MW
+String Sequence: SWE
+Error Code: 10
+Output Messages: More than one player
+
+Iteration: 2
+Map File Type: TXT
+Map File Path: C:\ST\JPacmanFuzz\fuzzresults\maps\actual_maps\exitcode10_rejected\map_2.txt
+Map File custom attribute: MWP
+String Sequence: SWE
+Error Code: 10
+Output Messages: More than one player
+
+Iteration: 3
+Map File Type: TXT
+Map File Path: C:\ST\JPacmanFuzz\fuzzresults\maps\actual_maps\exitcode10_rejected\map_3.txt
+Map File custom attribute: OPF
+String Sequence: SWE
+Error Code: 10
+Output Messages: More than one player
+
+Iteration: 4
+Map File Type: TXT
+Map File Path: C:\ST\JPacmanFuzz\fuzzresults\maps\actual_maps\exitcode10_rejected\map_4.txt
+Map File custom attribute: OPE
+String Sequence: SWE
+Error Code: 10
+Output Messages: More than one player
+
+Iteration: 5
+Map File Type: TXT
+Map File Path: C:\ST\JPacmanFuzz\fuzzresults\maps\actual_maps\exitcode10_rejected\map_5.txt
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: More than one player
+
+Iteration: 6
+Map File Type: TXT
+Map File Path: C:\ST\JPacmanFuzz\fuzzresults\maps\actual_maps\exitcode10_rejected\map_6.txt
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: More than one player
+
+Iteration: 7
+Map File Type: TXT
+Map File Path: C:\ST\JPacmanFuzz\fuzzresults\maps\actual_maps\exitcode10_rejected\map_7.txt
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: No lines
+
+Iteration: 8
+Map File Type: TXT
+Map File Path: C:\ST\JPacmanFuzz\fuzzresults\maps\actual_maps\exitcode10_rejected\map_8.txt
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: Widths mismatch
+
+Iteration: 9
+Map File Type: TXT
+Map File Path: C:\ST\JPacmanFuzz\fuzzresults\maps\actual_maps\exitcode10_rejected\map_9.txt
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: Widths mismatch
+
+Iteration: 10
+Map File Type: TXT
+Map File Path: C:\ST\JPacmanFuzz\fuzzresults\maps\actual_maps\exitcode10_rejected\map_10.txt
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: No columns
+
+SUMMARY
+Exit Code 0: 0 occurrences
+Exit Code 10: 10 occurrences
+Exit Code Other: 0 occurrences

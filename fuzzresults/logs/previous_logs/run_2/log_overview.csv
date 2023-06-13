@@ -1,0 +1,4 @@
+ErrorCode,OutputMessage,Count,IterationNumbers
+10,More than one player; ,8, 1-2-3-5-6-8-9-10
+10,No lines; ,1, 7
+10,Widths mismatch; ,1, 4
