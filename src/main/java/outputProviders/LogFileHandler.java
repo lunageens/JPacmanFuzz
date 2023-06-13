@@ -1,10 +1,12 @@
 package outputProviders;
 
+import outputProviders.logHTMLFile.LogHTMLFileHandler;
+
 import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-import static outputProviders.FileHandler.logHistoryFilePath;
+import static outputProviders.FileHandler.*;
 
 /**
  * Handles the writing of log files for the application.
@@ -17,6 +19,8 @@ public class LogFileHandler {
      * The FileWriter object used to write to the log file.
      */
     private final FileWriter writer;
+
+    // The original log.txt file
 
     /**
      * Constructs a LogFileHandler object and initializes the FileWriter.
@@ -35,24 +39,22 @@ public class LogFileHandler {
     /**
      * Writes the iteration results to the log file.
      * The following things are provided in log.txt for each iteration:
-     * Iteration number - Map file Type (Extension of the file path) - Absolute full path of the mape file -
+     * Iteration number - Map file Type (Extension of the file path) - Absolute full path of the map file -
      * String action sequence - Error code of the process (0, 10, 1 or -1 (= others) ). -
      * Output messages of the process
-     * Only writes the results with an error code other than 0.
      *
      * @param iterationResults The list of iteration results to write.
      */
     public void writeIterationResults(List<IterationResult> iterationResults) {
         try {
             for (IterationResult iterationResult : iterationResults) {
-                if (iterationResult.getErrorCode() != 0) {
                     writer.write("Iteration: " + iterationResult.getIterationNumber() + "\n");
                     writer.write("Map File Type: " + iterationResult.getMapFileType() + "\n");
-                    writer.write("Map File Path: " + iterationResult.getMapFilePath() + "\n");
-                    writer.write("String Sequence: " + iterationResult.getStringSequence() + "\n");
+                writer.write("Map File Path: " + iterationResult.getMapFilePath() + "\n");
+                writer.write("Map File custom attribute: " + iterationResult.getCustomAttribute() + "\n");
+                writer.write("String Sequence: " + iterationResult.getStringSequence() + "\n");
                     writer.write("Error Code: " + iterationResult.getErrorCode() + "\n");
                     writer.write("Output Messages: " + iterationResult.getOutputMessages() + "\n");
-                }
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -81,7 +83,6 @@ public class LogFileHandler {
                     exitCodeOtherCount++;
                 }
             }
-
             writer.write("SUMMARY\n");
             writer.write("Exit Code 0: " + exitCode0Count + " occurrences\n");
             writer.write("Exit Code 10: " + exitCode10Count + " occurrences\n");
@@ -98,6 +99,54 @@ public class LogFileHandler {
     public void close() {
         try {
             writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Writes the log CSV file.
+     * For each iteration of this run, one row.
+     * Same information as log text file.
+     *
+     * @param iterationResults The list of iteration results to write.
+     */
+    public void generateLogCSVFile(List<IterationResult> iterationResults) {
+        try {
+
+            String csvFilePath = FileHandler.logFileCSVPath;
+            try {
+                FileWriter csvWriter = new FileWriter(csvFilePath);
+                csvWriter.close();
+            } catch (IOException e) {
+                throw new RuntimeException("Failed to open log overview csv file: " + csvFilePath);
+            }
+            FileWriter csvWriter = new FileWriter(csvFilePath);
+
+            // Write header
+            csvWriter.append("Iteration,Error Code,Output Messages,String sequence,Map File Type,Map File custom attribute,Map File Path").append("\n");
+
+            for (IterationResult iterationResult : iterationResults) {
+                csvWriter.append(Integer.toString(iterationResult.getIterationNumber())).append(","); // Iteration number
+                csvWriter.append(Integer.toString(iterationResult.getErrorCode())).append(","); // Error code
+                csvWriter.append(iterationResult.getOutputMessages().replace("\n", "; ").replace(";", "")).append(","); // Output
+                csvWriter.append(iterationResult.getStringSequence()).append(","); // String action sequence
+                csvWriter.append(iterationResult.getMapFileType()).append(","); // Map file path type
+
+                String customAttribute = iterationResult.getCustomAttribute().replace("\n", " ").replace(";", "").replace(",", "");
+                if (customAttribute.isBlank() || customAttribute.isEmpty() || customAttribute == null) {
+                    customAttribute = "Empty or blank string.";
+                }
+                ;
+                if (customAttribute.equals("\"") || customAttribute.equals("'")) {
+                    customAttribute = "See text file.";
+                }
+                csvWriter.append(customAttribute).append(", "); // Map file custom attribute
+
+                csvWriter.append(iterationResult.getMapFilePath()).append("\n"); // Map file path
+            }
+            csvWriter.flush();
+            csvWriter.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -151,11 +200,14 @@ public class LogFileHandler {
                         }
                     }
 
-                    // Write row for the current error code and output message
-                    csvWriter.append(Integer.toString(errorCode)).append(",");
-                    csvWriter.append(outputMessage.replace("\n", "; ")).append(","); // Otherwise new line in CSV file
-                    csvWriter.append(Integer.toString(filteredResults.size())).append(", ");
-                    csvWriter.append(getIterationNumbersString(filteredResults)).append("\n"); // Find iteration maps that had this message and error code
+                    if (!(filteredResults.size() == 0)) { // Combination actually occurred
+                        // Write row for the current error code and output message
+                        csvWriter.append(Integer.toString(errorCode)).append(",");
+                        csvWriter.append(outputMessage.replace("\n", "; ")).append(","); // Otherwise new line in CSV file
+                        csvWriter.append(Integer.toString(filteredResults.size())).append(", ");
+                        csvWriter.append(getIterationNumbersString(filteredResults)).append("\n"); // Find iteration maps that had this message and error code
+                    }
+
                 }
             }
 
@@ -341,7 +393,7 @@ public class LogFileHandler {
      * @return int Numbers of files in path (heading counts as a row)
      */
     private int countLines(String filePath) {
-        int lineCount = 0; // but dont need to count header, so cool
+        int lineCount = 0; // but don't need to count header, so cool
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             while (reader.readLine() != null) {
                 lineCount++;
@@ -351,6 +403,157 @@ public class LogFileHandler {
         }
 
         return lineCount;
+    }
+
+    /**
+     * Generates a full log history CSV file based on the provided iteration results.
+     * If the log history file is empty, it appends the header to the file.
+     * For subsequent runs, it modifies the "Map File Path" column for previous attempts.
+     *
+     * @param iterationResults the list of IterationResult objects
+     */
+    public void generateFullLogHistory(List<IterationResult> iterationResults) {
+        try {
+
+            int runAttempt;
+            boolean appendHeader = false;
+            if (countLines(logHistoryFilePath) == 2) { // created one line & header in other file
+                appendHeader = true;
+                runAttempt = 1;
+            } else {
+                runAttempt = countLines(logHistoryFilePath) - 1;
+                // For previous attempts, change the column Map file path type value
+                // from C:/ST/JPacmanFuzz/fuzzresults/actual_logs/${directory_of_exitcode}/${map_file_name}
+                // to C:/ST/JPacmanFuzz/fuzzresults/previous_logs/run_${runAttempt}/${directory_of_exitcode}/${map_file_name}
+                // Modify the column "Map File Path" for previous attempts
+                int previousRun = runAttempt - 1;
+                modifyMapFilePathColumn(logFullHistoryFilePath, previousRun);
+            }
+
+            FileWriter writer = new FileWriter(logFullHistoryFilePath, true);
+            BufferedWriter csvWriter = new BufferedWriter(writer);
+
+            if (appendHeader) {
+                csvWriter.append("FuzzAttemptNr,TimeStamp,IterationNr,Error Code,Output Messages,String sequence,Map File Name, Map File Type,Map File custom attribute,Absolute Map File Path,Relative Map File Path").append("\n");
+            }
+
+            for (IterationResult iterationResult : iterationResults) {
+                csvWriter.append(Integer.toString(runAttempt)).append(","); //going to add this line after counting
+                csvWriter.append(getCurrentTimestamp()).append(",");
+                csvWriter.append(Integer.toString(iterationResult.getIterationNumber())).append(","); // Iteration number
+                csvWriter.append(Integer.toString(iterationResult.getErrorCode())).append(","); // Error code
+                csvWriter.append(iterationResult.getOutputMessages().replace("\n", "; ").replace(";", "")).append(","); // Output
+                csvWriter.append(iterationResult.getStringSequence()).append(","); // String action sequence
+                csvWriter.append(FileHandler.getFileName(iterationResult.getMapFilePath()).replace("\n", "; ")).append(","); // File name
+                csvWriter.append(iterationResult.getMapFileType().replace("\n", "; ")).append(","); // Map file path type
+
+                String customAttribute = iterationResult.getCustomAttribute().replace("\n", " ").replace(";", "").replace(",", "");
+                if (customAttribute.isBlank() || customAttribute.isEmpty() || customAttribute == null) {
+                    customAttribute = "Empty or blank string.";
+                }
+                ;
+                if (customAttribute.equals("\"") || customAttribute.equals("'")) {
+                    customAttribute = "See text file.";
+                }
+                csvWriter.append(customAttribute).append(","); // Map file custom attribute
+
+                csvWriter.append(iterationResult.getMapFilePath().replace("\n", "; ")).append(","); // Map file path
+                csvWriter.append(FileHandler.getRelativeFilePath(iterationResult.getMapFilePath()).replace("\n", "; ")).append("\n"); // Relative file path in project
+            }
+
+            csvWriter.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Modifies the "Map File Path" columns in the CSV file to reflect the previous run attempt.
+     *
+     * @param csvFilePath        the path to the CSV file
+     * @param previousRunAttempt the previous run attempt number
+     */
+    private void modifyMapFilePathColumn(String csvFilePath, int previousRunAttempt) {
+        try {
+            File tempFile = File.createTempFile("tempFile", ".csv");
+            BufferedReader reader = new BufferedReader(new FileReader(csvFilePath));
+            BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
+
+            String header = reader.readLine();
+            writer.write(header);
+            writer.newLine();
+
+            String line;
+
+            while ((line = reader.readLine()) != null) {
+                List<String> values = parseCSVLine(line);
+                if (previousRunAttempt == Integer.parseInt(values.get(0))) {
+                    if (values.size() > 10) { // In absolute path
+                        String mapFilePath = values.get(9).trim();
+                        if (!mapFilePath.isEmpty() && !mapFilePath.equals("Absolute Map File Path")) {
+                            String modifiedMapFilePath = mapFilePath.replace("actual_maps", "previous_maps" + "\\" + "run_" + previousRunAttempt);
+                            values.set(9, modifiedMapFilePath);
+                            String relativeModifiedFilePath = getRelativeFilePath(modifiedMapFilePath);
+                            values.set(10, relativeModifiedFilePath);
+                        }
+                    }
+                }
+
+                writer.write(String.join(",", values));
+                writer.newLine();
+            }
+
+            reader.close();
+            writer.close();
+
+            // Replace the original file with the modified file
+            File originalFile = new File(csvFilePath);
+            if (originalFile.exists()) {
+                originalFile.delete();
+            }
+            tempFile.renameTo(originalFile);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    /**
+     * Parses a line of CSV data and splits it into a list of values.
+     * Handles values enclosed in double quotes and respects the CSV comma delimiter.
+     *
+     * @param line the line of CSV data to parse
+     * @return a list of values extracted from the CSV line
+     */
+    public static List<String> parseCSVLine(String line) {
+        List<String> values = new ArrayList<>();
+        boolean withinQuotes = false;
+        StringBuilder currentValue = new StringBuilder();
+
+        // Loop over each character in line.
+        // e.g. line = "1,"John Doe","john.doe@example.com",25"
+        for (char c : line.toCharArray()) {
+            if (c == '"') { //
+                withinQuotes = !withinQuotes; // The current value is a string and thus enclosed in ""
+            } else if (c == ',' && !withinQuotes) {
+                values.add(currentValue.toString()); // Add previous value to list and start new string with new value
+                currentValue = new StringBuilder();
+            } else {
+                currentValue.append(c); // Add part of this value to the string of this value
+            }
+        }
+        values.add(currentValue.toString());
+        return values;
+    }
+
+    /**
+     * Generates a full log history HTML report based on the provided iteration results.
+     */
+    public void generateFullLogHistoryHTMLReport()  {
+        LogHTMLFileHandler generator = new LogHTMLFileHandler();
+        generator.generateHTMLReport();
     }
 }
 

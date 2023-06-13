@@ -31,14 +31,4 @@ public abstract class MapGenerator {
         return fileName;
     }
 
-    /**
-     * Based on the extension of the file path, gives u the right enums mapFileType
-     * @param filePath Full file path to the map file.
-     * @return mapFileType See enums class.
-     */
-    public static MapFileType getTypeOfMapFile(String filePath){
-        if (filePath.contains(".txt")){ return MapFileType.TEXT; }
-        else {return MapFileType.BINARY; }
-    }
-
 }

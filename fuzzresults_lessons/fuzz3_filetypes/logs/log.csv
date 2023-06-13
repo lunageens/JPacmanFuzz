@@ -1,0 +1,129 @@
+Iteration,Map File Type, Map File Path, Map File custom attribute, String Sequence, Error Code, OutputMessages
+1,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_1.bin,N.A., SWE,10,No food 
+2,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_2.bin,N.A., SWE,10,No player is set 
+3,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_3.bin,N.A., SWE,10,No food 
+4,ZIP,C:\ST\JPacmanFuzz\fuzzresults_lessons\fuzz3_filetypes\maps\Compressed_zip.zip,N.A., SWE,10,Error reading file by readAllLines 
+5,TXT,C:\ST\JPacmanFuzz\fuzzresults_lessons\fuzz3_filetypes\maps\Emtpy_file_txt.txt,N.A., SWE,10,No lines 
+6,TXT,C:\ST\JPacmanFuzz\fuzzresults_lessons\fuzz3_filetypes\maps\Encrypted_P.txt,N.A., SWE,10,Error reading file by readAllLines 
+7,TXT,C:\ST\JPacmanFuzz\fuzzresults_lessons\fuzz3_filetypes\maps\FileName Space.txt,N.A., SWE,0,None
+8,TXT,C:\ST\JPacmanFuzz\fuzzresults_lessons\fuzz3_filetypes\maps\FileName@SpecialCharacter.txt,N.A., SWE,0,None
+9,TXT,C:\ST\JPacmanFuzz\fuzzresults_lessons\fuzz3_filetypes\maps\FileName_Normal.txt,N.A., SWE,0,None
+10,TXT,C:\ST\JPacmanFuzz\fuzzresults_lessons\fuzz3_filetypes\maps\FileName象形MixedAlphabeth.txt,N.A., SWE,0,None
+11,TXT,C:\ST\JPacmanFuzz\fuzzresults_lessons\fuzz3_filetypes\maps\Hidden_file.txt,N.A., SWE,0,None
+12,TXT,C:\ST\JPacmanFuzz\fuzzresults_lessons\fuzz3_filetypes\maps\Massive_file.txt,N.A., SWE,10,Unknown character 
+13,CSV,C:\ST\JPacmanFuzz\fuzzresults_lessons\fuzz3_filetypes\maps\Multiline_MP_F0_csv.csv,N.A., SWE,10,Unknown character 
+14,DAT,C:\ST\JPacmanFuzz\fuzzresults_lessons\fuzz3_filetypes\maps\Multiline_MP_F0_dat.dat,N.A., SWE,10,Unknown character 
+15,MAP,C:\ST\JPacmanFuzz\fuzzresults_lessons\fuzz3_filetypes\maps\Multiline_MP_F0_map.map,N.A., SWE,0,None
+16,PDF,C:\ST\JPacmanFuzz\fuzzresults_lessons\fuzz3_filetypes\maps\Multiline_MP_F0_pdf.pdf,N.A., SWE,10,Error reading file by readAllLines 
+17,XLSX,C:\ST\JPacmanFuzz\fuzzresults_lessons\fuzz3_filetypes\maps\Multiline_MP_F0_xlsx.xlsx,N.A., SWE,10,Error reading file by readAllLines 
+18,MAP,C:\ST\JPacmanFuzz\fuzzresults_lessons\fuzz3_filetypes\maps\Permissions_ReadOnly_sample.map,N.A., SWE,0,None
+19,MAP,C:\ST\JPacmanFuzz\fuzzresults_lessons\fuzz3_filetypes\maps\Permissions_WriteOnly_sample.map,N.A., SWE,0,None
+20,CSV,C:\ST\JPacmanFuzz\fuzzresults_lessons\fuzz3_filetypes\maps\Singleline_M_csv.csv,N.A., SWE,10,Unknown character 
+21,DAT,C:\ST\JPacmanFuzz\fuzzresults_lessons\fuzz3_filetypes\maps\Singleline_M_dat.dat,N.A., SWE,10,No player is set 
+22,MAP,C:\ST\JPacmanFuzz\fuzzresults_lessons\fuzz3_filetypes\maps\Singleline_M_map.map,N.A., SWE,10,No player is set 
+23,PDF,C:\ST\JPacmanFuzz\fuzzresults_lessons\fuzz3_filetypes\maps\Singleline_M_pdf.pdf,N.A., SWE,10,Error reading file by readAllLines 
+24,XLSX,C:\ST\JPacmanFuzz\fuzzresults_lessons\fuzz3_filetypes\maps\Singleline_M_xlsx.xlsx,N.A., SWE,10,Error reading file by readAllLines 
+25,CSV,C:\ST\JPacmanFuzz\fuzzresults_lessons\fuzz3_filetypes\maps\SingleLine_MP_csv.csv,N.A., SWE,10,Unknown character 
+26,DAT,C:\ST\JPacmanFuzz\fuzzresults_lessons\fuzz3_filetypes\maps\Singleline_MP_dat.dat,N.A., SWE,10,No food 
+27,MAP,C:\ST\JPacmanFuzz\fuzzresults_lessons\fuzz3_filetypes\maps\Singleline_MP_map.map,N.A., SWE,10,No food 
+28,PDF,C:\ST\JPacmanFuzz\fuzzresults_lessons\fuzz3_filetypes\maps\Singleline_MP_pdf.pdf,N.A., SWE,10,Error reading file by readAllLines 
+29,XLSX,C:\ST\JPacmanFuzz\fuzzresults_lessons\fuzz3_filetypes\maps\Singleline_MP_xlsx.xlsx,N.A., SWE,10,Error reading file by readAllLines 
+30,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_4.bin,N.A., SWE,10,Error reading file by readAllLines 
+31,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_5.bin,N.A., SWE,10,Error reading file by readAllLines 
+32,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_6.bin,N.A., SWE,10,Error reading file by readAllLines 
+33,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_7.bin,N.A., SWE,10,Error reading file by readAllLines 
+34,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_8.bin,N.A., SWE,10,Error reading file by readAllLines 
+35,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_9.bin,N.A., SWE,10,Error reading file by readAllLines 
+36,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_10.bin,N.A., SWE,10,Error reading file by readAllLines 
+37,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_11.bin,N.A., SWE,10,Error reading file by readAllLines 
+38,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_12.bin,N.A., SWE,10,Error reading file by readAllLines 
+39,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_13.bin,N.A., SWE,10,Error reading file by readAllLines 
+40,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_14.bin,N.A., SWE,10,Error reading file by readAllLines 
+41,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_15.bin,N.A., SWE,10,Error reading file by readAllLines 
+42,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_16.bin,N.A., SWE,10,Error reading file by readAllLines 
+43,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_17.bin,N.A., SWE,10,Error reading file by readAllLines 
+44,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_18.bin,N.A., SWE,10,Error reading file by readAllLines 
+45,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_19.bin,N.A., SWE,10,Error reading file by readAllLines 
+46,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_20.bin,N.A., SWE,10,Error reading file by readAllLines 
+47,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_21.bin,N.A., SWE,10,Error reading file by readAllLines 
+48,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_22.bin,N.A., SWE,10,Error reading file by readAllLines 
+49,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_23.bin,N.A., SWE,10,Error reading file by readAllLines 
+50,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_24.bin,N.A., SWE,10,Error reading file by readAllLines 
+51,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_25.bin,N.A., SWE,10,Error reading file by readAllLines 
+52,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_26.bin,N.A., SWE,10,Error reading file by readAllLines 
+53,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_27.bin,N.A., SWE,10,Error reading file by readAllLines 
+54,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_28.bin,N.A., SWE,10,Error reading file by readAllLines 
+55,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_29.bin,N.A., SWE,10,Error reading file by readAllLines 
+56,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_30.bin,N.A., SWE,10,Error reading file by readAllLines 
+57,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_31.bin,N.A., SWE,10,Error reading file by readAllLines 
+58,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_32.bin,N.A., SWE,10,Error reading file by readAllLines 
+59,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_33.bin,N.A., SWE,10,Error reading file by readAllLines 
+60,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_34.bin,N.A., SWE,10,Error reading file by readAllLines 
+61,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_35.bin,N.A., SWE,10,Error reading file by readAllLines 
+62,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_36.bin,N.A., SWE,10,Error reading file by readAllLines 
+63,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_37.bin,N.A., SWE,10,Error reading file by readAllLines 
+64,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_38.bin,N.A., SWE,10,Error reading file by readAllLines 
+65,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_39.bin,N.A., SWE,10,Error reading file by readAllLines 
+66,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_40.bin,N.A., SWE,10,Error reading file by readAllLines 
+67,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_41.bin,N.A., SWE,10,Error reading file by readAllLines 
+68,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_42.bin,N.A., SWE,10,Error reading file by readAllLines 
+69,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_43.bin,N.A., SWE,10,Error reading file by readAllLines 
+70,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_44.bin,N.A., SWE,10,Error reading file by readAllLines 
+71,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_45.bin,N.A., SWE,10,Error reading file by readAllLines 
+72,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_46.bin,N.A., SWE,10,Error reading file by readAllLines 
+73,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_47.bin,N.A., SWE,10,Error reading file by readAllLines 
+74,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_48.bin,N.A., SWE,10,Error reading file by readAllLines 
+75,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_49.bin,N.A., SWE,10,Error reading file by readAllLines 
+76,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_50.bin,N.A., SWE,10,Error reading file by readAllLines 
+77,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_51.bin,N.A., SWE,10,Error reading file by readAllLines 
+78,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_52.bin,N.A., SWE,10,Error reading file by readAllLines 
+79,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_53.bin,N.A., SWE,10,Error reading file by readAllLines 
+80,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_54.bin,N.A., SWE,10,Error reading file by readAllLines 
+81,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_55.bin,N.A., SWE,10,Error reading file by readAllLines 
+82,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_56.bin,N.A., SWE,10,Error reading file by readAllLines 
+83,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_57.bin,N.A., SWE,10,Error reading file by readAllLines 
+84,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_58.bin,N.A., SWE,10,Error reading file by readAllLines 
+85,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_59.bin,N.A., SWE,10,Error reading file by readAllLines 
+86,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_60.bin,N.A., SWE,10,Error reading file by readAllLines 
+87,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_61.bin,N.A., SWE,10,Error reading file by readAllLines 
+88,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_62.bin,N.A., SWE,10,Error reading file by readAllLines 
+89,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_63.bin,N.A., SWE,10,Error reading file by readAllLines 
+90,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_64.bin,N.A., SWE,10,Error reading file by readAllLines 
+91,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_65.bin,N.A., SWE,10,Error reading file by readAllLines 
+92,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_66.bin,N.A., SWE,10,Error reading file by readAllLines 
+93,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_67.bin,N.A., SWE,10,Error reading file by readAllLines 
+94,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_68.bin,N.A., SWE,10,Error reading file by readAllLines 
+95,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_69.bin,N.A., SWE,10,Error reading file by readAllLines 
+96,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_70.bin,N.A., SWE,10,Error reading file by readAllLines 
+97,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_71.bin,N.A., SWE,10,Error reading file by readAllLines 
+98,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_72.bin,N.A., SWE,10,Error reading file by readAllLines 
+99,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_73.bin,N.A., SWE,10,Error reading file by readAllLines 
+100,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_74.bin,N.A., SWE,10,Error reading file by readAllLines 
+101,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_75.bin,N.A., SWE,10,Error reading file by readAllLines 
+102,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_76.bin,N.A., QDQQL,10,Error reading file by readAllLines 
+103,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_77.bin,N.A., DDEUW,10,Error reading file by readAllLines 
+104,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_78.bin,N.A., LSSQW,10,Error reading file by readAllLines 
+105,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_79.bin,N.A., RLWSQ,10,Error reading file by readAllLines 
+106,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_80.bin,N.A., EWSEU,10,Error reading file by readAllLines 
+107,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_81.bin,N.A., UQQUS,10,Error reading file by readAllLines 
+108,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_82.bin,N.A., SQQLD,10,Error reading file by readAllLines 
+109,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_83.bin,N.A., SELDU,10,Error reading file by readAllLines 
+110,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_84.bin,N.A., RRLLS,10,Error reading file by readAllLines 
+111,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_85.bin,N.A., WQLQR,10,Error reading file by readAllLines 
+112,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_86.bin,N.A., LUEWS,10,Error reading file by readAllLines 
+113,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_87.bin,N.A., ULLQL,10,Error reading file by readAllLines 
+114,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_88.bin,N.A., ELLQD,10,Error reading file by readAllLines 
+115,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_89.bin,N.A., RDDQU,10,Error reading file by readAllLines 
+116,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_90.bin,N.A., ELEUU,10,Error reading file by readAllLines 
+117,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_91.bin,N.A., EQRES,10,Error reading file by readAllLines 
+118,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_92.bin,N.A., UEWUR,10,Error reading file by readAllLines 
+119,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_93.bin,N.A., QSQRS,10,Error reading file by readAllLines 
+120,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_94.bin,N.A., UELLW,10,Error reading file by readAllLines 
+121,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_95.bin,N.A., DDEQE,10,Error reading file by readAllLines 
+122,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_96.bin,N.A., QQLDU,10,Error reading file by readAllLines 
+123,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_97.bin,N.A., WDQQE,10,Error reading file by readAllLines 
+124,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_98.bin,N.A., WWRSW,10,Error reading file by readAllLines 
+125,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_99.bin,N.A., SRSRE,10,Error reading file by readAllLines 
+126,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_100.bin,N.A., SRSWW,10,Error reading file by readAllLines 
+127,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_101.bin,N.A., ERUQW,10,Error reading file by readAllLines 
+128,BIN,C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_102.bin,N.A., SDDSR,10,Error reading file by readAllLines 

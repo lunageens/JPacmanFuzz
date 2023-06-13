@@ -3,6 +3,7 @@ package outputProviders;
 import dataProviders.ConfigFileReader;
 import managers.FileReaderManager;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.*;
 import java.nio.file.attribute.BasicFileAttributes;
@@ -12,6 +13,8 @@ import java.nio.file.attribute.BasicFileAttributes;
  * It provides methods for initializing directories, cleaning directories, and managing file paths.
  */
 public class FileHandler {
+
+    // Variables: Configfile reader, Overall resulting directory path, Option clean directories, Option log history
 
     /**
      * The ConfigFileReader instance used for reading configuration properties.
@@ -41,35 +44,6 @@ public class FileHandler {
     public static final boolean cleanDirectories = configFileReader.getCleanDirectories();
 
     /**
-     * The path to the overall directory where the map files are located.
-     * Path of the system project root + mapsFilePath=maps default config
-     * Default: ${project.root}/fuzzresults/maps
-     */
-    public static final String mapsDirectoryPath = configFileReader.getMapsFileDirectoryPath();
-
-
-    /**
-     * The path to the directory where the actual log files (of this Fuzzer run) are stored.
-     * Default: ${project.root}/fuzzresults/maps/actual_maps/
-     */
-    public static final String actualMapsDirectoryPath = mapsDirectoryPath + "/actual_maps/";
-
-
-    /**
-     * The path to the directory where the previous log files are stored. These were already there before
-     * Fuzz started to run, whether that be in actual_maps or previous_maps.
-     * Default: ${project.root}/fuzzresults/maps/previous_maps/
-     */
-    public static final String previousMapsDirectoryPath = mapsDirectoryPath + "/previous_maps/";
-
-    /**
-     * The path to the overall directory where the log files are located.
-     * Path of the system project root + logFilePath=logs default config
-     * Default: ${project.root}/fuzzresults/logs
-     */
-    public static final String logsDirectoryPath = configFileReader.getLogFileDirectoryPath();
-
-    /**
      * Indicates whether log history files are generated.
      * Default: true.
      * <p>
@@ -80,17 +54,42 @@ public class FileHandler {
      */
     public static final boolean logHistory = configFileReader.getLogHistory();
 
-    /**
-     * The path to the log_history.csv file.
-     * Default: ${project.root}/fuzzresults/logs/log_history.csv
-     */
-    public static final String logHistoryFilePath = logsDirectoryPath + "/log_history.csv";
+    // Variables: Result subdirectories paths (maps, actual_maps and previous_maps)
 
     /**
-     * The path to the log_errorHistory.csv file.
-     * Default: ${project.root}/fuzzresults/logs/log_errorHistory.csv
+     * The path to the overall directory where the map files are located.
+     * Path of the system project root + mapsFilePath=maps default config
+     * Default: ${project.root}/fuzzresults/maps
      */
-    public static final String logErrorHistoryFilePath = logsDirectoryPath + "/log_errorHistory.csv";
+    public static final String mapsDirectoryPath = configFileReader.getMapsFileDirectoryPath();
+
+    /**
+     * The path to the directory where the actual log files (of this Fuzzer run) are stored.
+     * Default: ${project.root}/fuzzresults/maps/actual_maps/
+     */
+    public static final String actualMapsDirectoryPath = mapsDirectoryPath + "/actual_maps/";
+
+    /**
+     * The path to the directory where the previous log files are stored. These were already there before
+     * Fuzz started to run, whether that be in actual_maps or previous_maps.
+     * Default: ${project.root}/fuzzresults/maps/previous_maps/
+     */
+    public static final String previousMapsDirectoryPath = mapsDirectoryPath + "/previous_maps/";
+
+    // Variables: Log subdirectories paths (logs, overview_logs, actual_logs and previous_logs)
+
+    /**
+     * The path to the overall directory where the log files are located.
+     * Path of the system project root + logFilePath=logs default config
+     * Default: ${project.root}/fuzzresults/logs
+     */
+    public static final String logsDirectoryPath = configFileReader.getLogFileDirectoryPath();
+
+    /**
+     * The path to the directory where the overview log files are stored.
+     * Default: ${project.root}/fuzzresults/logs/overview_logs/
+     */
+    public static final String overviewLogsDirectoryPath = logsDirectoryPath + "/overview_logs/";
 
     /**
      * The path to the directory where the actual (of this Fuzzer run) log files are stored.
@@ -105,6 +104,9 @@ public class FileHandler {
      */
     public static final String previousLogsDirectoryPath = logsDirectoryPath + "/previous_logs/";
 
+    // Variables: Paths and name of files in actual_logs subdirectory
+    // In actual_logs: log.txt, log.csv, and log_overview.csv
+
     /**
      * The name of the log file, not the full path! Only the "log.txt" part.
      * Default: log.txt
@@ -118,18 +120,73 @@ public class FileHandler {
     public static final String logFilePath = actualLogsDirectoryPath + logFileName;
 
     /**
+     * The name of the log file, not the full path!  Only the "log.csv" part.
+     * Default: log.csv
+     */
+    public static final String logCSVFileName = configFileReader.getLogCSVFileName();
+
+    /**
+     * The path to the log.csv file.
+     * Default: ${project.root}/fuzzresults/logs/actual_logs/log.csv
+     */
+    public static final String logFileCSVPath = actualLogsDirectoryPath + logCSVFileName;
+
+    /**
      * The path to the log_overview.csv file.
      * Default: ${project.root}/fuzzresults/logs/actual_logs/log_overview.csv
      */
     public static final String csvFilePath = actualLogsDirectoryPath + "log_overview.csv";
 
+    // Variables: Paths of files in overview_logs subdirectory (log_errorHistory.csv, log_fullHistory.csv, log_history.csv and log_fullHistory_html/...).
+    // In log_fullHistory_html: index.html, aboutTheFuzzer.html, reportAndFuzzLessons.html, allMaps.html
 
     /**
-     * Empty constructor of FileHandler class.
+     * The path to the log_errorHistory.csv file.
+     * Default: ${project.root}/fuzzresults/logs/log_errorHistory.csv
      */
-    public FileHandler() {
-    }
+    public static final String logErrorHistoryFilePath = overviewLogsDirectoryPath + "/log_errorHistory.csv";
 
+    /**
+     * The path to the log_fullHistory.csv file.
+     * Default: ${project.root}/fuzzresults/logs/log_fullHistory.csv
+     */
+    public static final String logFullHistoryFilePath = overviewLogsDirectoryPath + "/log_fullHistory.csv";
+
+    /**
+     * The path to the log_history.csv file.
+     * Default: ${project.root}/fuzzresults/logs/log_history.csv
+     */
+    public static final String logHistoryFilePath = overviewLogsDirectoryPath + "/log_history.csv";
+
+    /**
+     * The path to the log_fullHistory_html subdirectory.
+     * Default: ${project.root}/fuzzresults/logs/overview_logs/log_fullHistory_html/
+     */
+    public static String logFullHistoryHTMLDirectoryPath = overviewLogsDirectoryPath + "/log_fullHistory_html/";
+
+    /**
+     * The path to the index.html file in the log_fullHistory_html subdirectory.
+     * Default: ${project.root}/fuzzresults/logs/overview_logs/log_fullHistory_html/index.html
+     */
+    public static String logFullHistoryHTMLHomeFilePath = logFullHistoryHTMLDirectoryPath + "index.html";
+
+    /**
+     * The path to the aboutTheFuzzer.html file in the log_fullHistory_html subdirectory.
+     * Default: ${project.root}/fuzzresults/logs/overview_logs/log_fullHistory_html/aboutTheFuzzer.html
+     */
+    public static String logFullHistoryHTMLAboutTheFuzzerFilePath = logFullHistoryHTMLDirectoryPath + "aboutTheFuzzer.html";
+
+    /**
+     * The path to the reportAndFuzzLessons.html file in the log_fullHistory_html subdirectory.
+     * Default: ${project.root}/fuzzresults/logs/overview_logs/log_fullHistory_html/reportAndFuzzLessons.html
+     */
+    public static String logFullHistoryHTMLReportAndFuzzLessonsFilePath = logFullHistoryHTMLDirectoryPath + "reportAndFuzzLessons.html";
+
+    /***
+     * The path to the allMaps.html file in the log_fullHistory_html subdirectory.
+     * Default: ${project.root}/fuzzresults/logs/overview_logs/log_fullHistory_html/allMaps.html
+     */
+    public static String logFullHistoryHTMLAllMapsFilePath = logFullHistoryHTMLDirectoryPath + "allMaps.html";
 
     /**
      * Initializes the necessary directories for file handling.
@@ -176,6 +233,16 @@ public class FileHandler {
             e.printStackTrace();
         }
 
+        // Create overview_logs if needed
+        Path overviewLogsDirectory = Paths.get(overviewLogsDirectoryPath);
+        try {
+            if (!Files.exists(overviewLogsDirectory)) {
+                Files.createDirectory(overviewLogsDirectory);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
     /**
@@ -197,7 +264,6 @@ public class FileHandler {
         // therefore, we move it to previous_logs or previous_maps with a sub directory run_x
         // In case of maps, per sub directory run_x also subdirectories with errorCodes
         else {
-
             // If there is not a previous directory, make one. The subdirectory where our actual files should be in
             // is called run_1.
             // If there is a previous directory, get the number of the higest run (e.g. seven directories of previous aight runs
@@ -216,7 +282,6 @@ public class FileHandler {
 
             // Move actual_X directories (and the files they include) within actual directory to destination run directory
             try (DirectoryStream<Path> stream = Files.newDirectoryStream(actualDirectory)) {
-
                 // For all files and directories that are in the actual directory
                 for (Path actualSubPath : stream) { // these are files and directories mixed
 
@@ -272,7 +337,7 @@ public class FileHandler {
             String maxDirectory = null;
             int maxNumber = -1;
 
-            // for all sub directories in parent
+            // for all sub directories in parent, check if number > maxNumber
             for (Path subDirectory : stream) {
 
                 // if it is a direcotry (and not a file)
@@ -352,6 +417,47 @@ public class FileHandler {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    /**
+     * Get the name of the map file on this path
+     * @return String filename of the map.
+     */
+    public static String getFileName(String filePath) {
+        File file = new File(filePath);
+        return file.getName();
+    }
+
+    /**
+     * Returns the relative file path within the project given the absolute file path.
+     *
+     * @return String of the path within the project
+     */
+    public static String getRelativeFilePath(String filePath) {
+
+        Path absolutePath = Paths.get(filePath);
+        Path currentPath = Paths.get("").toAbsolutePath(); // where project is saved.
+
+        Path relativePath = currentPath.relativize(absolutePath);
+        return normalizeFilePath(relativePath.toString());
+    }
+
+    /**
+     * Returns a clean-up file path, taking into account different uses of / and \
+     * @return String file path that only has single \ in it
+     */
+    public static String normalizeFilePath(String filePath) {
+
+            String normalizedPath = filePath.replace("/", "\\");   // Replace forward slashes with backslashes
+            normalizedPath = normalizedPath.replace("//", "\\");  // Replace double forward slashes with a single backslash
+            normalizedPath = normalizedPath.replace("/\\", "\\"); // Replace mixed slashes (/\) with a single backslash
+            normalizedPath = normalizedPath.replace("\\/", "\\"); // Replace mixed slashes (\/) with a single backslash
+            normalizedPath = normalizedPath.replace("\\\\", "\\"); // Replace double backslashes with a single backslash
+            normalizedPath = normalizedPath.replace("/\\\\", "\\"); // Replace mixed slashes (/\\) with a single backslash
+            normalizedPath = normalizedPath.replace("\\/\\", "\\"); // Replace mixed slashes (\\/) with a single backslash
+
+
+        return normalizedPath;
     }
 
 }

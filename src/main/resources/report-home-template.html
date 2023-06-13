@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{Title}}</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
+  <link href="https://cdn.datatables.net/v/bs5/dt-1.13.4/cr-1.6.2/date-1.4.1/fc-4.2.2/fh-3.3.2/r-2.4.1/rr-1.3.3/sc-2.1.1/sb-1.4.2/sp-2.1.2/sl-1.6.2/datatables.min.css" rel="stylesheet"/>
+
+
+  <style>
+    body {
+      padding: 20px;
+    }
+
+    .filter-group {
+      margin-bottom: 10px;
+    }
+
+    .table th {
+      background-color: #e9ecef;
+      cursor: pointer;
+    }
+
+    .table-hover tbody tr:hover {
+      background-color: #f8f9fa;
+    }
+  </style>
+</head>
+
+<body>
+<h1>{{Title}}</h1>
+<p>{{IntroductionText}}</p>
+<br>
+
+{{SearchBox}}
+
+{{Filters}}
+
+{{DataTable}}
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
+<script src="https://cdn.datatables.net/v/bs5/dt-1.13.4/cr-1.6.2/date-1.4.1/fc-4.2.2/fh-3.3.2/r-2.4.1/rr-1.3.3/sc-2.1.1/sb-1.4.2/sp-2.1.2/sl-1.6.2/datatables.min.js"></script>
+<script>
+
+  // Function to handle filter change
+  function handleFilterChange() {
+    // Get all selected filter values
+    const selectedFilters = Array.from(document.getElementsByClassName('filter'))
+            .map(filter => filter.value)
+            .filter(value => value !== "");
+
+    // Apply filtering based on selected filter values
+    const rows = Array.from(document.querySelectorAll('.table tbody tr'));
+    rows.forEach(row => {
+      const cells = Array.from(row.getElementsByTagName('td'));
+      const shouldShow = selectedFilters.every((value, index) => cells[index].textContent.trim() === value);
+      row.style.display = shouldShow ? "table-row" : "none";
+    });
+  }
+
+  // Add event listeners to filters
+  const filters = Array.from(document.getElementsByClassName('filter'));
+  filters.forEach(filter => filter.addEventListener('change', handleFilterChange));
+
+  // Add event listener to search bar
+  const searchBar = document.getElementById('search-bar');
+  searchBar.addEventListener('input', () => {
+    const query = searchBar.value.toLowerCase();
+    const rows = Array.from(document.querySelectorAll('.table tbody tr'));
+    rows.forEach(row => {
+      const cells = Array.from(row.getElementsByTagName('td'));
+      const shouldShow = cells.some(cell => cell.textContent.toLowerCase().includes(query));
+      row.style.display = shouldShow ? "table-row" : "none";
+    });
+  });
+
+  // Sort table by column
+  function sortTable(column) {
+    const table = document.querySelector('.table');
+    const rows = Array.from(table.querySelectorAll('tbody tr'));
+
+    rows.sort((row1, row2) => {
+      const cell1 = row1.querySelector(`td:nth-child(${column + 1})`);
+      const cell2 = row2.querySelector(`td:nth-child(${column + 1})`);
+      return cell1.textContent.localeCompare(cell2.textContent);
+    });
+
+    rows.forEach(row => table.querySelector('tbody').appendChild(row));
+  }
+
+</script>
+</body>
+
+</html>

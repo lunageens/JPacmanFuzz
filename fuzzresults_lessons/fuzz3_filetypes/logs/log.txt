@@ -1,0 +1,964 @@
+Iteration: 1
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_1.bin
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: No food
+
+Iteration: 2
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_2.bin
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: No player is set
+
+Iteration: 3
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_3.bin
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: No food
+
+Iteration: 4
+Map File Type: ZIP
+Map File Path: C:\ST\JPacmanFuzz\fuzzresults_lessons\fuzz3_filetypes\maps\Compressed_zip.zip
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 5
+Map File Type: TXT
+Map File Path: C:\ST\JPacmanFuzz\fuzzresults_lessons\fuzz3_filetypes\maps\Emtpy_file_txt.txt
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: No lines
+
+Iteration: 6
+Map File Type: TXT
+Map File Path: C:\ST\JPacmanFuzz\fuzzresults_lessons\fuzz3_filetypes\maps\Encrypted_P.txt
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 12
+Map File Type: TXT
+Map File Path: C:\ST\JPacmanFuzz\fuzzresults_lessons\fuzz3_filetypes\maps\Massive_file.txt
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: Unknown character
+
+Iteration: 13
+Map File Type: CSV
+Map File Path: C:\ST\JPacmanFuzz\fuzzresults_lessons\fuzz3_filetypes\maps\Multiline_MP_F0_csv.csv
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: Unknown character
+
+Iteration: 14
+Map File Type: DAT
+Map File Path: C:\ST\JPacmanFuzz\fuzzresults_lessons\fuzz3_filetypes\maps\Multiline_MP_F0_dat.dat
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: Unknown character
+
+Iteration: 16
+Map File Type: PDF
+Map File Path: C:\ST\JPacmanFuzz\fuzzresults_lessons\fuzz3_filetypes\maps\Multiline_MP_F0_pdf.pdf
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 17
+Map File Type: XLSX
+Map File Path: C:\ST\JPacmanFuzz\fuzzresults_lessons\fuzz3_filetypes\maps\Multiline_MP_F0_xlsx.xlsx
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 20
+Map File Type: CSV
+Map File Path: C:\ST\JPacmanFuzz\fuzzresults_lessons\fuzz3_filetypes\maps\Singleline_M_csv.csv
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: Unknown character
+
+Iteration: 21
+Map File Type: DAT
+Map File Path: C:\ST\JPacmanFuzz\fuzzresults_lessons\fuzz3_filetypes\maps\Singleline_M_dat.dat
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: No player is set
+
+Iteration: 22
+Map File Type: MAP
+Map File Path: C:\ST\JPacmanFuzz\fuzzresults_lessons\fuzz3_filetypes\maps\Singleline_M_map.map
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: No player is set
+
+Iteration: 23
+Map File Type: PDF
+Map File Path: C:\ST\JPacmanFuzz\fuzzresults_lessons\fuzz3_filetypes\maps\Singleline_M_pdf.pdf
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 24
+Map File Type: XLSX
+Map File Path: C:\ST\JPacmanFuzz\fuzzresults_lessons\fuzz3_filetypes\maps\Singleline_M_xlsx.xlsx
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 25
+Map File Type: CSV
+Map File Path: C:\ST\JPacmanFuzz\fuzzresults_lessons\fuzz3_filetypes\maps\SingleLine_MP_csv.csv
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: Unknown character
+
+Iteration: 26
+Map File Type: DAT
+Map File Path: C:\ST\JPacmanFuzz\fuzzresults_lessons\fuzz3_filetypes\maps\Singleline_MP_dat.dat
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: No food
+
+Iteration: 27
+Map File Type: MAP
+Map File Path: C:\ST\JPacmanFuzz\fuzzresults_lessons\fuzz3_filetypes\maps\Singleline_MP_map.map
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: No food
+
+Iteration: 28
+Map File Type: PDF
+Map File Path: C:\ST\JPacmanFuzz\fuzzresults_lessons\fuzz3_filetypes\maps\Singleline_MP_pdf.pdf
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 29
+Map File Type: XLSX
+Map File Path: C:\ST\JPacmanFuzz\fuzzresults_lessons\fuzz3_filetypes\maps\Singleline_MP_xlsx.xlsx
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 30
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_4.bin
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 31
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_5.bin
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 32
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_6.bin
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 33
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_7.bin
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 34
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_8.bin
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 35
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_9.bin
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 36
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_10.bin
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 37
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_11.bin
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 38
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_12.bin
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 39
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_13.bin
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 40
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_14.bin
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 41
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_15.bin
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 42
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_16.bin
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 43
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_17.bin
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 44
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_18.bin
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 45
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_19.bin
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 46
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_20.bin
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 47
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_21.bin
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 48
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_22.bin
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 49
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_23.bin
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 50
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_24.bin
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 51
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_25.bin
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 52
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_26.bin
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 53
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_27.bin
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 54
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_28.bin
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 55
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_29.bin
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 56
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_30.bin
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 57
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_31.bin
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 58
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_32.bin
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 59
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_33.bin
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 60
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_34.bin
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 61
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_35.bin
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 62
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_36.bin
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 63
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_37.bin
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 64
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_38.bin
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 65
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_39.bin
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 66
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_40.bin
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 67
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_41.bin
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 68
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_42.bin
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 69
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_43.bin
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 70
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_44.bin
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 71
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_45.bin
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 72
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_46.bin
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 73
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_47.bin
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 74
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_48.bin
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 75
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_49.bin
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 76
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_50.bin
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 77
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_51.bin
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 78
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_52.bin
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 79
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_53.bin
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 80
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_54.bin
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 81
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_55.bin
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 82
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_56.bin
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 83
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_57.bin
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 84
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_58.bin
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 85
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_59.bin
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 86
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_60.bin
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 87
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_61.bin
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 88
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_62.bin
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 89
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_63.bin
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 90
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_64.bin
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 91
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_65.bin
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 92
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_66.bin
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 93
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_67.bin
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 94
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_68.bin
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 95
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_69.bin
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 96
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_70.bin
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 97
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_71.bin
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 98
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_72.bin
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 99
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_73.bin
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 100
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_74.bin
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 101
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_75.bin
+Map File custom attribute: N.A.
+String Sequence: SWE
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 102
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_76.bin
+Map File custom attribute: N.A.
+String Sequence: QDQQL
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 103
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_77.bin
+Map File custom attribute: N.A.
+String Sequence: DDEUW
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 104
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_78.bin
+Map File custom attribute: N.A.
+String Sequence: LSSQW
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 105
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_79.bin
+Map File custom attribute: N.A.
+String Sequence: RLWSQ
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 106
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_80.bin
+Map File custom attribute: N.A.
+String Sequence: EWSEU
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 107
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_81.bin
+Map File custom attribute: N.A.
+String Sequence: UQQUS
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 108
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_82.bin
+Map File custom attribute: N.A.
+String Sequence: SQQLD
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 109
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_83.bin
+Map File custom attribute: N.A.
+String Sequence: SELDU
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 110
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_84.bin
+Map File custom attribute: N.A.
+String Sequence: RRLLS
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 111
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_85.bin
+Map File custom attribute: N.A.
+String Sequence: WQLQR
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 112
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_86.bin
+Map File custom attribute: N.A.
+String Sequence: LUEWS
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 113
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_87.bin
+Map File custom attribute: N.A.
+String Sequence: ULLQL
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 114
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_88.bin
+Map File custom attribute: N.A.
+String Sequence: ELLQD
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 115
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_89.bin
+Map File custom attribute: N.A.
+String Sequence: RDDQU
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 116
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_90.bin
+Map File custom attribute: N.A.
+String Sequence: ELEUU
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 117
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_91.bin
+Map File custom attribute: N.A.
+String Sequence: EQRES
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 118
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_92.bin
+Map File custom attribute: N.A.
+String Sequence: UEWUR
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 119
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_93.bin
+Map File custom attribute: N.A.
+String Sequence: QSQRS
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 120
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_94.bin
+Map File custom attribute: N.A.
+String Sequence: UELLW
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 121
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_95.bin
+Map File custom attribute: N.A.
+String Sequence: DDEQE
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 122
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_96.bin
+Map File custom attribute: N.A.
+String Sequence: QQLDU
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 123
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_97.bin
+Map File custom attribute: N.A.
+String Sequence: WDQQE
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 124
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_98.bin
+Map File custom attribute: N.A.
+String Sequence: WWRSW
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 125
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_99.bin
+Map File custom attribute: N.A.
+String Sequence: SRSRE
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 126
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_100.bin
+Map File custom attribute: N.A.
+String Sequence: SRSWW
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 127
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_101.bin
+Map File custom attribute: N.A.
+String Sequence: ERUQW
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+Iteration: 128
+Map File Type: BIN
+Map File Path: C:\ST\JPacmanFuzz/fuzzresults/maps/actual_maps/\map_102.bin
+Map File custom attribute: N.A.
+String Sequence: SDDSR
+Error Code: 10
+Output Messages: Error reading file by readAllLines
+
+SUMMARY
+Exit Code 0: 8 occurrences
+Exit Code 10: 120 occurrences
+Exit Code Other: 0 occurrences

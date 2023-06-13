@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Jpacman Fuzzing report - All logs</title>
+    <link href="../dist/css/mystyles.css" rel="stylesheet">
+</head>
+
+
+<body>
+
+<div class="container is-fluid" id="main-container">
+
+    <section class="accordions">
+        <article class="accordion is-active">
+            <div class="accordion-header toggle">
+                <p>Run 1: map_1.txt</p>
+            </div>
+            <div class="accordion-body">
+                <div class="accordion-content">
+                    <div class="box">
+                        The following content was found:
+                        <br>
+                        <embed type="text/plain"
+                               src="../fuzzresults/maps/previous_maps/run_1/exitcode10_rejected/map_1.txt"
+                               width="250" height="200"/>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </section>
+
+    <div class="card has-text-info">
+        <header class="card-header">
+            <p class="card-header-title has-text-white">
+                Run 1: map_1.txt
+            </p>
+            <a href="#collapsible-card1" data-action="collapse" class="card-header-icon is-hidden-fullscreen"
+               aria-label="more options">
+			<span class="icon is-white">
+				<i class="fas fa-angle-down" aria-hidden="true"></i>
+			</span>
+            </a>
+        </header>
+        <div id="collapsible-card1" class="is-collapsible is-active">
+            <div class="card-content">
+                <embed type="text/plain"
+                       src="../fuzzresults/maps/previous_maps/run_1/exitcode10_rejected/map_1.txt"
+                       width="2000" height="500"/>
+            </div>
+            <footer class="card-footer">
+                <p class="card-footer-item is-small has-text-info level-left">
+                    <span>
+                        <strong>Absolute file path:</strong>
+                        fuzzresults/maps/previous_maps/run_1/exitcode10_rejected/map_1.txt
+                </span>
+                </p>
+            </footer>
+        </div>
+    </div>
+
+
+</div>
+
+<script type="text/javascript" src="node_modules/bulma-accordion/src/js/index.js"></script>
+<script src="node_modules/@creativebulma/bulma-collapsible/dist/js/bulma-collapsible.min.js"></script>
+<script>
+    import bulmaAccordion from "bulma-accordion/src/js";
+
+    document.addEventListener('DOMContentLoaded', function () {
+        var accordions = bulmaAccordion.attach(); // accordions now contains an array of all Accordion instances
+    });
+
+</script>
+</body>
+</html>

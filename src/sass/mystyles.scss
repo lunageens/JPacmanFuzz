@@ -1,0 +1,57 @@
+@charset "utf-8";
+
+// Import other Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito:400,700');
+@import url('https://cdn.datatables.net/1.13.4/css/dataTables.bulma.min.css');
+
+// Set your brand colors
+
+// Update Bulma's initial variables: global variables with literal values (colours, font sizes, dimensions, easing, radius-large $cyan:hsl(229,53%, 53%)
+// Update Bulma's derived variables: global variables that reference other variables or are computed (eg primary colors derived from the initial variables $info=$cyan $background: $white-ter, $family-primary: $family-sans-serif)
+// Updates Bulma's List and maps: Lists and maps which are collections of already defined variables:
+//$colors: mergeColorMaps(("white": ($white, $black), "black": ($black, $white), "light": ($light, $light-invert), "dark": ($dark, $dark-invert), "primary": ($primary, $primary-invert, $primary-light, $primary-dark), "link": ($link, $link-invert, $link-light, $link-dark), "info": ($info, $info-invert, $info-light, $info-dark), "success": ($success, $success-invert, $success-light, $success-dark), "warning": ($warning, $warning-invert, $warning-light, $warning-dark), "danger": ($danger, $danger-invert, $danger-light, $danger-dark)), $custom-colors)
+// https://bulma.io/documentation/customize/variables/
+$blue:#7DA2A9;
+$grey-background:#F7F7F7;
+$family-sans-serif: "Nunito", sans-serif;
+$info: $blue;
+
+// Update Bulma's generic variables: for the HTML elements which carry no CSS class
+
+
+// Update some of Bulma's element or component variables: variables that are specific to a Bulma element/component
+$body-background-color:$grey-background;
+$table-background-color:$grey-background;
+$table-head-background-color:$blue;
+$footer-background-color:$grey-background;
+$section-padding:1rem 2rem !important;
+$card-header-background-color:$blue;
+$card-header-color:$grey-background;
+$title-color:$grey-background;
+
+// Import only what you need from Bulma
+@import "report_result_examples/node_modules/bulma/sass/base/all";
+
+@import "report_result_examples/node_modules/bulma/sass/components/all";
+
+@import "report_result_examples/node_modules/bulma/sass/elements/button";
+@import "report_result_examples/node_modules/bulma/sass/elements/container";
+@import "report_result_examples/node_modules/bulma/sass/elements/content";
+@import "report_result_examples/node_modules/bulma/sass/elements/icon";
+@import "report_result_examples/node_modules/bulma/sass/elements/image";
+@import "report_result_examples/node_modules/bulma/sass/elements/other";
+@import "report_result_examples/node_modules/bulma/sass/elements/table";
+@import "report_result_examples/node_modules/bulma/sass/elements/title";
+
+@import "report_result_examples/node_modules/bulma/sass/form/shared";
+@import "report_result_examples/node_modules/bulma/sass/form/tools";
+@import "report_result_examples/node_modules/bulma/sass/form/input-textarea";
+@import "report_result_examples/node_modules/bulma/sass/form/select";
+
+
+@import "report_result_examples/node_modules/bulma/sass/grid/all";
+@import "report_result_examples/node_modules/bulma/sass/helpers/all";
+@import "report_result_examples/node_modules/bulma/sass/layout/all";
+@import "report_result_examples/node_modules/bulma/sass/utilities/all";
+
+@import 'report_result_examples/node_modules/@creativebulma/bulma-collapsible/src/sass/index';

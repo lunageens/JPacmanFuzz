@@ -94,4 +94,42 @@ public class RandomActionSequenceGenerator {
         return actionSequence;
     }
 
+    public String generateRandomActionSequenceValidCharRandomLength(int maxLength){
+        StringBuilder actionSequenceBuilder = new StringBuilder();
+        Random random = new Random();
+
+        // Generate a random action sequence
+        int length = random.nextInt(FileReaderManager.getInstance().getConfigReader().getMaxActionSequenceLength() + 1);
+        for (int i = 0; i < length; i++) {
+            int rand = random.nextInt(8);
+            switch (rand) {
+                case 0:
+                    actionSequenceBuilder.append('E'); // Exit
+                    break;
+                case 1:
+                    actionSequenceBuilder.append('Q'); // Quit
+                    break;
+                case 2:
+                    actionSequenceBuilder.append('S'); // Start
+                    break;
+                case 3:
+                    actionSequenceBuilder.append('W'); // Sleep
+                    break;
+                case 4:
+                    actionSequenceBuilder.append('U'); // Up
+                    break;
+                case 5:
+                    actionSequenceBuilder.append('L'); // Left
+                    break;
+                case 6:
+                    actionSequenceBuilder.append('D'); // Down
+                    break;
+                case 7:
+                    actionSequenceBuilder.append('R'); // Right
+                    break;
+            }
+        }
+        String actionSequence = actionSequenceBuilder.toString();
+        return actionSequence;
+    }
 }

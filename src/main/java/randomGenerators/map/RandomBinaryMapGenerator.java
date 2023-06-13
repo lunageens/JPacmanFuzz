@@ -51,4 +51,34 @@ public class RandomBinaryMapGenerator extends MapGenerator {
 
         return filePath;
     }
+
+    /**
+     * Generates a custom binary map if u have an encoded line
+     * coverts each character in the encoded line to its ASCII value, stores those vlaue in a byte array
+     * and writes the byte array to a binary file.
+     *
+     * @param encodedline The Line in normal letters
+     * @return String filePath of the encoded binary file.
+    */
+    public String generateCustomEncodedMap(String encodedline){
+
+        // Convert each character to its ASCII value and store them in a byte array
+        byte[] binaryData = new byte[encodedline.length()];
+        for (int i = 0; i < encodedline.length(); i++) {
+            binaryData[i] = (byte) encodedline.charAt(i);
+        }
+
+        String fileName = generateRandomMapFileName(".bin");
+        String filePath = FileHandler.actualMapsDirectoryPath + "\\" + fileName;
+
+        // Write the byte array to a binary file
+        try (FileOutputStream fos = new FileOutputStream(filePath)) {
+            fos.write(binaryData);
+            fos.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return filePath;
+    }
+
 }

@@ -73,5 +73,4 @@ public class RandomMapGenerator extends MapGenerator {
         }
         return filePath;
     }
-
 }

@@ -46,5 +46,4 @@ public class FileReaderManager {
     public ConfigFileReader getConfigReader() { // if we don't have one, make one. Otherwise, use the one we have
         return (configFileReader == null) ? new ConfigFileReader() : configFileReader;
     }
-
 }

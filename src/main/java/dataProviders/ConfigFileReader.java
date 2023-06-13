@@ -100,6 +100,15 @@ public class ConfigFileReader {
         return name + ".txt";
     }
 
+    public String getLogCSVFileName() {
+        String name = properties.getProperty("logFileName");
+        if (name == null || name.isEmpty()) {
+            name = DEFAULT_LOG_NAME;
+        }
+
+        return name + ".csv";
+    }
+
     /**
      * Retrieves the directory path for storing the log files.
      * If the path is not specified, it returns the default log directory name within the resulting directory path.
@@ -110,7 +119,7 @@ public class ConfigFileReader {
         // Get current working directory
         String resultRoot = getResultingDirectoryPath();
 
-        // Get path in configuration file, direcoty name logs?
+        // Get path in configuration file, direcorty name logs?
         String logFilePathProject = properties.getProperty("logFilePath");
         if (logFilePathProject == null || logFilePathProject.isEmpty()) {
             logFilePathProject = DEFAULT_LOG_DIRECTORY;
@@ -148,7 +157,7 @@ public class ConfigFileReader {
         // Get current working directory
         String projectRoot = System.getProperty("user.dir");
 
-        // Get path in configuration file, direcoty name maps?
+        // Get path in configuration file, directory name maps?
         String mapResultProject = properties.getProperty("resultPath");
         if (mapResultProject == null || mapResultProject.isEmpty()) {
             mapResultProject = DEFAULT_RESULT_DIRECTORY;
@@ -240,6 +249,16 @@ public class ConfigFileReader {
         String logHistory = properties.getProperty("logHistory");
         if (logHistory != null) return Boolean.valueOf(logHistory);
         return true;
+    }
+
+    public int getCustomMapsNr(){
+        String customMapsNr = properties.getProperty("customMapsNr", "0");
+        return Integer.parseInt(customMapsNr);
+    }
+
+    public int getCustomSequenceNr(){
+        String customSeqNr = properties.getProperty("customSequenceNr", "0");
+        return Integer.parseInt(customSeqNr);
     }
 
 

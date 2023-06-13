@@ -65,23 +65,8 @@ The Fuzzer was developed by Luna Geens as a project for the Software Testing cou
 We would like to express our gratitude to the creators of JPacman for providing an excellent application to test and fuzz.
 
 ## Lessons learned about the JPacman project
-
-### Fuzz 1: Random manual testing with binary files only.
-Context: 
-- In this stage, the maps are binary with a normal maximum size. The bytes are chosen randomly. The name of the map file is normal.
-- The action sequence will exist out of 5 characters (randomly chosen out the valid options E, S, U, D, Q, W, L and R). It will have a normal name. 
-
-Configs:
-- typeFile=bin
-- maxIterations=1000
-- maxTime=900000
-
-Results:
-The results are stored in the fuzzresults_lessons/fuzz1_binary directory
-Putting the typeFile=bin in configs and running the Fuzz class would give u something like this:
+The directory fuzzresults_lessons includes some interesting conclusions about valid input for the JPacman application.
 
 
-Open the binary files in a binary editor like HeX to see for yourself.
 
-![Manual random testing with binary files and correct action sequence](C:\ST\JPacmanFuzz\fuzzresults_lessons\fuzz1_binary\img.png "Fuzz 1")
 
