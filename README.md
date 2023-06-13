@@ -64,8 +64,8 @@ The Fuzzer run-configuration provides various types of output and results:
 The Fuzzer was developed by Luna Geens as a project for the Software Testing course of the University of Antwerp.
 We would like to express our gratitude to the creators of JPacman for providing an excellent application to test and fuzz.
 
-## Lessons learned about the JPacman project
-The directory fuzzresults_lessons includes some interesting conclusions about valid input for the JPacman application.
+## *Lessons learned about the JPacman project*
+The directory fuzzresults_lessons includes some interesting conclusions about valid input for the JPacman application and are explained in the Pseudocode.markdown file.
 
 
 
