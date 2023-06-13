@@ -53,9 +53,9 @@ After the fuzzing process completes, the logs and summary reports will be stored
 Review the logs and reports to analyze the results of the fuzzing process.
 
 ### Results
-The Fuzzer provides various types of output and results:
+The Fuzzer run-configuration provides various types of output and results:
 
-- Log files: Detailed logs of each iteration, including map file, action sequence, exit code, and output messages.
+- Log files: Detailed logs of each iteration, including map file, action sequence, exit code, and output messages. A website is build. To alter the style of the webiste with Sass run the css-watch run configuration.
 - Summary reports: Reports summarizing the results of the fuzzing process, including statistics, error codes, and output messages.
 - Map files: Generated map files stored in the designated directory.
 - Javadoc: Published on Netifly as well, on the following [link](https://jpacmanfuzzsite.netlify.app/). 
