@@ -31,7 +31,6 @@ public interface PageGenerator {
      */
     public abstract String alterHTMLTemplate(String templatePath);
 
-
     /**
      * Read the template HTML file to a byte string, ready for modification.
      * @param templatePathLocation The path to the template file.

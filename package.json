@@ -1,17 +1,17 @@
 {
   "devDependencies": {
-    "bulma": "^0.9.4",
-    "jquery-ui": "^1.13.2",
-    "node-sass": "^9.0.0",
     "@creativebulma/bulma-collapsible": "^1.0.4",
-    "bulma-accordion": "^2.0.1"
+    "bulma": "^0.9.4",
+    "bulma-accordion": "^2.0.1",
+    "jquery-ui": "^1.13.2",
+    "node-sass": "^9.0.0"
   },
   "license": "MIT",
   "main": "src/sass/mystyles.scss",
   "name": "mybulma",
   "version": "1.0.0",
   "scripts": {
-    "css-build": "report_result_examples/node_modules/.bin/node-sass --omit-source-map-url ../src/sass/mystyles.scss ../dist/css/mystyles.css",
+    "css-build": "node-sass --omit-source-map-url src/sass/mystyles.scss dist/css/mystyles.css",
     "css-watch": "npm run css-build -- --watch",
     "start": "npm run css-watch"
   }

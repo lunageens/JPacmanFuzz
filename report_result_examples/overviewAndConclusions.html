@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Jpacman Fuzzing report - Overview and conclusions</title>
+    <link href="../dist/css/mystyles.css" rel="stylesheet">
+    <script src="../dist/js/http_kit.fontawesome.com_6fcea80876.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+<div class="container is-fluid" id="main-container">
+
+    <!-- Section above with breadcrumbs, header and search bar -->
+    <div class="hero has-background-white mb-0">
+        <div class="hero-body py-1 pb=2">
+            <div class="level mb-0">
+                <div class="level-left">
+                    <div class="level-item">
+                        <fig class="figure">
+                            <fig class="figure-img">
+                                <img width="100" height="100"
+                                     src="https://img.icons8.com/bubbles/100/000000/pacman--v1.png" alt="pacman--v1"/>
+                            </fig>
+                        </fig>
+                    </div>
+                    <div class="level-item mt-0">
+                        <!-- BreadCrumbs -->
+                        <!-- Add correct urls to other package-->
+                        <div class="field" id="breadcrumbs-field">
+                            <nav aria-label="breadcrumbs" class="breadcrumb">
+                                <ul>
+                                    <li>
+                                        <a href="welcomePage.html">
+        <span class="icon is-small">
+          <i aria-hidden="true" class="fas fa-ghost"></i>
+        </span>
+                                            <span>Welcome</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="home.html">
+        <span class="icon is-small">
+          <i aria-hidden="true" class="fa-solid fa-table"></i>
+        </span>
+                                            <span>Home</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="aboutTheFuzzer.html">
+        <span class="icon is-small">
+          <i aria-hidden="true" class="fa-solid fa-quote-left"></i>
+        </span>
+                                            <span>About the fuzzer</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="overviewAndConclusions.html">
+        <span class="icon is-small">
+          <i aria-hidden="true" class="fa-solid fa-lightbulb"></i>
+        </span>
+                                            <span>Overview report and conclusions</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="allMaps.html">
+        <span class="icon is-small">
+          <i aria-hidden="true" class="fa-regular fa-file-lines"></i>
+        </span>
+                                            <span>All maps</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://github.com">
+                                <span class="icon is-small">
+                                    <i aria-hidden="true" class="fa-brands fa-github"></i>
+                                </span>
+                                            <span>Download</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+                <div class="level-right">
+
+                </div>
+            </div>
+
+
+            <!-- Header-->
+            <!-- Add action listener to delete botton, isactive this element, to remove the message-->
+            <br>
+            <div class="field" id="header-field">
+                <article class="message is-info" id="message">
+                    <div class="message-header">
+                        <p class="label">Jpacman Fuzzing report - Overview and conclusions</p>
+                        <button aria-label="delete" class="delete" id="message-exit-button"></button>
+                    </div>
+                    <div class="message-body">
+                        This report presents the key findings and lessons learned from the recent fuzzing exercise
+                        conducted on the Pacman application. The objective of this exercise was to assess the robustness and
+                        security of the Pacman application through extensive input testing. By analyzing the results, we
+                        gained valuable insights into potential vulnerabilities and their root causes. This report aims
+                        to provide a comprehensive overview of the lessons learned and recommendations for enhancing the
+                        security and reliability of the Pacman application.
+                    </div>
+                </article>
+            </div>
+
+            <br>
+        </div>
+    </div>
+
+
+    <!-- Convert Pseudocode.md with Notepad ++ Plugin MarkdownViewer ++ -->
+
+
+    <!-- Footer -->
+    <br>
+    <footer class="footer" id="footer">
+        <div class="content has-text-centered">
+            <p>
+                <strong>JPacman Fuzz</strong> by Luna Geens as part of an assignment for the <a
+                    href="https://ansymore.uantwerpen.be/courses/software-testing">Software Testing Course</a> of
+                                              the <a href="https://www.uantwerpen.be/en/">University of Antwerp</a>.
+                                              Find the source code of the
+                                              JPacman Fuzzer on my <a href="https://github.com/lunageens/JPacmanFuzz">Github</a>.
+            </p>
+            <figure>
+                <img height="50" src="/dist/img/Logo_Univ_Antwerpen.svg"
+                     width="50" alt="Logo of University of Antwerp">
+                <img height="50" src="/dist/img/Logo_Bulma.svg" width="30" alt="Logo of Bulma">
+                <figcaption>
+                    Website made with Bulma for the University of Antwerp.
+                </figcaption>
+            </figure>
+        </div>
+    </footer>
+
+
+</div>
+
+<script>
+
+    // Function to hide the message
+    function hideMessage() {
+        const message = document.getElementById("message");
+        message.style.display = "none";
+    }
+
+    // Function to handle the exit button click
+    function handleExitButtonClick() {
+        hideMessage();
+        localStorage.setItem("hideMessage", "true");
+    }
+
+    // Wait for the document to finish loading
+    document.addEventListener("DOMContentLoaded", function () {
+        const exitButton = document.getElementById("message-exit-button");
+        // Check if the message should be hidden
+        if (localStorage.getItem("hideMessage") === "true") {
+            hideMessage();
+        }
+        // Add a click event listener to the exit button
+        exitButton.addEventListener("click", handleExitButtonClick);
+        // Remove the "hideMessage" flag from local storage on page reload
+        window.addEventListener("beforeunload", function () {
+            localStorage.removeItem("hideMessage");
+        });
+    });
+
+</script>
+</body>

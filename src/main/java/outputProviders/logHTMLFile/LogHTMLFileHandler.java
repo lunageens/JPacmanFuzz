@@ -59,22 +59,22 @@ public class LogHTMLFileHandler {
     /**
      * Path to the template for the HTML file that contains the template for the home page of the report.
      */
-    public static final String ReportHomeTemplatePath = System.getProperty("user.dir") + "/src/main/java/outputProviders/HTMLReport/report-home-template.html";
+    public static final String ReportHomeTemplatePath = System.getProperty("user.dir") + "/src/main/resources/report-home-template.html";
 
     /**
      * Path to the template for the HTML file that contains the template for the about the fuzzer page of the report.
      */
-    public static final String ReportAboutFuzzerTemplatePath = System.getProperty("user.dir") + "/src/main/java/outputProviders/HTMLReport/report-aboutTheFuzzer-template.html";
+    public static final String ReportAboutFuzzerTemplatePath = System.getProperty("user.dir") + "/src/main/resources/report-aboutTheFuzzer-template.html";
 
     /**
      * Path to the template fo the HTML file that contains the template for the overview report and conclusions page of the report.
      */
-    public static final String ReportOverviewTemplatePath = System.getProperty("user.dir") + "/src/main/java/outputProviders/HTMLReport/report-overviewAndConclusions-template.html";
+    public static final String ReportOverviewTemplatePath = System.getProperty("user.dir") + "/src/main/resources/report-overviewAndConclusions-template.html";
 
     /**
      * Path to the template for the HTML file that contains the template for the all maps page of the report.
      */
-    public static final String ReportAllMapsTemplatePath = System.getProperty("user.dir") + "/src/main/java/outputProviders/HTMLReport/report-allMaps-template.html";
+    public static final String ReportAllMapsTemplatePath = System.getProperty("user.dir") + "/src/main/resources/report-allMaps-template.html";
 
 
     // Destinations
@@ -102,13 +102,9 @@ public class LogHTMLFileHandler {
 
     /**
      * Constructor for the LogHTMLFileHandler class.
-     * Initializes the subclasses of the LogHTMLFileHandler class.
+     * Do not initialize subclasses here!
      */
     public void LogFileHTMLHandler() {
-       homePageGenerator = new HomePageGenerator();
-       aboutFuzzerPageGenerator = new AboutFuzzerPageGenerator();
-       overviewAndConclusionsPageGenerator = new OverviewAndConclusionsPageGenerator();
-       allMapsPageGenerator = new AllMapsPageGenerator();
    }
 
     /**
@@ -118,6 +114,13 @@ public class LogHTMLFileHandler {
     public void generateHTMLReport()  {
         // Read data in from CSV file and add it to the rigth class.
         processLogFile();
+
+        // Initialize the subclasses of the LogHTMLFileHandler class.
+        // Do not put this in constructor because it is not possible to initialize subclasses in constructors (circular dependencies).
+        homePageGenerator = new HomePageGenerator();
+        aboutFuzzerPageGenerator = new AboutFuzzerPageGenerator();
+        overviewAndConclusionsPageGenerator = new OverviewAndConclusionsPageGenerator();
+        allMapsPageGenerator = new AllMapsPageGenerator();
 
         // Generate the html file page by page
         homePageGenerator.writeHTMLPage(ReportHomePath,homePageGenerator.generateHTMLPage(ReportHomeTemplatePath, ReportHomePath));

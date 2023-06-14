@@ -235,9 +235,13 @@ public class FileHandler {
 
         // Create overview_logs if needed
         Path overviewLogsDirectory = Paths.get(overviewLogsDirectoryPath);
+        Path overviewLogsHtmlDirectory = Paths.get(logFullHistoryHTMLDirectoryPath);
         try {
             if (!Files.exists(overviewLogsDirectory)) {
                 Files.createDirectory(overviewLogsDirectory);
+            }
+            if (!Files.exists(overviewLogsHtmlDirectory)) {
+                Files.createDirectory(overviewLogsHtmlDirectory);
             }
         } catch (IOException e) {
             e.printStackTrace();

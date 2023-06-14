@@ -81,6 +81,9 @@ public class ConfigFileReader {
         if (Objects.equals(fileType, "bin")) {
             return MapFileType.BINARY;
         }
+        if (Objects.equals(fileType, "all")){
+            return MapFileType.ALL;
+        }
         return MapFileType.ALL;
     }
 

@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Jpacman Fuzzing report - All maps</title>
+    <link href="../dist/css/mystyles.css" rel="stylesheet">
+    <script src="../dist/js/http_kit.fontawesome.com_6fcea80876.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+<div class="container is-fluid" id="main-container">
+
+    <!-- Add pagination? no maybe shortcuts or tabs-->
+    <!-- TODO add progressbars -->
+
+    <!-- Section above with breadcrumbs, header and search bar -->
+    <div class="hero has-background-white mb-0">
+        <div class="hero-body py-1 pb=2">
+            <div class="level mb-0">
+                <div class="level-left">
+                    <div class="level-item">
+                        <fig class="figure">
+                            <fig class="figure-img">
+                                <img width="100" height="100"
+                                     src="https://img.icons8.com/bubbles/100/000000/pacman--v1.png" alt="pacman--v1"/>
+                            </fig>
+                        </fig>
+                    </div>
+                    <div class="level-item mt-0">
+                        <!-- BreadCrumbs -->
+                        <!-- Add correct urls to other package-->
+                        <div class="field" id="breadcrumbs-field">
+                            <nav aria-label="breadcrumbs" class="breadcrumb">
+                                <ul>
+                                    <li>
+                                        <a href="welcomePage.html">
+        <span class="icon is-small">
+          <i aria-hidden="true" class="fas fa-ghost"></i>
+        </span>
+                                            <span>Welcome</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="home.html">
+        <span class="icon is-small">
+          <i aria-hidden="true" class="fa-solid fa-table"></i>
+        </span>
+                                            <span>Home</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="aboutTheFuzzer.html">
+        <span class="icon is-small">
+          <i aria-hidden="true" class="fa-solid fa-quote-left"></i>
+        </span>
+                                            <span>About the fuzzer</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="overviewAndConclusions.html">
+        <span class="icon is-small">
+          <i aria-hidden="true" class="fa-solid fa-lightbulb"></i>
+        </span>
+                                            <span>Overview report and conclusions</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="allMaps.html">
+        <span class="icon is-small">
+          <i aria-hidden="true" class="fa-regular fa-file-lines"></i>
+        </span>
+                                            <span>All maps</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://github.com">
+                                <span class="icon is-small">
+                                    <i aria-hidden="true" class="fa-brands fa-github"></i>
+                                </span>
+                                            <span>Download</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+                <div class="level-right">
+
+                </div>
+            </div>
+
+
+            <!-- Header-->
+            <!-- Add action listener to delete botton, isactive this element, to remove the message-->
+            <br>
+            <div class="field" id="header-field">
+                <article class="message is-info" id="message">
+                    <div class="message-header">
+                        <p class="label">Jpacman Fuzzing report - All maps</p>
+                        <button aria-label="delete" class="delete" id="message-exit-button"></button>
+                    </div>
+                    <div class="message-body">
+                        This page provides an overview of all map and string files, sorted per error message.
+                    </div>
+                </article>
+            </div>
+
+            <br>
+        </div>
+    </div>
+    <br>
+
+    <section class="section">
+        <h1 class="title has-text-info">Error code 0: Jpacman application crashed</h1>
+        <h2 class="subtitle">Maps with error code have no output messages.</h2>
+
+        <!-- If there are no maps, add text to say so -->
+        <div class="card has-background-danger-light is-spaced is-align-content-center mx-3  pl-4 pr-4 pt-1 pb-4">
+            <br>
+            <button class="delete is-pulled-right is-small"></button>
+            <span>
+                    There were no map files that had this error code.
+            </span>
+            <br>
+        </div>
+    </section>
+
+    <section class="section">
+        <h1 class="title has-text-info">Error code 1: Accepted by Jpacman application</h1>
+        <h2 class="subtitle">Maps with error code have no output messages.</h2>
+
+        <!-- If there are no maps, add text to say so -->
+        <div class="card has-background-danger-light is-spaced is-align-content-center mx-3  pl-4 pr-4 pt-1 pb-4">
+            <br>
+            <button class="delete is-pulled-right is-small"></button>
+            <span>
+                    There were no map files that had this error code.
+            </span>
+            <br>
+        </div>
+    </section>
+
+    <section class="section" id="Error code 10">
+        <h1 class="title has-text-info">Error code 10: Rejected by the Jpacman application</h1>
+        <h2 class="subtitle">Maps with output message "Widths mismatch"</h2>
+    </section>
+
+    <!-- Add all cards -->
+    <!-- Previous runs 1 first, ..., sorted until actual run, id = absolute path so we can link it but no / allowed, make _??? maybe with rows index?-->
+
+    <!-- Card 1 -> embed with relative path with .. and / -->
+    <br>
+    <div class="card has-text-info">
+        <!-- Header should always be shown -->
+        <header class="card-header">
+            <p class="card-header-title has-text-white">
+                Run 1: map_1.txt
+            </p>
+            <!-- Trigger of collapse: Have href = "#..." data-action="collapse" and class="... is-hidden-->
+            <a href="#collapsible-card1" data-action="collapse" data-target="#collapsible-card1"
+               class="card-header-icon" aria-label="more options">
+			<span class="icon is-white is-clickable">
+				<i class="fas fa-angle-down" aria-hidden="true"></i>
+			</span>
+            </a>
+        </header>
+        <!-- Card content and footer should be collapsible -->
+        <!-- Shoud have id of href above, and class is-collapsible -->
+        <div id="collapsible-card1" class="is-collapsible">
+            <div class="card-content">
+                <p>The action sequence: </p>
+                <p>SWE</p>
+                <br>
+                <p>The map:</p>
+                <embed type="text/plain"
+                       src="../fuzzresults/maps/previous_maps/run_1/exitcode10_rejected/map_1.txt"
+                       width="2000" height="500"/>
+            </div>
+            <footer class="card-footer">
+                <p class="card-footer-item is-small has-text-info level-left">
+                    <span>
+                        <strong>Absolute file path:</strong>
+                        C:/ST/JPacmanFuzz/fuzzresults/maps/previous_maps/run_1/exitcode10_rejected/map_1.txt
+                </span>
+                </p>
+            </footer>
+        </div>
+    </div>
+
+    <br>
+    <section class="section">
+        <h2 class="subtitle">Maps with output message "No player set"</h2>
+    </section>
+
+    <!-- Card 2-->
+    <br>
+    <div class="card has-text-info">
+        <!-- Header should always be shown -->
+        <header class="card-header">
+            <p class="card-header-title has-text-white">
+                Run 1: map_2.txt
+            </p>
+            <!-- Trigger of collapse: Have href = "#..." data-action="collapse" and class="... is-hidden-->
+            <a href="#collapsible-card2" data-action="collapse" data-target="#collapsible-card2"
+               class="card-header-icon" aria-label="more options">
+			<span class="icon is-white is-clickable">
+				<i class="fas fa-angle-down" aria-hidden="true"></i>
+			</span>
+            </a>
+        </header>
+        <!-- Card content and footer should be collapsible -->
+        <!-- Shoud have id of href above, and class is-collapsible -->
+        <div id="collapsible-card2" class="is-collapsible">
+            <div class="card-content">
+                <embed type="text/plain"
+                       src="../fuzzresults/maps/previous_maps/run_1/exitcode10_rejected/map_1.txt"
+                       width="2000" height="500"/>
+            </div>
+            <footer class="card-footer">
+                <p class="card-footer-item is-small has-text-info level-left">
+                    <span>
+                        <strong>Absolute file path:</strong>
+                         C:/ST/JPacmanFuzz/fuzzresults/maps/previous_maps/run_1/exitcode10_rejected/map_1.txt
+                </span>
+                </p>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Card 3-->
+    <br>
+    <div class="card has-text-info">
+        <!-- Header should always be shown -->
+        <header class="card-header">
+            <p class="card-header-title has-text-white">
+                Run 1: map_3.txt
+            </p>
+            <!-- Trigger of collapse: Have href = "#..." data-action="collapse" and class="... is-hidden-->
+            <a href="#collapsible-card3" data-action="collapse" data-target="#collapsible-card3"
+               class="card-header-icon" aria-label="more options">
+			<span class="icon is-white is-clickable">
+				<i class="fas fa-angle-down" aria-hidden="true"></i>
+			</span>
+            </a>
+        </header>
+        <!-- Card content and footer should be collapsible -->
+        <!-- Shoud have id of href above, and class is-collapsible -->
+        <div id="collapsible-card3" class="is-collapsible">
+            <div class="card-content">
+                <embed type="text/plain"
+                       src="../fuzzresults/maps/previous_maps/run_1/exitcode10_rejected/map_1.txt"
+                       width="2000" height="500"/>
+            </div>
+            <footer class="card-footer">
+                <p class="card-footer-item is-small has-text-info level-left">
+                    <span>
+                        <strong>Absolute file path:</strong>
+                         C:/ST/JPacmanFuzz/fuzzresults/maps/previous_maps/run_1/exitcode10_rejected/map_1.txt
+                </span>
+                </p>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <br>
+    <footer class="footer" id="footer">
+        <div class="content has-text-centered">
+            <p>
+                <strong>JPacman Fuzz</strong> by Luna Geens as part of an assignment for the <a
+                    href="https://ansymore.uantwerpen.be/courses/software-testing">Software Testing Course</a> of
+                                              the <a href="https://www.uantwerpen.be/en/">University of Antwerp</a>. Find the source code of the
+                                              JPacman Fuzzer on my <a href="https://github.com/lunageens/JPacmanFuzz">Github</a>.
+            </p>
+            <figure>
+                <img height="50" src="/dist/img/Logo_Univ_Antwerpen.svg"
+                     width="50" alt="Logo of University of Antwerp">
+                <img height="50" src="/dist/img/Logo_Bulma.svg" width="30" alt="Logo of Bulma">
+                <figcaption>
+                    Website made with Bulma for the University of Antwerp.
+                </figcaption>
+            </figure>
+        </div>
+    </footer>
+
+</div>
+
+<script src="/dist/js/bulma-collapsible.min.js"></script>
+<script>
+
+    // Function to hide the message
+    function hideMessage() {
+        const message = document.getElementById("message");
+        message.style.display = "none";
+    }
+
+    // Function to handle the exit button click
+    function handleExitButtonClick() {
+        hideMessage();
+        localStorage.setItem("hideMessage", "true");
+    }
+
+
+    document.addEventListener('DOMContentLoaded', function () {
+        // Get all collapsible elements
+        const collapsibleElements = bulmaCollapsible.attach('.is-collapsible');
+
+        // Attach click event listeners to the triggers
+        const triggers = document.querySelectorAll('[data-action="collapse"]');
+        triggers.forEach(function (trigger) {
+            trigger.addEventListener('click', function (event) {
+                event.preventDefault();
+                const target = this.getAttribute('data-target');
+                const collapsibleElement = document.getElementById(target);
+
+                // Toggle the visibility of content and footer
+                collapsibleElement.querySelector('.card-content').classList.toggle('is-hidden');
+                collapsibleElement.querySelector('.card-footer').classList.toggle('is-hidden');
+
+                // Toggle the icon
+                const icon = this.querySelector('i');
+                icon.classList.toggle('fa-angle-down');
+                icon.classList.toggle('fa-angle-up');
+            });
+        });
+
+        // Delete buttons notifications when no files occur
+        (document.querySelectorAll('.notification .delete') || []).forEach(($delete) => {
+            const $notification = $delete.parentNode;
+
+            $delete.addEventListener('click', () => {
+                $notification.parentNode.removeChild($notification);
+            });
+        });
+
+        // Delete buttons cards when no files occur
+        (document.querySelectorAll('.card .delete') || []).forEach(($delete) => {
+            const $notification = $delete.parentNode;
+
+            $delete.addEventListener('click', () => {
+                $notification.parentNode.removeChild($notification);
+            });
+        });
+
+        // Header exit button
+        const exitButton = document.getElementById("message-exit-button");
+        // Add a click event listener to the exit button
+        exitButton.addEventListener("click", handleExitButtonClick);
+        // Remove the "hideMessage" flag from local storage on page reload
+        window.addEventListener("beforeunload", function () {
+            localStorage.removeItem("hideMessage");
+        })
+    });
+
+</script>
+</body>
+</html>
