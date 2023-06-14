@@ -28,7 +28,7 @@ Map File Path: C:\ST\JPacmanFuzz\fuzzresults\maps\actual_maps\exitcode10_rejecte
 Map File custom attribute: OPE
 String Sequence: SWE
 Error Code: 10
-Output Messages: More than one player
+Output Messages: Widths mismatch
 
 Iteration: 5
 Map File Type: TXT
