@@ -1,6 +1,0 @@
-Iteration Number,Exit Code,Output Messages,Action Sequence,Map File Type,Map File Custom Attribute,Absolute Map File Path
-1,10,Unknown character,SWE,.txt [Unformatted Text Document],None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_1.txt
-2,10,Unknown character,SWE,.txt [Unformatted Text Document],None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_2.txt
-3,10,Unknown character,SWE,.txt [Unformatted Text Document],None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_3.txt
-4,10,Unknown character,SWE,.txt [Unformatted Text Document],None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_4.txt
-5,10,Unknown character,SWE,.txt [Unformatted Text Document],None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_5.txt
