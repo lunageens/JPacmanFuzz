@@ -383,7 +383,7 @@ public class FileHandler {
         normalizedPath = normalizedPath.replace("\\\\", "\\"); // Replace double backslashes with a single backslash
         normalizedPath = normalizedPath.replace("/\\\\", "\\"); // Replace mixed slashes (/\\) with a single backslash
         normalizedPath = normalizedPath.replace("\\/\\", "\\"); // Replace mixed slashes (\\/) with a single backslash
-        if (!backlash){normalizedPath = normalizedPath.replace("\\", "/");}   // Replace backslash with forward slashes
+        if (!backlash){normalizedPath = normalizedPath.replace("\\", "/"); }   // Replace backslash with forward slashes
         return normalizedPath;
     }
 

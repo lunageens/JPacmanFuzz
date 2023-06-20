@@ -65,4 +65,5 @@ public class HomePageGenerator extends LogHTMLFileHandler implements PageGenerat
         return template;
     }
 
+
 }

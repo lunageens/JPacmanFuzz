@@ -41,7 +41,7 @@ public class LogHTMLFileHandler {
 
     // Data of CSV file variables
     /**
-     * A list with as string the headers of the CSV file.
+     * A list with as string the headers of the CSV file. These are already formatted as wished.
      */
     public static List<String> headers;
 
@@ -187,5 +187,9 @@ public class LogHTMLFileHandler {
     public static int getColumnIndex(String header) {
         return headers.indexOf(header);
     }
+
+    /**
+     * Takes the read-in headers from the CSV File and formats them to be used in the HTML file.
+     */
 
 }

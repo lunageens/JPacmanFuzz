@@ -11,7 +11,7 @@ import static outputProviders.logGenerator.LogCSVFileHandler.CSVReplacement;
  * This class formats some attributes of the total iteration results, such as iterations numbers together, amount of total
  * iterations, fuzz attempt number, exit counts, execution times, current times, and so on.
  */
-@SuppressWarnings("DuplicatedCode")
+
 public class IterationResultsFormatter {
 
     /**
@@ -29,6 +29,8 @@ public class IterationResultsFormatter {
         this.iterationResults = iterationResults;
     }
 
+    /* * Iteration number string */
+    // * No static method since not needed in history files HTML. Only static methods for filtered results.
     /**
      * Retrieves a string representation of iteration numbers from a list of iteration results.
      * e.g., [1, 2, 3] becomes "1-2-3"
@@ -114,9 +116,11 @@ public class IterationResultsFormatter {
         return getFormattedIterationNumbersString(filteredResults, false, true, true, false);
     }
 
+    /* * Fuzz Attempt Number */
     /**
      * Gets formatted fuzz number attempt. Is always static because is same for whole application run.
-     *
+     * @param fuzzAttemptNr
+     *          the fuzz attempt number that needs formatting, as String.
      * @param titlePrefix
      *         - if true, the variable name will be prefixed with "Fuzz Attempt Nr.: "
      * @param CSVReplacement
@@ -128,8 +132,7 @@ public class IterationResultsFormatter {
      *
      * @return String Fuzz attempt nr as a string and formatted as required
      */
-    public static String getFormattedFuzzAttemptNr(boolean titlePrefix, boolean CSVReplacement, boolean appendComma, boolean appendNewLine) {
-        String fuzzAttemptNr = Integer.toString(FileHandler.fuzzAttemptNr);
+    public static String getFormattedFuzzAttemptNr(String fuzzAttemptNr, boolean titlePrefix, boolean CSVReplacement, boolean appendComma, boolean appendNewLine) {
         if (titlePrefix) {
             fuzzAttemptNr = LogFileCalculator.getFullVariableName("fuzzAttemptNumber", true) + fuzzAttemptNr;
         }
@@ -150,102 +153,39 @@ public class IterationResultsFormatter {
      *
      * @return String Fuzz attempt nr without titles, with replaced commas and newlines, and a comma appended thereafter.
      */
-    public static String getFormattedFuzzAttemptNr() {
-        return getFormattedFuzzAttemptNr(false, true, true, false);
+    public static String getFormattedFuzzAttemptNr(String fuzzAttemptNr) {
+        return getFormattedFuzzAttemptNr(fuzzAttemptNr, false, true, true, false);
     }
 
     /**
-     * Counts the iterations of the given error code.
+     * Gets formatted current fuzz number attempt. Is always static because is same for whole application run.
      *
-     * @param exitCode
-     *         - the error code to count. Can be 0 1 10 or -1.
-     * @param asText
-     *         - "occurrences" will be appended after the count number.
      * @param titlePrefix
-     *         - if true, the variable name will be prefixed with "Exit code " + exitCode + ": "
+     *         - if true, the variable name will be prefixed with "Fuzz Attempt Nr.: "
      * @param CSVReplacement
-     *         - if true, the commas and new lines will be removed.
+     *         - if true, comma's and line breaks in the name will be removed.
      * @param appendComma
      *         - if true, a comma will be appended
      * @param appendNewLine
      *         - if true, a newline will be appended
      *
-     * @return The number of iterations that had the exit code, formatted as required in a String.
+     * @return String Fuzz attempt nr as a string and formatted as required
      */
-    public String getFormattedExitCount(int exitCode, boolean asText, boolean titlePrefix, boolean CSVReplacement, boolean appendComma, boolean appendNewLine) {
-        String exitCount = Integer.toString(LogFileCalculator.getExitCodeCount(iterationResults, exitCode));
-        //noinspection DuplicatedCode
-        if (titlePrefix) {
-            exitCount = LogFileCalculator.getFullVariableName("exitCount" + exitCode, true) + exitCount;
-        }
-        if (asText) {
-            exitCount += " occurrences";
-        }
-        if (CSVReplacement) {
-            exitCount = CSVReplacement(exitCount);
-        }
-        if (appendComma) {
-            exitCount = exitCount + ",";
-        }
-        if (appendNewLine) {
-            exitCount = exitCount + "\n";
-        }
-        return exitCount;
+    public static String getFormattedFuzzAttemptNr(boolean titlePrefix, boolean CSVReplacement, boolean appendComma, boolean appendNewLine) {
+        String fuzzAttemptNr = Integer.toString(FileHandler.fuzzAttemptNr);
+        return getFormattedFuzzAttemptNr(fuzzAttemptNr, titlePrefix, CSVReplacement, appendComma, appendNewLine);
     }
 
     /**
-     * Default values of getFormattedExitCount()
+     * Default values of getFormattedFuzzAttemptNr()
      *
-     * @param exitCode
-     *         - the error code to count. Can be 0 1 10 or -1.
-     *
-     * @return The number of iterations that had the exit code, without titles or text, with newlines and commas replaced,and with a comma appended afterwards.
+     * @return String Current fuzz attempt nr without titles, with replaced commas and newlines, and a comma appended thereafter.
      */
-    public String getFormattedExitCount(int exitCode) {
-        return getFormattedExitCount(exitCode, false, false, true, true, false);
+    public static String getFormattedFuzzAttemptNr() {
+        return getFormattedFuzzAttemptNr(false, true, true, false);
     }
 
-    /**
-     * Static version to get formatted exit count. Is only meant to be used with filtered results that only have one error code.
-     * Could also just take size() if no format needed.
-     *
-     * @param iterationResults
-     *         - the list of iteration results with only one exit code to get the exit count from.
-     * @param asText
-     *         - "occurrences" will be appended after the count number.
-     * @param titlePrefix
-     *         - if true, the variable name will be prefixed with "Exit code " + exitCode + ": "
-     * @param CSVReplacement
-     *         - if true, newlines and commas are removed.
-     * @param appendComma
-     *         - if true, a comma is appended afterwards.
-     * @param appendNewLine
-     *         - if true, a new line is appended afterwards.
-     *
-     * @return Exit count of the only error code in the results, formatted as required in a String.
-     */
-    public static String getFormattedExitCount(List<IterationResult> iterationResults, boolean asText, boolean titlePrefix, boolean CSVReplacement, boolean appendComma, boolean appendNewLine) {
-        IterationResult dummy = iterationResults.get(0);
-        int errorCode = dummy.getErrorCode();
-        for (IterationResult iterationResult : iterationResults) {
-            assert iterationResult.getErrorCode() == errorCode;
-        }
-        IterationResultsFormatter dummyFormatter = new IterationResultsFormatter(iterationResults);
-        return dummyFormatter.getFormattedExitCount(errorCode, asText, titlePrefix, CSVReplacement, appendComma, appendNewLine);
-    }
-
-    /**
-     * Default values of getFormattedExitCount().
-     *
-     * @param iterationResults
-     *         - the list of iteration results with only one exit code to get the exit count from.
-     *
-     * @return Exit count of the only error code in the results, without titles or text, with newlines and commas replaced, and with a comma appended afterwards.
-     */
-    public static String getFormattedExitCount(List<IterationResult> iterationResults) {
-        return getFormattedExitCount(iterationResults, false, false, true, true, false);
-    }
-
+    /* * Exit Code Counts */
     /**
      * Should only be used carefully, if one is completely sure of count. Defers from the getExitCount method
      * in LogFileCalculator.
@@ -298,9 +238,89 @@ public class IterationResultsFormatter {
     public static String getFormattedExitCount(int ErrorCode, int ErrorCount) {
         return getFormattedExitCount(ErrorCode, ErrorCount, false, false, true, true, false);
     }
+
+    /**
+     * Counts the iterations of the given error code within the list of iterations that the formatter has been initialized with.
+     *
+     * @param exitCode
+     *         - the error code to count. Can be 0 1 10 or -1.
+     * @param asText
+     *         - "occurrences" will be appended after the count number.
+     * @param titlePrefix
+     *         - if true, the variable name will be prefixed with "Exit code " + exitCode + ": "
+     * @param CSVReplacement
+     *         - if true, the commas and new lines will be removed.
+     * @param appendComma
+     *         - if true, a comma will be appended
+     * @param appendNewLine
+     *         - if true, a newline will be appended
+     *
+     * @return The number of iterations that had the exit code, formatted as required in a String.
+     */
+    public String getFormattedExitCount(int exitCode, boolean asText, boolean titlePrefix, boolean CSVReplacement, boolean appendComma, boolean appendNewLine) {
+        int exitCount = LogFileCalculator.getExitCodeCount(iterationResults, exitCode);
+        return getFormattedExitCount(exitCode,exitCount, asText, titlePrefix, CSVReplacement, appendComma, appendNewLine);
+    }
+
+    /**
+     * Default values of getFormattedExitCount()
+     *
+     * @param exitCode
+     *         - the error code to count. Can be 0 1 10 or -1.
+     *
+     * @return The number of iterations that had the exit code within the list of iterations that the formatter has
+     *  been initialized with, without titles or text, with newlines and commas replaced,and with a comma appended afterwards.
+     */
+    public String getFormattedExitCount(int exitCode) {
+        return getFormattedExitCount(exitCode, false, false, true, true, false);
+    }
+
+    /**
+     * Static version to get formatted exit count. Is only meant to be used with filtered results that only have one error code.
+     * Could also just take size() if no format needed.
+     *
+     * @param iterationResults
+     *         - the list of iteration results with only one exit code to get the exit count from.
+     * @param asText
+     *         - "occurrences" will be appended after the count number.
+     * @param titlePrefix
+     *         - if true, the variable name will be prefixed with "Exit code " + exitCode + ": "
+     * @param CSVReplacement
+     *         - if true, newlines and commas are removed.
+     * @param appendComma
+     *         - if true, a comma is appended afterwards.
+     * @param appendNewLine
+     *         - if true, a new line is appended afterwards.
+     *
+     * @return Exit count of the only error code in the results, formatted as required in a String.
+     */
+    public static String getFormattedExitCount(List<IterationResult> iterationResults, boolean asText, boolean titlePrefix, boolean CSVReplacement, boolean appendComma, boolean appendNewLine) {
+        IterationResult dummy = iterationResults.get(0);
+        int errorCode = dummy.getErrorCode();
+        for (IterationResult iterationResult : iterationResults) {
+            assert iterationResult.getErrorCode() == errorCode;
+        }
+        IterationResultsFormatter dummyFormatter = new IterationResultsFormatter(iterationResults);
+        return dummyFormatter.getFormattedExitCount(errorCode, asText, titlePrefix, CSVReplacement, appendComma, appendNewLine);
+    }
+
+    /**
+     * Default values of getFormattedExitCount().
+     *
+     * @param iterationResults
+     *         - the list of iteration results with only one exit code to get the exit count from.
+     *
+     * @return Exit count of the only error code in the results, without titles or text, with newlines and commas replaced, and with a comma appended afterwards.
+     */
+    public static String getFormattedExitCount(List<IterationResult> iterationResults) {
+        return getFormattedExitCount(iterationResults, false, false, true, true, false);
+    }
+
+    /* *Total number of iterations */
     /**
      * Gets the total number of iterations as a string.
-     *
+     * @param totalIterations
+     *         - the total number of iterations as int.
      * @param titlePrefix
      *         - if true, the variable name will be prefixed with "Total Iterations: "
      * @param CSVReplacement
@@ -312,8 +332,7 @@ public class IterationResultsFormatter {
      *
      * @return The total number of iterations, formatted as required in a String.
      */
-    public String getFormattedTotalIterations(boolean titlePrefix, boolean CSVReplacement, boolean appendComma, boolean appendNewLine) {
-        int totalIterations = iterationResults.size();
+    public static String getFormattedTotalIterations(int totalIterations, boolean titlePrefix, boolean CSVReplacement, boolean appendComma, boolean appendNewLine) {
         String totalIterationsString = Integer.toString(totalIterations);
         if (titlePrefix) {
             totalIterationsString = LogFileCalculator.getFullVariableName("totalIterations", true) + totalIterationsString;
@@ -332,19 +351,49 @@ public class IterationResultsFormatter {
 
     /**
      * Default values of getFormattedTotalIterations()
-     *
+     * @param totalIterations - the total number of iterations as int.
      * @return Total number of iterations, with newlines and commas replaced, and with a comma appended afterwards.
+     */
+    public static String getFormattedTotalIterations(int totalIterations) {
+        return getFormattedTotalIterations(totalIterations, false, true, true, false);
+    }
+
+    /**
+     * Gets the total number of iterations of the list of iterations the formatter has been initialized with as a string.
+     *
+     * @param titlePrefix
+     *         - if true, the variable name will be prefixed with "Total Iterations: "
+     * @param CSVReplacement
+     *         -if true, newlines and commas are removed.
+     * @param appendComma
+     *         if true, a comma is appended afterwards.
+     * @param appendNewLine-
+     *         if true, a new line is appended afterwards.
+     *
+     * @return The total number of iterations, formatted as required in a String.
+     */
+    public String getFormattedTotalIterations(boolean titlePrefix, boolean CSVReplacement, boolean appendComma, boolean appendNewLine) {
+        int totalIterations = iterationResults.size();
+       return getFormattedTotalIterations(totalIterations, titlePrefix, CSVReplacement, appendComma, appendNewLine);
+    }
+
+    /**
+     * Default values of getFormattedTotalIterations()
+     *
+     * @return Total number of iterations of the list of iterations the formatter has been initialized with, with newlines and commas replaced, and with a comma appended afterwards.
      */
     public String getFormattedTotalIterations() {
         return getFormattedTotalIterations(false, true, true, false);
     }
 
+    /* * Execution time */
+    // Always static
     /**
      * Gives the execution time formatted properly. Static because it is only used in the main method, and calculated once there.
      * Therefore, remains the same over whole run.
      *
-     * @param elapsedTime
-     *         Time start to finish of iterationresults (see Fuzzer main method).
+     * @param totalTime
+     *          - The total time, already formatted as 00:00
      * @param titlePrefix
      *         - if true, the variable name will be prefixed with "Execution time: "
      * @param CSVReplacement
@@ -356,8 +405,7 @@ public class IterationResultsFormatter {
      *
      * @return Execution time, formatted as required in a String.
      */
-    public static String getFormattedExecutionTime(long elapsedTime, boolean titlePrefix, boolean CSVReplacement, boolean appendComma, boolean appendNewLine) {
-        String totalTime = LogFileCalculator.getExecutionTime(elapsedTime);
+    public static String getFormattedExecutionTime(String totalTime, boolean titlePrefix, boolean CSVReplacement, boolean appendComma, boolean appendNewLine) {
         if (titlePrefix) {
             totalTime = LogFileCalculator.getFullVariableName("executedTime", true) + totalTime;
         }
@@ -376,6 +424,40 @@ public class IterationResultsFormatter {
     /**
      * Default values of getFormattedExecutionTime()
      *
+     * @param totalTime
+     *         The total time, already formatted as 00:00
+     *
+     * @return Execution time formatted from the elapsedTime, with newlines and commas replaced, and with a comma appended afterwards.
+     */
+    public static String getFormattedExecutionTime(String totalTime) {
+        return getFormattedExecutionTime(totalTime, false, true, true, false);
+    }
+
+    /**
+     * Gives the execution time formatted properly. Static because it is only used in the main method, and calculated once there.
+     * Therefore, remains the same over whole run.
+     *
+     * @param elapsedTime
+     *         Time start to finish of iterationresults (see Fuzzer main method), as int.
+     * @param titlePrefix
+     *         - if true, the variable name will be prefixed with "Execution time: "
+     * @param CSVReplacement
+     *         -if true, newlines and commas are removed.
+     * @param appendComma
+     *         - if true, a comma is appended afterwards.
+     * @param appendNewLine
+     *         - if true, a new line is appended afterwards.
+     *
+     * @return Execution time, formatted as required in a String.
+     */
+    public static String getFormattedExecutionTime(long elapsedTime, boolean titlePrefix, boolean CSVReplacement, boolean appendComma, boolean appendNewLine) {
+        String totalTime = LogFileCalculator.getExecutionTime(elapsedTime);
+        return getFormattedExecutionTime(totalTime, titlePrefix, CSVReplacement, appendComma, appendNewLine);
+    }
+
+    /**
+     * Default values of getFormattedExecutionTime()
+     *
      * @param elapsedTime
      *         Time start to finish of iterationresults (see Fuzzer main method).
      *
@@ -383,6 +465,49 @@ public class IterationResultsFormatter {
      */
     public static String getFormattedExecutionTime(int elapsedTime) {
         return getFormattedExecutionTime(elapsedTime, false, true, true, false);
+    }
+
+    /* * Date and time */
+    // Always static
+    /**
+     * Gets the given timestamp formatted properly.
+     * @param timeStamp
+     *                  - The timestamp, already formatted as dd-MM-HH HH:mm string.
+     * @param titlePrefix
+     *         - if true, the variable name will be prefixed with "Date and Time: "
+     * @param CSVReplacement
+     *         -if true, newlines and commas are removed.
+     * @param appendComma
+     *         - if true, a comma is appended afterwards.
+     * @param appendNewLine
+     *         - if true, a new line is appended afterwards.
+     *
+     * @return Current timestamp, formatted as required in a String.
+     */
+    public static String getFormattedTimeStamp(String timeStamp, boolean titlePrefix, boolean CSVReplacement, boolean appendComma, boolean appendNewLine) {
+        if (titlePrefix) {
+            timeStamp = LogFileCalculator.getFullVariableName("timeStamp", true) + timeStamp;
+        }
+        if (CSVReplacement) {
+            timeStamp = CSVReplacement(timeStamp);
+        }
+        if (appendComma) {
+            timeStamp = timeStamp + ",";
+        }
+        if (appendNewLine) {
+            timeStamp = timeStamp + "\n";
+        }
+        return timeStamp;
+    }
+
+    /**
+     * Default values of getFormattedTimeStamp()
+     *  @param timeStamp
+     *                     - The timestamp, already formatted as dd-MM-HH HH:mm string.
+     * @return Given timestamp formatted from the current timestamp, with newlines and commas replaced, and with a comma appended afterwards.
+     */
+    public static String getFormattedTimeStamp(String timeStamp) {
+        return getFormattedTimeStamp(timeStamp, false, true, true, false);
     }
 
     /**
@@ -402,19 +527,7 @@ public class IterationResultsFormatter {
      */
     public static String getFormattedTimeStamp(boolean titlePrefix, boolean CSVReplacement, boolean appendComma, boolean appendNewLine) {
         String timeStamp = LogFileCalculator.getCurrentTimestamp(); // is already dd-MM-HH HH:mm
-        if (titlePrefix) {
-            timeStamp = LogFileCalculator.getFullVariableName("timeStamp", true) + timeStamp;
-        }
-        if (CSVReplacement) {
-            timeStamp = CSVReplacement(timeStamp);
-        }
-        if (appendComma) {
-            timeStamp = timeStamp + ",";
-        }
-        if (appendNewLine) {
-            timeStamp = timeStamp + "\n";
-        }
-        return timeStamp;
+       return getFormattedTimeStamp(timeStamp, titlePrefix, CSVReplacement, appendComma, appendNewLine);
     }
 
     /**

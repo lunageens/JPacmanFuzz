@@ -300,7 +300,7 @@ public class LogFileHandler {
             // Write header
             if (fuzzAttemptNr == 1) {
                 List<String> header = new ArrayList<>();
-                header.add(getFullVariableName("fuzzAttemptNr", false));
+                header.add(getFullVariableName("fuzzAttemptNumber", false));
                 header.add(getFullVariableName("timeStamp", false));
                 header.add(getFullVariableName("executedTime", false));
                 header.add(getFullVariableName("exitCode0", false));
@@ -347,7 +347,7 @@ public class LogFileHandler {
             // Write header
             if (fuzzAttemptNr == 1) {
                 List<String> header = new ArrayList<>();
-                header.add(getFullVariableName("fuzzAttemptNr", false));
+                header.add(getFullVariableName("fuzzAttemptNumber", false));
                 header.add(getFullVariableName("timeStamp", false));
                 header.add(getFullVariableName("errorCode", false));
                 header.add(getFullVariableName("outputMessages", false));
@@ -380,7 +380,7 @@ public class LogFileHandler {
                     csvWriter.append(getFormattedFuzzAttemptNr()); // Same for each combo
                     csvWriter.append(getFormattedTimeStamp()); // Same for each combo
 
-                    IterationResult dummy = new IterationResult(0, "", "", errorCode, outputMessage, "");
+                    IterationResult dummy = new IterationResult( 0, "", "", errorCode, outputMessage, "");
                     IterationResultFormatter dummyForm = new IterationResultFormatter(dummy);
                     csvWriter.append(dummyForm.getFormattedErrorCode());
 
@@ -417,7 +417,7 @@ public class LogFileHandler {
             if (fuzzAttemptNr == 1) {
                 /* Write header */
                 List<String> header = new ArrayList<>();
-                header.add(getFullVariableName("fuzzAttemptNr", false));
+                header.add(getFullVariableName("fuzzAttemptNumber", false));
                 header.add(getFullVariableName("timeStamp", false));
                 header.add(getFullVariableName("iterationNumber", false));
                 header.add(getFullVariableName("errorCode", false));

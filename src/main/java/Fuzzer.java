@@ -104,7 +104,7 @@ public class Fuzzer {
                 String customAttribute = "";
                 if (!customMapsAttributes.isEmpty()){customAttribute = customMapsAttributes.remove(0);}
                 // Store output data process in iteration results list
-                IterationResult iterationResult = new IterationResult(i + 1, mapFilePath, actionSequence,
+                IterationResult iterationResult = new IterationResult( i + 1, mapFilePath, actionSequence,
                         exitCode, outputMessages, customAttribute);
                 iterationResults.add(iterationResult);
                 // Update iteration results by error code

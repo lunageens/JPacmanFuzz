@@ -14,6 +14,7 @@ import static organizers.FileHandler.actualMapsDirectoryPath;
  */
 public class IterationResult {
 
+
     /**
      * The number of the iteration.
      */
@@ -51,7 +52,7 @@ public class IterationResult {
 
 
     /**
-     * Constructs an IterationResult object with the specified parameters. Replaces unknown exit codes with -1, and empty outputmessages
+     * Constructs an IterationResult object with the specified parameters. Replaces unknown exit codes with -1, and empty output-messages
      * and custom attributes with "None".
      *
      * @param iterationNumber The number of the iteration.
@@ -62,7 +63,6 @@ public class IterationResult {
      * @param customAttribute The custom attribute of the map file (often some extra information) associated with the iteration.
      */
     public IterationResult(int iterationNumber, String mapFilePath, String stringSequence, int exitCode, String outputMessages, String customAttribute) {
-
         this.iterationNumber = iterationNumber;
         this.mapFileType = mapFilePath.substring(mapFilePath.lastIndexOf('.') + 1).toUpperCase();
         this.mapFilePath = mapFilePath;
