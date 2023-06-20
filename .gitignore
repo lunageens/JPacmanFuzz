@@ -36,7 +36,7 @@ build/
 ### Mac OS ###
 .DS_Store
 /fuzzresults_lessons/fuzz3_filetypes/custom_maps/FilePermission_None_sample.map
-/fuzzresults_lessons/fuzz3_filetypes/custom_maps/FileEncryption.txt
-/fuzzresults_lessons/fuzz3_filetypes/custom_maps/FileCorruption_Encoded.txt
-/fuzzresults_lessons/fuzz3_filetypes/custom_maps/FileSize_Massive.txt
+/fuzzresults_lessons/fuzz3_filetypes/custom_maps/custom_maps_ignored/FileEncryption.txt
+/fuzzresults_lessons/fuzz3_filetypes/custom_maps/custom_maps_ignored/FileCorruption_Encoded.txt
+/fuzzresults_lessons/fuzz3_filetypes/custom_maps/custom_maps_ignored/FileSize_Massive.txt
 /node_modules/
