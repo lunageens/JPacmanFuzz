@@ -28,21 +28,20 @@ public class RandomMapGenerator extends MapGenerator {
     private RandomTextMapGenerator randomTextMapGenerator;
 
     /**
+     * File type used in this run (not for this particular map file) - more only text, only binary, of combination.
+     * Specified in configuration settings.
+     */
+    public static MapFileType fileType = FileReaderManager.getInstance().getConfigReader().getMapFilesType();
+
+    /**
      * Constructs a RandomMapGenerator object.
      * It initializes the necessary dependencies and generators based on the configuration settings.
      */
     public RandomMapGenerator() {
         configFileReader = FileReaderManager.getInstance().getConfigReader();
-        ;
         this.randomBinaryMapGenerator = new RandomBinaryMapGenerator(configFileReader.getMaxBinaryMapSize());
         this.randomTextMapGenerator = new RandomTextMapGenerator(configFileReader.getMaxTextMapHeight(), configFileReader.getMaxTextMapWidth());
     }
-
-    /**
-     * File type used in this run (not for this particular map file) - more only text, only binary, of combination.
-     * Specified in configuration settings.
-     */
-    public static MapFileType fileType = FileReaderManager.getInstance().getConfigReader().getMapFilesType();
 
     /**
      * If text only in configs is true, makes new text file.
@@ -55,13 +54,9 @@ public class RandomMapGenerator extends MapGenerator {
     public String generateRandomMap() {
         String filePath = null;
         switch (fileType) {
-            case TEXT:
-                filePath = randomTextMapGenerator.generateRandomMap();
-                break;
-            case BINARY:
-                filePath = randomBinaryMapGenerator.generateRandomMap();
-                break;
-            case ALL:
+            case TEXT -> filePath = randomTextMapGenerator.generateRandomMap();
+            case BINARY -> filePath = randomBinaryMapGenerator.generateRandomMap();
+            case ALL -> {
                 Random random = new Random();
                 boolean isTextType = random.nextBoolean();
                 if (isTextType) {
@@ -69,7 +64,7 @@ public class RandomMapGenerator extends MapGenerator {
                 } else {
                     filePath = randomBinaryMapGenerator.generateRandomMap();
                 }
-                break;
+            }
         }
         return filePath;
     }

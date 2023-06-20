@@ -2,7 +2,7 @@
 
 ## Fuzz 1: Manual random testing with binary files and correct action sequence
 
-![Manual random testing with binary files and correct action sequence](fuzzresults_lessons\fuzz1_binary\Fuzz1_SummaryResults.png "Fuzz 1")
+![Manual random testing with binary files and correct action sequence](/fuzzresults_lessons/fuzz1_binary/Fuzz1_SummaryResults.png "Fuzz 1")
 
 *Context:*
 In this stage, the maps are binary with a normal maximum size. The bytes are chosen randomly. The name of the map file
@@ -46,7 +46,7 @@ if(file has no lines)
 
 ## Fuzz 2: File content ~ Known ASCII characters
 
-![File content ~ Known ACSII characters](C:\ST\JPacmanFuzz\fuzzresults_lessons\fuzz2_knownCharacters\Fuzz2_SummaryResults.png "Fuzz 2")
+![File content ~ Known ACSII characters](fuzzresults_lessons/fuzz2_knownCharacters/Fuzz2_SummaryResults.png "Fuzz 2")
 
 *Context:*
 If I want to know if one-line binary files can be valid, I first need to know what the valid characters are. Let's make
@@ -172,7 +172,6 @@ Configs:
 - customMapsNr=4
 - customSequenceNr=1
 - maxIterations=1000
-- maxBinaryMapSize = 5000
 - maxTextMapHeight= 100
 - maxTextMapWidth= 100
 - fileType=txt

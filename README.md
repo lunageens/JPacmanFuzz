@@ -1,7 +1,7 @@
 # *Fuzzer - Automated Testing Tool for JPacman*
 The Fuzzer is an automated testing tool designed to perform fuzz testing on the JPacman application. 
 It is a black-box fuzzer, meaning that the JPacman application code is not visible while fuzzing.
-One can execute the jpacman code with the help of the jpacman-3.0.1 jar file. 
+One can execute the JPacman code with the help of the jpacman-3.0.1 jar file. 
 The fuzzer generates random maps and action sequences to test the functionality and stability of the JPacman game.
 
 ## *A general overview of the project*
@@ -26,6 +26,8 @@ Update the configuration file with the desired settings (see "Configuration" sec
 ### Configuration
 The configuration file (config.properties) allows you to customize various aspects of the fuzzing process. You can modify the following settings:
 
+- customMaps: Specifies the index number of custom map files group to be used instead of using the random generator.
+- customSequences: Specifies the index number of action sequence strings group to be used instead of using the random generator. 
 - fileType: Specifies the type of map files to be generated. Valid values: TEXT, BINARY, ALL. Default: ALL
 - resultPath: Specifies the path to store the fuzzing results. Default: fuzzresults
 - logFilePath: Specifies the path to store the log files. Default: logs
@@ -55,7 +57,7 @@ Review the logs and reports to analyze the results of the fuzzing process.
 ### Results
 The Fuzzer run-configuration provides various types of output and results:
 
-- Log files: Detailed logs of each iteration, including map file, action sequence, exit code, and output messages. A website is build. To alter the style of the webiste with Sass run the css-watch run configuration.
+- Log files: Detailed logs of each iteration, including map file, action sequence, exit code, and output messages. A website is build. To alter the style of the website with Sass run the css-watch run configuration.
 - Summary reports: Reports summarizing the results of the fuzzing process, including statistics, error codes, and output messages.
 - Map files: Generated map files stored in the designated directory.
 - Javadoc: Published on Netifly as well, on the following [link](https://jpacmanfuzzsite.netlify.app/). 

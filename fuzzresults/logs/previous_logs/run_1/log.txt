@@ -1,0 +1,54 @@
+Iteration Number: 1
+Exit Code: Rejected [10]
+Output Messages: Unknown character
+Action Sequence: SWE
+Map File Name: map_1.txt
+Map File Type: .txt [Unformatted Text Document (Text file) as Text file]
+Map File Custom Attribute:  
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_1.txt
+
+Iteration Number: 2
+Exit Code: Rejected [10]
+Output Messages: Unknown character
+Action Sequence: SWE
+Map File Name: map_2.txt
+Map File Type: .txt [Unformatted Text Document (Text file) as Text file]
+Map File Custom Attribute:  
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_2.txt
+
+Iteration Number: 3
+Exit Code: Rejected [10]
+Output Messages: Unknown character
+Action Sequence: SWE
+Map File Name: map_3.txt
+Map File Type: .txt [Unformatted Text Document (Text file) as Text file]
+Map File Custom Attribute:  
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_3.txt
+
+Iteration Number: 4
+Exit Code: Rejected [10]
+Output Messages: Unknown character
+Action Sequence: SWE
+Map File Name: map_4.txt
+Map File Type: .txt [Unformatted Text Document (Text file) as Text file]
+Map File Custom Attribute:  
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_4.txt
+
+Iteration Number: 5
+Exit Code: Rejected [10]
+Output Messages: Unknown character
+Action Sequence: SWE
+Map File Name: map_5.txt
+Map File Type: .txt [Unformatted Text Document (Text file) as Text file]
+Map File Custom Attribute:  
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_5.txt
+
+SUMMARY
+Fuzz Attempt Number: 1
+Date and Time: 20-06-2023 18:27
+Execution Time: 00:01
+Total Number of Iterations: 5
+Exit Code 0 Count: 0 occurrences
+Exit Code 1 Count: 0 occurrences
+Exit Code 10 Count: 5 occurrences
+Exit Code -1 Count: 0 occurrences

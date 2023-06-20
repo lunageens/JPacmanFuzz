@@ -14,8 +14,7 @@
 <body>
 <div class="container is-fluid" id="main-container">
     <!-- Converted README.md with Notepath ++ Plugin MarkdownViewer ++ -->
-    <!-- TODO fix image white rand -->
-    <!-- TODO Verander icoontjes cards -->
+
 
     <!-- Section above with breadcrumbs, header and search bar -->
     <div class="hero has-background-white mb-0">
@@ -23,12 +22,12 @@
             <div class="level mb-0">
                 <div class="level-left">
                     <div class="level-item">
-                        <fig class="figure">
-                            <fig class="figure-img">
-                                <img width="100" height="100"
-                                     src="https://img.icons8.com/bubbles/100/000000/pacman--v1.png" alt="pacman--v1"/>
-                            </fig>
-                        </fig>
+                        <div class="image">
+
+                            <img width="100" height="100"
+                                 src="https://img.icons8.com/bubbles/100/000000/pacman--v1.png" alt="pacman--v1"/>
+
+                        </div>
                     </div>
                     <div class="level-item mt-0">
                         <!-- BreadCrumbs -->
@@ -52,8 +51,8 @@
                                             <span>Home</span>
                                         </a>
                                     </li>
-                                    <li>
-                                        <a href="aboutTheFuzzer.html">
+                                    <li class="is-active">
+                                        <a class="has-text-weight-bold" href="aboutTheFuzzer.html">
         <span class="icon is-small">
           <i aria-hidden="true" class="fa-solid fa-quote-left"></i>
         </span>
@@ -77,7 +76,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="https://github.com">
+                                        <a href="https://github.com/lunageens/JPacmanFuzz">
                                 <span class="icon is-small">
                                     <i aria-hidden="true" class="fa-brands fa-github"></i>
                                 </span>
@@ -138,9 +137,11 @@
                             </div>
                         </div>
                         <div class="card-content">
+
                             <li>Java Development Kit (JDK) 8 or above</li>
                             <li>JPacman application (version 3.0.1 or compatible)</li>
                             <li>Configuration file (see "Configuration" section for details)</li>
+
                         </div>
                     </div>
                 </div>
@@ -230,7 +231,21 @@
             </div>
 
             <div class="tile">
-                <div class="tile is-parent">
+                <div class="tile is-parent is-4">
+                    <div class="tile is child card is-centered">
+                        <div class="columns is-vcentered">
+                            <div class="column is-12">
+                                <div class="card-image">
+                                    <figure class="image">
+                                        <img src="/dist/img/About_Coding.svg" alt="Illustration of a smartphone with coding elements on the interface."
+                                             width="619" height="633">
+                                    </figure>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tile is-parent is-8">
                     <div class="tile is-child card" id="configuration">
                         <div class="card-header">
                             <div class="card-header-icon">
@@ -375,15 +390,7 @@
                     </div>
                 </div>
 
-                <div class="tile is-parent">
-                    <div class="tile is child card is-centered">
-                        <div class="card-image">
-                            <figure class="image">
-                                <img src="/dist/img/Pacman_wall.jpg"  </img>
-                            </figure>
-                        </div>
-                    </div>
-                </div>
+
                 </div>
 
                 <div class="tile">
@@ -406,15 +413,17 @@
                                         exit code, and output
                                         messages.
                                     </li>
-                                    <li>Summary reports: Reports summarizing the results of the fuzzing process,
-                                        including
-                                        statistics, error
-                                        codes, and output messages.
-                                    </li>
-                                    <li>Map files: Generated map files stored in the designated directory.</li>
-                                    <li>Javadoc: Published on Netifly as well, on the following <a
-                                            href="https://jpacmanfuzzsite.netlify.app/">link</a>.
-                                    </li>
+                                <li>Summary reports: Reports summarizing the results of the fuzzing process,
+                                    including
+                                    statistics, error
+                                    codes, and output messages.
+                                </li>
+                                <li>Map files: Generated map files stored in the designated directory.</li>
+                                <li>Javadoc: Published on Netifly as well, on the following <a
+                                        href="https://jpacmanfuzzsite.netlify.app/">link</a>.
+                                </li>
+                                <br>
+                                <p>Of course, the current website is also adjusted to the fuzzresults of each run.</p>
 
                             </div>
                         </div>
@@ -432,12 +441,30 @@
                                 </div>
                             </div>
                             <div class="card-content">
-                                <p>The Fuzzer was developed by Luna Geens as a project for the Software Testing course of the
-                                   University of
-                                   Antwerp.
-                                   We would like to express our gratitude to the creators of JPacman for providing an excellent
-                                   application to
-                                   test and fuzz.</p>
+                                <div class="tile is-ancestor">
+                                    <div class="tile is-parent">
+                                        <div class="tile is-child">
+                                            <div class="image is-16by9">
+                                                <img src="/dist/img/Acknowledgements.svg" alt="Illustration about a figure sending hearts trough a smartphone. ">
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="tile is-parent">
+                                        <div class="tile is-child">
+                                            <p>The Fuzzer was developed by Luna Geens as a project for the Software
+                                               Testing course of the
+                                               University of
+                                               Antwerp. We would love to thank the professor and his assistants for this
+                                               learning opportunity.
+                                               We would like to express our gratitude to the creators of JPacman for
+                                               providing an excellent
+                                               application to
+                                               test and fuzz.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
 
                         </div>

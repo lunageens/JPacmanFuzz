@@ -1,10 +1,9 @@
 import dataProviders.ConfigFileReader;
-import dataProviders.DirectorySearch;
+import organizers.DirectoryHandler;
 import managers.FileReaderManager;
-import outputProviders.FileHandler;
+import organizers.FileHandler;
 import outputProviders.IterationResult;
 import outputProviders.LogFileHandler;
-import outputProviders.MapFileHandler;
 import randomGenerators.RandomActionSequenceGenerator;
 import randomGenerators.map.MapGenerator;
 import randomGenerators.map.RandomBinaryMapGenerator;
@@ -15,7 +14,22 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+// TODO Add website templates and alter generator classes accordingly.
+// TODO Functionality and website documentation fuzz 5 action sequence strings.
+// TODO Functionality and website documentation fuzz 6 mutation fuzzing.
+// TODO Fuzzing with external program?
+// TODO Push site to netifly, alter markdown read me.
+// TODO Update Pseudocode from what I have in website.
+// TODO Generate final javadoc. Check that everything is documented.
+// TODO How to push dist to Git? Problems with fileEncrypted?
+// TODO Should I write manual on building site? Maybe few sentences in README?
+// TODO Links to directories in HTML should work? Check all links!
+// TODO Overview page of html report -> full history by error count? we can use it as well for progress bars.
 
 /**
  * The Fuzzer class is the main class that runs the fuzzing process.
@@ -40,126 +54,93 @@ public class Fuzzer {
      */
     private static final long TIME_BUDGET_MS = configFileReader.getMaxTime();
 
-
     /**
-
-     The main entry point of the fuzzing process.
-
-     @param args The command-line arguments.
+     * The main entry point of the fuzzing process.
+     *
+     * @param args The command-line arguments.
      */
     public static void main(String[] args) {
         long startTime = System.currentTimeMillis();
         long elapsedTime = 0;
 
-        // In case of random maps or sequences, we need a new file and sequence generator
+        /* In case of random maps or sequences, we need a new file and sequence generator */
         RandomActionSequenceGenerator randomActionSequenceGenerator = new RandomActionSequenceGenerator();
         MapGenerator mapGenerator = new RandomMapGenerator();
 
-        // New file handlers
-        // Create the needed directories and clean them up if that is needed
+        /* New file handlers for the maps and logs, organizing result directory */
+         // Create the needed directories and clean them up if that is needed
         FileHandler fileHandler = new FileHandler();
-        fileHandler.initializeDirectories();
+        fileHandler.initializeDirectories(); // Reads count as well
         LogFileHandler logFileHandler = new LogFileHandler();
-        MapFileHandler mapFileHandler = new MapFileHandler();
 
+        /* Initialization result variables */
         // Store results of the process ran
         List<IterationResult> iterationResults = new ArrayList<>();
         Map<Integer, List<IterationResult>> iterationResultsByErrorCode = new HashMap<>();
         Map<String, List<IterationResult>> iterationResultsByOutputMessage = new HashMap<>();
 
-        // In case of custom maps or sequences
-        // Add your custom map file paths to this list
-        // If 0 or not implemented, nothing is added
+        /* Get the maps and output messages first from the custom and then if additional random is needed*/
+        // In case of custom maps or sequence, Add your custom map file paths to this list
+        // If 0 or not implemented, nothing is added.
         // Do this last -> otherwise not correct directories and handlers
         List<String> customMaps = getCustomMaps(configFileReader.getCustomMapsNr());
         List<String> customMapsAttributes = getCustomAttributesLog(configFileReader.getCustomMapsNr());
         List<String> customSequences = getCustomSequences(configFileReader.getCustomSequenceNr());
-
-        // How many times does a random file and sequence has to be created?
-        for (int i = 0; i < MAX_ITERATIONS; i++) {
-
-            // Use custom sequences and maps
-            // If no more, generate randomly with configs file type
+        for (int i = 0; i < MAX_ITERATIONS; i++) {    // How many times does a random file and sequence has to be created?
+            // Use custom sequences and maps.
             String mapFilePath;
             String actionSequence;
-            if (customMaps.isEmpty()) {mapFilePath = mapGenerator.generateRandomMap();} // generate randomly
+            if (customMaps.isEmpty()) {mapFilePath = mapGenerator.generateRandomMap();} // If no more, generate randomly with configs file type
             else {mapFilePath = customMaps.remove(0);} // Use custom map file
             if (!customSequences.isEmpty()){actionSequence = customSequences.remove(0);}
             else {actionSequence = randomActionSequenceGenerator.generateRandomActionSequence();}
 
-            // Try to execute pacman and retrieve exitcode and other results. Alter count of the correct exitcode.
-            // If wrong exit code, save file.
+            /* Try to execute pacman and retrieve exitcode and other results. Alter count of the correct exitcode.*/
             try {
                 // Retrieve output data process
                 Process process = executeJPacman(mapFilePath, actionSequence);
                 int exitCode = process.waitFor();
-                if ((exitCode != 0) && (exitCode != 1) && (exitCode != 10)) {
-                    exitCode = -1;
-                } // If unknown, -1
-
                 String outputMessages = readOutputMessages(process);
-                if (outputMessages.isEmpty()){outputMessages = "None;";}
-
-                String customAttribute = "N.A.";
+                String customAttribute = "";
                 if (!customMapsAttributes.isEmpty()){customAttribute = customMapsAttributes.remove(0);}
-
                 // Store output data process in iteration results list
-                IterationResult iterationResult = new IterationResult(i + 1, mapFilePath, actionSequence, exitCode, outputMessages, customAttribute);
+                IterationResult iterationResult = new IterationResult(i + 1, mapFilePath, actionSequence,
+                        exitCode, outputMessages, customAttribute);
                 iterationResults.add(iterationResult);
-
                 // Update iteration results by error code
-                List<IterationResult> errorCodeResults = iterationResultsByErrorCode.getOrDefault(exitCode, new ArrayList<>());
+                List<IterationResult> errorCodeResults = iterationResultsByErrorCode.getOrDefault(iterationResult.getErrorCode(), new ArrayList<>());
                 errorCodeResults.add(iterationResult);
-                iterationResultsByErrorCode.put(exitCode, errorCodeResults);
-
+                iterationResultsByErrorCode.put(iterationResult.getErrorCode(), errorCodeResults);
                 // Update iteration results by message output
-                List<IterationResult> outputMessageResults = iterationResultsByOutputMessage.getOrDefault(outputMessages, new ArrayList<>());
+                List<IterationResult> outputMessageResults = iterationResultsByOutputMessage.getOrDefault(iterationResult.getOutputMessages(), new ArrayList<>());
                 outputMessageResults.add(iterationResult);
-                iterationResultsByOutputMessage.put(outputMessages, outputMessageResults);
+                iterationResultsByOutputMessage.put(iterationResult.getOutputMessages(), outputMessageResults);
 
-                // Clean up when process ran without problems -> use delelete for exit code 0
-                // Move map to correct permanent directory if needed
-                mapFileHandler.moveMapFileToErrorDirectory(mapFilePath, exitCode);
-
+                // Move map to correct permanent directory if needed.
+                // Do not use get path method cuz already changed
+                DirectoryHandler.moveMapFileToErrorDirectory(mapFilePath, iterationResult.getErrorCode());
             } catch (IOException |
                      InterruptedException e) {
                 System.out.println("Exception during process building.");
                 e.printStackTrace();
             }
-
-            // Check if time budget has been exhausted
+            /* Check if time budget has been exhausted */
             long endTime = System.currentTimeMillis();
             elapsedTime = endTime - startTime;
             if (elapsedTime >= TIME_BUDGET_MS) {
                 System.out.println("Time limit reached.");
                 break;
             }
-
         }
-
-        // Write the text logfile.
-        logFileHandler.writeIterationResults(iterationResults);
-        logFileHandler.writeSummary(iterationResults);
-        logFileHandler.close();
-
-        // Write the CSV logfile.
-        logFileHandler.generateLogCSVFile(iterationResults);
-
-        // Write the CSV overview logfile.
-        logFileHandler.generateLogOverview(iterationResultsByErrorCode, iterationResultsByOutputMessage);
-
+        /* Generate logs and clean up directories if needed*/
+       logFileHandler.generateActualLogs(iterationResults, iterationResultsByErrorCode, iterationResultsByOutputMessage, elapsedTime);
         if (FileHandler.cleanDirectories) {
-            fileHandler.cleanDirectory(FileHandler.previousLogsDirectoryPath);
-            fileHandler.cleanDirectory(FileHandler.previousMapsDirectoryPath);
+            DirectoryHandler.cleanDirectory(FileHandler.previousLogsDirectoryPath);
+            DirectoryHandler.cleanDirectory(FileHandler.previousMapsDirectoryPath);
         }
-
         if (FileHandler.logHistory) {
-            logFileHandler.generateLogHistory(iterationResultsByErrorCode, elapsedTime);
-            logFileHandler.generateLogErrorHistory(iterationResultsByOutputMessage);
-            logFileHandler.generateFullLogHistory(iterationResults);
-            logFileHandler.generateFullLogHistoryHTMLReport();
+            logFileHandler.generateOverviewLogs(iterationResults, iterationResultsByErrorCode, iterationResultsByOutputMessage, elapsedTime);
         }
-
     }
 
 
@@ -197,56 +178,87 @@ public class Fuzzer {
 
     /**
      * Based on the custom number in the configuration, get the filepath of the custom maps here.
-     * Case 1: Write a text map with one line. The line of the maps are specified in the custom attributes with the same number.
-     * Case 2: Write a binary map with one line. The line of the maps are specified in the custom attributes with the same number than text and are encoded.
-     * Case 3: Try out different file types. The files can be found in the fuzz3_filetypes/custom_maps_inputCopy directory.
-     * Case 4: Write text files with only valid characters in it (P, M, 0, W, F). The files can be of all forms and the valid characters can occur 0, 1 or more in the file.
-     * Case 5: Write text files with only valid characters in it (P, M, O, W, F). The map is squared and the player can only occur once.
-     * @param customNr The number specified in the configuration file.
+     * <ul>
+     *     <li>Case 1: Write a text map with one line. The line of the maps are specified in the custom attributes with the same number.</li>
+     *     <li>Case 2: Write a binary map with one line. The line of the maps are specified in the custom attributes with the same number
+     *     as the map file text and are encoded.</li>
+     *     <li>Case 3: Try out different file types. The files can be found in the fuzz3_filetypes/custom_maps_inputCopy directory.</li>
+     *     <li>Case 4: Write text files with only valid characters in it (P, M, 0, W, F). The files can be of all forms and the valid
+     *     characters can occur 0, 1 or more in the file.</li>
+     *     <li>Case 5: Write text files with only valid characters in it (P, M, O, W, F). The map is squared.</li>
+     *     <li>Case 6: Read text files with only valid characters in it (P, M, O, W, F). These are corner cases for file content and form.
+     *     The files can be found in fuzz4_validCharacterMaps/custom_maps.
+     *     </li>
+     *     <li>Case 7: Write text files with only valid characters in it (P, M, O, W, F). The map is squared.</li>
+     *     The map holds exactly one player. The map holds at least one food. The map does not contain one or more empty lines.
+     *     These maps should all be accepted.</li>
+     * </ul>
+     *
+     * @param customNr
+     *         The number specified in the configuration file.
+     *
      * @return List of Strings that are the file paths of the custom maps.
      */
-    private static List<String> getCustomMaps(int customNr){
+    private static List<String> getCustomMaps(int customNr) {
         List<String> customMaps = new ArrayList<>();
-        switch(customNr) {
-            case 1: { // Write text file with this
-                RandomTextMapGenerator randomTextMapGenerator = new RandomTextMapGenerator(FileReaderManager.getInstance().getConfigReader().getMaxTextMapHeight(), FileReaderManager.getInstance().getConfigReader().getMaxTextMapWidth());
+        switch (customNr) {
+            case 1 -> { // Write text file with some specified one line of the map.
+                RandomTextMapGenerator randomTextMapGenerator = new RandomTextMapGenerator(
+                        FileReaderManager.getInstance().getConfigReader().getMaxTextMapHeight(),
+                        FileReaderManager.getInstance().getConfigReader().getMaxTextMapWidth());
                 List<String> customMapsAttributes = getCustomAttributesLog(customNr);
-                for (String mapLine : customMapsAttributes){
-                    customMaps.add(randomTextMapGenerator.generateCustomTextMap(mapLine));
+                for (String mapLine : customMapsAttributes) {
+                    customMaps.add(randomTextMapGenerator.generateCustomTextMapOneLine(mapLine));
                 }
-                break;
-            } case 2: { // Try to get valid binary file with encoding binary files.
-                RandomBinaryMapGenerator randomBinaryMapGenerator = new RandomBinaryMapGenerator(FileReaderManager.getInstance().getConfigReader().getMaxBinaryMapSize());
+            }
+            case 2 -> { // Try to get valid binary file with encoding binary files.
+                RandomBinaryMapGenerator randomBinaryMapGenerator = new RandomBinaryMapGenerator(
+                        FileReaderManager.getInstance().getConfigReader().getMaxBinaryMapSize());
                 List<String> customMapsAttributes = getCustomAttributesLog(customNr);
-                for (String encodedFile : customMapsAttributes){
+                for (String encodedFile : customMapsAttributes) {
                     customMaps.add(randomBinaryMapGenerator.generateCustomEncodedMap(encodedFile));
                 }
-                break;
-            } case 3: { // Try different (in)valid file type
-                DirectorySearch searcher = new DirectorySearch();
-                List<String> filePaths = searcher.getFilesInDirectory("custom_maps_inputCopy");
-                for (String filePath : filePaths) { // Don't add the files that give error in Fuzzer
-                    // TODO Encrypted file? Permissions files?
-                    customMaps.add(filePath);
-                }
-                break;
-            }case 4:{ //Try valid character maps, all forms, as many as specified max in configs
-                RandomTextMapGenerator randomTextMapGenerator = new RandomTextMapGenerator(FileReaderManager.getInstance().getConfigReader().getMaxTextMapHeight(), FileReaderManager.getInstance().getConfigReader().getMaxTextMapWidth());
+            }
+            case 3 -> { // Try different (in)valid file type from custom_maps directory of fuzz 3 (.../fuzzresults_lessons/fuzz3_filetypes/custom_maps_inputCopy_3).
+                DirectoryHandler searcher = new DirectoryHandler();
+                List<String> filePaths = searcher.getFilesInDirectory("custom_maps_inputCopy_3");
+                customMaps.addAll(filePaths);
+            }
+            case 4 -> { //Try valid character maps, all forms, as many as specified max in configs
+                RandomTextMapGenerator randomTextMapGenerator = new RandomTextMapGenerator(
+                        FileReaderManager.getInstance().getConfigReader().getMaxTextMapHeight(),
+                        FileReaderManager.getInstance().getConfigReader().getMaxTextMapWidth());
                 int i;
-                for(i=0; i < MAX_ITERATIONS; i++){
+                for (i = 0; i < MAX_ITERATIONS; i++) {
                     customMaps.add(randomTextMapGenerator.generateRandomValidCharRandomSizeTextMap());
                 }
-                break;
-            } case 5: { // Try valid character maps, only squared, as many as specified max in configs
-                RandomTextMapGenerator randomTextMapGenerator = new RandomTextMapGenerator(FileReaderManager.getInstance().getConfigReader().getMaxTextMapHeight(), FileReaderManager.getInstance().getConfigReader().getMaxTextMapWidth());
+            }
+            case 5 -> { // Try valid character maps, only squared, as many as specified max in configs
+                RandomTextMapGenerator randomTextMapGenerator = new RandomTextMapGenerator(
+                        FileReaderManager.getInstance().getConfigReader().getMaxTextMapHeight(),
+                        FileReaderManager.getInstance().getConfigReader().getMaxTextMapWidth());
                 int i;
-                for(i=0; i < MAX_ITERATIONS; i++){
-                    customMaps.add(randomTextMapGenerator.generateRandomValidCharRectangularTextMap(true, true));
+                for (i = 0; i < MAX_ITERATIONS; i++) {
+                    customMaps.add(
+                            randomTextMapGenerator.generateRandomValidCharRectangularTextMap(false, false, true));
                 }
-                break;
-            } default: {
-                // Nothing to add
-                break;
+            }
+            case 6 -> { // Try valid character maps of all forms and content, using the corner cases map files of custom_maps directory of fuzz 4 (.../fuzzresults_lessons/fuzz4_validCharacterMaps/custom_maps_inputCopy_4).
+                DirectoryHandler search = new DirectoryHandler();
+                List<String> filePaths = search.getFilesInDirectory("custom_maps_inputCopy_4");
+                customMaps.addAll(filePaths);
+            }
+            case 7 -> { // Try valid character maps, only squared, as many as specified max in configs, and checked for player food and size
+                RandomTextMapGenerator randomTextMapGenerator = new RandomTextMapGenerator(
+                        FileReaderManager.getInstance().getConfigReader().getMaxTextMapHeight(),
+                        FileReaderManager.getInstance().getConfigReader().getMaxTextMapWidth());
+                int i;
+                for (i = 0; i < MAX_ITERATIONS; i++) {
+                    customMaps.add(
+                            randomTextMapGenerator.generateRandomValidCharRectangularTextMap(true, true, false));
+                }
+            }
+            default -> { // Nothing to add
             }
         }
         return customMaps;
@@ -254,10 +266,12 @@ public class Fuzzer {
 
     /**
      * Based on the configurations, give some information about the maps into the reports.
-     * Case 1: The ASCII character used to generate the one-character text file.
-     * Case 2: The String used to generate the encoded binary file (not used currently).
-     * Case 3: The description of the invalid file type.
-     * Case 4: Some one-line maps with corner cases of the valid characters and their occurrence in the  map.
+     * <ul>
+     *     <li>Case 1: The ASCII character used to generate the one-character text file.</li>
+     *     <li>Case 2: The encoded binary file (not used currently).</li>
+     *     <li>Case 3: The description of the invalid file type.</li>
+     *     <li>Case 4: Some one-line maps with corner cases of the valid characters and their occurrence in the  map.</li>
+     *</ul>
      * @param customMapsAttributeNr The configuration that u want. Loosely based on customMapsNr in configuration, but not used everytime.
      * @return List of strings that are the information attached to the custom map.
      */
@@ -270,7 +284,7 @@ public class Fuzzer {
                         String asciiCharacter = "\""; // ASCII Character " is programmed with \"
                         customMapsAttributes.add(asciiCharacter);
                     } else if (i == 39) {
-                        String asciiCharacter = "\'"; // ASCII Character ' is programmed with "\'";
+                        String asciiCharacter = "'"; // ASCII Character ' is programmed with "\'";
                         customMapsAttributes.add(asciiCharacter);
                     } else if (i == 92) {
                         String asciiCharacter = "\\"; // ASCII Character \ is programmed with "\\";
@@ -289,22 +303,22 @@ public class Fuzzer {
                 customMapsAttributes.add("0PM");
                 customMapsAttributes.add("OPMW");
             } case 3: { // Try different (in)valid file types, see information in name.
-                DirectorySearch searcher = new DirectorySearch();
+                DirectoryHandler searcher = new DirectoryHandler();
                 List<String> filePaths = searcher.getFilesInDirectory("custom_maps_inputCopy");
                for (String filePath : filePaths){
                       File file = new File(filePath);
-                      String fileName = file.getName();
-                      customMapsAttributes.add(fileName);
-                  }
+                   String fileName = file.getName();
+                   customMapsAttributes.add(fileName);
+               }
                 break;
-            } case 4: { // Try to see who is more important - player, monster, food, ...
+            }
+            case 4: { // Try to see who is more important - player, monster, food, ...
                 customMapsAttributes.add("MW");
                 customMapsAttributes.add("MWP");
                 customMapsAttributes.add("OPF");
                 customMapsAttributes.add("OPE");
             }
-            default: {
-                // Nothing to add
+            default: { // Nothing to add
                 break;
             }
         }
@@ -313,7 +327,11 @@ public class Fuzzer {
 
     /**
      * Based on the configuration, get some custom action sequences.
-     * Case 1: For all files made, add a valid custom action sequence (SWE Start - Wait - Exit)
+     * <ul>
+     *     <li>Case 1: For all files made, add a valid custom action sequence (SWE Start - Wait - Exit)</li>
+     *     <li>Case 2: For all files made, add a random valid custom action sequence (with a valid length)</li>
+     * </ul>
+     *
      * @param customNr The number specified in the configuration file.
      * @return List of strings that are the custom action sequences.
      */
@@ -330,7 +348,7 @@ public class Fuzzer {
                 RandomActionSequenceGenerator randomActionSequenceGenerator = new RandomActionSequenceGenerator();
                 int i;
                 for(i=0; i < MAX_ITERATIONS; i++){
-                    customSequences.add(randomActionSequenceGenerator.generateRandomActionSequenceValidCharRandomLength(FileReaderManager.getInstance().getConfigReader().getMaxActionSequenceLength()));
+                    customSequences.add(randomActionSequenceGenerator.generateRandomActionSequenceValidCharRandomLength());
                 }
             }
             default: {

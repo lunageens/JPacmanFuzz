@@ -1,6 +1,5 @@
 package randomGenerators.map;
 
-import enums.MapFileType;
 
 /**
  * This abstract class serves as the base class for map generators.

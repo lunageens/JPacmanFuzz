@@ -2,6 +2,7 @@ target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
+!**/dist/
 
 ### IntelliJ IDEA ###
 .idea/modules.xml
@@ -24,8 +25,6 @@ target/
 ### NetBeans ###
 /nbproject/private/
 /nbbuild/
-/dist/
-/nbdist/
 /.nb-gradle/
 build/
 !**/src/main/**/build/
@@ -38,4 +37,6 @@ build/
 .DS_Store
 /fuzzresults_lessons/fuzz3_filetypes/custom_maps/FilePermission_None_sample.map
 /fuzzresults_lessons/fuzz3_filetypes/custom_maps/FileEncryption.txt
+/fuzzresults_lessons/fuzz3_filetypes/custom_maps/FileCorruption_Encoded.txt
+/fuzzresults_lessons/fuzz3_filetypes/custom_maps/FileSize_Massive.txt
 /node_modules/

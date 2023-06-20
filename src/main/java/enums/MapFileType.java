@@ -10,7 +10,7 @@ package enums;
 public enum MapFileType {
 
     /**
-     * Represents a text-based map file.
+     * Represents an unformatted text-based map file.
      */
     TEXT,
 

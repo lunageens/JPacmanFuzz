@@ -32,7 +32,7 @@ import java.util.Random;
 public class RandomActionSequenceGenerator {
 
     // TODO Variate in length
-    //TODO Special characters
+    // TODO Special characters
 
     /**
      * The ConfigFileReader instance used for reading configuration properties.
@@ -53,83 +53,51 @@ public class RandomActionSequenceGenerator {
     }
 
     /**
-     * Generates a random action sequence string based on predefined actions.
+     * Generates a random action sequence string based on predefined actions,
+     * with the length of the action sequence is determined by the configuration file.
      * @return The generated random action sequence string.
      */
     public String generateRandomActionSequence() {
         StringBuilder actionSequenceBuilder = new StringBuilder();
-        Random random = new Random();
-
         // Generate a random action sequence
-        for (int i = 0; i < 5; i++) {
-            int rand = random.nextInt(8);
-            switch (rand) {
-                case 0:
-                    actionSequenceBuilder.append('E'); // Exit
-                    break;
-                case 1:
-                    actionSequenceBuilder.append('Q'); // Quit
-                    break;
-                case 2:
-                    actionSequenceBuilder.append('S'); // Start
-                    break;
-                case 3:
-                    actionSequenceBuilder.append('W'); // Sleep
-                    break;
-                case 4:
-                    actionSequenceBuilder.append('U'); // Up
-                    break;
-                case 5:
-                    actionSequenceBuilder.append('L'); // Left
-                    break;
-                case 6:
-                    actionSequenceBuilder.append('D'); // Down
-                    break;
-                case 7:
-                    actionSequenceBuilder.append('R'); // Right
-                    break;
-            }
+        for (int i = 0; i < maxLength + 1; i++) {
+            addRandomValidAction(actionSequenceBuilder);
         }
-        String actionSequence = actionSequenceBuilder.toString();
-        return actionSequence;
+        return actionSequenceBuilder.toString();
     }
 
-    public String generateRandomActionSequenceValidCharRandomLength(int maxLength){
+    /**
+     * Add random valid character to the action sequence string builder.
+     * @param actionSequenceBuilder The action sequence string builder.
+     */
+    private void addRandomValidAction(StringBuilder actionSequenceBuilder) {
+        Random rand = new Random();
+        int rand_randomInt =  rand.nextInt(8);
+        switch (rand_randomInt) {
+            case 0 -> actionSequenceBuilder.append('E'); // Exit
+            case 1 -> actionSequenceBuilder.append('Q'); // Quit
+            case 2 -> actionSequenceBuilder.append('S'); // Start
+            case 3 -> actionSequenceBuilder.append('W'); // Sleep
+            case 4 -> actionSequenceBuilder.append('U'); // Up
+            case 5 -> actionSequenceBuilder.append('L'); // Left
+            case 6 -> actionSequenceBuilder.append('D'); // Down
+            case 7 -> actionSequenceBuilder.append('R'); // Right
+        }
+    }
+
+    /**
+     * Generates a random action sequence string based on predefined actions.
+     * The length of the action sequence is randomly, but the maximum is determined by the maxLength parameter.
+     * @return The generated random action sequence string.
+     */
+    public String generateRandomActionSequenceValidCharRandomLength(){
         StringBuilder actionSequenceBuilder = new StringBuilder();
         Random random = new Random();
-
-        // Generate a random action sequence
+        // Generate a random length for the action sequence
         int length = random.nextInt(FileReaderManager.getInstance().getConfigReader().getMaxActionSequenceLength() + 1);
         for (int i = 0; i < length; i++) {
-            int rand = random.nextInt(8);
-            switch (rand) {
-                case 0:
-                    actionSequenceBuilder.append('E'); // Exit
-                    break;
-                case 1:
-                    actionSequenceBuilder.append('Q'); // Quit
-                    break;
-                case 2:
-                    actionSequenceBuilder.append('S'); // Start
-                    break;
-                case 3:
-                    actionSequenceBuilder.append('W'); // Sleep
-                    break;
-                case 4:
-                    actionSequenceBuilder.append('U'); // Up
-                    break;
-                case 5:
-                    actionSequenceBuilder.append('L'); // Left
-                    break;
-                case 6:
-                    actionSequenceBuilder.append('D'); // Down
-                    break;
-                case 7:
-                    actionSequenceBuilder.append('R'); // Right
-                    break;
-            }
+            addRandomValidAction(actionSequenceBuilder);
         }
-        String actionSequence = actionSequenceBuilder.toString();
-        return actionSequence;
+        return actionSequenceBuilder.toString();
     }
 }

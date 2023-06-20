@@ -2,6 +2,10 @@ unnamed package
 dataProviders
 enums
 managers
+organizers
 outputProviders
+outputProviders.logGenerator
+outputProviders.logGenerator.pages
+outputProviders.logInputter
 randomGenerators
 randomGenerators.map

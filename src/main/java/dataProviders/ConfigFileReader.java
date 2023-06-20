@@ -2,10 +2,7 @@ package dataProviders;
 
 import enums.MapFileType;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.Objects;
 import java.util.Properties;
 
@@ -103,6 +100,10 @@ public class ConfigFileReader {
         return name + ".txt";
     }
 
+    /**
+     * Retrieves the name of the CSV log file specified in the configuration file. Same as text, but different extension.
+     * @return The name of the CSV log file.
+     */
     public String getLogCSVFileName() {
         String name = properties.getProperty("logFileName");
         if (name == null || name.isEmpty()) {
@@ -122,7 +123,7 @@ public class ConfigFileReader {
         // Get current working directory
         String resultRoot = getResultingDirectoryPath();
 
-        // Get path in configuration file, direcorty name logs?
+        // Get path in configuration file, directory name logs?
         String logFilePathProject = properties.getProperty("logFilePath");
         if (logFilePathProject == null || logFilePathProject.isEmpty()) {
             logFilePathProject = DEFAULT_LOG_DIRECTORY;
@@ -141,7 +142,7 @@ public class ConfigFileReader {
         // Get current results directory
         String resultRoot = getResultingDirectoryPath();
 
-        // Get path in configuration file, direcoty name maps?
+        // Get path in configuration file, directory name maps?
         String mapFilePathProject = properties.getProperty("mapFilePath");
         if (mapFilePathProject == null || mapFilePathProject.isEmpty()) {
             mapFilePathProject = DEFAULT_MAP_DIRECTORY;
@@ -238,7 +239,7 @@ public class ConfigFileReader {
      */
     public boolean getCleanDirectories() {
         String cleanDir = properties.getProperty("cleanDirectories");
-        if (cleanDir != null) return Boolean.valueOf(cleanDir);
+        if (cleanDir != null) return Boolean.parseBoolean(cleanDir);
         return false;
     }
 
@@ -250,21 +251,50 @@ public class ConfigFileReader {
      */
     public boolean getLogHistory() {
         String logHistory = properties.getProperty("logHistory");
-        if (logHistory != null) return Boolean.valueOf(logHistory);
+        if (logHistory != null) return Boolean.parseBoolean(logHistory);
         return true;
     }
 
+    /**
+     * Retrieves the number indicating the custom maps type we should generate in this run.
+     * If the custom maps type property is not found or cannot be parsed as an integer, it returns 0.
+     *
+     * @return Custom maps type.
+     */
     public int getCustomMapsNr(){
         String customMapsNr = properties.getProperty("customMapsNr", "0");
         return Integer.parseInt(customMapsNr);
     }
 
-    public int getCustomSequenceNr(){
+    /**
+     * Retrieves the number indicating the custom sequences type we should generate in this run.
+     * If the custom sequences type property is not found or cannot be parsed as an integer, it returns 0.
+     * @return Custom sequences type.
+     */
+    public int getCustomSequenceNr() {
         String customSeqNr = properties.getProperty("customSequenceNr", "0");
         return Integer.parseInt(customSeqNr);
     }
 
 
+    /**
+     * Write a configs.js  file in the configs directory with the basePath variable set to the current project directory.
+     * This file is used by the fuzzer to write the HTML reports with the correct base path.
+     */
+    public void writeConfigFile() {
+        String directory = "configs";
+        String basePath = System.getProperty("user.dir");
+
+        String configContent = "var basePath = \"" + basePath + "\";"; // Result configContent: var basePath = "C:/ST/JPacmanFuzz";
+        String filePath = directory + "/config.js"; // Result filePath: /configs/config.js
+
+        try (PrintWriter writer = new PrintWriter(new FileWriter(filePath))) {
+            writer.println(configContent);
+        } catch (IOException e) {
+            System.err.println("Error writing config file: " + e.getMessage());
+        }
+    }
 }
+
 
 

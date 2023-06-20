@@ -1,84 +1,54 @@
-Iteration: 1
-Map File Type: TXT
-Map File Path: C:\ST\JPacmanFuzz\fuzzresults\maps\actual_maps\exitcode10_rejected\map_1.txt
-Map File custom attribute: MW
-String Sequence: SWE
-Error Code: 10
-Output Messages: More than one player
+Iteration Number: 1
+Exit Code: Rejected [10]
+Output Messages: Unknown character
+Action Sequence: SWE
+Map File Name: map_1.txt
+Map File Type: .txt [Unformatted Text Document (Text file) as Text file]
+Map File Custom Attribute:  
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_1.txt
 
-Iteration: 2
-Map File Type: TXT
-Map File Path: C:\ST\JPacmanFuzz\fuzzresults\maps\actual_maps\exitcode10_rejected\map_2.txt
-Map File custom attribute: MWP
-String Sequence: SWE
-Error Code: 10
-Output Messages: More than one player
+Iteration Number: 2
+Exit Code: Rejected [10]
+Output Messages: Unknown character
+Action Sequence: SWE
+Map File Name: map_2.txt
+Map File Type: .txt [Unformatted Text Document (Text file) as Text file]
+Map File Custom Attribute:  
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_2.txt
 
-Iteration: 3
-Map File Type: TXT
-Map File Path: C:\ST\JPacmanFuzz\fuzzresults\maps\actual_maps\exitcode10_rejected\map_3.txt
-Map File custom attribute: OPF
-String Sequence: SWE
-Error Code: 10
-Output Messages: More than one player
+Iteration Number: 3
+Exit Code: Rejected [10]
+Output Messages: Unknown character
+Action Sequence: SWE
+Map File Name: map_3.txt
+Map File Type: .txt [Unformatted Text Document (Text file) as Text file]
+Map File Custom Attribute:  
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_3.txt
 
-Iteration: 4
-Map File Type: TXT
-Map File Path: C:\ST\JPacmanFuzz\fuzzresults\maps\actual_maps\exitcode10_rejected\map_4.txt
-Map File custom attribute: OPE
-String Sequence: SWE
-Error Code: 10
-Output Messages: Widths mismatch
+Iteration Number: 4
+Exit Code: Rejected [10]
+Output Messages: Unknown character
+Action Sequence: SWE
+Map File Name: map_4.txt
+Map File Type: .txt [Unformatted Text Document (Text file) as Text file]
+Map File Custom Attribute:  
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_4.txt
 
-Iteration: 5
-Map File Type: TXT
-Map File Path: C:\ST\JPacmanFuzz\fuzzresults\maps\actual_maps\exitcode10_rejected\map_5.txt
-Map File custom attribute: N.A.
-String Sequence: SWE
-Error Code: 10
-Output Messages: More than one player
-
-Iteration: 6
-Map File Type: TXT
-Map File Path: C:\ST\JPacmanFuzz\fuzzresults\maps\actual_maps\exitcode10_rejected\map_6.txt
-Map File custom attribute: N.A.
-String Sequence: SWE
-Error Code: 10
-Output Messages: More than one player
-
-Iteration: 7
-Map File Type: TXT
-Map File Path: C:\ST\JPacmanFuzz\fuzzresults\maps\actual_maps\exitcode10_rejected\map_7.txt
-Map File custom attribute: N.A.
-String Sequence: SWE
-Error Code: 10
-Output Messages: More than one player
-
-Iteration: 8
-Map File Type: TXT
-Map File Path: C:\ST\JPacmanFuzz\fuzzresults\maps\actual_maps\exitcode10_rejected\map_8.txt
-Map File custom attribute: N.A.
-String Sequence: SWE
-Error Code: 10
-Output Messages: More than one player
-
-Iteration: 9
-Map File Type: TXT
-Map File Path: C:\ST\JPacmanFuzz\fuzzresults\maps\actual_maps\exitcode10_rejected\map_9.txt
-Map File custom attribute: N.A.
-String Sequence: SWE
-Error Code: 10
-Output Messages: More than one player
-
-Iteration: 10
-Map File Type: TXT
-Map File Path: C:\ST\JPacmanFuzz\fuzzresults\maps\actual_maps\exitcode10_rejected\map_10.txt
-Map File custom attribute: N.A.
-String Sequence: SWE
-Error Code: 10
-Output Messages: More than one player
+Iteration Number: 5
+Exit Code: Rejected [10]
+Output Messages: Unknown character
+Action Sequence: SWE
+Map File Name: map_5.txt
+Map File Type: .txt [Unformatted Text Document (Text file) as Text file]
+Map File Custom Attribute:  
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_5.txt
 
 SUMMARY
-Exit Code 0: 0 occurrences
-Exit Code 10: 10 occurrences
-Exit Code Other: 0 occurrences
+Fuzz Attempt Number: 2
+Date and Time: 20-06-2023 18:27
+Execution Time: 00:01
+Total Number of Iterations: 5
+Exit Code 0 Count: 0 occurrences
+Exit Code 1 Count: 0 occurrences
+Exit Code 10 Count: 5 occurrences
+Exit Code -1 Count: 0 occurrences

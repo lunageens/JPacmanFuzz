@@ -1,6 +1,6 @@
 package randomGenerators.map;
 
-import outputProviders.FileHandler;
+import organizers.FileHandler;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -13,10 +13,8 @@ import java.util.Random;
  * This class generates random text-based maps based on the RandomMapGenerator class.
  * It provides functionality to generate text-based maps with random content.
  */
+@SuppressWarnings("DuplicatedCode")
 public class RandomTextMapGenerator extends MapGenerator {
-
-    //TODO I think now always identical line width? is get method correct?
-    //TODO Special characters
 
     /**
      * Maximum height the map can have.
@@ -67,13 +65,13 @@ public class RandomTextMapGenerator extends MapGenerator {
         for (int row = 0; row < mapHeight; row++) {
             StringBuilder line = new StringBuilder();
             for (int column = 0; column < mapWidth; column++) {
-                char c = (char) (random.nextInt(26) + 'a'); // TODO Find out what this means
+                char c = (char) (random.nextInt(26) + 'a');
                 line.append(c);
             }
             lines.add(line.toString());
         }
 
-        String fileName = generateRandomMapFileName(".txt");
+        @SuppressWarnings("DuplicatedCode") String fileName = generateRandomMapFileName(".txt");
         String filePath = FileHandler.actualMapsDirectoryPath + '\\' + fileName;
 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
@@ -90,10 +88,13 @@ public class RandomTextMapGenerator extends MapGenerator {
 
     /**
      * Get a one-line text map, with the characters specified in the string.
-     * @param mapLine Only line of the text map u want to create
+     *
+     * @param mapLine
+     *         Only line of the text map u want to create
+     *
      * @return String FilePath of the created textfile.
      */
-    public String generateCustomTextMap(String mapLine) {
+    public String generateCustomTextMapOneLine(String mapLine) {
         String fileName = generateRandomMapFileName(".txt");
         String filePath = FileHandler.actualMapsDirectoryPath + '\\' + fileName;
 
@@ -126,14 +127,14 @@ public class RandomTextMapGenerator extends MapGenerator {
             StringBuilder line = new StringBuilder();
             int rowWidth = random.nextInt(maxWidth); // Random length of row each row
             for (int column = 0; column < rowWidth; column++) {
-                char c = (char) (validChar.get(random.nextInt(4))); // Pick one valid char randomly
+                char c = validChar.get(random.nextInt(4)); // Pick one valid char randomly
                 line.append(c);
             }
             lines.add(line.toString());
         }
 
         // Name the file and find the path.
-        String fileName = generateRandomMapFileName(".txt");
+        @SuppressWarnings("DuplicatedCode") String fileName = generateRandomMapFileName(".txt");
         String filePath = FileHandler.actualMapsDirectoryPath + '\\' + fileName;
 
         // Write the random content to the file.
@@ -155,82 +156,117 @@ public class RandomTextMapGenerator extends MapGenerator {
      * If justOnePlayerCheck is true, the P can only occur in the map once.
      * If foodPresentCheck is true, the F can only occur in the map one or more.
      * Else, the number of times that each valid character occurs in the map is also randomly chosen.
-     * @param justOnePlayerCheck True if the map can only have one P in it
-     * @param foodPresentCheck True if the map should have at least one F in it
+     *
+     * @param justOnePlayerCheck
+     *         True if the map can only have one P in it
+     * @param foodPresentCheck
+     *         True if the map should have at least one F in it
+     * @param sizeCheck
+     *          True if the map should have at least one row and one column
+     *
      * @return Filepath of the generated text file as string.
      */
-    public String generateRandomValidCharRectangularTextMap(boolean justOnePlayerCheck, boolean foodPresentCheck){
+    public String generateRandomValidCharRectangularTextMap(boolean justOnePlayerCheck, boolean foodPresentCheck, boolean sizeCheck) {
         List<String> lines = new ArrayList<>();
-        Random random = new Random();
+        boolean invalidMap = true; // Keep generating until map is valid.
+        while (invalidMap) {
+            lines = new ArrayList<>(); // Reset lines to empty list each time we try to make valid map.
+            Random random = new Random();
 
-        // Pick random size
-        int mapHeight = random.nextInt(maxHeight);
-        int mapWidth = random.nextInt(maxWidth);
+            /* Pick random size */
+            int mapHeight;
+            int mapWidth;
+            if (sizeCheck) { // form 1 to max
+                mapHeight = random.nextInt(maxHeight -1) + 1;
+                mapWidth = random.nextInt(maxWidth -1) + 1;
+            } else { // from 0 to max
+                mapHeight = random.nextInt(maxHeight);
+                mapWidth = random.nextInt(maxWidth);
+            }
 
-        // Intiate variables that record certain map attributes
-        boolean justOnePlayer = false;
-        boolean foodPresent = false;
-        List<Integer> availablePositions = new ArrayList<>(); // Places that can be replaced by a F or P if needed.
+            /* Initiate variables that record certain map attributes */
+            boolean justOnePlayer = false;
+            boolean foodPresent = false;
+            List<Integer> availablePositions = new ArrayList<>(); // Places that can be replaced by an F or P if needed.
 
-        // For each position in the map, pick random valid char and record changed map attributes.
-        for (int row = 0; row < mapHeight; row++) {
-            StringBuilder line = new StringBuilder();
+            /* For each position in the map, pick random valid char and record changed map attributes. */
+            for (int row = 0; row < mapHeight; row++) {
+                StringBuilder line = new StringBuilder();
 
-            for (int column = 0; column < mapWidth; column++) {
-                char c = '-';
-                boolean validCharChoosen = false;
+                for (int column = 0; column < mapWidth; column++) {
+                    char c = '-';
+                    boolean validCharChosen = false;
 
-                while (!validCharChoosen) {
-                    c = (char) (validChar.get(random.nextInt(4))); // Pick one valid char randomly
-                    if (justOnePlayerCheck && c == 'P' && !justOnePlayer) { // If we need to check, only append player if there is not one yet. Record that there is a player now.
-                        line.append(c);
-                        justOnePlayer = true;
-                        validCharChoosen = true;
-                    } else if (foodPresentCheck && c == 'F') { // If we need to check, record that there is food now.
-                        foodPresent = true;
-                        validCharChoosen = true;
-                    } else if (!justOnePlayerCheck && !foodPresentCheck) { // If we don't need to check, add.
-                        line.append(c);
-                        validCharChoosen = true;
+                    while (!validCharChosen) {
+                        c = validChar.get(random.nextInt(4)); // Pick one valid char randomly
+                        if (justOnePlayerCheck && c == 'P' && !justOnePlayer) { // If we need to check, only append player if there is not one yet. Record that there is a player now.
+                            line.append(c);
+                            justOnePlayer = true;
+                            validCharChosen = true;
+                        } else if (foodPresentCheck && c == 'F') { // If we need to check, record that there is food now.
+                            foodPresent = true;
+                            validCharChosen = true;
+                        } else if (justOnePlayerCheck && justOnePlayer && c == 'P') {
+                            // do nothing
+                        } else {
+                        // If we need to check, only append player if there is not one yet.
+                            line.append(c);
+                            validCharChosen = true;
+                        }
+                    }
+
+                    if (( c != 'P') && ( c != 'F')) { // If this character is not just the only player or food
+                        availablePositions.add(row * mapWidth + column); // Record this position as available to be replaced by an F or P.
                     }
                 }
+                lines.add(line.toString());
+            }
 
-                if( (!justOnePlayer && c != 'P') || (!foodPresent && c != 'F')){ // If this character is not just the only player or food
-                    availablePositions.add(row * mapWidth + column);
+            /* Check if 'P' is missing and add it randomly (by replacing another available one) if that's the case */
+            if (justOnePlayerCheck && !justOnePlayer) {
+                if (!availablePositions.isEmpty()) { // There are available positions to fix it
+                    int randomPosition = availablePositions.get(random.nextInt(availablePositions.size()));
+                    int randomRow = randomPosition / mapWidth;
+
+                    if (randomRow < lines.size()) { // Check if the row exists in the lines list
+                        StringBuilder randomLine = new StringBuilder(lines.get(randomRow));
+                        int randomColumn = randomPosition % mapWidth;
+                        if (randomColumn < randomLine.length()) { // Check if the column is within the valid range
+                            randomLine.setCharAt(randomColumn, 'P');
+                            lines.set(randomRow, randomLine.toString());
+                            availablePositions.remove(Integer.valueOf(randomPosition)); // Remove the chosen position from available positions
+                            justOnePlayer = true; // Record that there is a player now
+                        }
+                    }
                 }
             }
-            lines.add(line.toString());
-        }
 
-        // Check if 'P' is missing and add it randomly (by replacing another available one) if that's the case
-        if (justOnePlayerCheck && !justOnePlayer) {
-            if(!availablePositions.isEmpty()){
-                int randomPosition = availablePositions.get(random.nextInt(availablePositions.size()));
-                int randomRow = randomPosition / mapWidth ;
-                StringBuilder randomLine = new StringBuilder(lines.get(randomRow));
-                int randomColumn = randomPosition % mapWidth;
-                randomLine.setCharAt(randomColumn, 'P');
-                lines.set(randomRow, randomLine.toString());
+            /* Check if 'F' is missing and add it randomly (by replacing another available one) if that's the case */
+            if (foodPresentCheck && !foodPresent) {
+                if (!availablePositions.isEmpty()) {
+                    int randomPosition = availablePositions.get(random.nextInt(availablePositions.size()));
+                    int randomRow = randomPosition / mapWidth;
+                    StringBuilder randomLine = new StringBuilder(lines.get(randomRow));
+                    int randomColumn = randomPosition % mapWidth;
+
+                    if (randomRow < lines.size()) { // Check if the row exists in the lines list
+                        if (randomColumn < randomLine.length()) { // Check if the column is within the valid range
+                            randomLine.setCharAt(randomColumn, 'F');
+                            lines.set(randomRow, randomLine.toString());
+                            availablePositions.remove(Integer.valueOf(randomPosition)); // Remove the chosen position from available positions
+                            foodPresent = true; // Record that there is food now
+                        }
+                    }
+                }
             }
+            invalidMap = (justOnePlayerCheck && !justOnePlayer) || (foodPresentCheck && !foodPresent); // If we need to check, check if the map is valid.
         }
 
-        // Check if 'F' is missing and add it randomly (by replacing another available one) if that's the case
-        if (foodPresentCheck && !foodPresent) {
-            if(!availablePositions.isEmpty()){
-                int randomPosition = availablePositions.get(random.nextInt(availablePositions.size()));
-                int randomRow = randomPosition / mapWidth ;
-                StringBuilder randomLine = new StringBuilder(lines.get(randomRow));
-                int randomColumn = randomPosition % mapWidth;
-                randomLine.setCharAt(randomColumn, 'F');
-                lines.set(randomRow, randomLine.toString());
-            }
-        }
-
-        // Name the file and find the path
-        String fileName = generateRandomMapFileName(".txt");
+        /* Name the file and find the path */
+        @SuppressWarnings("DuplicatedCode") String fileName = generateRandomMapFileName(".txt");
         String filePath = FileHandler.actualMapsDirectoryPath + '\\' + fileName;
 
-        // Write the random content to the file
+        /* Write the random content to the file */
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
             for (String line : lines) {
                 writer.write(line);
@@ -239,8 +275,6 @@ public class RandomTextMapGenerator extends MapGenerator {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     return filePath;
     }
-
 }

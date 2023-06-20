@@ -1,2 +1,3 @@
-FuzzAttemptNr,Timestamp,ExecutionTime,ExitCode0,ExitCode1,ExitCode10,ExitCodeOther
-1,13-06-2023 03:43,00:02,0, 0,10,0
+fuzzAttemptNr,Date and Time,Execution Time,Exit Code 0,Exit Code 1,Exit Code 10,Exit Code Other
+1,20-06-2023 18:27,00:01,0,0,5,0
+2,20-06-2023 18:27,00:01,0,0,5,0

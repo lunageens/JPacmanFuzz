@@ -1,12 +1,20 @@
 package outputProviders;
 
-import outputProviders.logHTMLFile.LogHTMLFileHandler;
+import managers.FileReaderManager;
+import organizers.FileHandler;
+import outputProviders.logGenerator.LogCSVFileHandler;
+import outputProviders.logGenerator.LogHTMLFileHandler;
+import outputProviders.logInputter.IterationResultFormatter;
+import outputProviders.logInputter.IterationResultsFormatter;
 
-import java.io.*;
-import java.text.SimpleDateFormat;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.*;
 
-import static outputProviders.FileHandler.*;
+import static organizers.FileHandler.*;
+import static outputProviders.logInputter.IterationResultsFormatter.*;
+import static outputProviders.logInputter.LogFileCalculator.getFullVariableName;
 
 /**
  * Handles the writing of log files for the application.
@@ -16,88 +24,151 @@ import static outputProviders.FileHandler.*;
 public class LogFileHandler {
 
     /**
-     * The FileWriter object used to write to the log file.
+     * All the results that we need to  write the log file about.
      */
-    private final FileWriter writer;
-
-    // The original log.txt file
+    private List<IterationResult> results;
+    /**
+     * Formatter to use for all the iteration results together.
+     */
+    private IterationResultsFormatter forms;
+    /**
+     * Map that has a list of iterations results for each error code, sorted by occurrence.
+     */
+    private Map<Integer, List<IterationResult>> iterationResultsByErrorCode;
+    /**
+     * Map that has a list of iterations results for each output message, sorted by occurrence.
+     */
+    private Map<String, List<IterationResult>> iterationResultsByOutputMessage;
+    /**
+     * Elapsed time of the simulation.
+     */
+    private int elapsedTime;
 
     /**
-     * Constructs a LogFileHandler object and initializes the FileWriter.
-     * Opens the log text file for writing.
-     * If the log file cannot be opened, a RuntimeException is thrown.
+     * Generates all logs in the actual_logs subdirectory, that are only about this stimulation.
+     * This subdirectory contains three files:
+     * <ul>
+     *     <li>log.txt - A text file that contains all the iteration results.</li>
+     *     <li>log.csv - A CSV file that contains all the iteration results.</li>
+     *     <li>log_overview.csv - A CSV file that contains all possible combinations of unique error codes and output messages,
+     *     and the number of times, as well as which iteration numbers, they occur.</li>
+     * </ul>
+     *
+     * @param results
+     *         All the results that we need to write the log file about.
+     * @param iterationResultsByErrorCode
+     *         Map that has a list of iterations results for each error code, sorted by occurrence.
+     * @param iterationResultsByOutputMessage
+     *         Map that has a list of iterations results for each output message, sorted by occurrence.
+     * @param elaspedTime
+     *         Elapsed time of the simulation.
      */
-    public LogFileHandler() {
-        String logFilePath = FileHandler.logFilePath;
+    public void generateActualLogs(List<IterationResult> results, Map<Integer, List<IterationResult>> iterationResultsByErrorCode, Map<String, List<IterationResult>> iterationResultsByOutputMessage, long elaspedTime) {
+        this.results = results;
+        this.iterationResultsByErrorCode = iterationResultsByErrorCode;
+        this.iterationResultsByOutputMessage = iterationResultsByOutputMessage;
+        this.elapsedTime = (int) elaspedTime;
+        this.forms = new IterationResultsFormatter(results);
+        generateLogTXTFile(); // Write the text logfile.
+        generateLogCSVFile(); // Write the CSV logfile.
+        generateLogOverview();  // Write the CSV overview logfile.
+    }
+
+    /**
+     * Generates all logs in the log_history subdirectory. These files possibly already contain results from other
+     * stimulation's that are run previously. This subdirectory contains multiple files:
+     * <ul>
+     *     <li>log_fullHistory.csv - A CSV file that contains all the iteration results of all the previous stimulation's.</li>
+     *     <li>log_history.csv - A CSV file that contains general information about each stimulation (such as exit code
+     *     counts, timestamps, ...).</li>
+     *     <li>log_errorHistory.csv - A CSV file that contains all the error codes and the number of times they
+     *     occur in that stimulation, for each stimulation.</li>
+     *     <li>log_fullHistory_html directory: A directory that contains multiple HTML pages reporting about the
+     *     iteration results of all the stimulation's. The implementation of generating these pages is deferred to
+     *     the LogHTMLFileHandler class.</li>
+     * </ul>
+     *
+     * @param iterationResults
+     *         All the results that we want to append to the historical log files.
+     * @param iterationResultsByErrorCode
+     *         Map that has a list of iterations results for each error code, sorted by occurrence.
+     * @param iterationResultsByOutputMessage
+     *         Map that has a list of iterations results for each output message, sorted by occurrence.
+     * @param elapsedTime
+     *         Elapsed time of the simulation.
+     */
+    public void generateOverviewLogs(List<IterationResult> iterationResults, Map<Integer, List<IterationResult>> iterationResultsByErrorCode,
+                                     Map<String, List<IterationResult>> iterationResultsByOutputMessage, long elapsedTime) {
+        this.results = iterationResults;
+        this.iterationResultsByErrorCode = iterationResultsByErrorCode;
+        this.iterationResultsByOutputMessage = iterationResultsByOutputMessage;
+        this.elapsedTime = (int) elapsedTime;
+        this.forms = new IterationResultsFormatter(results);
+        generateLogHistory();
+        generateLogErrorHistory();
+        generateFullLogHistory();
+        FileReaderManager.getInstance().getConfigReader().writeConfigFile(); // Write the configurations js file of the website
+        generateFullLogHistoryHTMLReport();
+    }
+
+    /**
+     * If possible, opens the log file for writing.
+     *
+     * @param filePath
+     *         The path of the log file.
+     *
+     */
+    public void openWriterCheck(String filePath) {
         try {
-            writer = new FileWriter(logFilePath);
+            FileWriter writer = new FileWriter(filePath);
+            writer.close();
         } catch (IOException e) {
-            throw new RuntimeException("Failed to open log file: " + logFilePath);
+            throw new RuntimeException("Failed to open log overview csv file: " + filePath);
         }
     }
 
     /**
      * Writes the iteration results to the log file.
      * The following things are provided in log.txt for each iteration:
+     * <p>
      * Iteration number - Map file Type (Extension of the file path) - Absolute full path of the map file -
      * String action sequence - Error code of the process (0, 10, 1 or -1 (= others) ). -
      * Output messages of the process
-     *
-     * @param iterationResults The list of iteration results to write.
+     * </p>
      */
-    public void writeIterationResults(List<IterationResult> iterationResults) {
+    private void generateLogTXTFile() {
+        //     * Opens the log text file for writing.
+        //     * If the log file cannot be opened, a RuntimeException is thrown.
+        // Writes the iteration results
+        openWriterCheck(logFilePath);
         try {
-            for (IterationResult iterationResult : iterationResults) {
-                    writer.write("Iteration: " + iterationResult.getIterationNumber() + "\n");
-                    writer.write("Map File Type: " + iterationResult.getMapFileType() + "\n");
-                writer.write("Map File Path: " + iterationResult.getMapFilePath() + "\n");
-                writer.write("Map File custom attribute: " + iterationResult.getCustomAttribute() + "\n");
-                writer.write("String Sequence: " + iterationResult.getStringSequence() + "\n");
-                    writer.write("Error Code: " + iterationResult.getErrorCode() + "\n");
-                    writer.write("Output Messages: " + iterationResult.getOutputMessages() + "\n");
+            FileWriter writer = new FileWriter(logFilePath);
+            for (IterationResult iterationResult : results) {
+                IterationResultFormatter form = new IterationResultFormatter(iterationResult);
+                writer.write(form.getFormattedIterationNumber(true, false, true));
+                writer.write(form.getFormattedErrorCode(true, true, false, false, true));
+                writer.write(form.getFormattedOutputMessages(true, true, true, false, true));
+                writer.write(form.getFormattedStringSequence(false, false, false, true, false, false, true));
+                writer.write(form.getFormattedMapFileName(true, false, true, false, false, true));
+                writer.write(form.getFormattedMapFileType(true, false, true, true, true, true, true, false, true));
+                writer.write(form.getFormattedMapFileCustomAttribute(true, true, true, true, false, false, true));
+                writer.write(form.getFormattedMapFilePath(false, false, true, false, false, true));
+                writer.append("\n");
             }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 
-    /**
-     * Writes the summary of iteration results at the end of the log text file.
-     * Counts the occurrences of each error code and writes the summary.
-     *
-     * @param iterationResults The list of iteration results to summarize.
-     */
-    public void writeSummary(List<IterationResult> iterationResults) {
-        try {
-            int exitCode0Count = 0;
-            int exitCode10Count = 0;
-            int exitCodeOtherCount = 0;
+            // Write summary
+            writer.write("SUMMARY");
+            writer.append("\n");
+            writer.write(getFormattedFuzzAttemptNr(true, false, false, true));
+            writer.write(getFormattedTimeStamp(true, false, false, true));
+            writer.write(getFormattedExecutionTime(elapsedTime, true, false, false, true));
+            writer.write(forms.getFormattedTotalIterations(true, false, false, true));
+            writer.write(forms.getFormattedExitCount(0, true, true, false, false, true));
+            writer.write(forms.getFormattedExitCount(1, true, true, false, false, true));
+            writer.write(forms.getFormattedExitCount(10, true, true, false, false, true));
+            writer.write(forms.getFormattedExitCount(-1, true, true, false, false, true));
 
-            for (IterationResult iterationResult : iterationResults) {
-                int exitCode = iterationResult.getErrorCode();
-                if (exitCode == 0) {
-                    exitCode0Count++;
-                } else if (exitCode == 10) {
-                    exitCode10Count++;
-                } else {
-                    exitCodeOtherCount++;
-                }
-            }
-            writer.write("SUMMARY\n");
-            writer.write("Exit Code 0: " + exitCode0Count + " occurrences\n");
-            writer.write("Exit Code 10: " + exitCode10Count + " occurrences\n");
-            writer.write("Exit Code Other: " + exitCodeOtherCount + " occurrences\n");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    /**
-     * Closes the log text file.
-     * Flushes and closes the FileWriter object.
-     */
-    public void close() {
-        try {
+            writer.flush();
             writer.close();
         } catch (IOException e) {
             e.printStackTrace();
@@ -107,43 +178,36 @@ public class LogFileHandler {
     /**
      * Writes the log CSV file.
      * For each iteration of this run, one row.
-     * Same information as log text file.
      *
-     * @param iterationResults The list of iteration results to write.
+     * <p>
+     *     Same information as log text file.
+     * </p>
+     *
      */
-    public void generateLogCSVFile(List<IterationResult> iterationResults) {
+    public void generateLogCSVFile() {
+        openWriterCheck(logFileCSVPath);
         try {
+            FileWriter csvWriter = new FileWriter(logFileCSVPath);
 
-            String csvFilePath = FileHandler.logFileCSVPath;
-            try {
-                FileWriter csvWriter = new FileWriter(csvFilePath);
-                csvWriter.close();
-            } catch (IOException e) {
-                throw new RuntimeException("Failed to open log overview csv file: " + csvFilePath);
-            }
-            FileWriter csvWriter = new FileWriter(csvFilePath);
-
-            // Write header
-            csvWriter.append("Iteration,Error Code,Output Messages,String sequence,Map File Type,Map File custom attribute,Map File Path").append("\n");
-
-            for (IterationResult iterationResult : iterationResults) {
-                csvWriter.append(Integer.toString(iterationResult.getIterationNumber())).append(","); // Iteration number
-                csvWriter.append(Integer.toString(iterationResult.getErrorCode())).append(","); // Error code
-                csvWriter.append(iterationResult.getOutputMessages().replace("\n", "; ").replace(";", "")).append(","); // Output
-                csvWriter.append(iterationResult.getStringSequence()).append(","); // String action sequence
-                csvWriter.append(iterationResult.getMapFileType()).append(","); // Map file path type
-
-                String customAttribute = iterationResult.getCustomAttribute().replace("\n", " ").replace(";", "").replace(",", "");
-                if (customAttribute.isBlank() || customAttribute.isEmpty() || customAttribute == null) {
-                    customAttribute = "Empty or blank string.";
-                }
-                ;
-                if (customAttribute.equals("\"") || customAttribute.equals("'")) {
-                    customAttribute = "See text file.";
-                }
-                csvWriter.append(customAttribute).append(", "); // Map file custom attribute
-
-                csvWriter.append(iterationResult.getMapFilePath()).append("\n"); // Map file path
+            /* Write header */
+            List<String> header = new ArrayList<>();
+            header.add(getFullVariableName("iterationNumber", false));
+            header.add(getFullVariableName("errorCode", false));
+            header.add(getFullVariableName("outputMessages", false));
+            header.add(getFullVariableName("stringSequence", false));
+            header.add(getFullVariableName("mapFileType", false));
+            header.add(getFullVariableName("customAttribute", false));
+            header.add(getFullVariableName("mapFilePath", false));
+            csvWriter.append(String.join(",", header)).append("\n");
+            for (IterationResult iterationResult : results) {
+                IterationResultFormatter form = new IterationResultFormatter(iterationResult);
+                csvWriter.append(form.getFormattedIterationNumber()); // Iteration number
+                csvWriter.append(form.getFormattedErrorCode()); // Error code
+                csvWriter.append(form.getFormattedOutputMessages()); // Output messages
+                csvWriter.append(form.getFormattedStringSequence()); // String action sequence
+                csvWriter.append(form.getFormattedMapFileType()); // Map file type
+                csvWriter.append(form.getFormattedMapFileCustomAttribute()); // Map file custom attribute
+                csvWriter.append(form.getFormattedMapFilePath(false, false, false, true, false, true)); // Map file path
             }
             csvWriter.flush();
             csvWriter.close();
@@ -155,254 +219,183 @@ public class LogFileHandler {
     /**
      * Generates a log overview in CSV format based on the iteration results.
      * Each unique combination of error codes and message outputs is one row in the csv.
-     * The iteration numbers where this combination occured are given, and counted.
+     * The iteration numbers where this combination occurred are given, and counted.
      * Writes the log overview to a CSV file specified in the FileHandler.
-     *
-     * @param iterationResultsByErrorCode     A map of iteration results grouped by error code.
-     * @param iterationResultsByOutputMessage A map of iteration results grouped by output message.
      */
-    public void generateLogOverview(Map<Integer, List<IterationResult>> iterationResultsByErrorCode, Map<String, List<IterationResult>> iterationResultsByOutputMessage) {
+    public void generateLogOverview() {
+        openWriterCheck(csvFilePath);
         try {
-
-            String csvFilePath = FileHandler.csvFilePath;
-            try {
-                FileWriter csvWriter = new FileWriter(csvFilePath);
-                csvWriter.close();
-            } catch (IOException e) {
-                throw new RuntimeException("Failed to open log overview csv file: " + csvFilePath);
-            }
             FileWriter csvWriter = new FileWriter(csvFilePath);
+            /* Write header */
+            List<String> header = new ArrayList<>();
+            header.add(getFullVariableName("errorCode", false));
+            header.add(getFullVariableName("outputMessages", false));
+            header.add(getFullVariableName("exitCount", false));
+            header.add(getFullVariableName("exitIterations", false));
+            csvWriter.append(String.join(",", header)).append("\n");
 
-            // Write header
-            csvWriter.append("ErrorCode,OutputMessage,Count,IterationNumbers").append("\n");
-
-            // Sort error codes in descending order of occurrence
+            /* Sort error codes in descending order of occurrence */
+            // sortedErrorCodes is a list here that contains each occurred error code, sorted by occurrence
+            // errorCodeResults is a list of results with the current error code
             List<Integer> sortedErrorCodes = new ArrayList<>(iterationResultsByErrorCode.keySet());
             sortedErrorCodes.sort((errorCode1, errorCode2) ->
                     iterationResultsByErrorCode.get(errorCode2).size() - iterationResultsByErrorCode.get(errorCode1).size());
-
             for (int errorCode : sortedErrorCodes) {
                 List<IterationResult> errorCodeResults = iterationResultsByErrorCode.get(errorCode);
 
-                // Sort output messages in descending order of occurrence for the current error code
+                /* Sort output messages in descending order of occurrence for the current error code */
+                // outputMessageResults is a list of results with the output message
+                // sortedOutputMessages is a list of output messages, sorted by occurrence
+                // in loop -> first sort on error, than on output message.
                 List<String> sortedOutputMessages = new ArrayList<>(iterationResultsByOutputMessage.keySet());
                 sortedOutputMessages.sort((msg1, msg2) ->
                         iterationResultsByOutputMessage.get(msg2).size() - iterationResultsByOutputMessage.get(msg1).size());
-
                 for (String outputMessage : sortedOutputMessages) {
                     List<IterationResult> outputMessageResults = iterationResultsByOutputMessage.get(outputMessage);
+                    ArrayList<IterationResult> filteredResults = new ArrayList<>();
 
-                    // Filter results with the current error code and output message
-                    List<IterationResult> filteredResults = new ArrayList<>();
+                    /* Get the iteration results of the current error code and output message.*/
+                    // filteredResults will contain only the results with the current error code and output message
                     for (IterationResult result : outputMessageResults) {
                         if (result.getErrorCode() == errorCode) {
                             filteredResults.add(result);
                         }
                     }
 
+                    /* If combination has actually occurred, write row for the current error code and output message */
                     if (!(filteredResults.size() == 0)) { // Combination actually occurred
                         // Write row for the current error code and output message
-                        csvWriter.append(Integer.toString(errorCode)).append(",");
-                        csvWriter.append(outputMessage.replace("\n", "; ")).append(","); // Otherwise new line in CSV file
-                        csvWriter.append(Integer.toString(filteredResults.size())).append(", ");
-                        csvWriter.append(getIterationNumbersString(filteredResults)).append("\n"); // Find iteration maps that had this message and error code
+                        // Static methods made for filtered results that only have one error code or one output-message
+                        csvWriter.append(IterationResultFormatter.getFormattedErrorCode(filteredResults));
+                        csvWriter.append(IterationResultFormatter.getFormattedOutputMessages(filteredResults));
+                        csvWriter.append(IterationResultsFormatter.getFormattedExitCount(filteredResults));
+                        csvWriter.append(IterationResultsFormatter
+                                .getFormattedIterationNumbersString(filteredResults, false, true, false, true));
                     }
 
                 }
             }
-
             csvWriter.flush();
             csvWriter.close();
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (IOException ex) {
+            throw new RuntimeException(ex);
         }
-    }
-
-    /**
-     * Retrieves a string representation of iteration numbers from a list of iteration results.
-     * e.g., [1, 2, 3] becomes "1-2-3"
-     *
-     * @param iterationResults The list of iteration results.
-     * @return A string containing the iteration numbers separated by hyphens.
-     */
-    private static String getIterationNumbersString(List<IterationResult> iterationResults) {
-        StringBuilder iterationNumbers = new StringBuilder();
-        for (int i = 0; i < iterationResults.size(); i++) {
-            if (i > 0) {
-                iterationNumbers.append("-");
-            }
-            iterationNumbers.append(iterationResults.get(i).getIterationNumber());
-        }
-        return iterationNumbers.toString();
     }
 
     /**
      * Generates a log history in CSV format based on the iteration results.
      * Appends the log history to a CSV file specified in the FileHandler.
      * <p>
-     * If file did not yet exists, create one and write header.
+     * If file did not yet exist, create one and write header.
      * Otherwise, append row.
      * <p>
      * Each run gets one row with the following information:
      * FuzzAttemptNr - Time and date - Elapsed time - Counts of each of the iterations with the errorcodes.
-     *
-     * @param iterationResultsByErrorCode A map of iteration results grouped by error code.
-     * @param elapsedTime                 The elapsed time of the iteration process.
      */
-    public void generateLogHistory(Map<Integer, List<IterationResult>> iterationResultsByErrorCode, long elapsedTime) {
+    public void generateLogHistory() {
         try {
-            FileWriter writer = new FileWriter(logHistoryFilePath, true);
+            FileWriter writer = new FileWriter(logHistoryFilePath, true); // Here is appended!
             BufferedWriter csvWriter = new BufferedWriter(writer);
 
             // Write header
-            int runAttempt;
-            if (countLines(logHistoryFilePath) == 0) {
-                csvWriter.append("FuzzAttemptNr,Timestamp,ExecutionTime,ExitCode0,ExitCode1,ExitCode10,ExitCodeOther").append("\n");
-                runAttempt = 1; // only counts what has been written away already
-            } else {
-                runAttempt = countLines(logHistoryFilePath);
+            if (fuzzAttemptNr == 1) {
+                List<String> header = new ArrayList<>();
+                header.add(getFullVariableName("fuzzAttemptNr", false));
+                header.add(getFullVariableName("timeStamp", false));
+                header.add(getFullVariableName("executedTime", false));
+                header.add(getFullVariableName("exitCode0", false));
+                header.add(getFullVariableName("exitCode1", false));
+                header.add(getFullVariableName("exitCode10", false));
+                header.add(getFullVariableName("exitCodeOther", false));
+                csvWriter.append(String.join(",", header)).append("\n");
             }
-            ;
 
             for (Map.Entry<Integer, List<IterationResult>> entry : iterationResultsByErrorCode.entrySet()) {
-                int errorCode = entry.getKey();
-                List<IterationResult> results = entry.getValue();
+                List<IterationResult> results = entry.getValue(); // Get only the results for this error code
+                IterationResultsFormatter forms = new IterationResultsFormatter(results); // Make new one -> not total iterations
 
-                int exitCode0Count = getExitCodeCount(results, 0);
-                int exitCode1Count = getExitCodeCount(results, 1);
-                int exitCode10Count = getExitCodeCount(results, 10);
-                int exitCodeOtherCount = results.size() - exitCode0Count - exitCode1Count - exitCode10Count;
-
-                csvWriter.append(Integer.toString(runAttempt)).append(","); //going to add this line after counting
-                csvWriter.append(getCurrentTimestamp()).append(",");
-                csvWriter.append(getExecutionTime(elapsedTime)).append(",");
-                csvWriter.append(Integer.toString(exitCode0Count)).append(", ");
-                csvWriter.append(Integer.toString(exitCode1Count)).append(",");
-                csvWriter.append(Integer.toString(exitCode10Count)).append(",");
-                csvWriter.append(Integer.toString(exitCodeOtherCount)).append("\n");
+                csvWriter.append(getFormattedFuzzAttemptNr()); // FuzzAttemptNr
+                csvWriter.append(getFormattedTimeStamp()); // TimeStamp
+                csvWriter.append(getFormattedExecutionTime((elapsedTime))); // Elapsed time
+                csvWriter.append(forms.getFormattedExitCount(0));
+                csvWriter.append(forms.getFormattedExitCount(1));
+                csvWriter.append(forms.getFormattedExitCount(10));
+                csvWriter.append(forms.getFormattedExitCount(-1, false, false, true, false, true)); // Exit codes, true, false, true, false, true, false, true); // Other exit codes
             }
-
             csvWriter.flush();
             csvWriter.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-    }
-
-    /**
-     * Retrieves the count of iteration results with a specific exit code from a list of iteration results.
-     *
-     * @param results  The list of iteration results.
-     * @param exitCode The exit code to count.
-     * @return The count of iteration results with the specified exit code.
-     */
-    private static int getExitCodeCount(List<IterationResult> results, int exitCode) {
-        int count = 0;
-        for (IterationResult result : results) {
-            if (result.getErrorCode() == exitCode) {
-                count++;
-            }
-        }
-        return count;
-    }
-
-    /**
-     * Retrieves the current timestamp in the format "dd-MM-yyyy HH:mm".
-     *
-     * @return The current timestamp as a formatted string.
-     */
-    private static String getCurrentTimestamp() {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm");
-        return dateFormat.format(new Date());
-    }
-
-
-    /**
-     * Retrieves the execution time in milliseconds as a formatted string in the format "mm:ss".
-     *
-     * @param elapsedTime The elapsed time in milliseconds.
-     * @return The execution time as a formatted string.
-     */
-    private static String getExecutionTime(long elapsedTime) {
-        long minutes = (elapsedTime / 1000) / 60;
-        long seconds = (elapsedTime / 1000) % 60;
-
-        return String.format("%02d:%02d", minutes, seconds);
     }
 
     /**
      * Generates a log error history in CSV format based on the iteration results.
      * Appends the log error history to a CSV file specified in the FileHandler.
      * <p>
-     * If file did not yet exists, create one and write header.
+     * If file did not yet exist, create one and write header.
      * Otherwise, append rows.
      * <p>
      * Each unique combination of run (and timestamp) - errorcode -  output message is one row.
      * Counts instances.
      *
-     * @param iterationResultsByOutputMessage A map of iteration results grouped by output message.
      */
-    public void generateLogErrorHistory(Map<String, List<IterationResult>> iterationResultsByOutputMessage) {
+    public void generateLogErrorHistory() {
         try {
             FileWriter writer = new FileWriter(FileHandler.logErrorHistoryFilePath, true);
             BufferedWriter csvWriter = new BufferedWriter(writer);
-
             // Write header
-            if (countLines(logHistoryFilePath) == 2) { // created one line & header in other file
-                csvWriter.append("FuzzAttemptNr,TimeStamp,ErrorCode,OutputMessage,Count").append("\n");
+            if (fuzzAttemptNr == 1) {
+                List<String> header = new ArrayList<>();
+                header.add(getFullVariableName("fuzzAttemptNr", false));
+                header.add(getFullVariableName("timeStamp", false));
+                header.add(getFullVariableName("errorCode", false));
+                header.add(getFullVariableName("outputMessages", false));
+                header.add(getFullVariableName("Count", false));
+                csvWriter.append(String.join(",", header)).append("\n");
             }
-
+            // sortedOutputMessages contains unique output messages alphabetically
             List<String> sortedOutputMessages = new ArrayList<>(iterationResultsByOutputMessage.keySet());
-            sortedOutputMessages.sort(Comparator.naturalOrder());
+            sortedOutputMessages.sort(Comparator.naturalOrder()); // Alphabetically
 
+            // Get a filtered table per output message.
             for (String outputMessage : sortedOutputMessages) {
                 List<IterationResult> results = iterationResultsByOutputMessage.get(outputMessage);
-
                 Map<Integer, Integer> errorCodeCounts = new HashMap<>();
+
+                // errorCodeCounts is a map of error codes and their counts.
+                // for each error code the values of the counts in this filtered table.
                 for (IterationResult result : results) {
                     int errorCode = result.getErrorCode();
                     errorCodeCounts.put(errorCode, errorCodeCounts.getOrDefault(errorCode, 0) + 1);
                 }
 
+                // sortedErrorCodes is a list with unique error codes for this message, sorted in ascending order.
                 List<Integer> sortedErrorCodes = new ArrayList<>(errorCodeCounts.keySet());
                 sortedErrorCodes.sort(Comparator.naturalOrder());
-
+                int index = 0;
                 for (int errorCode : sortedErrorCodes) {
-                    int count = errorCodeCounts.get(errorCode);
-                    csvWriter.append(Integer.toString(countLines(logHistoryFilePath) - 1)).append(","); //already added new line and header in that file
-                    csvWriter.append(getCurrentTimestamp()).append(",");
-                    csvWriter.append(Integer.toString(errorCode)).append(",");
-                    csvWriter.append(outputMessage.replace("\n", "").replace(";", "")).append(",");
-                    csvWriter.append(Integer.toString(count)).append("\n");
+                    // Leave this like it was, too complicated to change it with Formatters.
+                    // Same result.
+                    csvWriter.append(getFormattedFuzzAttemptNr()); // Same for each combo
+                    csvWriter.append(getFormattedTimeStamp()); // Same for each combo
+
+                    IterationResult dummy = new IterationResult(0, "", "", errorCode, outputMessage, "");
+                    IterationResultFormatter dummyForm = new IterationResultFormatter(dummy);
+                    csvWriter.append(dummyForm.getFormattedErrorCode());
+
+                    int count = sortedErrorCodes.get(index); // with this message and this error code
+                    csvWriter.append(dummyForm.getFormattedOutputMessages());
+                    csvWriter.append(getFormattedExitCount(errorCode, count, false, false, true, false, true));
+
+                    index++;
                 }
             }
-
             csvWriter.flush();
             csvWriter.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    /**
-     * Counts the lines in a file.
-     * Lines are only counted when writer on that file is closed. Otherwise, previous verison of file is line counted.
-     *
-     * @param filePath path to the csv file
-     * @return int Numbers of files in path (heading counts as a row)
-     */
-    private int countLines(String filePath) {
-        int lineCount = 0; // but don't need to count header, so cool
-        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
-            while (reader.readLine() != null) {
-                lineCount++;
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        return lineCount;
     }
 
     /**
@@ -410,143 +403,55 @@ public class LogFileHandler {
      * If the log history file is empty, it appends the header to the file.
      * For subsequent runs, it modifies the "Map File Path" column for previous attempts.
      *
-     * @param iterationResults the list of IterationResult objects
      */
-    public void generateFullLogHistory(List<IterationResult> iterationResults) {
+    public void generateFullLogHistory() {
         try {
-
-            int runAttempt;
-            boolean appendHeader = false;
-            if (countLines(logHistoryFilePath) == 2) { // created one line & header in other file
-                appendHeader = true;
-                runAttempt = 1;
-            } else {
-                runAttempt = countLines(logHistoryFilePath) - 1;
+            if (fuzzAttemptNr > 1) {
                 // For previous attempts, change the column Map file path type value
                 // from C:/ST/JPacmanFuzz/fuzzresults/actual_logs/${directory_of_exitcode}/${map_file_name}
                 // to C:/ST/JPacmanFuzz/fuzzresults/previous_logs/run_${runAttempt}/${directory_of_exitcode}/${map_file_name}
                 // Modify the column "Map File Path" for previous attempts
-                int previousRun = runAttempt - 1;
-                modifyMapFilePathColumn(logFullHistoryFilePath, previousRun);
+                LogCSVFileHandler.modifyMapFilePathColumn();
             }
-
-            FileWriter writer = new FileWriter(logFullHistoryFilePath, true);
-            BufferedWriter csvWriter = new BufferedWriter(writer);
-
-            if (appendHeader) {
-                csvWriter.append("FuzzAttemptNr,TimeStamp,IterationNr,Error Code,Output Messages,String sequence,Map File Name, Map File Type,Map File custom attribute,Absolute Map File Path,Relative Map File Path").append("\n");
+            FileWriter csvWriter = new FileWriter(logFullHistoryFilePath, true);
+            if (fuzzAttemptNr == 1) {
+                /* Write header */
+                List<String> header = new ArrayList<>();
+                header.add(getFullVariableName("fuzzAttemptNr", false));
+                header.add(getFullVariableName("timeStamp", false));
+                header.add(getFullVariableName("iterationNumber", false));
+                header.add(getFullVariableName("errorCode", false));
+                header.add(getFullVariableName("outputMessages", false));
+                header.add(getFullVariableName("stringSequence", false));
+                header.add(getFullVariableName("mapFileType", false));
+                header.add(getFullVariableName("mapFileName", false));
+                header.add(getFullVariableName("customAttribute", false));
+                header.add(getFullVariableName("mapFilePath", false));
+                header.add(getFullVariableName("mapFileRelativePath", false));
+                csvWriter.append(String.join(",", header)).append("\n");
             }
-
-            for (IterationResult iterationResult : iterationResults) {
-                csvWriter.append(Integer.toString(runAttempt)).append(","); //going to add this line after counting
-                csvWriter.append(getCurrentTimestamp()).append(",");
-                csvWriter.append(Integer.toString(iterationResult.getIterationNumber())).append(","); // Iteration number
-                csvWriter.append(Integer.toString(iterationResult.getErrorCode())).append(","); // Error code
-                csvWriter.append(iterationResult.getOutputMessages().replace("\n", "; ").replace(";", "")).append(","); // Output
-                csvWriter.append(iterationResult.getStringSequence()).append(","); // String action sequence
-                csvWriter.append(FileHandler.getFileName(iterationResult.getMapFilePath()).replace("\n", "; ")).append(","); // File name
-                csvWriter.append(iterationResult.getMapFileType().replace("\n", "; ")).append(","); // Map file path type
-
-                String customAttribute = iterationResult.getCustomAttribute().replace("\n", " ").replace(";", "").replace(",", "");
-                if (customAttribute.isBlank() || customAttribute.isEmpty() || customAttribute == null) {
-                    customAttribute = "Empty or blank string.";
-                }
-                ;
-                if (customAttribute.equals("\"") || customAttribute.equals("'")) {
-                    customAttribute = "See text file.";
-                }
-                csvWriter.append(customAttribute).append(","); // Map file custom attribute
-
-                csvWriter.append(iterationResult.getMapFilePath().replace("\n", "; ")).append(","); // Map file path
-                csvWriter.append(FileHandler.getRelativeFilePath(iterationResult.getMapFilePath()).replace("\n", "; ")).append("\n"); // Relative file path in project
+            for (IterationResult iterationResult : results) {
+                IterationResultFormatter format = new IterationResultFormatter(iterationResult);
+                csvWriter.append(getFormattedFuzzAttemptNr());
+                csvWriter.append(getFormattedTimeStamp());
+                csvWriter.append(format.getFormattedIterationNumber());
+                csvWriter.append(format.getFormattedErrorCode());
+                csvWriter.append(format.getFormattedOutputMessages());
+                csvWriter.append(format.getFormattedStringSequence());
+                csvWriter.append(format.getFormattedMapFileName());
+                csvWriter.append(format.getFormattedMapFileType());
+                csvWriter.append(format.getFormattedMapFileCustomAttribute());
+                csvWriter.append(format.getFormattedMapFilePath());
+                csvWriter.append(format.getFormattedMapFilePath(false, true, false,
+                        true, false, true)); // Relative file path in project
             }
-
+            csvWriter.flush();
             csvWriter.close();
-
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    /**
-     * Modifies the "Map File Path" columns in the CSV file to reflect the previous run attempt.
-     *
-     * @param csvFilePath        the path to the CSV file
-     * @param previousRunAttempt the previous run attempt number
-     */
-    private void modifyMapFilePathColumn(String csvFilePath, int previousRunAttempt) {
-        try {
-            File tempFile = File.createTempFile("tempFile", ".csv");
-            BufferedReader reader = new BufferedReader(new FileReader(csvFilePath));
-            BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
-
-            String header = reader.readLine();
-            writer.write(header);
-            writer.newLine();
-
-            String line;
-
-            while ((line = reader.readLine()) != null) {
-                List<String> values = parseCSVLine(line);
-                if (previousRunAttempt == Integer.parseInt(values.get(0))) {
-                    if (values.size() > 10) { // In absolute path
-                        String mapFilePath = values.get(9).trim();
-                        if (!mapFilePath.isEmpty() && !mapFilePath.equals("Absolute Map File Path")) {
-                            String modifiedMapFilePath = mapFilePath.replace("actual_maps", "previous_maps" + "\\" + "run_" + previousRunAttempt);
-                            values.set(9, modifiedMapFilePath);
-                            String relativeModifiedFilePath = getRelativeFilePath(modifiedMapFilePath);
-                            values.set(10, relativeModifiedFilePath);
-                        }
-                    }
-                }
-
-                writer.write(String.join(",", values));
-                writer.newLine();
-            }
-
-            reader.close();
-            writer.close();
-
-            // Replace the original file with the modified file
-            File originalFile = new File(csvFilePath);
-            if (originalFile.exists()) {
-                originalFile.delete();
-            }
-            tempFile.renameTo(originalFile);
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-    }
-
-    /**
-     * Parses a line of CSV data and splits it into a list of values.
-     * Handles values enclosed in double quotes and respects the CSV comma delimiter.
-     *
-     * @param line the line of CSV data to parse
-     * @return a list of values extracted from the CSV line
-     */
-    public static List<String> parseCSVLine(String line) {
-        List<String> values = new ArrayList<>();
-        boolean withinQuotes = false;
-        StringBuilder currentValue = new StringBuilder();
-
-        // Loop over each character in line.
-        // e.g. line = "1,"John Doe","john.doe@example.com",25"
-        for (char c : line.toCharArray()) {
-            if (c == '"') { //
-                withinQuotes = !withinQuotes; // The current value is a string and thus enclosed in ""
-            } else if (c == ',' && !withinQuotes) {
-                values.add(currentValue.toString()); // Add previous value to list and start new string with new value
-                currentValue = new StringBuilder();
-            } else {
-                currentValue.append(c); // Add part of this value to the string of this value
-            }
-        }
-        values.add(currentValue.toString());
-        return values;
-    }
 
     /**
      * Generates a full log history HTML report based on the provided iteration results.

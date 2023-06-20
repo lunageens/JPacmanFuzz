@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   version="1.0"
+   width="800"
+   height="660"
+   id="svg2">
+  <defs
+     id="defs4" />
+  <g
+     id="layer1">
+    <path
+       d="M 10.044707,10.527179 L 9.0311184,382.51431 C 7.0039405,728.78146 594.88551,739.58153 593.87192,382.51431 L 594.88551,10.527179 L 522.9207,10.527179 L 523.93429,382.51431 C 524.32436,619.92866 151.48508,621.85176 151.94716,382.51431 L 154.98792,10.527179 L 10.044707,10.527179 z"
+       id="path3910"
+       style="fill:#7e002f;fill-opacity:1;fill-rule:evenodd;stroke:#7e002f;stroke-width:4.05435562px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    <text
+       x="422.74884"
+       y="84.837509"
+       id="text3311"
+       xml:space="preserve"
+       style="font-size:48px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Arial;-inkscape-font-specification:Arial"><tspan
+         x="422.74884"
+         y="84.837509"
+         id="tspan3313" /></text>
+    <text
+       x="333.72916"
+       y="199.9949"
+       id="text3501"
+       xml:space="preserve"
+       style="font-size:22px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Arial;-inkscape-font-specification:Arial"><tspan
+         x="333.72916"
+         y="199.9949"
+         id="tspan3503" /></text>
+    <path
+       d="M 192.49071,295.34566 C 273.54365,150.1274 415.15617,167.81546 553.32837,232.50315 C 691.50057,297.19084 762.53693,281.87296 789.49459,233.51674 C 821.28755,309.11551 704.7352,451.59234 483.39073,347.0387 C 262.04627,242.48506 192.8177,299.26927 192.49071,295.34566 z"
+       id="path3912"
+       style="fill:#013c64;fill-opacity:1;fill-rule:evenodd;stroke:#013c64;stroke-width:4.05435562px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+  </g>
+</svg>

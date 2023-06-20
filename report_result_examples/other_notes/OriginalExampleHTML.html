@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<!--suppress ALL -->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Jpacman Fuzzing report</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+          integrity="sha512-i/ZEwI5zY4dpxEUf3lwYUdZ1WH24ttdS02zJNfjCTJ/iPc8kqJ9kKuhaNtrHhTDIdEW0ncUljZ0LgkxLeUe8ysA=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+<div class="container is-fluid">
+
+    <!-- BreadCrumbs -->
+    <!-- Add correct url -->
+    <br>
+    <div class="field">
+        <nav aria-label="breadcrumbs" class="breadcrumb">
+            <ul>
+                <li>
+                    <a href="#">
+        <span class="icon is-small">
+          <i aria-hidden="true" class="fas fa-home"></i>
+        </span>
+                        <span>All results</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+        <span class="icon is-small">
+          <i aria-hidden="true" class="fas fa-book"></i>
+        </span>
+                        <span>About the fuzzer</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+        <span class="icon is-small">
+          <i aria-hidden="true" class="fas fa-puzzle-piece"></i>
+        </span>
+                        <span>Overview Report and Conclusions</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Header-->
+    <!-- Add action listener to delete botton, isactive this element-->
+    <br>
+    <div class="field">
+        <article class="message is-info">
+            <div class="message-header">
+                <p>Jpacman Fuzzing report</p>
+                <button aria-label="delete" class="delete"></button>
+            </div>
+            <div class="message-body">
+                This report provides an overview of the <strong>JPacman</strong> fuzzing results. Fuzzing, also known as
+                fuzz testing or fuzzing, is a software testing technique used to discover vulnerabilities and flaws in
+                software systems. It involves providing invalid, unexpected, or random data inputs to a program or
+                system and observing how it behaves. In this case, the fuzzing is applied to a black-box Jpacman
+                application jar-file.
+            </div>
+        </article>
+    </div>
+
+    <!--SearchBox-->
+    <!-- Add action listener already happend but not working-->
+    <br>
+    <div class="field">
+        <p class="control has-icons-left">
+            <label for="search-bar"></label>
+            <input class="input is-info is-hovered is-rounded" id="search-bar" placeholder="Search..." type="text">
+            <!-- any icon here does not work-->
+            <span class="icon is-small is-left">
+        <i class="fas fa-lock"></i>
+      </span>
+        </p>
+    </div>
+
+    <!-- Filters-->
+    <div class="field">
+        <section class="section">
+            <h1 class="title">Filters</h1>
+            <h2 class="subtitle">Pick any filters u want to apply on the datatable.</h2>
+            <!--Replace h2 with active filters section-->
+            <!--How to use levels is we don't know how many filters we will have?-->
+            <nav class="level">
+                <div class="level-item">
+                    <div class="field">
+                        <label class="label">Fuzz Attempt Number </label>
+                        <div class="select is-info is-rounded">
+                            <select class="is-hovered filter" data-filter-target="FuzzAttemptNr">
+                                <option value="">All</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="level-item">
+                    <div class="field">
+                        <label class="label">Date and time </label>
+                        <div class="select is-info is-rounded">
+                            <select class="is-hovered filter" data-filter-target="TimeStamp">
+                                <option value="">All</option>
+                                <option value="11-06-2023 20:29">11-06-2023 20:29</option>
+                                <option value="11-06-2023 20:25">11-06-2023 20:25</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="level-item">
+                    <div class="field">
+                        <label class="label">Iteration number </label>
+                        <div class="select is-info is-rounded">
+                            <select class="is-hovered filter" data-filter-target="IterationNr">
+                                <option value="">All</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="level-item">
+                    <div class="field">
+                        <label class="label">Error Code</label>
+                        <div class="select is-info is-rounded">
+                            <select class="is-hovered filter" data-filter-target="Error Code">
+                                <option value="">All</option>
+                                <option value="10">10</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="level-item">
+                    <div class="field">
+                        <label class="label">Output Message </label>
+                        <div class="select is-info is-rounded">
+                            <select class="is-hovered filter" data-filter-target="Output Messages">
+                                <option value="">All</option>
+                                <option value="More than one player ">More than one
+                                    player
+                                </option>
+                                <option value="No lines ">No lines</option>
+                                <option value="Widths mismatch ">Widths mismatch
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="level-item">
+                    <div class="field">
+                        <label class="label">Action sequence </label>
+                        <div class="select is-info is-rounded">
+                            <select class="is-hovered filter" data-filter-target="String sequence">
+                                <option value="">All</option>
+                                <option value="SWE">SWE</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="level-item">
+                    <div class="field">
+                        <label class="label">Map File Name </label>
+                        <div class="select is-info is-rounded">
+                            <select class="is-hovered filter" data-filter-target="Map File Name">
+                                <option value="">All</option>
+                                <option value="map_8.txt">map_8.txt</option>
+                                <option value="map_3.txt">map_3.txt</option>
+                                <option value="map_2.txt">map_2.txt</option>
+                                <option value="map_1.txt">map_1.txt</option>
+                                <option value="map_5.txt">map_5.txt</option>
+                                <option value="map_10.txt">map_10.txt</option>
+                                <option value="map_4.txt">map_4.txt</option>
+                                <option value="map_9.txt">map_9.txt</option>
+                                <option value="map_6.txt">map_6.txt</option>
+                                <option value="map_7.txt">map_7.txt</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="level-item">
+                    <div class="field">
+                        <label class="label">Map File Type </label>
+                        <div class="select is-info is-rounded">
+                            <select class="is-hovered filter" data-filter-target="Map File Type">
+                                <option value="">All</option>
+                                <option value="TXT">TXT</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="level-item">
+                    <div class="field">
+                        <label class="label">Map File Custom Attribute </label>
+                        <div class="select is-info is-rounded">
+                            <select class="is-hovered filter" data-filter-target="Map File custom attribute">
+                                <option value="">All</option>
+                                <option value="OPF">OPF</option>
+                                <option value="OPE">OPE</option>
+                                <option value="MWP">MWP</option>
+                                <option value="N.A.">N.A.</option>
+                                <option value="MW">MW</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <!-- Let's skip Absolute path -->
+                <div class="level-item">
+                    <div class="field">
+                        <label class="label">Relative Map File Path </label>
+                        <div class="select is-info is-rounded">
+                            <select class="is-hovered filter" data-filter-target="Relative Map File Path">
+                                <option value="">All</option>
+                                <option value="fuzzresults\maps\actual_maps\exitcode10_rejected\map_5.txt">
+                                    fuzzresults\maps\actual_maps\exitcode10_rejected\map_5.txt
+                                </option>
+                                <option value="fuzzresults\maps\actual_maps\exitcode10_rejected\map_8.txt">
+                                    fuzzresults\maps\actual_maps\exitcode10_rejected\map_8.txt
+                                </option>
+                                <option value="fuzzresults\maps\previous_maps\run_1\exitcode10_rejected\map_9.txt">
+                                    fuzzresults\maps\previous_maps\run_1\exitcode10_rejected\map_9.txt
+                                </option>
+                                <option value="fuzzresults\maps\actual_maps\exitcode10_rejected\map_1.txt">
+                                    fuzzresults\maps\actual_maps\exitcode10_rejected\map_1.txt
+                                </option>
+                                <option value="fuzzresults\maps\actual_maps\exitcode10_rejected\map_7.txt">
+                                    fuzzresults\maps\actual_maps\exitcode10_rejected\map_7.txt
+                                </option>
+                                <option value="fuzzresults\maps\previous_maps\run_1\exitcode10_rejected\map_7.txt">
+                                    fuzzresults\maps\previous_maps\run_1\exitcode10_rejected\map_7.txt
+                                </option>
+                                <option value="fuzzresults\maps\actual_maps\exitcode10_rejected\map_3.txt">
+                                    fuzzresults\maps\actual_maps\exitcode10_rejected\map_3.txt
+                                </option>
+                                <option value="fuzzresults\maps\previous_maps\run_1\exitcode10_rejected\map_1.txt">
+                                    fuzzresults\maps\previous_maps\run_1\exitcode10_rejected\map_1.txt
+                                </option>
+                                <option value="fuzzresults\maps\previous_maps\run_1\exitcode10_rejected\map_3.txt">
+                                    fuzzresults\maps\previous_maps\run_1\exitcode10_rejected\map_3.txt
+                                </option>
+                                <option value="fuzzresults\maps\actual_maps\exitcode10_rejected\map_4.txt">
+                                    fuzzresults\maps\actual_maps\exitcode10_rejected\map_4.txt
+                                </option>
+                                <option value="fuzzresults\maps\previous_maps\run_1\exitcode10_rejected\map_5.txt">
+                                    fuzzresults\maps\previous_maps\run_1\exitcode10_rejected\map_5.txt
+                                </option>
+                                <option value="fuzzresults\maps\actual_maps\exitcode10_rejected\map_9.txt">
+                                    fuzzresults\maps\actual_maps\exitcode10_rejected\map_9.txt
+                                </option>
+                                <option value="fuzzresults\maps\previous_maps\run_1\exitcode10_rejected\map_2.txt">
+                                    fuzzresults\maps\previous_maps\run_1\exitcode10_rejected\map_2.txt
+                                </option>
+                                <option value="fuzzresults\maps\previous_maps\run_1\exitcode10_rejected\map_8.txt">
+                                    fuzzresults\maps\previous_maps\run_1\exitcode10_rejected\map_8.txt
+                                </option>
+                                <option value="fuzzresults\maps\actual_maps\exitcode10_rejected\map_6.txt">
+                                    fuzzresults\maps\actual_maps\exitcode10_rejected\map_6.txt
+                                </option>
+                                <option value="fuzzresults\maps\actual_maps\exitcode10_rejected\map_10.txt">
+                                    fuzzresults\maps\actual_maps\exitcode10_rejected\map_10.txt
+                                </option>
+                                <option value="fuzzresults\maps\previous_maps\run_1\exitcode10_rejected\map_6.txt">
+                                    fuzzresults\maps\previous_maps\run_1\exitcode10_rejected\map_6.txt
+                                </option>
+                                <option value="fuzzresults\maps\previous_maps\run_1\exitcode10_rejected\map_10.txt">
+                                    fuzzresults\maps\previous_maps\run_1\exitcode10_rejected\map_10.txt
+                                </option>
+                                <option value="fuzzresults\maps\actual_maps\exitcode10_rejected\map_2.txt">
+                                    fuzzresults\maps\actual_maps\exitcode10_rejected\map_2.txt
+                                </option>
+                                <option value="fuzzresults\maps\previous_maps\run_1\exitcode10_rejected\map_4.txt">
+                                    fuzzresults\maps\previous_maps\run_1\exitcode10_rejected\map_4.txt
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </section>
+    </div>
+
+
+    <!-- DataTable-->
+    <div class="field">
+        <div class="section">
+            <h1 class="title">Results</h1>
+            <h2 class="subtitle">These were the results of the latest fuzzes:</h2>
+            <nav class="level">
+                <nav class="level-item">
+                    <div class="table-container">
+                    <table class="table is-narrow is-hoverable is-fullwidth" id="myTable" style="width:100%" >
+                        <thead class="thead is-info">
+                        <tr>
+                            <th class="sorting">FuzzAttemptNr</th>
+                            <th class="sorting">TimeStamp</th>
+                            <th class="sorting">IterationNr</th>
+                            <th class="sorting">Error Code</th>
+                            <th class="sorting">Output Messages</th>
+                            <th class="sorting">String sequence</th>
+                            <th class="sorting">Map File Name</th>
+                            <th class="sorting"> Map File Type</th>
+                            <th class="sorting">Map File custom attribute</th>
+                            <th class="sorting">Absolute Map File Path</th>
+                            <th class="sorting">Relative Map File Path</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>11-06-2023 20:25</td>
+                            <td>1</td>
+                            <td>10</td>
+                            <td>Widths mismatch</td>
+                            <td>SWE</td>
+                            <td>map_1.txt</td>
+                            <td>TXT</td>
+                            <td>MW</td>
+                            <td>C:\ST\JPacmanFuzz\fuzzresults\maps\previous_maps\run_1\exitcode10_rejected\map_1.txt
+                            </td>
+                            <td>fuzzresults\maps\previous_maps\run_1\exitcode10_rejected\map_1.txt</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>11-06-2023 20:25</td>
+                            <td>2</td>
+                            <td>10</td>
+                            <td>More than one player</td>
+                            <td>SWE</td>
+                            <td>map_2.txt</td>
+                            <td>TXT</td>
+                            <td>MWP</td>
+                            <td>C:\ST\JPacmanFuzz\fuzzresults\maps\previous_maps\run_1\exitcode10_rejected\map_2.txt
+                            </td>
+                            <td>fuzzresults\maps\previous_maps\run_1\exitcode10_rejected\map_2.txt</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>11-06-2023 20:25</td>
+                            <td>3</td>
+                            <td>10</td>
+                            <td>More than one player</td>
+                            <td>SWE</td>
+                            <td>map_3.txt</td>
+                            <td>TXT</td>
+                            <td>OPF</td>
+                            <td>C:\ST\JPacmanFuzz\fuzzresults\maps\previous_maps\run_1\exitcode10_rejected\map_3.txt
+                            </td>
+                            <td>fuzzresults\maps\previous_maps\run_1\exitcode10_rejected\map_3.txt</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>11-06-2023 20:25</td>
+                            <td>4</td>
+                            <td>10</td>
+                            <td>More than one player</td>
+                            <td>SWE</td>
+                            <td>map_4.txt</td>
+                            <td>TXT</td>
+                            <td>OPE</td>
+                            <td>C:\ST\JPacmanFuzz\fuzzresults\maps\previous_maps\run_1\exitcode10_rejected\map_4.txt
+                            </td>
+                            <td>fuzzresults\maps\previous_maps\run_1\exitcode10_rejected\map_4.txt</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>11-06-2023 20:25</td>
+                            <td>5</td>
+                            <td>10</td>
+                            <td>More than one player</td>
+                            <td>SWE</td>
+                            <td>map_5.txt</td>
+                            <td>TXT</td>
+                            <td>N.A.</td>
+                            <td>C:\ST\JPacmanFuzz\fuzzresults\maps\previous_maps\run_1\exitcode10_rejected\map_5.txt
+                            </td>
+                            <td>fuzzresults\maps\previous_maps\run_1\exitcode10_rejected\map_5.txt</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>11-06-2023 20:25</td>
+                            <td>6</td>
+                            <td>10</td>
+                            <td>More than one player</td>
+                            <td>SWE</td>
+                            <td>map_6.txt</td>
+                            <td>TXT</td>
+                            <td>N.A.</td>
+                            <td>C:\ST\JPacmanFuzz\fuzzresults\maps\previous_maps\run_1\exitcode10_rejected\map_6.txt
+                            </td>
+                            <td>fuzzresults\maps\previous_maps\run_1\exitcode10_rejected\map_6.txt</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>11-06-2023 20:25</td>
+                            <td>7</td>
+                            <td>10</td>
+                            <td>More than one player</td>
+                            <td>SWE</td>
+                            <td>map_7.txt</td>
+                            <td>TXT</td>
+                            <td>N.A.</td>
+                            <td>C:\ST\JPacmanFuzz\fuzzresults\maps\previous_maps\run_1\exitcode10_rejected\map_7.txt
+                            </td>
+                            <td>fuzzresults\maps\previous_maps\run_1\exitcode10_rejected\map_7.txt</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>11-06-2023 20:25</td>
+                            <td>8</td>
+                            <td>10</td>
+                            <td>More than one player</td>
+                            <td>SWE</td>
+                            <td>map_8.txt</td>
+                            <td>TXT</td>
+                            <td>N.A.</td>
+                            <td>C:\ST\JPacmanFuzz\fuzzresults\maps\previous_maps\run_1\exitcode10_rejected\map_8.txt
+                            </td>
+                            <td>fuzzresults\maps\previous_maps\run_1\exitcode10_rejected\map_8.txt</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>11-06-2023 20:25</td>
+                            <td>9</td>
+                            <td>10</td>
+                            <td>More than one player</td>
+                            <td>SWE</td>
+                            <td>map_9.txt</td>
+                            <td>TXT</td>
+                            <td>N.A.</td>
+                            <td>C:\ST\JPacmanFuzz\fuzzresults\maps\previous_maps\run_1\exitcode10_rejected\map_9.txt
+                            </td>
+                            <td>fuzzresults\maps\previous_maps\run_1\exitcode10_rejected\map_9.txt</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>11-06-2023 20:25</td>
+                            <td>10</td>
+                            <td>10</td>
+                            <td>More than one player</td>
+                            <td>SWE</td>
+                            <td>map_10.txt</td>
+                            <td>TXT</td>
+                            <td>N.A.</td>
+                            <td>C:\ST\JPacmanFuzz\fuzzresults\maps\previous_maps\run_1\exitcode10_rejected\map_10.txt
+                            </td>
+                            <td>fuzzresults\maps\previous_maps\run_1\exitcode10_rejected\map_10.txt</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>11-06-2023 20:29</td>
+                            <td>1</td>
+                            <td>10</td>
+                            <td>More than one player</td>
+                            <td>SWE</td>
+                            <td>map_1.txt</td>
+                            <td>TXT</td>
+                            <td>MW</td>
+                            <td>C:\ST\JPacmanFuzz\fuzzresults\maps\actual_maps\exitcode10_rejected\map_1.txt</td>
+                            <td>fuzzresults\maps\actual_maps\exitcode10_rejected\map_1.txt</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>11-06-2023 20:29</td>
+                            <td>2</td>
+                            <td>10</td>
+                            <td>More than one player</td>
+                            <td>SWE</td>
+                            <td>map_2.txt</td>
+                            <td>TXT</td>
+                            <td>MWP</td>
+                            <td>C:\ST\JPacmanFuzz\fuzzresults\maps\actual_maps\exitcode10_rejected\map_2.txt</td>
+                            <td>fuzzresults\maps\actual_maps\exitcode10_rejected\map_2.txt</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>11-06-2023 20:29</td>
+                            <td>3</td>
+                            <td>10</td>
+                            <td>More than one player</td>
+                            <td>SWE</td>
+                            <td>map_3.txt</td>
+                            <td>TXT</td>
+                            <td>OPF</td>
+                            <td>C:\ST\JPacmanFuzz\fuzzresults\maps\actual_maps\exitcode10_rejected\map_3.txt</td>
+                            <td>fuzzresults\maps\actual_maps\exitcode10_rejected\map_3.txt</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>11-06-2023 20:29</td>
+                            <td>4</td>
+                            <td>10</td>
+                            <td>Widths mismatch</td>
+                            <td>SWE</td>
+                            <td>map_4.txt</td>
+                            <td>TXT</td>
+                            <td>OPE</td>
+                            <td>C:\ST\JPacmanFuzz\fuzzresults\maps\actual_maps\exitcode10_rejected\map_4.txt</td>
+                            <td>fuzzresults\maps\actual_maps\exitcode10_rejected\map_4.txt</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>11-06-2023 20:29</td>
+                            <td>5</td>
+                            <td>10</td>
+                            <td>More than one player</td>
+                            <td>SWE</td>
+                            <td>map_5.txt</td>
+                            <td>TXT</td>
+                            <td>N.A.</td>
+                            <td>C:\ST\JPacmanFuzz\fuzzresults\maps\actual_maps\exitcode10_rejected\map_5.txt</td>
+                            <td>fuzzresults\maps\actual_maps\exitcode10_rejected\map_5.txt</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>11-06-2023 20:29</td>
+                            <td>6</td>
+                            <td>10</td>
+                            <td>More than one player</td>
+                            <td>SWE</td>
+                            <td>map_6.txt</td>
+                            <td>TXT</td>
+                            <td>N.A.</td>
+                            <td>C:\ST\JPacmanFuzz\fuzzresults\maps\actual_maps\exitcode10_rejected\map_6.txt</td>
+                            <td>fuzzresults\maps\actual_maps\exitcode10_rejected\map_6.txt</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>11-06-2023 20:29</td>
+                            <td>7</td>
+                            <td>10</td>
+                            <td>No lines</td>
+                            <td>SWE</td>
+                            <td>map_7.txt</td>
+                            <td>TXT</td>
+                            <td>N.A.</td>
+                            <td>C:\ST\JPacmanFuzz\fuzzresults\maps\actual_maps\exitcode10_rejected\map_7.txt</td>
+                            <td>fuzzresults\maps\actual_maps\exitcode10_rejected\map_7.txt</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>11-06-2023 20:29</td>
+                            <td>8</td>
+                            <td>10</td>
+                            <td>More than one player</td>
+                            <td>SWE</td>
+                            <td>map_8.txt</td>
+                            <td>TXT</td>
+                            <td>N.A.</td>
+                            <td>C:\ST\JPacmanFuzz\fuzzresults\maps\actual_maps\exitcode10_rejected\map_8.txt</td>
+                            <td>fuzzresults\maps\actual_maps\exitcode10_rejected\map_8.txt</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>11-06-2023 20:29</td>
+                            <td>9</td>
+                            <td>10</td>
+                            <td>More than one player</td>
+                            <td>SWE</td>
+                            <td>map_9.txt</td>
+                            <td>TXT</td>
+                            <td>N.A.</td>
+                            <td>C:\ST\JPacmanFuzz\fuzzresults\maps\actual_maps\exitcode10_rejected\map_9.txt</td>
+                            <td>fuzzresults\maps\actual_maps\exitcode10_rejected\map_9.txt</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>11-06-2023 20:29</td>
+                            <td>10</td>
+                            <td>10</td>
+                            <td>More than one player</td>
+                            <td>SWE</td>
+                            <td>map_10.txt</td>
+                            <td>TXT</td>
+                            <td>N.A.</td>
+                            <td>C:\ST\JPacmanFuzz\fuzzresults\maps\actual_maps\exitcode10_rejected\map_10.txt</td>
+                            <td>fuzzresults\maps\actual_maps\exitcode10_rejected\map_10.txt</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    </div>
+                </nav>
+            </nav>
+        </div>
+
+</div>
+
+<br>
+<footer class="footer">
+    <div class="content has-text-centered">
+        <p>
+            <strong>JPacman Fuzz</strong> by Luna Geens as part of an assignment for the <a
+                href="https://ansymore.uantwerpen.be/courses/software-testing">Software Testing Course</a> of
+            the <a href="https://www.uantwerpen.be/en/">University of Antwerp</a>. Find the source code of the
+            JPacman Fuzzer on my <a href="https://github.com/lunageens/JPacmanFuzz">Github</a>.
+        </p>
+        <figure>
+            <img height="50" src="https://upload.wikimedia.org/wikipedia/commons/4/48/Logo_Univ_Antwerpen.svg"
+                 width="50" alt="Logo of University of Antwerp">
+            <img height="50" src="https://image.pngaaa.com/787/6130787-middle.png" width="30" alt="Logo of Bulma">
+            <figcaption>
+                Website made with Bulma for the University of Antwerp.
+            </figcaption>
+        </figure>
+    </div>
+</footer>
+
+</div>
+
+
+<!-- Script-->
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.22/js/dataTables.bulma.min.js"></script>
+<script>
+
+    $(document).ready(function () {
+
+        const table = $('#myTable').DataTable();
+
+        // Add event listener to search bar
+        const searchBar = document.getElementById('search-bar');
+        searchBar.addEventListener('input', () => {
+            table.search(searchBar.value).draw();
+        });
+    });
+
+    // Function to handle filter change
+    function handleFilterChange() {
+        // Get all selected filter values
+        const selectedFilters = Array.from(document.getElementsByClassName('filter'))
+            .map(filter => filter.value)
+            .filter(value => value !== "");
+
+        // Apply filtering based on selected filter values
+        const rows = Array.from(document.querySelectorAll('.table tbody tr'));
+        rows.forEach(row => {
+            const cells = Array.from(row.getElementsByTagName('td'));
+            const shouldShow = selectedFilters.every((value, index) => cells[index].textContent.trim() === value);
+            row.style.display = shouldShow ? "table-row" : "none";
+        });
+    }
+
+    // Add event listeners to filters
+    const filters = Array.from(document.getElementsByClassName('filter'));
+    filters.forEach(filter => filter.addEventListener('change', handleFilterChange));
+
+    // Sort table by column
+    function sortTable(column) {
+        const table = document.querySelector('.table');
+        const rows = Array.from(table.querySelectorAll('tbody tr'));
+
+        rows.sort((row1, row2) => {
+            const cell1 = row1.querySelector(`td:nth-child(${column + 1})`);
+            const cell2 = row2.querySelector(`td:nth-child(${column + 1})`);
+            return cell1.textContent.localeCompare(cell2.textContent);
+        });
+
+        rows.forEach(row => table.querySelector('tbody').appendChild(row));
+    }
+
+
+</script>
+
+</body>
+
+</html>

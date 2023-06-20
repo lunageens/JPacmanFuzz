@@ -1,6 +1,6 @@
 package randomGenerators.map;
 
-import outputProviders.FileHandler;
+import organizers.FileHandler;
 
 import java.io.FileOutputStream;
 import java.io.IOException;

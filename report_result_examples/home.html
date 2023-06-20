@@ -8,406 +8,413 @@
     <title>Jpacman Fuzzing report - Home</title>
     <link href="../dist/css/mystyles.css" rel="stylesheet">
     <script src="../dist/js/http_kit.fontawesome.com_6fcea80876.js" crossorigin="anonymous"></script>
-
-
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
 </head>
-
-
 <body>
-<div class="container is-fluid" id="main-container">
-
-    <!-- Section above with breadcrumbs, header and search bar -->
-    <div class="hero has-background-white mb-0">
-        <div class="hero-body py-1 pb=2">
-            <div class="level mb-0">
-                <div class="level-left">
-                    <div class="level-item">
-                        <fig class="figure">
-                            <fig class="figure-img">
-                                <img width="100" height="100"
-                                     src="https://img.icons8.com/bubbles/100/000000/pacman--v1.png" alt="pacman--v1"/>
-                            </fig>
-                        </fig>
-                    </div>
-                    <div class="level-item mt-0">
-                        <!-- BreadCrumbs -->
-                        <!-- Add correct urls to other package-->
-                        <div class="field" id="breadcrumbs-field">
-                            <nav aria-label="breadcrumbs" class="breadcrumb">
-                                <ul>
-                                    <li>
-                                        <a href="welcomePage.html">
+<div id="main-container" class="container is-fluid">
+    <div class="block">
+        <!-- Section above with breadcrumbs, header and search bar -->
+        <div id="Top" class="hero has-background-white mb-0">
+            <div class="hero-body py-1 pb=2">
+                <!-- Breadcrumbs and logo -->
+                <div id="breadcrumbs-logo" class="level mb-0">
+                    <div class="level-left">
+                        <div id="logo" class="level-item">
+                            <div class="figure">
+                                <div class="figure-img">
+                                    <img width="100" height="100"
+                                         src="https://img.icons8.com/bubbles/100/000000/pacman--v1.png"
+                                         alt="pacman--v1"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="level-item mt-0">
+                            <!-- BreadCrumbs -->
+                            <!-- Add correct urls to other package-->
+                            <div id="breadcrumbs-field" class="field">
+                                <nav aria-label="breadcrumbs" class="breadcrumb">
+                                    <ul>
+                                        <li>
+                                            <a href="welcomePage.html">
         <span class="icon is-small">
           <i aria-hidden="true" class="fas fa-ghost"></i>
         </span>
-                                            <span>Welcome</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="home.html">
+                                                <span>Welcome</span>
+                                            </a>
+                                        </li>
+                                        <li class="is-active">
+                                            <a class="has-text-weight-bold" href="home.html">
         <span class="icon is-small">
           <i aria-hidden="true" class="fa-solid fa-table"></i>
         </span>
-                                            <span>Home</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="aboutTheFuzzer.html">
+                                                <span>Home</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="aboutTheFuzzer.html">
         <span class="icon is-small">
           <i aria-hidden="true" class="fa-solid fa-quote-left"></i>
         </span>
-                                            <span>About the fuzzer</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="overviewAndConclusions.html">
+                                                <span>About the fuzzer</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="overviewAndConclusions.html">
         <span class="icon is-small">
           <i aria-hidden="true" class="fa-solid fa-lightbulb"></i>
         </span>
-                                            <span>Overview report and conclusions</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="allMaps.html">
+                                                <span>Overview report and conclusions</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="allMaps.html">
         <span class="icon is-small">
           <i aria-hidden="true" class="fa-regular fa-file-lines"></i>
         </span>
-                                            <span>All maps</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="https://github.com">
+                                                <span>All maps</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://github.com/lunageens/JPacmanFuzz">
                                 <span class="icon is-small">
                                     <i aria-hidden="true" class="fa-brands fa-github"></i>
                                 </span>
-                                            <span>Download</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </nav>
+                                                <span>Download</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="level-right">
-
+                <!-- Header-->
+                <br>
+                <div id="header-field" class="field">
+                    <article class="message is-info" id="message">
+                        <div class="message-header">
+                            <p class="label">Jpacman Fuzzing report</p>
+                            <button aria-label="delete" class="delete" id="message-exit-button"></button>
+                        </div>
+                        <div class="message-body">
+                            This report provides an overview of the <strong>JPacman</strong> fuzzing results. Fuzzing,
+                            also known as fuzz testing or fuzzing, is a software testing technique used to discover
+                            vulnerabilities and flaws in software systems. It involves providing invalid, unexpected, or
+                            random data inputs to a program or system and observing how it behaves. In this case, the
+                            fuzzing is applied to a black-box Jpacman application jar-file.
+                        </div>
+                    </article>
                 </div>
-            </div>
-
-
-            <!-- Header-->
-            <!-- Add action listener to delete botton, isactive this element, to remove the message-->
-            <br>
-            <div class="field" id="header-field">
-                <article class="message is-info" id="message">
-                    <div class="message-header">
-                        <p class="label">Jpacman Fuzzing report</p>
-                        <button aria-label="delete" class="delete" id="message-exit-button"></button>
-                    </div>
-                    <div class="message-body">
-                        This report provides an overview of the <strong>JPacman</strong> fuzzing results. Fuzzing, also
-                        known as
-                        fuzz testing or fuzzing, is a software testing technique used to discover vulnerabilities and
-                        flaws in
-                        software systems. It involves providing invalid, unexpected, or random data inputs to a program
-                        or
-                        system and observing how it behaves. In this case, the fuzzing is applied to a black-box Jpacman
-                        application jar-file.
-                    </div>
-                </article>
-            </div>
-
-            <!--SearchBox-->
-            <!-- Add action listener already happend but not working-->
-            <br>
-            <div class="field" is="searchbox-field">
-                <p class="control has-icons-left">
-                    <label for="search-bar"></label>
-                    <input class="input is-info is-hovered is-rounded" id="search-bar" placeholder="Search..."
-                           type="text">
-                    <!-- any icon here does not work-->
-                    <span class="icon is-left">
+                <!--SearchBox-->
+                <br>
+                <div id="searchbox-field" class="field">
+                    <p class="control has-icons-left">
+                        <label for="search-bar"></label>
+                        <input class="input is-info is-hovered is-rounded" id="search-bar" placeholder="Search..."
+                               type="text">
+                        <span class="icon is-left">
                 <i class="fas fa-magnifying-glass"></i>
             </span>
-                </p>
+                    </p>
+                </div>
+                <br>
             </div>
-            <br>
         </div>
-    </div>
 
+        <!-- Filters-->
+        <div class="hero mt-0 pt-0">
+            <div class="hero-body mt-0">
+                <div class="block">
+                    <div id="filterText-activeFilters-filters" class="field" style="width:100%">
 
-    <!-- Filters-->
-    <div class="hero mt-1 pt-0">
-        <div class="hero-body mt-0">
-            <div class="block">
-                <div class="field" id="filter-field">
-                    <section class="section">
-                        <h1 class="title">Filters</h1>
-                        <h2 class="subtitle">Pick any filters u want to apply on the datatable.</h2>
-                    </section>
-                    <div class="box is-fullwidth">
-                        <div class="columns" id="activeFiltersSection" style="display: none;">
-                            <div class="column is-one-fifth">
-                                 Active filters:
-                            </div>
-                            <div class="column if-four-fith" id="activeFilters"></div>
-                        </div>
+                        <div id="filterBox" class="box">
+                            <section id="filterText" class="section ">
+                                <h1 class="title has-text-info has-text-weight-bold">Filters</h1>
+                                <h2 class="subtitle">Pick any filters u want to apply on the
+                                                     datatable.</h2>
 
-                        <!--Replace h2 with active filters section-->
-                        <!--How to use levels is we don't know how many filters we will have?-->
-                        <div class="columns is-mobile">
-                            <div class="column">
-                                <nav class="level">
-                                    <div class="level-item">
+                                <section id="activeFiltersSection" class="section" style="display: none;">
+
+                                           <h2 class="subtitle is-inline">Active
+                                                                            filters: </h2>
+
+                                    <div id="activeFilters" class="column is-inline"></div>
+                                </section>
+                                <div id="filters" class="columns is-12 is-multiline">
+                                    <div id="FuzzAttemptNrFilter" class="level-item mx-2 my-2">
                                         <div class="field">
-                                            <label class="label has-text-info">Fuzz Attempt Number </label>
-                                            <div class="select is-info is-rounded">
-                                                <select class="is-hovered filter" data-filter-target="FuzzAttemptNr">
-                                                    <option value="">All</option>
-                                                    <option value="1">1</option>
-                                                    <option value="2">2</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="level-item">
-                                        <div class="field">
-                                            <label class="label has-text-info">Date and time </label>
+                                            <label class="label has-text-info">Fuzz Attempt
+                                                                               Number </label>
+                                            <!-- Here pretty name -->
                                             <div class="select is-info is-rounded">
                                                 <label>
-                                                    <select class="is-hovered filter" data-filter-target="TimeStamp">
+                                                    <select class="is-hovered filter"
+                                                            data-filter-target="FuzzAttemptNr">
+                                                        <!-- Here tabel name -->
                                                         <option value="">All</option>
-                                                        <option value="11-06-2023 20:29">11-06-2023 20:29</option>
-                                                        <option value="11-06-2023 20:25">11-06-2023 20:25</option>
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
                                                     </select>
                                                 </label>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="level-item">
+                                    <!-- Let's skip timestamp put none display (niet verwijderen anders kloppen filters index neit -->
+                                    <div id="TimeStampFilter" class="level-item mx-2 my-2" style="display:none">
+                                        <label>
+                                            <select class="is-hovered filter"
+                                                    data-filter-target="TimeStamp">
+                                                <!-- Here tabel name -->
+                                                <option value="">All</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                            </select>
+                                        </label>
+                                    </div>
+                                    <div id="IterationNrFilter" class="level-item mx-2 my-2">
                                         <div class="field">
                                             <label class="label has-text-info">Iteration number </label>
                                             <div class="select is-info is-rounded">
-                                                <select class="is-hovered filter" data-filter-target="IterationNr">
-                                                    <option value="">All</option>
-                                                    <option value="1">1</option>
-                                                    <option value="2">2</option>
-                                                    <option value="3">3</option>
-                                                    <option value="4">4</option>
-                                                    <option value="5">5</option>
-                                                    <option value="6">6</option>
-                                                    <option value="7">7</option>
-                                                    <option value="8">8</option>
-                                                    <option value="9">9</option>
-                                                    <option value="10">10</option>
-                                                </select>
+                                                <label>
+                                                    <select class="is-hovered filter"
+                                                            data-filter-target="IterationNr">
+                                                        <option value="">All</option>
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                        <option value="5">5</option>
+                                                        <option value="6">6</option>
+                                                        <option value="7">7</option>
+                                                        <option value="8">8</option>
+                                                        <option value="9">9</option>
+                                                        <option value="10">10</option>
+                                                    </select>
+                                                </label>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="level-item">
+                                    <div id="ExitCodeFilter" class="level-item mx-2 my-2">
                                         <div class="field">
-                                            <label class="label has-text-info">Error Code</label>
+                                            <label class="label has-text-info">Exit Code</label>
                                             <div class="select is-info is-rounded">
-                                                <select class="is-hovered filter" data-filter-target="Error Code">
-                                                    <option value="">All</option>
-                                                    <option value="10">10</option>
-                                                </select>
+                                                <label>
+                                                    <select class="is-hovered filter"
+                                                            data-filter-target="Error Code">
+                                                        <option value="">All</option>
+                                                        <option value="10">10</option>
+                                                    </select>
+                                                </label>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="level-item">
+                                    <div id="OutputMessagesFilter" class="level-item mx-2 my-2">
                                         <div class="field">
                                             <label class="label has-text-info">Output Message </label>
                                             <div class="select is-info is-rounded">
-                                                <select class="is-hovered filter" data-filter-target="Output Messages">
-                                                    <option value="">All</option>
-                                                    <option value="More than one player ">More than one
-                                                                                          player
-                                                    </option>
-                                                    <option value="No lines ">No lines</option>
-                                                    <option value="Widths mismatch ">Widths mismatch
-                                                    </option>
-                                                </select>
+                                                <label>
+                                                    <select class="is-hovered filter" data-filter-target="Output Messages">
+                                                        <option value="">All</option>
+                                                        <option value="More than one player ">More than one player</option>
+                                                        <option value="No lines ">No lines</option>
+                                                        <option value="Widths mismatch ">Widths mismatch</option>
+                                                    </select>
+                                                </label>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="level-item">
+                                    <div id="ActionSequenceFilter" class="level-item mx-2 my-2">
                                         <div class="field">
                                             <label class="label has-text-info">Action sequence </label>
                                             <div class="select is-info is-rounded">
-                                                <select class="is-hovered filter" data-filter-target="String sequence">
-                                                    <option value="">All</option>
-                                                    <option value="SWE">SWE</option>
-                                                </select>
+                                                <label>
+                                                    <select class="is-hovered filter"
+                                                            data-filter-target="String sequence">
+                                                        <option value="">All</option>
+                                                        <option value="SWE">SWE</option>
+                                                    </select>
+                                                </label>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="level-item">
+                                    <div id="MapFileNameFilter" class="level-item mx-2 my-2">
                                         <div class="field">
                                             <label class="label has-text-info">Map File Name </label>
                                             <div class="select is-info is-rounded">
-                                                <select class="is-hovered filter" data-filter-target="Map File Name">
-                                                    <option value="">All</option>
-                                                    <option value="map_8.txt">map_8.txt</option>
-                                                    <option value="map_3.txt">map_3.txt</option>
-                                                    <option value="map_2.txt">map_2.txt</option>
-                                                    <option value="map_1.txt">map_1.txt</option>
-                                                    <option value="map_5.txt">map_5.txt</option>
-                                                    <option value="map_10.txt">map_10.txt</option>
-                                                    <option value="map_4.txt">map_4.txt</option>
-                                                    <option value="map_9.txt">map_9.txt</option>
-                                                    <option value="map_6.txt">map_6.txt</option>
-                                                    <option value="map_7.txt">map_7.txt</option>
-                                                </select>
+                                                <label>
+                                                    <select class="is-hovered filter"
+                                                            data-filter-target="Map File Name">
+                                                        <option value="">All</option>
+                                                        <option value="map_8.txt">map_8.txt</option>
+                                                        <option value="map_3.txt">map_3.txt</option>
+                                                        <option value="map_2.txt">map_2.txt</option>
+                                                        <option value="map_1.txt">map_1.txt</option>
+                                                        <option value="map_5.txt">map_5.txt</option>
+                                                        <option value="map_10.txt">map_10.txt</option>
+                                                        <option value="map_4.txt">map_4.txt</option>
+                                                        <option value="map_9.txt">map_9.txt</option>
+                                                        <option value="map_6.txt">map_6.txt</option>
+                                                        <option value="map_7.txt">map_7.txt</option>
+                                                    </select>
+                                                </label>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="level-item">
+                                    <div id="MapFileTypeFilter" class="level-item mx-2 my-2">
                                         <div class="field">
                                             <label class="label has-text-info">Map File Type </label>
                                             <div class="select is-info is-rounded">
-                                                <select class="is-hovered filter" data-filter-target="Map File Type">
-                                                    <option value="">All</option>
-                                                    <option value="TXT">TXT</option>
-                                                </select>
+                                                <label>
+                                                    <select class="is-hovered filter"
+                                                            data-filter-target="Map File Type">
+                                                        <option value="">All</option>
+                                                        <option value="TXT">TXT</option>
+                                                    </select>
+                                                </label>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="level-item">
+                                    <div id="MapFileCustomAttributeFilter" class="level-item mx-2 my-2">
                                         <div class="field">
-                                            <label class="label has-text-info">Map File Custom Attribute </label>
+                                            <label class="label has-text-info">Map File Custom
+                                                                               Attribute </label>
                                             <div class="select is-info is-rounded">
-                                                <select class="is-hovered filter"
-                                                        data-filter-target="Map File custom attribute">
-                                                    <option value="">All</option>
-                                                    <option value="OPF">OPF</option>
-                                                    <option value="OPE">OPE</option>
-                                                    <option value="MWP">MWP</option>
-                                                    <option value="N.A.">N.A.</option>
-                                                    <option value="MW">MW</option>
-                                                </select>
+                                                <label>
+                                                    <select class="is-hovered filter"
+                                                            data-filter-target="Map File custom attribute">
+                                                        <option value="">All</option>
+                                                        <option value="OPF">OPF</option>
+                                                        <option value="OPE">OPE</option>
+                                                        <option value="MWP">MWP</option>
+                                                        <option value="N.A.">N.A.</option>
+                                                        <option value="MW">MW</option>
+                                                    </select>
+                                                </label>
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- Let's skip Absolute path -->
-                                    <div class="level-item">
+                                    <!-- Let's skip Relative path, tonen we ook niet in tabel -->
+                                    <div id="AbsolutePathFilter" class="level-item mx-2 my-2">
                                         <div class="field">
-                                            <label class="label has-text-info">Relative Map File Path </label>
+                                            <label class="label has-text-info">Absolute Map File Path </label>
                                             <div class="select is-info is-rounded">
-                                                <select class="is-hovered filter"
-                                                        data-filter-target="Relative Map File Path">
-                                                    <option value="">All</option>
-                                                    <option value="fuzzresults\maps\actual_maps\exitcode10_rejected\map_5.txt">
-                                                        fuzzresults\maps\actual_maps\exitcode10_rejected\map_5.txt
-                                                    </option>
-                                                    <option value="fuzzresults\maps\actual_maps\exitcode10_rejected\map_8.txt">
-                                                        fuzzresults\maps\actual_maps\exitcode10_rejected\map_8.txt
-                                                    </option>
-                                                    <option value="fuzzresults\maps\previous_maps\run_1\exitcode10_rejected\map_9.txt">
-                                                        fuzzresults\maps\previous_maps\run_1\exitcode10_rejected\map_9.txt
-                                                    </option>
-                                                    <option value="fuzzresults\maps\actual_maps\exitcode10_rejected\map_1.txt">
-                                                        fuzzresults\maps\actual_maps\exitcode10_rejected\map_1.txt
-                                                    </option>
-                                                    <option value="fuzzresults\maps\actual_maps\exitcode10_rejected\map_7.txt">
-                                                        fuzzresults\maps\actual_maps\exitcode10_rejected\map_7.txt
-                                                    </option>
-                                                    <option value="fuzzresults\maps\previous_maps\run_1\exitcode10_rejected\map_7.txt">
-                                                        fuzzresults\maps\previous_maps\run_1\exitcode10_rejected\map_7.txt
-                                                    </option>
-                                                    <option value="fuzzresults\maps\actual_maps\exitcode10_rejected\map_3.txt">
-                                                        fuzzresults\maps\actual_maps\exitcode10_rejected\map_3.txt
-                                                    </option>
-                                                    <option value="fuzzresults\maps\previous_maps\run_1\exitcode10_rejected\map_1.txt">
-                                                        fuzzresults\maps\previous_maps\run_1\exitcode10_rejected\map_1.txt
-                                                    </option>
-                                                    <option value="fuzzresults\maps\previous_maps\run_1\exitcode10_rejected\map_3.txt">
-                                                        fuzzresults\maps\previous_maps\run_1\exitcode10_rejected\map_3.txt
-                                                    </option>
-                                                    <option value="fuzzresults\maps\actual_maps\exitcode10_rejected\map_4.txt">
-                                                        fuzzresults\maps\actual_maps\exitcode10_rejected\map_4.txt
-                                                    </option>
-                                                    <option value="fuzzresults\maps\previous_maps\run_1\exitcode10_rejected\map_5.txt">
-                                                        fuzzresults\maps\previous_maps\run_1\exitcode10_rejected\map_5.txt
-                                                    </option>
-                                                    <option value="fuzzresults\maps\actual_maps\exitcode10_rejected\map_9.txt">
-                                                        fuzzresults\maps\actual_maps\exitcode10_rejected\map_9.txt
-                                                    </option>
-                                                    <option value="fuzzresults\maps\previous_maps\run_1\exitcode10_rejected\map_2.txt">
-                                                        fuzzresults\maps\previous_maps\run_1\exitcode10_rejected\map_2.txt
-                                                    </option>
-                                                    <option value="fuzzresults\maps\previous_maps\run_1\exitcode10_rejected\map_8.txt">
-                                                        fuzzresults\maps\previous_maps\run_1\exitcode10_rejected\map_8.txt
-                                                    </option>
-                                                    <option value="fuzzresults\maps\actual_maps\exitcode10_rejected\map_6.txt">
-                                                        fuzzresults\maps\actual_maps\exitcode10_rejected\map_6.txt
-                                                    </option>
-                                                    <option value="fuzzresults\maps\actual_maps\exitcode10_rejected\map_10.txt">
-                                                        fuzzresults\maps\actual_maps\exitcode10_rejected\map_10.txt
-                                                    </option>
-                                                    <option value="fuzzresults\maps\previous_maps\run_1\exitcode10_rejected\map_6.txt">
-                                                        fuzzresults\maps\previous_maps\run_1\exitcode10_rejected\map_6.txt
-                                                    </option>
-                                                    <option value="fuzzresults\maps\previous_maps\run_1\exitcode10_rejected\map_10.txt">
-                                                        fuzzresults\maps\previous_maps\run_1\exitcode10_rejected\map_10.txt
-                                                    </option>
-                                                    <option value="fuzzresults\maps\actual_maps\exitcode10_rejected\map_2.txt">
-                                                        fuzzresults\maps\actual_maps\exitcode10_rejected\map_2.txt
-                                                    </option>
-                                                    <option value="fuzzresults\maps\previous_maps\run_1\exitcode10_rejected\map_4.txt">
-                                                        fuzzresults\maps\previous_maps\run_1\exitcode10_rejected\map_4.txt
-                                                    </option>
-                                                </select>
+                                                <label>
+                                                    <select class="is-hovered filter"
+                                                            data-filter-target="Map File Path">
+                                                        <option value="">All</option>
+                                                        <option value="fuzzresults\maps\actual_maps\exitcode10_rejected\map_5.txt">
+                                                            fuzzresults\maps\actual_maps\exitcode10_rejected\map_5.txt
+                                                        </option>
+                                                        <option value="fuzzresults\maps\actual_maps\exitcode10_rejected\map_8.txt">
+                                                            fuzzresults\maps\actual_maps\exitcode10_rejected\map_8.txt
+                                                        </option>
+                                                        <option value="fuzzresults\maps\previous_maps\run_1\exitcode10_rejected\map_9.txt">
+                                                            fuzzresults\maps\previous_maps\run_1\exitcode10_rejected\map_9.txt
+                                                        </option>
+                                                        <option value="fuzzresults\maps\actual_maps\exitcode10_rejected\map_1.txt">
+                                                            fuzzresults\maps\actual_maps\exitcode10_rejected\map_1.txt
+                                                        </option>
+                                                        <option value="fuzzresults\maps\actual_maps\exitcode10_rejected\map_7.txt">
+                                                            fuzzresults\maps\actual_maps\exitcode10_rejected\map_7.txt
+                                                        </option>
+                                                        <option value="fuzzresults\maps\previous_maps\run_1\exitcode10_rejected\map_7.txt">
+                                                            fuzzresults\maps\previous_maps\run_1\exitcode10_rejected\map_7.txt
+                                                        </option>
+                                                        <option value="fuzzresults\maps\actual_maps\exitcode10_rejected\map_3.txt">
+                                                            fuzzresults\maps\actual_maps\exitcode10_rejected\map_3.txt
+                                                        </option>
+                                                        <option value="fuzzresults\maps\previous_maps\run_1\exitcode10_rejected\map_1.txt">
+                                                            fuzzresults\maps\previous_maps\run_1\exitcode10_rejected\map_1.txt
+                                                        </option>
+                                                        <option value="fuzzresults\maps\previous_maps\run_1\exitcode10_rejected\map_3.txt">
+                                                            fuzzresults\maps\previous_maps\run_1\exitcode10_rejected\map_3.txt
+                                                        </option>
+                                                        <option value="fuzzresults\maps\actual_maps\exitcode10_rejected\map_4.txt">
+                                                            fuzzresults\maps\actual_maps\exitcode10_rejected\map_4.txt
+                                                        </option>
+                                                        <option value="fuzzresults\maps\previous_maps\run_1\exitcode10_rejected\map_5.txt">
+                                                            fuzzresults\maps\previous_maps\run_1\exitcode10_rejected\map_5.txt
+                                                        </option>
+                                                        <option value="fuzzresults\maps\actual_maps\exitcode10_rejected\map_9.txt">
+                                                            fuzzresults\maps\actual_maps\exitcode10_rejected\map_9.txt
+                                                        </option>
+                                                        <option value="fuzzresults\maps\previous_maps\run_1\exitcode10_rejected\map_2.txt">
+                                                            fuzzresults\maps\previous_maps\run_1\exitcode10_rejected\map_2.txt
+                                                        </option>
+                                                        <option value="fuzzresults\maps\previous_maps\run_1\exitcode10_rejected\map_8.txt">
+                                                            fuzzresults\maps\previous_maps\run_1\exitcode10_rejected\map_8.txt
+                                                        </option>
+                                                        <option value="fuzzresults\maps\actual_maps\exitcode10_rejected\map_6.txt">
+                                                            fuzzresults\maps\actual_maps\exitcode10_rejected\map_6.txt
+                                                        </option>
+                                                        <option value="fuzzresults\maps\actual_maps\exitcode10_rejected\map_10.txt">
+                                                            fuzzresults\maps\actual_maps\exitcode10_rejected\map_10.txt
+                                                        </option>
+                                                        <option value="fuzzresults\maps\previous_maps\run_1\exitcode10_rejected\map_6.txt">
+                                                            fuzzresults\maps\previous_maps\run_1\exitcode10_rejected\map_6.txt
+                                                        </option>
+                                                        <option value="fuzzresults\maps\previous_maps\run_1\exitcode10_rejected\map_10.txt">
+                                                            fuzzresults\maps\previous_maps\run_1\exitcode10_rejected\map_10.txt
+                                                        </option>
+                                                        <option value="fuzzresults\maps\actual_maps\exitcode10_rejected\map_2.txt">
+                                                            fuzzresults\maps\actual_maps\exitcode10_rejected\map_2.txt
+                                                        </option>
+                                                        <option value="fuzzresults\maps\previous_maps\run_1\exitcode10_rejected\map_4.txt">
+                                                            fuzzresults\maps\previous_maps\run_1\exitcode10_rejected\map_4.txt
+                                                        </option>
+                                                    </select>
+                                                </label>
                                             </div>
                                         </div>
                                     </div>
-                                </nav>
-                            </div>
-                        </div>
+                                </div>
+                            </section>
 
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
-    </div>
 
+        <!-- DataTable-->
+        <div class="hero my-0 pt-0">
+            <div class="hero-body mt-0 pt-0">
+                <div class="block">
+                    <div id="resultsText-results-pagination" class="field">
 
-    <!-- DataTable-->
-    <div class="hero my-0 pt-0">
-        <div class="hero-body mt-0 pt-0">
-            <div class="block">
-                <div class="field" id="results-field">
-                    <div class="field-label">
-                        <section class="section has-text-left">
-                            <h1 class="title">Results</h1>
-                            <h2 class="subtitle">These were the results of the latest fuzzes. Click on the headers to
-                                                 sort.</h2>
-                        </section>
-                    </div>
-                    <div class="field-body">
-                        <div class="box">
-                            <div class="columns is-mobile">
-                                <div class="column"></div>
-                                <div class="column">
+                        <div id="resultsBox" class="box">
+                            <section id="resultsText" class="section has-text-left">
+                                <h1 class="title has-text-info has-text-weight-bold">Results</h1>
+                                <h2 class="subtitle">These were the results of the latest fuzzes. Click on the
+                                                     headers to
+                                                     sort.</h2>
+                            </section>
+                            <br>
+                            <div id="results" class="columns">
+                                <div class="column is-12">
                                     <div class="table-container">
-                                        <table class="table is-narrow is-hoverable is-fullwidth is-paddingless is-responsive"
-                                               id="myTable"
+                                        <table id="myTable"
+                                               class="table is-narrow is-hoverable is-fullwidth is-paddingless is-responsive"
                                                style="white-space: nowrap">
-                                            <thead>
+                                            <thead id="headersTable">
                                             <tr>
                                                 <th class="sorting has-text-white">FuzzAttemptNr</th>
                                                 <th class="sorting has-text-white">TimeStamp</th>
                                                 <th class="sorting has-text-white">IterationNr</th>
-                                                <th class="sorting has-text-white">Error Code</th>
+                                                <th class="sorting has-text-white">Exit Code</th>
                                                 <th class="sorting has-text-white">Output Messages</th>
                                                 <th class="sorting has-text-white">String sequence</th>
                                                 <th class="sorting has-text-white">Map File Name</th>
                                                 <th class="sorting has-text-white">Map File Type</th>
-                                                <th class="sorting has-text-white">Map File custom attribute</th>
+                                                <th class="sorting has-text-white">Map File custom
+                                                                                   attribute
+                                                </th>
                                                 <th class="sorting has-text-white">Map File Path</th>
                                             </tr>
                                             </thead>
-                                            <tbody>
+                                            <tbody id="bodyTable">
                                             <tr>
                                                 <td>1</td>
                                                 <td>11-06-2023 20:25</td>
@@ -418,8 +425,8 @@
                                                 <td>map_1.txt</td>
                                                 <td>TXT</td>
                                                 <td>MW</td>
-                                                <td class="is-link has-background-grey-lighter has-text-black">
-                                                    <!-- Replace with #index -->
+                                                <td class="is-link has-background-grey-lighter">
+                                                    <!-- Replace href with #index and do same on all maps-->
                                                     <a href="allMaps.html#collapsible-card1">C:\ST\JPacmanFuzz\fuzzresults\maps\previous_maps\run_1\exitcode10_rejected\map_1.txt</a>
                                                 </td>
                                             </tr>
@@ -712,28 +719,29 @@
                                         </table>
                                     </div>
                                 </div>
-                                <div class="column"></div>
                             </div>
-                            <div class="level">
+                            <div id="pagination" class="level">
                                 <div class="level-item is-relative">
                                     <div class="level-item">
                                         <nav class="pagination is-rounded is-centered" role="navigation"
                                              aria-label="pagination">
-                                            <a class="pagination-previous" id="previousPage">Previous</a>
-                                            <ul class="pagination-list" id="#pageNumbers">
-                                                <li><a id="firstPage" class="pagination-link" aria-current="true"
-                                                       aria-label="Goto page 1">1</a></li> <!-- Page numbers -->
-                                                <li><span class="pagination-ellipsis" id="firstPoints">&hellip;</span>
-                                                </li> <!-- Range seperators -->
-                                                <li><a id="previousPageNumber" class="pagination-link"
-                                                       aria-label="Goto page 45">45</a></li>
-                                                <li><a id="currentPageNumber" class="pagination-link is-current"
+                                            <a id="previousPage" class="pagination-previous">Previous</a>
+                                            <ul id="pageNumbers" class="pagination-list">
+                                                <li><a id="firstPage" class="pagination-link"
+                                                       aria-current="true"
+                                                       aria-label="Goto page 1">1</a></li>
+                                                <li><span id="firstPoints"
+                                                          class="pagination-ellipsis">&hellip;</span>
+                                                </li> <!-- Range separators -->
+                                                <li><a id="currentPageNumber"
+                                                       class="pagination-link is-current"
                                                        aria-label="Page 46" aria-current="page">46</a></li>
-                                                <li><a id="nextPageNumber" class="pagination-link"
-                                                       aria-label="Goto page 47">47</a></li>
-                                                <li><span class="pagination-ellipsis" id="secondPoints">&hellip;</span>
+
+                                                <li><span id="secondPoints"
+                                                          class="pagination-ellipsis">&hellip;</span>
                                                 </li>
-                                                <li><a id="lastPage" class="pagination-link" aria-label="Goto page 86">86</a>
+                                                <li><a id="lastPage" class="pagination-link"
+                                                       aria-label="Goto page 86">86</a>
                                                 </li>
                                             </ul>
                                             <a id="nextPage" class="pagination-next">Next page</a>
@@ -745,68 +753,75 @@
                     </div>
                 </div>
             </div>
-
         </div>
+
+        <!-- Footer -->
+        <br>
+        <footer id="footer" class="footer">
+            <div class="content has-text-centered">
+                <p>
+                    <strong>JPacman Fuzz</strong> by Luna Geens as part of an assignment for the <a
+                        href="https://ansymore.uantwerpen.be/courses/software-testing">Software Testing
+                                                                                       Course</a> of
+                                                  the <a href="https://www.uantwerpen.be/en/">University of
+                                                                                              Antwerp</a>.
+                                                  Find the source code of the
+                                                  JPacman Fuzzer on my <a
+                        href="https://github.com/lunageens/JPacmanFuzz">Github</a>.
+                </p>
+                <figure>
+                    <img height="50" src="/dist/img/Logo_Univ_Antwerpen.svg"
+                         width="50" alt="Logo of University of Antwerp">
+                    <img height="50" src="/dist/img/Logo_Bulma.svg" width="30" alt="Logo of Bulma">
+                    <figcaption>
+                        Website made with Bulma for the University of Antwerp.
+                    </figcaption>
+                </figure>
+            </div>
+        </footer>
+
     </div>
-
-
-
-    <!-- Footer -->
-    <br>
-    <footer class="footer" id="footer">
-        <div class="content has-text-centered">
-            <p>
-                <strong>JPacman Fuzz</strong> by Luna Geens as part of an assignment for the <a
-                    href="https://ansymore.uantwerpen.be/courses/software-testing">Software Testing Course</a> of
-                the <a href="https://www.uantwerpen.be/en/">University of Antwerp</a>. Find the source code of the
-                JPacman Fuzzer on my <a href="https://github.com/lunageens/JPacmanFuzz">Github</a>.
-            </p>
-            <figure>
-                <img height="50" src="/dist/img/Logo_Univ_Antwerpen.svg"
-                     width="50" alt="Logo of University of Antwerp">
-                <img height="50" src="/dist/img/Logo_Bulma.svg" width="30" alt="Logo of Bulma">
-                <figcaption>
-                    Website made with Bulma for the University of Antwerp.
-                </figcaption>
-            </figure>
-        </div>
-    </footer>
 </div>
-
-<!-- Script-->
-<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-<script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
 <script>
-
-
     // Function to handle filter change
     function handleFilterChange() {
-        const allFilters = Array.from(document.getElementsByClassName('filter'))
-                .map(filter => filter.value)
+        const allFilters = Array.from(document.getElementsByClassName('filter')).map(filter => filter.value)
+        console.log("allFilters: ")
+        console.log(allFilters)
         const nonEmptyFilterIndexes = allFilters.reduce((indexes, value, index) => {
             if (value !== '') {
                 indexes.push(index);
             }
             return indexes;
         }, []);
-
+        console.log("nonEmptyFilterIndexes: ")
+        console.log(nonEmptyFilterIndexes)
         // Get all selected filter values
         const selectedFilters = Array.from(document.getElementsByClassName('filter'))
                 .map(filter => filter.value)
                 .filter(value => value !== "");
+        console.log("selectedFilters: ")
         console.log(selectedFilters)
-
         // Apply filtering based on selected filter values
         const rows = Array.from(document.querySelectorAll('.table tbody tr'));
         rows.forEach(row => {
             const cells = Array.from(row.getElementsByTagName('td')); // Get all cells in that row
             const shouldShow = selectedFilters.every((value, index) => { // Should this row be shown?
-                return cells[index].textContent.trim() === value // If the cell on place x has ... that is the same that value on place xxx
+                console.log("value: ")
+                console.log(value)
+                console.log("index: ")
+                console.log(index)
+                var indexTable = nonEmptyFilterIndexes[index]
+                console.log("indexTable: ")
+                console.log(indexTable)
+                console.log("cells: ")
+                console.log(cells)
+                console.log("cells[indexTable: ")
+                console.log(cells[indexTable])
+                return cells[indexTable].textContent.trim() === value // If the cell on place x has ... that is the same that value on place xxx
             }); // Index is number of filter
-
             row.style.display = shouldShow ? "table-row" : "none";
         });
-
         updateActiveFilters(selectedFilters, nonEmptyFilterIndexes);
     }
 
@@ -816,34 +831,29 @@
         filters.forEach(filterElement => {
             if (filterElement.value === filter) {
                 filterElement.value = "";
-            }
+            } // Value of all option
         });
         handleFilterChange();
     }
 
-    // Function to update the active filters section
+    // Function to update the active filters section according to selected filters
     function updateActiveFilters(filters, list) {
         // Get all filter names
         const headerCells = Array.from(document.querySelectorAll('.table thead th'));
         const filterNames = headerCells.map(cell => cell.textContent.trim());
-
         // Get section we need to alter
         const activeFiltersSection = document.getElementById('activeFiltersSection');
         const activeFiltersElement = document.getElementById('activeFilters');
         activeFiltersElement.innerHTML = "";
-
-        // if there are active filters, show section and add the correct active filters elements.
+        // If there are active filters, show section and add the correct active filters elements.
         if (filters.length > 0) {
             activeFiltersSection.style.display = "block"; // Show whole section
             activeFiltersSection.className = "tags";
-
             filters.forEach((filter, index) => { // And add active filter elements to that section
                 if (filter.value !== "") { // Control
-
                     // Create new active filter overall element
                     const filterElement = document.createElement('span');
                     filterElement.className = "tag is-rounded is-medium";
-
                     const filterIndex = list[index]; // Get correct header name of chosen filter value
                     filterElement.textContent = " " + filterNames[filterIndex] + ": " + filter + " ";
 
@@ -857,150 +867,113 @@
 
                     // Add overall active filter element to our active filters section
                     activeFiltersElement.appendChild(filterElement);
-
                 }
             });
-        } else { // Dont show
+        } else {
             activeFiltersSection.style.display = "none";
-        }
+        }// Don't show
     }
 
-    // Sort table by column when clicked on icon
-    function sortTable(column) {
-        const table = document.querySelector('.table');
-        const rows = Array.from(table.querySelectorAll('tbody tr'));
-
-        rows.sort((row1, row2) => {
-            const cell1 = row1.querySelector(`td:nth-child(${column + 1})`);
-            const cell2 = row2.querySelector(`td:nth-child(${column + 1})`);
-            return cell1.textContent.localeCompare(cell2.textContent);
-        });
-        rows.forEach(row => table.querySelector('tbody').appendChild(row));
-    }
-
-    // Function to hide the message
+    // Function to hide the message in header
     function hideMessage() {
         const message = document.getElementById("message");
         message.style.display = "none";
     }
 
-    // Function to handle the exit button click
+    // Function to handle the exit button click of message in header
     function handleExitButtonClick() {
         hideMessage();
         localStorage.setItem("hideMessage", "true");
     }
 
-
     // Wait for the document to finish loading to add to hideMessage() and handleExitButtonClick() to right elements
+    // Initialize data table and add correct action events to filters
     document.addEventListener("DOMContentLoaded", function () {
-
         $(document).ready(function () {
-
             // Initialize datatable
             const table = $('#myTable').DataTable(
                     {   // Show x entries
                         lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "All"]],
                         pageLength: 25,
-
                         // Paging
                         paging: true,
                         pagingType: "full_numbers",
-
-                        // Searching
+                        // Searching. Use editor sDom  -> shadow dom
                         searching: true,
-                        // Use editor sDom  -> shadow dom
-                        sDom: 'lrtip', // Remove searching bar jquery - l = lenght changing input control, r= processing display element
-                        sDom: 'lrrti',
-
+                        sDom: 'lrrti', // Remove searching bar jquery - l = lenght changing input control, r= processing display element, and also pagination
                         // Ordering
                         ordering: true,
                         stateSave: true,
-
-                        // How to do scroll?
+                        // How to do scroll? -> not on wide screen bcs table is big but on others works
                         "sScrollX": "100%",
                         "sScrollXInner": "100%",
                         "bScrollCollapse": true,
                     }
             )
-
-            // Add extra buttons to the pagination, and every time you draw again (new page nr)
+            // Add extra buttons to the pagination, and every time you draw, add them again (new page nr)
             addExtraButtons();
-            table.on("draw.dt", function (e) {
+            table.on("draw.dt", function () {
                 addExtraButtons();
             })
-
             // Add event listener to our own search bar
             const searchBar = document.getElementById('search-bar');
             searchBar.addEventListener('input', () => {
                 table.search(searchBar.value).draw();
             });
 
-
+            // This function here instead of above -> needed when loaded?
             function addExtraButtons() {
+                // Buttons next page and previous page and their action listeners
                 const nextPage = document.getElementById('nextPage');
-                console.log(nextPage.className)
                 const previousPage = document.getElementById('previousPage');
-
-                $(".dataTables_paginate .first").after("<a class='paginate_button quick_previous'><<</a>")
-                $(".dataTables_paginate .last").before("<a class='paginate_button quick_next'>>></a>")
-                var currentPage = table.page.info();
-                console.log(currentPage)
-
-                if (currentPage.pages - 1 === currentPage.page) {
-                    nextPage.setAttribute('disabled', ''); // functionality
-                } else {
-                    nextPage.removeAttribute('disabled');
-                }
-
-                if (currentPage.page === 0) {
-                    previousPage.setAttribute('disabled', ''); // functionality
-                } else {
-                    previousPage.removeAttribute('disabled');
-                }
-
                 nextPage.addEventListener("click", quickNext)
                 previousPage.addEventListener("click", quickPrevious)
 
+                // Current page variable of the table. Make buttons above disabled if neede, based on that
+                var currentPage = table.page.info();
+                if (currentPage.pages === currentPage.page + 1) {
+                    nextPage.setAttribute('disabled', '');
+                } // page starts from 0. pages from 1. On last page.
+                else {
+                    nextPage.removeAttribute('disabled');
+                }
+                if (currentPage.page === 0) {
+                    previousPage.setAttribute('disabled', '');
+                } // On first page.
+                else {
+                    previousPage.removeAttribute('disabled');
+                }
+
+                // Number current page
+                const currentPageNumberElement = document.getElementById('currentPageNumber');
+                currentPageNumberElement.textContent = currentPage.page + 1;
+
+                // Numbers first and last page. Draw table on the right page when clicked.
                 const firstPageNumberElement = document.getElementById('firstPage');
                 firstPageNumberElement.addEventListener("click", function () {
                     table.page(0).draw(false);
                 })
                 const lastPageNumberElement = document.getElementById('lastPage');
-                lastPageNumberElement.textContent = currentPage.pages;
+                lastPageNumberElement.textContent = (currentPage.pages).toString();
                 lastPageNumberElement.addEventListener("click", function () {
                     table.page(currentPage.pages - 1).draw(false);
                 })
 
-                const previousPageNumberElement = document.getElementById('previousPageNumber');
-                previousPageNumberElement.textContent = currentPage.page;
-                previousPageNumberElement.addEventListener('click', function () {
-                    table.page(currentPage.page - 1).draw(false);
-                });
-
-
-                const nextPageNumberElement = document.getElementById('nextPageNumber');
-                nextPageNumberElement.textContent = currentPage.page + 2;
-                nextPageNumberElement.addEventListener('click', function () {
-                    table.page(currentPage.page + 1).draw(false);
-                });
-                const currentPageNumberElement = document.getElementById('currentPageNumber');
-                currentPageNumberElement.textContent = currentPage.page + 1;
 
 
             }
 
-            function quickNext(e) {
+            function quickNext() {
                 var currentPage = table.page.info();
                 var pageToGoTo = (currentPage.page + 2) >= currentPage.pages ? currentPage.pages - 1 : (currentPage.page + 2);
                 table.page(pageToGoTo).draw(false);
             }
 
-            function quickPrevious(e) {
+            function quickPrevious() {
                 var currentPage = table.page.info();
                 var pageToGoTo = (currentPage.page - 2) <= 0 ? 0 : (currentPage.page - 2);
                 table.page(pageToGoTo).draw(false);
             }
-
 
         });
 
@@ -1014,7 +987,6 @@
             localStorage.removeItem("hideMessage");
         });
 
-
         // Add toggle event listeners
         $('.collapse-toggle').click(function () {
             $(this).closest('tr').next('.collapse-row').toggleClass('is-hidden');
@@ -1025,11 +997,6 @@
         filters.forEach(filter => filter.addEventListener('change', handleFilterChange));
     });
 
-
-
 </script>
-
-
 </body>
-
 </html>
