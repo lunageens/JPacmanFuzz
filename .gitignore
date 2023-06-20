@@ -40,3 +40,4 @@ build/
 /fuzzresults_lessons/fuzz3_filetypes/custom_maps/custom_maps_ignored/FileCorruption_Encoded.txt
 /fuzzresults_lessons/fuzz3_filetypes/custom_maps/custom_maps_ignored/FileSize_Massive.txt
 /node_modules/
+/fuzzresults_lessons/fuzz3_filetypes/custom_maps/custom_maps_ignored/
