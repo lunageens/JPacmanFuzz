@@ -423,8 +423,8 @@ public class LogFileHandler {
                 header.add(getFullVariableName("errorCode", false));
                 header.add(getFullVariableName("outputMessages", false));
                 header.add(getFullVariableName("stringSequence", false));
-                header.add(getFullVariableName("mapFileType", false));
                 header.add(getFullVariableName("mapFileName", false));
+                header.add(getFullVariableName("mapFileType", false));
                 header.add(getFullVariableName("customAttribute", false));
                 header.add(getFullVariableName("mapFilePath", false));
                 header.add(getFullVariableName("mapFileRelativePath", false));

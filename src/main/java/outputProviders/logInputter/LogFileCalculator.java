@@ -97,10 +97,10 @@ public class LogFileCalculator {
     public static String getFullVariableName(String variableName, boolean appendColon) {
         String fullName;
         switch (variableName) {
-            case "fuzzAttemptNumber" -> fullName = "Fuzz Attempt Number";
+            case "fuzzAttemptNumber" -> fullName = "Fuzz Attempt Nr.";
             case "timeStamp" -> fullName = "Date and Time";
             case "executedTime" -> fullName = "Execution Time";
-            case "iterationNumber" -> fullName = "Iteration Number";
+            case "iterationNumber" -> fullName = "Iteration Nr.";
             case "mapFileType" -> fullName = "Map File Type";
             case "mapFileName" -> fullName = "Map File Name";
             case "mapFilePath" -> fullName = "Absolute Map File Path";

@@ -102,7 +102,7 @@ public class IterationResultFormatter {
      * @param errorCode
      *         The exit code to be formatted. Can be 0, 1, 10, -1.
      * @param asText
-     *         True if the exit code should be returned as text. (E.g., 0 becomes Crash [0]. )
+     *         True if the exit code should be returned as text. (E.g., 0 becomes 0 (Crash). And -1 becomes Unknown)
      * @param titlePrefix
      *         True if the variable name and a : should be appended in front. (E.g., Exit Code: )
      * @param CSVReplacement
@@ -120,10 +120,10 @@ public class IterationResultFormatter {
         if (asText) {
             errorCodeString = errorCodeString.toUpperCase();
             errorCodeString = switch (errorCodeString) {
-                case "0" -> "Crash [0]";
-                case "1" -> "Accepted [1]";
-                case "10" -> "Rejected [10]";
-                case "-1" -> "Unknown [-1]";
+                case "0" -> "0 (Crash)";
+                case "1" -> "1  (Accepted)";
+                case "10" -> "10 (Rejected)";
+                case "-1" -> "Unknown";
                 default -> errorCodeString;
             };
         }
@@ -158,7 +158,7 @@ public class IterationResultFormatter {
      * Returns the error code of the iteration result the formatter has been initialized with as a string.
      *
      * @param asText
-     *         - True if the error code should be returned as text. (E.g., 0 becomes Crash [0]. )
+     *         - True if the error code should be returned as text. (E.g., 0 becomes 0 (Crash). And -1 becomes Unknown.)
      * @param titlePrefix
      *         - True if the variable name and a : should be appended in front. (E.g., Exit Code: )
      * @param CSVReplacement
@@ -191,7 +191,7 @@ public class IterationResultFormatter {
      * @param filteredResults
      *         - The filtered results that have one error code in common.
      * @param asText
-     *         - True if the error code should be returned as text. (E.g., 0 becomes Crash [0]. )
+     *         - True if the error code should be returned as text. (E.g., 0 becomes 0 (Crash). And -1 becomes Unknown.)
      * @param titlePrefix
      *         - True if the variable name and a : should be appended in front. (E.g., Exit Code: )
      * @param CSVReplacement
@@ -520,7 +520,7 @@ public class IterationResultFormatter {
      * @return Map file name with comma and newline removed, with comma appended, and with extension.
      */
     public static String getFormattedMapFileName(String mapFileName) {
-        return getFormattedMapFileName(mapFileName, true, false,
+        return getFormattedMapFileName(mapFileName, false, false,
                 false, true, true, false);
     }
 
@@ -600,16 +600,16 @@ public class IterationResultFormatter {
                 mapFileType = FileHandler.FileTypeResolver.formatFileInformation(FileHandler.FileTypeResolver
                         .getFileInformation(mapFileType), true, true, true);
             } else {
-                mapFileType = mapFileType + " [" + FileHandler.FileTypeResolver.formatFileInformation(FileHandler.FileTypeResolver
-                        .getFileInformation(mapFileType), true, true, true) + "]";
+                mapFileType = mapFileType + " (" + FileHandler.FileTypeResolver.formatFileInformation(FileHandler.FileTypeResolver
+                        .getFileInformation(mapFileType), true, true, true) + ")";
             }
         } else if (asText) {
             if (textOnly) {
                 mapFileType = FileHandler.FileTypeResolver.formatFileInformation(FileHandler.FileTypeResolver
-                        .getFileInformation(mapFileType), true, true, true);
+                        .getFileInformation(mapFileType), true, false, false);
             } else {
-                mapFileType = mapFileType + " [" + FileHandler.FileTypeResolver.formatFileInformation(FileHandler.FileTypeResolver
-                        .getFileInformation(mapFileType), true, false, false) + "]";
+                mapFileType = mapFileType + " (" + FileHandler.FileTypeResolver.formatFileInformation(FileHandler.FileTypeResolver
+                        .getFileInformation(mapFileType), true, false, false) + ")";
             }
         }
         if (titlePrefix) {
@@ -678,7 +678,31 @@ public class IterationResultFormatter {
                 true, false);
     }
 
+    /**
+     * Returns a string with information about the file type back to the extension itself
+     * E.g. ".txt [Unformatted Text Document]" -> ".txt"
+     * E.g. ".txt [Unformatted Text Document as Text file]" -> ".txt"
+     * E.g. "Unformatted Text Document" -> "Unformatted Text Document"
+     *
+     * @param fullFileType
+     *         The full file type with the extension and the text
+     *
+     * @return The extension only
+     */
+    public static String extractFileTypeExtension(String fullFileType) {
+        if (fullFileType.startsWith(".") && fullFileType.length() > 1) { // Check if has extension
+            int endIndex = fullFileType.lastIndexOf('('); // Find last occurring [
+            if (endIndex != -1) { // If it has that
+                return fullFileType.substring(0, endIndex - 1).trim(); // Return everything before the [ without spaces
+            }
+        } else { // Only file extension
+            return fullFileType.substring(1); // Return everything after the .
+        }
+        return fullFileType; // No extension
+    }
+
     /* * Map File Custom Attribute */
+
     /**
      * Returns the custom attribute of the map file.
      * @param customAttribute

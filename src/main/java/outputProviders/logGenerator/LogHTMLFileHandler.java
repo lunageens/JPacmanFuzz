@@ -103,6 +103,7 @@ public class LogHTMLFileHandler {
      */
     public static final String ReportWelcomePath = FileHandler.logFullHistoryHTMLWelcomeFilePath;
 
+
     //  TODO Write method that makes interface names variables, and then store class attribute a map or something for each var: prettyvar, index in table
     // consistency!!
 
@@ -182,14 +183,13 @@ public class LogHTMLFileHandler {
     /**
      * Gets the index of a specific column in the CSV data.
      * @param header The header of the column.
-     * @return The index of the column as int.
+     * @return The index of the column in rows as int.
      */
     public static int getColumnIndex(String header) {
-        return headers.indexOf(header);
+        int index = headers.indexOf(header);
+        return index;
     }
 
-    /**
-     * Takes the read-in headers from the CSV File and formats them to be used in the HTML file.
-     */
+
 
 }

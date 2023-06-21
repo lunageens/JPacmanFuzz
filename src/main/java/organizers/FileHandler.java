@@ -177,7 +177,7 @@ public class FileHandler {
      * The path to the index.html file in the log_fullHistory_html subdirectory.
      * Default: ${project.root}/fuzzresults/logs/overview_logs/log_fullHistory_html/index.html
      */
-    public static String logFullHistoryHTMLHomeFilePath = logFullHistoryHTMLDirectoryPath + "index.html";
+    public static String logFullHistoryHTMLHomeFilePath = logFullHistoryHTMLDirectoryPath + "home.html";
 
     /**
      * The path to the aboutTheFuzzer.html file in the log_fullHistory_html subdirectory.
@@ -189,7 +189,7 @@ public class FileHandler {
      * The path to the reportAndFuzzLessons.html file in the log_fullHistory_html subdirectory.
      * Default: ${project.root}/fuzzresults/logs/overview_logs/log_fullHistory_html/reportAndFuzzLessons.html
      */
-    public static String logFullHistoryHTMLReportAndFuzzLessonsFilePath = logFullHistoryHTMLDirectoryPath + "reportAndFuzzLessons.html";
+    public static String logFullHistoryHTMLReportAndFuzzLessonsFilePath = logFullHistoryHTMLDirectoryPath + "overviewAndConclusions.html";
 
     /***
      * The path to the allMaps.html file in the log_fullHistory_html subdirectory.
@@ -200,7 +200,7 @@ public class FileHandler {
     /**
      * The path to the welcome.html file in the log_fullHistory_html subdirectory.
      */
-    public static String logFullHistoryHTMLWelcomeFilePath = logFullHistoryHTMLDirectoryPath + "welcome.html";
+    public static String logFullHistoryHTMLWelcomeFilePath = logFullHistoryHTMLDirectoryPath + "welcomePage.html";
 
     /**
      * Count the amount of times the fuzzer has run.
