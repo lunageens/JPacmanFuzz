@@ -18,8 +18,7 @@ public class OverviewAndConclusionsPageGenerator extends LogHTMLFileHandler impl
     @Override
     public String alterHTMLTemplate(String templatePath) {
         String template = readTemplate(templatePath);
-
-        // TODO: Add functionality to alter the template.
+        // * Nothing to change here
         return template;
     }
 

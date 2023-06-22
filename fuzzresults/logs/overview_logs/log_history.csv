@@ -1,0 +1,5 @@
+Fuzz Attempt Nr.,Date and Time,Execution Time,Exit Code 0,Exit Code 1,Exit Code 10,Exit Code Other
+1,22-06-2023 01:43,00:00,0,0,1,0
+2,22-06-2023 01:47,00:01,0,0,1,0
+3,22-06-2023 01:57,00:01,0,0,1,0
+4,22-06-2023 01:59,00:01,0,0,1,0

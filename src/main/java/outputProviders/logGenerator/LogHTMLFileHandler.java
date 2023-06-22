@@ -103,10 +103,6 @@ public class LogHTMLFileHandler {
      */
     public static final String ReportWelcomePath = FileHandler.logFullHistoryHTMLWelcomeFilePath;
 
-
-    //  TODO Write method that makes interface names variables, and then store class attribute a map or something for each var: prettyvar, index in table
-    // consistency!!
-
     /**
      * Constructor for the LogHTMLFileHandler class.
      * Do not initialize subclasses here!
@@ -186,10 +182,7 @@ public class LogHTMLFileHandler {
      * @return The index of the column in rows as int.
      */
     public static int getColumnIndex(String header) {
-        int index = headers.indexOf(header);
-        return index;
+        return headers.indexOf(header);
     }
-
-
 
 }
