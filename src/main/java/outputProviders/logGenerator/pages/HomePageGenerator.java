@@ -194,31 +194,6 @@ public class HomePageGenerator extends LogHTMLFileHandler implements PageGenerat
     }
 
 
-    /**
-     * Returns  a string with the first letter of each word in the string capitalized, and the spaces between the
-     * words removed.
-     * E.g. "this is a test" -> "ThisIsATest"
-     *
-     * @param header
-     *         The string to be converted
-     *
-     * @return The converted string.
-     */
-    private String getIDName(String header) {
-        StringBuilder result = new StringBuilder();
-        boolean capitalizeNext = true;
 
-        for (char c : header.toCharArray()) {
-            if (Character.isWhitespace(c)) {
-                capitalizeNext = true;
-            } else if (capitalizeNext) {
-                result.append(Character.toUpperCase(c));
-                capitalizeNext = false;
-            } else {
-                result.append(Character.toLowerCase(c));
-            }
-        }
-        return result.toString();
-    }
 
 }

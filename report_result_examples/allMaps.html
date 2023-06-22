@@ -625,7 +625,7 @@
                 switch (fileType) {
                     case "txt":
                         var textElement = document.createElement("div");
-                        textElement.className = "field";
+                        textElement.className = "field is-family-monospace";
                         adjustEmbedSize(textElement, sourceUrl);
                         textElement.style.fontSize = "15px"
                         fileContainer.parentNode.replaceChild(textElement, fileContainer) // Replace the file-container in box with embed

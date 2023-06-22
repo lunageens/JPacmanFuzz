@@ -19,17 +19,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-// TODO Add website templates and alter generator classes accordingly.
 // TODO Functionality and website documentation fuzz 5 action sequence strings.
 // TODO Functionality and website documentation fuzz 6 mutation fuzzing.
 // TODO Fuzzing with external program?
 // TODO Push site to netifly, alter markdown read me.
 // TODO Update Pseudocode from what I have in website.
 // TODO Generate final javadoc. Check that everything is documented.
-// TODO How to push dist to Git? Problems with fileEncrypted?
 // TODO Should I write manual on building site? Maybe few sentences in README?
 // TODO Links to directories in HTML should work? Check all links!
-// TODO Overview page of html report -> full history by error count? we can use it as well for progress bars.
 
 /**
  * The Fuzzer class is the main class that runs the fuzzing process.

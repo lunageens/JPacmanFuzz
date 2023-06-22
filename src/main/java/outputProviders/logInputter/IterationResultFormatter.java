@@ -875,7 +875,7 @@ public class IterationResultFormatter {
      * @return String The formatted map file path in the correct actual subdirectory.
      */
     public String getFormattedMapFilePath(boolean backslash, boolean relative, boolean titlePrefix, boolean CSVReplacement,
-                                          boolean commaSuffix, boolean newLineSuffix) {
+                                                 boolean commaSuffix, boolean newLineSuffix) {
         String mapFilePath = iterationResult.getMapFilePath();
         return getFormattedMapFilePath(mapFilePath, backslash, relative, titlePrefix, CSVReplacement, commaSuffix, newLineSuffix);
     }

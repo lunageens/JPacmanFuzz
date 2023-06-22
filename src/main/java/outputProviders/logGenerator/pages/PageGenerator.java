@@ -54,7 +54,7 @@ public interface PageGenerator {
      * @param alteredTemplate The altered HTML template, as String (after read in bytes and altered).
      */
    default void writeHTMLPage(String destinationPath, String alteredTemplate) {
-        try { // TODO nog aanpassen path
+        try {
             Files.writeString(Paths.get(destinationPath), alteredTemplate); // Changed from write(Paths.get(destinationPath), alteredTemplate.getBytes());
         } catch (IOException e) {
             e.printStackTrace();
