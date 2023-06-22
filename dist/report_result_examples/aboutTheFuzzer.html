@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Jpacman Fuzzing report - About the fuzzer</title>
+    <link href="../css/mystyles.css" rel="stylesheet">
+    <script src="../js/http_kit.fontawesome.com_6fcea80876.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+<div class="container is-fluid" id="main-container">
+    <!-- Converted README.md with Notepath ++ Plugin MarkdownViewer ++ -->
+
+
+    <!-- Section above with breadcrumbs, header and search bar -->
+    <div class="hero has-background-white mb-0">
+        <div class="hero-body py-1 pb=2">
+            <div class="level mb-0">
+                <div class="level-left">
+                    <div class="level-item">
+                        <div class="image">
+
+                            <img width="100" height="100"
+                                 src="https://img.icons8.com/bubbles/100/000000/pacman--v1.png" alt="pacman--v1"/>
+
+                        </div>
+                    </div>
+                    <div class="level-item mt-0">
+                        <!-- BreadCrumbs -->
+                        <!-- Add correct urls to other package-->
+                        <div class="field" id="breadcrumbs-field">
+                            <nav aria-label="breadcrumbs" class="breadcrumb">
+                                <ul>
+                                    <li>
+                                        <a href="welcomePage.html">
+        <span class="icon is-small">
+          <i aria-hidden="true" class="fas fa-ghost"></i>
+        </span>
+                                            <span>Welcome</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="home.html">
+        <span class="icon is-small">
+          <i aria-hidden="true" class="fa-solid fa-table"></i>
+        </span>
+                                            <span>Home</span>
+                                        </a>
+                                    </li>
+                                    <li class="is-active">
+                                        <a class="has-text-weight-bold" href="aboutTheFuzzer.html">
+        <span class="icon is-small">
+          <i aria-hidden="true" class="fa-solid fa-quote-left"></i>
+        </span>
+                                            <span>About the fuzzer</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="overviewAndConclusions.html">
+        <span class="icon is-small">
+          <i aria-hidden="true" class="fa-solid fa-lightbulb"></i>
+        </span>
+                                            <span>Overview report and conclusions</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="allMaps.html">
+        <span class="icon is-small">
+          <i aria-hidden="true" class="fa-regular fa-file-lines"></i>
+        </span>
+                                            <span>All maps</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://github.com/lunageens/JPacmanFuzz">
+                                <span class="icon is-small">
+                                    <i aria-hidden="true" class="fa-brands fa-github"></i>
+                                </span>
+                                            <span>Download</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+                <div class="level-right">
+
+                </div>
+            </div>
+
+
+            <!-- Header-->
+            <!-- Add action listener to delete botton, isactive this element, to remove the message-->
+            <br>
+            <div class="field" id="header-field">
+                <article class="message is-info" id="message">
+                    <div class="message-header">
+                        <p class="label">Jpacman Fuzzing report - About the Fuzzer</p>
+                        <button aria-label="delete" class="delete" id="message-exit-button"></button>
+                    </div>
+                    <div class="message-body">
+                        This page provides information about the technical implementation of the Fuzzer application. The
+                        Fuzzer is an automated testing tool designed to perform fuzz testing on the JPacman application.
+                        It is a black-box fuzzer, meaning that the JPacman application code is not visible while
+                        fuzzing. One can execute the jpacman code with the help of the jpacman-3.0.1 jar file. The
+                        fuzzer generates random maps and action sequences to test the functionality and stability of the
+                        JPacman game.
+                    </div>
+                </article>
+            </div>
+
+            <br>
+        </div>
+    </div>
+
+    <br>
+    <div class="tile is anchestor">
+        <div class="tile is-vertical">
+
+            <div class="tile">
+
+                <div class="tile is-parent ">
+                    <div class="tile is-child card" id="prerequistes">
+                        <div class="card-header">
+                            <div class="card-header-icon">
+                                    <span class="icon">
+                                        <i class="fa-solid fa-check"></i>
+                                    </span>
+                            </div>
+                            <div class="card-header-title">
+                                Prerequisites
+                            </div>
+                        </div>
+                        <div class="card-content">
+
+                            <li>Java Development Kit (JDK) 8 or above</li>
+                            <li>JPacman application (version 3.0.1 or compatible)</li>
+                            <li>Configuration file (see "Configuration" section for details)</li>
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="tile is-parent">
+                    <div class="tile is-child card" id="installation">
+                        <div class="card-header">
+                            <div class="card-header-icon">
+                                    <span class="icon">
+                                        <i class="fa-solid fa-terminal"></i>
+                                    </span>
+                            </div>
+                            <div class="card-header-title">
+                                Installation
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <p>Clone the Fuzzer repository to your local machine.
+                               Ensure that the JPacman application is available in the project directory or specify its
+                               location
+                               in the
+                               configuration file.
+                               Update the configuration file with the desired settings (see "Configuration" section for
+                               details).</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tile">
+                <div class="tile is-parent">
+                    <div class="tile is-child card" id="features">
+                        <div class="card-header">
+                            <div class="card-header-icon">
+                                    <span class="icon">
+                                        <i class="fa-solid fa-info"></i>
+                                    </span>
+                            </div>
+                            <div class="card-header-title">
+                                Features
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <li>Generates random maps and action sequences for testing.</li>
+                            <li>Executes the JPacman application with the generated inputs.</li>
+                            <li>Captures and analyzes the output and exit codes of the JPacman process.</li>
+                            <li>Logs the results of each iteration and generates summary reports.</li>
+                            <li>Supports both text-based and binary map file formats.</li>
+                            <li>Provides configurable options for maximum iterations, time budget, map dimensions, and
+                                more.
+                            </li>
+                        </div>
+                    </div>
+                </div>
+                <div class="tile is-parent">
+                    <div class="tile is-child card" id="usage">
+                        <div class="card-header">
+                            <div class="card-header-icon">
+                                    <span class="icon">
+                                        <i class="fa-solid fa-code"></i>
+                                    </span>
+                            </div>
+                            <div class="card-header-title">
+                                Usage
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <p>Ensure that the JPacman application is available in the project directory or specify its
+                               location in the
+                               configuration file.
+                               Update the configuration file (config.properties) with the desired settings.
+                               Run the Fuzzer class as the main entry point of the application.
+                               The fuzzing process will generate random maps and action sequences, execute the JPacman
+                               application with the
+                               inputs,
+                               and capture the results.
+                               After the fuzzing process completes, the logs and summary reports will be stored in the
+                               specified
+                               directories.
+                               Review the logs and reports to analyze the results of the fuzzing process.</p>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="tile">
+                <div class="tile is-parent is-4">
+                    <div class="tile is child card is-centered">
+                        <div class="columns is-vcentered">
+                            <div class="column is-12">
+                                <div class="card-image">
+                                    <figure class="image">
+                                        <img src="/img/About_Coding.svg" alt="Illustration of a smartphone with coding elements on the interface."
+                                             width="619" height="633">
+                                    </figure>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tile is-parent is-8">
+                    <div class="tile is-child card" id="configuration">
+                        <div class="card-header">
+                            <div class="card-header-icon">
+                                    <span class="icon">
+                                        <i class="fa-solid fa-gear"></i>
+                                    </span>
+                            </div>
+                            <div class="card-header-title">
+                                Configuration
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <p>The configuration file (config.properties) allows you to customize various aspects of the
+                               fuzzing process.
+                               You can modify the following settings:</p><br>
+
+                            <ul>
+                                <li>
+                                    <div class="tag has-addons is-paddingless m-2">
+                                        <span class="tag is-info">Default:</span>
+                                        <span class="tag is-info is-light"> all</span></div>
+                                    <div class="tag has-addons is-paddingless m-2">
+                                        <span class="tag is-info">Valid values:</span>
+                                        <span class="tag is-info is-light">txt, bin, all.</span></div>
+                                    <strong>fileType:</strong>
+                                    Specifies the type of map files to be generated.
+
+                                </li>
+                                <li>
+                                    <div class="tag has-addons is-paddingless m-2"><span
+                                            class="tag is-info">Default:</span>
+                                        <span class="tag is-info is-light">fuzzresults</span></div>
+                                    <strong>resultPath:</strong> Specifies the path to store the fuzzing results.
+
+                                </li>
+                                <li>
+                                    <div class="tag has-addons is-paddingless m-2"><span
+                                            class="tag is-info">Default:</span><span
+                                            class="tag is-info is-light"> logs</span></div>
+                                    <strong>logFilePath:</strong> Specifies the path to store the log files.
+
+                                </li>
+                                <li>
+                                    <div class="tag had-addons is-paddingless m-2"><span
+                                            class="tag is-info">Default:</span><span
+                                            class="tag is-info is-light"> log</span></div>
+                                    <strong>logFileName:</strong> Specifies the name of the log file.
+
+                                </li>
+                                <li>
+                                    <div class="tag has-addons is-paddingless m-2"><span
+                                            class="tag is-info">Default:</span><span
+                                            class="tag is-info is-light"> true</span></div>
+                                    <div
+                                            class="tag has-addons is-paddingless m-2"><span class=" tag is-info">Valid values:</span><span
+                                            class="tag is-info is-light"> true, false.  </span>
+                                    </div>
+                                    <strong>logHistory</strong> Specifies whether to generate log history files.
+                                </li>
+                                <li>
+                                    <div class="tag has-addons is-paddingless m-2"><span
+                                            class="tag is-info">Default:</span><span
+                                            class="tag is-info is-light"> maps</span></div>
+                                    <strong>mapFilePath:</strong> Specifies the path to store the generated map files.
+
+                                </li>
+                                <li>
+                                    <div class="tag has-addons is-paddingless m-2"><span
+                                            class="tag is-info">Default:</span><span
+                                            class="tag is-info is-light"> true</span>
+                                    </div>
+                                    <div class="tag has-addons is-paddingless m-2"><span class=" tag is-info
+                                                           ">Valid values:</span><span class="tag is-info is-light"> true, false. </span>
+                                    </div>
+                                    <strong>cleanDirectories:</strong> Specifies whether to clean directories before
+                                                                       running the
+                                                                       fuzzing process.
+
+
+                                </li>
+                                <li>
+                                    <div class="tag has-addons is-paddingless m-2"><span
+                                            class="tag is-info">Default:</span><span
+                                            class="tag is-info is-light"> 100</span></div>
+                                    <strong>maxIterations:</strong> Specifies the maximum number of iterations for the
+                                                                    fuzzing process.
+
+                                </li>
+                                <li>
+                                    <div class="tag has-addons is-paddingless m-2"><span
+                                            class="tag is-info">Default:</span><span
+                                            class="tag is-info is-light"> 900000 (5  minutes)</span></div>
+                                    <strong>maxTime:</strong> Specifies the maximum time budget for the fuzzing process
+                                                              in milliseconds.
+
+                                </li>
+                                <li>
+                                    <div class="tag has-addons is-paddingless m-2"><span
+                                            class="tag is-info">Default:</span><span
+                                            class="tag is-info is-light"> 20</span></div>
+                                    <strong>maxTextMapHeight:</strong> Specifies the maximum height of the generated
+                                                                       text-based maps.
+
+                                </li>
+                                <li>
+                                    <div class="tag has-addons is-paddingless m-2"><span
+                                            class="tag is-info">Default:</span><span
+                                            class="tag is-info is-light">20</span></div>
+                                    <strong>maxTextMapWidth:</strong> Specifies the maximum width of the generated
+                                                                      text-based maps.
+
+                                </li>
+                                <li>
+                                    <div class="tag has-addons is-paddingless m-2"><span
+                                            class="tag is-info">Default:</span><span
+                                            class="tag is-info is-light">100</span></div>
+                                    <strong>maxBinaryMapSize:</strong> Specifies the maximum size of the generated
+                                                                       binary maps.
+
+                                </li>
+                                <li>
+                                    <div class="tag has-addons is-paddingless m-2"><span
+                                            class="tag is-info">Default:</span><span
+                                            class="tag is-info is-light"> 5</span></div>
+                                    <strong>maxActionSequenceLength:</strong> Specifies the maximum length of the random
+                                                                              action
+                                                                              sequences.
+
+                                </li>
+
+
+                            </ul>
+
+
+                            <br>
+                            <p>Please fill in the appropriate values for each setting according to your needs. The
+                               default
+                               values are
+                               provided as a reference,
+                               but feel free to adjust them as required.</p>
+                        </div>
+                    </div>
+                </div>
+
+
+                </div>
+
+                <div class="tile">
+                    <div class="tile is-parent">
+                        <div class="tile is-child card" id="results">
+                            <div class="card-header">
+                                <div class="card-header-icon">
+                                    <span class="icon">
+                                        <i class="fa-solid fa-file-export"></i>
+                                    </span>
+                                </div>
+                                <div class="card-header-title">
+                                    Results
+                                </div>
+                            </div>
+                            <div class="card-content">
+                                <p>The Fuzzer provides various types of output and results:</p>
+
+                                    <li>Log files: Detailed logs of each iteration, including map file, action sequence,
+                                        exit code, and output
+                                        messages.
+                                    </li>
+                                <li>Summary reports: Reports summarizing the results of the fuzzing process,
+                                    including
+                                    statistics, error
+                                    codes, and output messages.
+                                </li>
+                                <li>Map files: Generated map files stored in the designated directory.</li>
+                                <li>Javadoc: Published on Netifly as well, on the following <a
+                                        href="https://jpacmanfuzzsite.netlify.app/">link</a>.
+                                </li>
+                                <br>
+                                <p>Of course, the current website is also adjusted to the fuzzresults of each run.</p>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tile is-parent">
+                        <div class="tile is-child card">
+                            <div class="card-header">
+                                <div class="card-header-icon">
+                                    <span class="icon">
+                                        <i class="fa-solid fa-heart"></i>
+                                    </span>
+                                </div>
+                                <div class="card-header-title">
+                                    Acknowledgements
+                                </div>
+                            </div>
+                            <div class="card-content">
+                                <div class="tile is-ancestor">
+                                    <div class="tile is-parent">
+                                        <div class="tile is-child">
+                                            <div class="image is-16by9">
+                                                <img src="/img/Acknowledgements.svg" alt="Illustration about a figure sending hearts trough a smartphone. ">
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="tile is-parent">
+                                        <div class="tile is-child">
+                                            <p>The Fuzzer was developed by Luna Geens as a project for the Software
+                                               Testing course of the
+                                               University of
+                                               Antwerp. We would love to thank the professor and his assistants for this
+                                               learning opportunity.
+                                               We would like to express our gratitude to the creators of JPacman for
+                                               providing an excellent
+                                               application to
+                                               test and fuzz.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                </div>
+        </div>
+        </div>
+
+        <!-- Footer -->
+        <br>
+        <footer class="footer" id="footer">
+            <div class="content has-text-centered">
+                <p>
+                    <strong>JPacman Fuzz</strong> by Luna Geens as part of an assignment for the <a
+                        href="https://ansymore.uantwerpen.be/courses/software-testing">Software Testing Course</a> of
+                                                  the <a href="https://www.uantwerpen.be/en/">University of Antwerp</a>.
+                                                  Find the source code of the
+                                                  JPacman Fuzzer on my <a
+                        href="https://github.com/lunageens/JPacmanFuzz">Github</a>.
+                </p>
+                <figure>
+                    <img height="50" src="/img/Logo_Univ_Antwerpen.svg"
+                         width="50" alt="Logo of University of Antwerp">
+                    <img height="50" src="/img/Logo_Bulma.svg" width="30" alt="Logo of Bulma">
+                    <figcaption>
+                        Website made with Bulma for the University of Antwerp.
+                    </figcaption>
+                </figure>
+            </div>
+        </footer>
+
+    </div>
+
+
+
+
+    <script>
+
+        // Function to hide the message
+        function hideMessage() {
+            const message = document.getElementById("message");
+            message.style.display = "none";
+        }
+
+        // Function to handle the exit button click
+        function handleExitButtonClick() {
+            hideMessage();
+            localStorage.setItem("hideMessage", "true");
+        }
+
+        // Wait for the document to finish loading
+        document.addEventListener("DOMContentLoaded", function () {
+            const exitButton = document.getElementById("message-exit-button");
+            // Check if the message should be hidden
+            if (localStorage.getItem("hideMessage") === "true") {
+                hideMessage();
+            }
+            // Add a click event listener to the exit button
+            exitButton.addEventListener("click", handleExitButtonClick);
+            // Remove the "hideMessage" flag from local storage on page reload
+            window.addEventListener("beforeunload", function () {
+                localStorage.removeItem("hideMessage");
+            });
+        });
+
+    </script>
+</body>

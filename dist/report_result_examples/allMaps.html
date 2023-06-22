@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Jpacman Fuzzing report - All maps</title>
+    <link href="../css/mystyles.css" rel="stylesheet">
+    <script src="../js/http_kit.fontawesome.com_6fcea80876.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+<div class="container is-fluid" id="main-container">
+
+    <!-- Section above with breadcrumbs, header and search bar -->
+    <div class="hero has-background-white mb-0">
+        <div class="hero-body py-1 pb=2">
+            <div class="level mb-0">
+                <div class="level-left">
+                    <div class="level-item">
+                        <div class="figure">
+                            <div class="figure-img">
+                                <img width="100" height="100"
+                                     src="https://img.icons8.com/bubbles/100/000000/pacman--v1.png" alt="pacman--v1"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="level-item mt-0">
+                        <!-- BreadCrumbs -->
+                        <!-- Add correct urls to other package-->
+                        <div class="field" id="breadcrumbs-field">
+                            <nav aria-label="breadcrumbs" class="breadcrumb">
+                                <ul>
+                                    <li>
+                                        <a href="welcomePage.html">
+        <span class="icon is-small">
+          <i aria-hidden="true" class="fas fa-ghost"></i>
+        </span>
+                                            <span>Welcome</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="home.html">
+        <span class="icon is-small">
+          <i aria-hidden="true" class="fa-solid fa-table"></i>
+        </span>
+                                            <span>Home</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="aboutTheFuzzer.html">
+        <span class="icon is-small">
+          <i aria-hidden="true" class="fa-solid fa-quote-left"></i>
+        </span>
+                                            <span>About the fuzzer</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="overviewAndConclusions.html">
+        <span class="icon is-small">
+          <i aria-hidden="true" class="fa-solid fa-lightbulb"></i>
+        </span>
+                                            <span>Overview report and conclusions</span>
+                                        </a>
+                                    </li>
+                                    <li class="is-active">
+                                        <a class="has-text-weight-bold" href="allMaps.html">
+        <span class="icon is-small">
+          <i aria-hidden="true" class="fa-regular fa-file-lines"></i>
+        </span>
+                                            <span>All maps</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://github.com/lunageens/JPacmanFuzz">
+                                <span class="icon is-small">
+                                    <i aria-hidden="true" class="fa-brands fa-github"></i>
+                                </span>
+                                            <span>Download</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+                <div class="level-right">
+
+                </div>
+            </div>
+
+
+            <!-- Header-->
+            <!-- Add action listener to delete botton, isactive this element, to remove the message-->
+            <br>
+            <div class="field" id="header-field">
+                <article class="message is-info" id="message">
+                    <div class="message-header">
+                        <p class="label">Jpacman Fuzzing report - All maps</p>
+                        <button aria-label="delete" class="delete" id="message-exit-button"></button>
+                    </div>
+                    <div class="message-body">
+                        This page provides an overview of all map and string files, sorted per exit message. Certain
+                        combinations of inputs (a random map file and an action sequence) will get send in to the JPacman
+                        application, and the exit code describes how the program handled them. An <a href="#ExitCode0">exit
+                                                                                                                       code
+                                                                                                                       0</a>
+                        is
+                        received if the application crashed. An <a href="#ExitCode1">exit code 1</a> stands for valid
+                        inputs that the program
+                        accepts. An <a href="#ExitCode10">exit code 10</a> is received when the application could
+                        recognize an invalid input and
+                        rejected it.
+                    </div>
+                </article>
+            </div>
+
+            <br>
+        </div>
+    </div>
+    <br>
+
+    <div class="block">
+        <!-- Add all cards -->
+        <!-- Per exit code & error message (for 10): Previous runs 1 first, ..., sorted until actual run, id = absolute path, so we can link it but no / allowed, make _??? maybe with rows index?-->
+
+        <section id="ExitCode0" class="section mt-6">
+            <progress class="progress is-small is-info" value=0 max="100">0%</progress>
+            <h1 class="title has-text-info">Exit code 0: Jpacman application crashed</h1>
+            <h2 class="subtitle">Inputs with this exit code have no output messages.</h2>
+        </section>
+
+        <!-- If there are no maps, add text to say so -->
+        <br>
+        <div class="card has-background-info-light is-spaced is-align-content-center pl-4 pr-4 pt-1 pb-4">
+            <br>
+            <button class="delete is-pulled-right is-small"></button>
+            <span>
+                    There were no inputs that had this exit code.
+            </span>
+            <br>
+        </div>
+
+        <br>
+        <section id="ExitCode1" class="section mt-6">
+            <progress class="progress is-small is-info" value=0 max="100">0%</progress>
+            <h1 class="title has-text-info">Exit code 1: Accepted by Jpacman application</h1>
+            <h2 class="subtitle">Inputs with this exit code have no output messages.</h2>
+        </section>
+
+        <!-- If there are no maps, add text to say so -->
+        <br>
+        <div class="card has-background-info-light is-spaced is-align-content-center pl-4 pr-4 pt-1 pb-4">
+            <br>
+            <button class="delete is-pulled-right is-small"></button>
+            <span>
+                    There were no inputs that had this exit code.
+            </span>
+            <br>
+        </div>
+
+        <br>
+        <section id="ExitCode10" class="section mt-6 mb-0 pb-0">
+            <progress class="progress is-small is-info" value=100 max="100">100%</progress>
+            <h1 class="title has-text-info">Exit code 10: Rejected by the Jpacman application</h1>
+            <h2 class="subtitle">There are several output messages.</h2>
+
+            <div class="navbar mb-0 mx-0 px-0">
+                <div class="navbar-item is-small px-0"> <!-- Enkel bij de eerste px-0? Sorteer alfabetisch -->
+                    <div class="button is-info is-rounded mx-1">
+                        <a class="has-text-white has-text-weight-bold " href="#WidthsMismatch">Widths Mismatch</a>
+                    </div>
+                </div>
+                <div class="navbar-item is-small px-0 ">
+                    <div class="button is-info  is-rounded mx-1">
+                        <a class="has-text-white has-text-weight-bold" href="#NoPlayerSet">No player set</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <br>
+        <section id="WidthsMismatch" class="section">
+            <h2 class="subtitle">Inputs with output message <a class="has-text-weight-bold"> Widths mismatch </a>:</h2>
+        </section>
+
+        <!-- Card 1: ok txt file  -->
+        <br>
+        <div class="card has-text-info">
+            <!-- Header should always be shown -->
+            <header class="card-header has-text-white">
+                <p class="card-header-title">
+                    Run 1: map_1.txt
+                </p>
+                <!-- Trigger of collapse: Have href = "#..." data-action="collapse" and class="... is-hidden-->
+                <a href="#collapsible-card1" data-action="collapse" data-target="collapsible-card1"
+                   class="card-header-icon" aria-label="more options">
+			<span class="icon is-white is-clickable">
+				<i class="fas fa-angle-down " ></i>
+                <i class="fas fa-angle-up is-hidden"></i>
+			</span>
+                </a>
+            </header>
+            <!-- Card content and footer should be collapsible -->
+            <!-- Should have id of href above, and class is-collapsible -->
+            <div id="collapsible-card1" class="is-collapsible">
+                <div class="card-content">
+                    <p><a class="has-text-weight-bold">The action sequence: </a></p><p>SWE</p><br>
+                    <p><a class="has-text-weight-bold">The map:</a></p>
+                    <br><div class="box"> <!-- Let the ID Be the relative path! -->
+                        <div id="/fuzzresults/maps/previous_maps/run_1/exitcode0_accepted/map_1.txt" class="container"></div>
+                    </div>
+                </div>
+                <footer class="card-footer">
+                    <p class="card-footer-item is-small has-text-info level-left">
+                    <span>
+                        <strong>Absolute file path:</strong>
+                        C:/ST/JPacmanFuzz/fuzzresults/maps/previous_maps/run_1/exitcode10_rejected/map_1.txt
+                </span>
+                    </p>
+                </footer>
+            </div>
+        </div>
+
+        <br>
+        <section id="NoPlayerSet" class="section">
+            <h2 class="subtitle">Inputs with output message <a class="has-text-weight-bold">No player set:</a></h2>
+        </section>
+
+        <!-- Card 2: 404 text file-->
+        <br>
+        <div class="card has-text-info">
+            <header class="card-header has-text-white">
+                <p class="card-header-title">
+                    Run 1: map_2.txt
+                </p>
+                <!-- Trigger of collapse: Have href = "#..." data-action="collapse" and class="... is-hidden-->
+                <a href="#collapsible-card2" data-action="collapse" data-target="collapsible-card2"
+                   class="card-header-icon" aria-label="more options">
+			<span class="icon is-white is-clickable">
+				<i class="fas fa-angle-down"></i>
+                <i class="fas fa-angle-up is-hidden"></i>
+			</span>
+                </a>
+            </header>
+            <div id="collapsible-card2" class="is-collapsible">
+                <div class="card-content">
+                    <p><a class="has-text-weight-bold">The action sequence: </a></p><p>SWE</p><br>
+                    <p><a class="has-text-weight-bold">The map:</a></p><br>
+                    <div class="box">
+                        <div id="/fuzzresults/maps/previous_maps/run_1/exitcode10_rejected/map_2.txt" class="container"></div>
+                    </div>
+                </div>
+                <footer class="card-footer">
+                    <p class="card-footer-item is-small has-text-info level-left">
+                    <span>
+                        <strong>Absolute file path:</strong>
+                         C:/ST/JPacmanFuzz/fuzzresults/maps/previous_maps/run_1/exitcode10_rejected/map_1.txt
+                </span>
+                    </p>
+                </footer>
+            </div>
+        </div>
+
+        <!-- Card 3: 404 text file-->
+        <br>
+        <div class="card has-text-info">
+            <header class="card-header has-text-white">
+                <p class="card-header-title">
+                    Run 1: map_3.txt
+                </p>
+                <!-- Trigger of collapse: Have href = "#..." data-action="collapse" and class="... is-hidden-->
+                <a href="#collapsible-card3" data-action="collapse" data-target="collapsible-card3"
+                   class="card-header-icon" aria-label="more options">
+			<span class="icon is-white is-clickable">
+				<i class="fas fa-angle-down"></i>
+                <i class="fas fa-angle-up is-hidden"></i>
+			</span>
+                </a>
+            </header>
+            <div id="collapsible-card3" class="is-collapsible">
+                <div class="card-content">
+                    <p><a class="has-text-weight-bold">The action sequence: </a></p><p>SWE</p><br>
+                    <p><a class="has-text-weight-bold">The map:</a></p><br>
+                    <div class="box">
+                        <div id=/fuzzresults/maps/previous_maps/run_1/exitcode10_rejected/map_3.txt" class="container"></div>
+                    </div>
+                </div>
+                <footer class="card-footer">
+                    <p class="card-footer-item is-small has-text-info level-left">
+                    <span>
+                        <strong>Absolute file path:</strong>
+                         C:/ST/JPacmanFuzz/fuzzresults/maps/previous_maps/run_1/exitcode10_rejected/map_1.txt
+                </span>
+                    </p>
+                </footer>
+            </div>
+        </div>
+
+        <!-- Card 4: image-->
+        <br>
+        <div class="card has-text-info">
+            <header class="card-header has-text-white">
+                <p class="card-header-title">
+                    Run 1: map_4.txt
+                </p>
+                <a href="#collapsible-card4" data-action="collapse" data-target="collapsible-card4"
+                   class="card-header-icon" aria-label="more options">
+			<span class="icon is-white is-clickable">
+				<i class="fas fa-angle-down" ></i>
+                <i class="fas fa-angle-up is-hidden"></i>
+			</span>
+                </a>
+            </header>
+            <div id="collapsible-card4" class="is-collapsible">
+                <div class="card-content">
+                    <p><a class="has-text-weight-bold">The action sequence: </a></p><p>SWE</p><br>
+                    <p><a class="has-text-weight-bold">The map:</a></p><br>
+                    <div class="box">
+                        <div id="/fuzzresults/maps/FileType_Multiline_Dat.png" class="container"></div>
+                    </div>
+                </div>
+                <footer class="card-footer">
+                    <p class="card-footer-item is-small has-text-info level-left">
+                    <span>
+                        <strong>Absolute file path:</strong>
+                         C:/ST/JPacmanFuzz/fuzzresults/maps/previous_maps/run_1/exitcode10_rejected/map_1.txt
+                </span>
+                    </p>
+                </footer>
+            </div>
+        </div>
+
+        <!-- Card 5: pdf-->
+        <br>
+        <div class="card has-text-info">
+            <header class="card-header has-text-white">
+                <p class="card-header-title">
+                    Run 1: map_5.txt
+                </p>
+                <a href="#collapsible-card5" data-action="collapse" data-target="collapsible-card5"
+                   class="card-header-icon" aria-label="more options">
+			<span class="icon is-white is-clickable">
+				<i class="fas fa-angle-down" ></i>
+                <i class="fas fa-angle-up is-hidden"></i>
+			</span>
+                </a>
+            </header>
+            <div id="collapsible-card5" class="is-collapsible">
+                <div class="card-content">
+                    <p><a class="has-text-weight-bold">The action sequence: </a></p><p>SWE</p><br>
+                    <p><a class="has-text-weight-bold">The map:</a></p><br>
+                    <div class="box">
+                        <div id="/fuzzresults/maps/FileType_Multiline_MP_F0_pdf.pdf" class="container"></div>
+                    </div>
+                </div>
+                <footer class="card-footer">
+                    <p class="card-footer-item is-small has-text-info level-left">
+                    <span>
+                        <strong>Absolute file path:</strong>
+                         C:/ST/JPacmanFuzz/fuzzresults/maps/previous_maps/run_1/exitcode10_rejected/map_1.txt
+                </span>
+                    </p>
+                </footer>
+            </div>
+        </div>
+
+        <!-- Card 6: long text file -->
+        <br>
+        <div class="card has-text-info">
+            <header class="card-header has-text-white">
+                <p class="card-header-title">
+                    Run 1: map_6.txt
+                </p>
+                <a href="#collapsible-card6" data-action="collapse" data-target="collapsible-card6"
+                   class="card-header-icon" aria-label="more options">
+			<span class="icon is-white is-clickable">
+				<i class="fas fa-angle-down" ></i>
+                <i class="fas fa-angle-up is-hidden"></i>
+			</span>
+                </a>
+            </header>
+            <div id="collapsible-card6" class="is-collapsible">
+                <div class="card-content">
+                    <p><a class="has-text-weight-bold">The action sequence: </a></p><p>SWE</p><br>
+                    <p><a class="has-text-weight-bold">The map:</a></p><br>
+                    <div class="box">
+                        <div id="/fuzzresults/maps/PW.txt" class="container"></div>
+                    </div>
+                </div>
+                <footer class="card-footer">
+                    <p class="card-footer-item is-small has-text-info level-left">
+                    <span>
+                        <strong>Absolute file path:</strong>
+                         C:/ST/JPacmanFuzz/fuzzresults/maps/previous_maps/run_1/exitcode10_rejected/map_1.txt
+                </span>
+                    </p>
+                </footer>
+            </div>
+        </div>
+
+        <!-- Card 7: CSV file -->
+        <br>
+        <div class="card has-text-info">
+            <header class="card-header has-text-white">
+                <p class="card-header-title">Run 1: map_7.txt</p>
+                <a href="#collapsible-card7" data-action="collapse" data-target="collapsible-card7"
+                   class="card-header-icon" aria-label="more options">
+			<span class="icon is-white is-clickable">
+				<i class="fas fa-angle-down" ></i>
+                <i class="fas fa-angle-up is-hidden"></i>
+			</span>
+                </a>
+            </header>
+            <div id="collapsible-card7" class="is-collapsible">
+                <div class="card-content">
+                    <p><a class="has-text-weight-bold">The action sequence: </a></p><p>SWE</p><br>
+                    <p><a class="has-text-weight-bold">The map:</a></p><br>
+                    <div class="box">
+                        <div id="/fuzzresults_lessons/fuzz3_filetypes/custom_maps/FileType_Singleline_M_csv.csv" class="container"></div>
+                    </div>
+                </div>
+                <footer class="card-footer">
+                    <p class="card-footer-item is-small has-text-info level-left">
+                    <span>
+                        <strong>Absolute file path:</strong>
+                         C:/ST/JPacmanFuzz/fuzzresults/maps/previous_maps/run_1/exitcode10_rejected/map_1.txt
+                </span>
+                    </p>
+                </footer>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <br>
+    <footer class="footer" id="footer">
+        <div class="content has-text-centered">
+            <p>
+                <strong>JPacman Fuzz</strong> by Luna Geens as part of an assignment for the <a
+                    href="https://ansymore.uantwerpen.be/courses/software-testing">Software Testing Course</a> of
+                                              the <a href="https://www.uantwerpen.be/en/">University of Antwerp</a>.
+                                              Find the source code of the
+                                              JPacman Fuzzer on my <a href="https://github.com/lunageens/JPacmanFuzz">Github</a>.
+            </p>
+            <figure>
+                <img height="50" src="/img/Logo_Univ_Antwerpen.svg"
+                     width="50" alt="Logo of University of Antwerp">
+                <img height="50" src="/img/Logo_Bulma.svg" width="30" alt="Logo of Bulma">
+                <figcaption>
+                    Website made with Bulma for the University of Antwerp.
+                </figcaption>
+            </figure>
+        </div>
+    </footer>
+</div>
+
+<script src="../js/bulma-collapsible.min.js"></script>
+<script src="../../configs/config.js"></script>
+<script>
+    // Function to hide the header message
+    function hideMessage() {
+        const message = document.getElementById("message");
+        message.style.display = "none";
+    }
+
+    // Function to handle the exit button click of warning messages
+    function handleExitButtonClick() {
+        hideMessage();
+        localStorage.setItem("hideMessage", "true");
+    }
+
+    // Function for constructing the complete file path
+    // Base path used from configs.js
+    function constructFilePath(relativePath) {
+        if (typeof basePath !== "undefined") {
+            return basePath + relativePath;
+        } else {
+            console.error("Base path is not defined.");
+            return null;
+        }
+    }
+
+    // Function for checking file existence asynchronously
+    function checkFileExists(sourceURL, callback) {
+        var completePath = constructFilePath(sourceURL); // From relative without ... -> absolute
+        if (completePath === null) {
+            console.log("Unable to construct file path.");
+            callback(false) // Path does not exist or could not be constructed
+        }
+
+        var xhr = new XMLHttpRequest(); // Create a new XMLHttpRequest object
+        xhr.open('HEAD', sourceURL, true); // Set up an asynchronous AJAX request
+        xhr.setRequestHeader('Cache-Control', 'no-cache, no-store, must-revalidate'); // Set cache control headers
+        xhr.setRequestHeader('Pragma', 'no-cache');
+        xhr.setRequestHeader('Expires', '0');
+
+        xhr.onreadystatechange = function () { // Define the callback function for handling the response
+            if (xhr.readyState === 4) {  // Check the status code of the response
+                if (xhr.status === 200) {
+                    callback(true)
+                }  // File exists
+                else {
+                    callback(false)
+                } // File does not exist
+            }
+        };
+        xhr.send(); // Send the request
+    }
+
+    // Function for replacing the map file box with an error message
+    function createErrorBox(message, parentElement, sourceURL) {
+        // Create tiles in the box (or other parent element)
+        var tiles = document.createElement("div")
+        tiles.className = "tile is-ancestor"
+        parentElement.appendChild(tiles)
+        parentElement.className = "box has-background-danger-light"
+
+        // On the left tile, we create an image
+        var leftTileParent = document.createElement("div")
+        leftTileParent.className = "tile is-parent is-2"
+        tiles.appendChild(leftTileParent)
+        var leftTile = document.createElement("div")
+        leftTile.className = "tile is-child"
+        leftTileParent.appendChild(leftTile)
+
+        var imageWrap = document.createElement("figure")
+        imageWrap.class = "image is-3by2"
+        leftTile.appendChild(imageWrap)
+        var image = document.createElement("img")
+        if (message === "The file was not found.") {
+            image.src = "/dist/img/Page_Not_Found.svg"
+        } else if (message === "There was an error while fetching the text file.") {
+            image.src = "/dist/img/Error_Fetching.svg"
+        } else if (message.startsWith("Displaying files")) {
+            image.src = "/dist/img/Unsupported_Type.svg"
+        } else {
+            image.src = "/dist/img/Unknown_Error.svg"
+        }
+        imageWrap.appendChild(image)
+
+        // On the right tile, we create a message
+        var rightTileParent = document.createElement("div")
+        rightTileParent.className = "tile is-parent is-10"
+        tiles.appendChild(rightTileParent)
+        var rightTile = document.createElement("div")
+        rightTile.className = "tile is-child"
+        rightTileParent.appendChild(rightTile)
+
+        var textWrapTotal = document.createElement("article")
+        textWrapTotal.className = "message is-info"
+        rightTile.appendChild(textWrapTotal)
+        var textWrap = document.createElement("div")
+        textWrap.className = "message-body" // Removed textWrap.style = "height:100%"
+        textWrapTotal.append(textWrap)
+
+        // On the first line of that message, we create a level that includes an icon and a title
+        var firstLine = document.createElement("div")
+        firstLine.className = "level has-text-info has-text-weight-bold"
+        textWrap.appendChild(firstLine)
+        var firstLineLeft = document.createElement("div")
+        firstLineLeft.className = "level-left"
+        firstLine.appendChild(firstLineLeft)
+
+        var iconLevelItem = document.createElement("div")
+        iconLevelItem.className = "level-item"
+        firstLineLeft.appendChild(iconLevelItem)
+        var iconWrapper = document.createElement("span")
+        iconWrapper.className = "icon is-big"
+        iconLevelItem.appendChild(iconWrapper)
+        var icon = document.createElement("i")
+        icon.className = "fa-solid fa-circle-exclamation"
+        iconWrapper.appendChild(icon)
+
+        var titleLevelItem = document.createElement("div")
+        titleLevelItem.className = "level-item"
+        firstLineLeft.appendChild(titleLevelItem)
+        var title = document.createElement("div")
+        title.className = "title is-4 has-text-info has-text-weight-bold "
+        title.textContent = "Oh no!"
+        titleLevelItem.appendChild(title)
+
+        // On the rest of the message, we print the message given to us
+        var text = document.createElement("div")
+        text.textContent = "We are so sorry. " + message + " It's us, not you ...  Forgive us?"
+        textWrap.appendChild(text)
+
+        // If message is about unsupported type, create download button
+        if (message.startsWith("Displaying files")){
+            var blankLine = document.createElement('br');
+            textWrap.appendChild(blankLine)
+
+            var button = document.createElement('button');
+            button.className = "button is-link is-light is-rounded is-outlined";
+            textWrap.appendChild(button)
+
+
+            var iconButton = document.createElement('span')
+            iconButton.className="icon is-small"
+            button.appendChild(iconButton)
+            var iconDownload = document.createElement('i')
+            iconDownload.className = "fa-solid fa-download"
+            iconButton.appendChild(iconDownload)
+            button.appendChild(iconButton)
+
+            var textButton = document.createElement('a')
+            textButton.textContent = "Download here";
+            textButton.href = sourceURL;
+            textButton.download = sourceURL.toString().split('/').pop(); // fileName
+            button.appendChild(textButton)
+
+        }
+    }
+
+    // Function to handle the answer of checkFileExists() --> outside of dom loaded!!
+    // If file exists & text pdf or image: embed, adjust size box
+    // If file exists & other file type: give unsupported error message
+    // If file does not exist: give file not found message
+    function createCallback(cardContent, fileContainer, sourceUrl) {
+        return function (exists) { // Variables accessible within this closure: cardContent, fileContainer, sourceUrl
+            var boxContent = fileContainer.parentElement;
+            if (exists) { // The file exists, adjust the height dynamically based on file size and type
+                var fileType = getFileType(sourceUrl);
+                switch (fileType) {
+                    case "txt":
+                        var textElement = document.createElement("div");
+                        textElement.className = "field is-family-monospace";
+                        adjustEmbedSize(textElement, sourceUrl);
+                        textElement.style.fontSize = "15px"
+                        fileContainer.parentNode.replaceChild(textElement, fileContainer) // Replace the file-container in box with embed
+                        break;
+                    case "pdf": // For PDF files, create an <iframe> to embed the file
+                        var iframe = document.createElement("iframe");
+                        iframe.src = sourceUrl;
+                        iframe.style.width = "100%";
+                        iframe.style.height = "500px";
+                        iframe.type="application/pdf"
+                        fileContainer.parentNode.replaceChild(iframe, fileContainer);
+                        break;
+                    case "image": // For image files, create an <img> element to display the image
+                        var imgElement = document.createElement("img");
+                        imgElement.src = sourceUrl;
+                        imgElement.style.maxWidth = "100%";
+                        fileContainer.parentNode.replaceChild(imgElement, fileContainer);
+                        break;
+                    default: // For other file types, display a message
+                        // The file does not exist, modify the content in the box
+                        var messageUnsupported = "Displaying files from this file type is currently unsupported."
+                        createErrorBox(messageUnsupported, boxContent, sourceUrl)
+                        fileContainer.remove();
+                }
+            } else {
+                var message404 = "The file was not found." // Add a placeholder message
+                createErrorBox(message404, boxContent, sourceUrl)
+                fileContainer.remove();
+            }
+        }
+    }
+
+    // Function to adjust the size of the embed element based on text file size
+    function adjustEmbedSize(embedElement, sourceUrl) { // For text files, adjust the height based on content
+        fetch(sourceUrl)
+                .then(response => response.text())
+                .then(textContent => {
+                    var numLines = textContent.split("\n").length;  // Calculate the height based on the number of lines in the text file
+                    var lineHeight = 10; // Adjust this value to suit your styling
+                    embedElement.innerHTML = textContent.replace(/\n/g, "<br>")
+                    embedElement.height = numLines * lineHeight; // Set the height of the embed element
+                    embedElement.width = "100%";
+                })
+                .catch(error => {
+                    console.error("Error fetching text file:", error);
+                    createErrorBox("There was an error while fetching the text file.", embedElement, sourceUrl)
+                    embedElement.style.display="none";
+                });
+    }
+
+    // Function to retrieve the file type based on the file extension
+    function getFileType(url) {
+        var fileExtension = url.substr(url.lastIndexOf('.') + 1).toLowerCase();
+        switch (fileExtension) {
+            case "txt":
+                return "txt";
+            case "pdf":
+                return "pdf";
+            case "jpg":
+            case "jpeg":
+            case "png":
+            case "gif":
+                return "image";
+            default:
+                return "other";
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        // For collapsible cards per iteration result
+        // Get all collapsible elements linked with collapse functionality
+        bulmaCollapsible.attach('.is-collapsible');
+
+        // Attach click event listeners to the triggers of the collapsible cards (icons)
+        const triggers = document.querySelectorAll('[data-action="collapse"]');
+        triggers.forEach(function (trigger) {
+            trigger.addEventListener('click', function (event) {
+                event.preventDefault();
+                const target = this.getAttribute('data-target');
+                const collapsibleElement = document.getElementById(target);
+                const card = collapsibleElement.parentElement;
+                const cardHeader = card.querySelector("header");
+                const icons = cardHeader.querySelectorAll('i');
+
+                icons.forEach(function (icon) {
+                    icon.classList.toggle('is-hidden'); // Toggle the visibility of the icons
+                })
+            });
+        });
+
+        // Delete buttons cards when no files occur of that exit message
+        (document.querySelectorAll('.card .delete') || []).forEach(($delete) => {
+            const $notification = $delete.parentNode;
+            $delete.addEventListener('click', () => {
+                $notification.parentNode.removeChild($notification);
+            });
+        });
+
+        // Delete button header
+        const exitButton = document.getElementById("message-exit-button");
+        // Add a click event listener to the exit button
+        exitButton.addEventListener("click", handleExitButtonClick);
+        // Remove the "hideMessage" flag from local storage on page reload
+        window.addEventListener("beforeunload", function () {
+            localStorage.removeItem("hideMessage");
+        })
+
+        // For embedded files in the card
+        var cardContents = document.querySelectorAll('.is-collapsible'); // heel die witte card, allemaal
+        for (var i = 0; i < cardContents.length; i++) {
+            (function () {
+                var cardContent = cardContents[i]; // voor zo een witte card
+                var fileContainer = cardContent.querySelector(".container "); // Find where the embed element should be within the current collapsible item
+                var sourceUrl = fileContainer.id // Get relative source url of embed element vb. "/fuzzresults/maps/actual_maps/exitcode0_accepted/map_1.txt"
+                checkFileExists(sourceUrl, createCallback(cardContent, fileContainer, sourceUrl))   // Check if the file exists asynchronously -> if so and possible,display correctly. else, give error message
+            })(); // with this () the loop does not go further until checkFileExists() and thereafter createCallback() are done executing
+        }
+    });
+</script>
+</body>
+</html>
