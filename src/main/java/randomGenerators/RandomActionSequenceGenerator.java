@@ -31,9 +31,6 @@ import java.util.Random;
  */
 public class RandomActionSequenceGenerator {
 
-    // TODO Variate in length
-    // TODO Special characters
-
     /**
      * The ConfigFileReader instance used for reading configuration properties.
      */

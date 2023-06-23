@@ -178,11 +178,26 @@ public class LogHTMLFileHandler {
 
     /**
      * Gets the index of a specific column in the CSV data.
-     * @param header The header of the column.
+     *
+     * @param header
+     *         The header of the column.
+     *
      * @return The index of the column in rows as int.
      */
     public static int getColumnIndex(String header) {
         return headers.indexOf(header);
+    }
+
+    /**
+     * Gets the index of a specific row in the CSV data.
+     *
+     * @param row
+     *         The row of the CSV data.
+     *
+     * @return The index of the row in rows as int.
+     */
+    public static int getRowIndex(List<String> row) {
+        return rows.indexOf(row);
     }
 
     /**

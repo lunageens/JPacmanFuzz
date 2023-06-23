@@ -380,11 +380,18 @@ public class LogFileHandler {
                     csvWriter.append(getFormattedFuzzAttemptNr()); // Same for each combo
                     csvWriter.append(getFormattedTimeStamp()); // Same for each combo
 
-                    IterationResult dummy = new IterationResult( 0, "", "", errorCode, outputMessage, "");
+                    IterationResult dummy = new IterationResult(0, "", "", errorCode, outputMessage, "");
                     IterationResultFormatter dummyForm = new IterationResultFormatter(dummy);
                     csvWriter.append(dummyForm.getFormattedErrorCode());
 
-                    int count = sortedErrorCodes.get(index); // with this message and this error code
+                    int code = sortedErrorCodes.get(index); // with this message and this error code
+                    List<IterationResult> resultsFiltered = new ArrayList<>();
+                    for (IterationResult result : results) {
+                        if (result.getErrorCode() == errorCode) {
+                            resultsFiltered.add(result);
+                        }
+                    }
+                    int count = resultsFiltered.size();
                     csvWriter.append(dummyForm.getFormattedOutputMessages());
                     csvWriter.append(getFormattedExitCount(errorCode, count, false, false, true, false, true));
 

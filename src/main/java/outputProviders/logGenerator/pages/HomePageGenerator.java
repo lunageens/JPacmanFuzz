@@ -161,14 +161,11 @@ public class HomePageGenerator extends LogHTMLFileHandler implements PageGenerat
          </tr>
          */
         StringBuilder tableBuilder = new StringBuilder();
-        int rowIndex = 0;
         for (List<String> row : rows) {
             tableBuilder.append("<tr>");
             int columnIndex = 0;
             for (String cell : row) {
-                // ? Check the parameters of column index getter
-                // ! Same problems above, check if correct
-                // ? Check indexes
+                int rowIndex = getRowIndex(row);
                 if (columnIndex == exitCodeColumnIndex) { // Change format exitCode with full text in filters and table
                     cell = getFormattedErrorCode(Integer.parseInt(cell), true, false, false, false, false);
                     tableBuilder.append("<td>").append(cell).append("</td>");
@@ -185,7 +182,6 @@ public class HomePageGenerator extends LogHTMLFileHandler implements PageGenerat
                 columnIndex++;
             }
             tableBuilder.append("</tr>");
-            rowIndex++;
         }
         String dataTable = tableBuilder.toString();
         template = template.replace("{{DataTable}}", dataTable);

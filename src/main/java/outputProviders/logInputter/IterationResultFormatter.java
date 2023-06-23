@@ -102,7 +102,7 @@ public class IterationResultFormatter {
      * @param errorCode
      *         The exit code to be formatted. Can be 0, 1, 10, -1.
      * @param asText
-     *         True if the exit code should be returned as text. (E.g., 0 becomes 0 (Crash). And -1 becomes Unknown)
+     *         True if the exit code should be returned as text. (E.g., 0 becomes 1 (Crash). And -1 becomes Unknown)
      * @param titlePrefix
      *         True if the variable name and a : should be appended in front. (E.g., Exit Code: )
      * @param CSVReplacement
@@ -120,8 +120,8 @@ public class IterationResultFormatter {
         if (asText) {
             errorCodeString = errorCodeString.toUpperCase();
             errorCodeString = switch (errorCodeString) {
-                case "0" -> "0 (Crash)";
-                case "1" -> "1  (Accepted)";
+                case "0" -> "0 (Accepted)";
+                case "1" -> "1  (Crash)";
                 case "10" -> "10 (Rejected)";
                 case "-1" -> "Unknown";
                 default -> errorCodeString;
@@ -158,7 +158,7 @@ public class IterationResultFormatter {
      * Returns the error code of the iteration result the formatter has been initialized with as a string.
      *
      * @param asText
-     *         - True if the error code should be returned as text. (E.g., 0 becomes 0 (Crash). And -1 becomes Unknown.)
+     *         - True if the error code should be returned as text. (E.g., 0 becomes 1 (Crash). And -1 becomes Unknown.)
      * @param titlePrefix
      *         - True if the variable name and a : should be appended in front. (E.g., Exit Code: )
      * @param CSVReplacement

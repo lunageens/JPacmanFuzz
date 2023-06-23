@@ -107,64 +107,132 @@
                                                                                                                        code
                                                                                                                        0</a>
                         is
-                        received if the application crashed. An <a href="#ExitCode1">exit code 1</a> stands for valid
-                        inputs that the program
-                        accepts. An <a href="#ExitCode10">exit code 10</a> is received when the application could
+                        received if the application had a normal termination. An <a href="#ExitCode1">exit code 1</a>
+                        stands for a crash of the program. An <a href="#ExitCode10">exit code 10</a> is received when
+                        the application could
                         recognize an invalid input and
                         rejected it.
                     </div>
                 </article>
             </div>
-
             <br>
         </div>
     </div>
+
+
+    <!-- Fuzz attempt filter -->
     <br>
+    <div class="box">
+        <div class="level">
+            <div class="level-left">
+                <div class="level-item">
+                    <div class="block">
+                        <div id="filterText-a=-filters" class="field">
+                            <section id="filterText" class="section">
+                                <div id="filters" class="columns is-12 is-multiline">
+                                    <div id="FuzzAttemptNr.Filter" class="level-item mx-2 my-2">
+                                        <div class="field">
+                                            <label class="label has-text-info">Fuzz Attempt Nr.</label>
+                                            <div class="select is-info is-rounded">
+                                                <label>
+                                                    <select class="is-hovered filter"
+                                                            data-filter-target="FuzzAttemptNr.">
+                                                        <!--  * Add fuzz attempts here -->
+                                                        <option value="">All</option>
+                                                        {{FuzzAttemptFilterOptions}}
+                                                    </select>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="level-item has-text-centered has-text-info">
+                <div>
+                    <p class="has-text-weight-bold">Accepted</p>
+                    <p class="title has-text-info-dark" id="Percentage0">0%</p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered has-text-info">
+                <div>
+                    <p class="has-text-weight-bold">Crashed</p>
+                    <p class="title has-text-info-dark" id="Percentage1">0%</p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered has-text-info">
+                <div>
+                    <p class="has-text-weight-bold">Rejected</p>
+                    <p class="title has-text-info-dark" id="Percentage10">0%</p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered has-text-info">
+                <div>
+                    <p class="has-text-weight-bold">Unknown</p>
+                    <p class="title has-text-info-dark" id="Percentage-1">{{PercentageUnknown}}</p>
+                    <!-- ! Never change -->
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div class="block">
         <!-- Add all cards -->
         <!-- Per exit code & error message (for 10): Previous runs 1 first, ..., sorted until actual run, id = absolute path, so we can link it but no / allowed, make _??? maybe with rows index?-->
 
-        <section id="ExitCode0" class="section mt-6">
-            <!-- * Add progress bar line here -->
-            {{ProgressBar0}}
-            <h1 class="title has-text-info">Exit code 0: Jpacman application crashed</h1>
-            <h2 class="subtitle">Inputs with this exit code have no output messages.</h2>
-        </section>
+        <div id="TotalExitCode0" class="field">
+            <section id="ExitCode0" class="section mt-6">
+                <!-- * Add progress bar line here -->
+                {{ProgressBar0}}
+                <h1 class="title has-text-info">Exit code 0: Accepted by the Jpacman application</h1>
+                <h2 class="subtitle">Inputs with this exit code have no output messages.</h2>
+            </section>
 
-        <!-- * Add cards with exit code 0 here -->
-        <!-- ! If there are no maps, add text to say so -->
-        {{Cards0}}
-
-        <br>
-        <section id="ExitCode1" class="section mt-6">
-            <!-- * Add progress bar line here -->
-            {{ProgressBar1}}
-            <h1 class="title has-text-info">Exit code 1: Accepted by Jpacman application</h1>
-            <h2 class="subtitle">Inputs with this exit code have no output messages.</h2>
-        </section>
-
-        <!-- * Add cards with exit code 0 here -->
-        <!-- ! If there are no maps, add text to say so -->
-        {{Cards1}}
-
-        <br>
-        <section id="ExitCode10" class="section mt-6 mb-0 pb-0">
-            <!-- * Add progress bar line here -->
-            {{ProgressBar10}}
-            <h1 class="title has-text-info">Exit code 10: Rejected by the Jpacman application</h1>
-            <h2 class="subtitle">There are several output messages.</h2>
-
-            <div class="navbar mb-0 mx-0 px-0">
-            <!-- * Add different buttons here -->
-            {{Buttons10}}
+            <!-- * Add cards with exit code 0 here -->
+            <!-- ! If there are no maps, add text to say so -->
+            <div id="ExitCode0Cards">
+                {{Cards0}}
             </div>
-        </section>
+        </div>
 
-        <!-- * Add each title + cards here -->
-        {{TitlesAndCards10}}
+        <div id="TotalExitCode1" class="field">
+            <br>
+            <section id="ExitCode1" class="section mt-6">
+                <!-- * Add progress bar line here -->
+                {{ProgressBar1}}
+                <h1 class="title has-text-info">Exit code 1: Jpacman application crashed</h1>
+                <h2 class="subtitle">Inputs with this exit code have no output messages.</h2>
+            </section>
 
+            <!-- * Add cards with exit code 0 here -->
+            <!-- ! If there are no maps, add text to say so -->
+            <div id="ExitCode1Cards">
+                {{Cards1}}
+            </div>
+        </div>
 
+        <div id="TotalExitCode10" class="field">
+            <br>
+            <section id="ExitCode10" class="section mt-6 mb-0 pb-0">
+                <!-- * Add progress bar line here -->
+                {{ProgressBar10}}
+                <h1 class="title has-text-info">Exit code 10: Rejected by the Jpacman application</h1>
+                <h2 class="subtitle">There are several output messages.</h2>
+
+                <div class="navbar mb-0 mx-0 px-0">
+                    <!-- * Add different buttons here -->
+                    {{Buttons10}}
+                </div>
+            </section>
+
+            <!-- * Add each title + cards here -->
+            <div id="ExitCode10Cards" class="field">
+                {{TitlesAndCards10}}
+            </div>
+        </div>
     </div>
 
     <!-- Footer -->
@@ -173,10 +241,13 @@
         <div class="content has-text-centered">
             <p>
                 <strong>JPacman Fuzz</strong> by Luna Geens as part of an assignment for the <a
-                    href="https://ansymore.uantwerpen.be/courses/software-testing">Software Testing Course</a> of
-                                              the <a href="https://www.uantwerpen.be/en/">University of Antwerp</a>.
+                    href="https://ansymore.uantwerpen.be/courses/software-testing">Software Testing Course</a>
+                                              of
+                                              the <a href="https://www.uantwerpen.be/en/">University of
+                                                                                          Antwerp</a>.
                                               Find the source code of the
-                                              JPacman Fuzzer on my <a href="https://github.com/lunageens/JPacmanFuzz">Github</a>.
+                                              JPacman Fuzzer on my <a
+                    href="https://github.com/lunageens/JPacmanFuzz">Github</a>.
             </p>
             <figure>
                 <img height="50" src="../../../../dist/img/Logo_Univ_Antwerpen.svg"
@@ -203,6 +274,147 @@
     function handleExitButtonClick() {
         hideMessage();
         localStorage.setItem("hideMessage", "true");
+    }
+
+    function calculateSum(allCounts) {
+        const sum = 0;
+
+        // * Get unknown percentage
+        const texts = document.querySelectorAll('p[id^="Percentage"]');
+        const percentages = [];
+        texts.forEach((text, index) => {
+            const percentageElement = text.querySelector('.title');
+            const percentageString = text.textContent;
+            const percentage = parseInt(percentageString.substring(0, percentageString.length - 1));
+            percentages.push(percentage);
+        })
+
+        // * Get total numbers rest
+        const percentageUnknown = percentages[3];
+
+        const percentageOthers = 100 - percentageUnknown;
+        const sumOthers = allCounts[0] + allCounts[1] + allCounts[2];
+
+        const sumUnknown = (sumOthers / percentageOthers) * percentageUnknown;
+
+        return sumUnknown + sumOthers;
+    }
+
+    // Function to filter cards based on selected option
+    function filterCards() {
+        const selectedOption = document.querySelector('.filter').value;
+        const sections = document.querySelectorAll('div[id^="TotalExitCode"]');
+        const allCards = document.querySelectorAll('.card');
+        const allCounts = [];
+
+        // * For each total section of exit code (titles and cards) (Works.)
+        sections.forEach(section => {
+            const cards = section.querySelectorAll('.card'); // Select all cards
+            let visibleCount = 0;
+            cards.forEach(card => { // for each card in exit code section that is not the no cards one
+                if (!(card.id.endsWith("NoCards"))) { // ! Changed this
+                    const fuzzAttemptNr = card.querySelector('.card-header-title').textContent.match(/\d+/)[0];
+                    // display is necessary, and count the ones that are visible.
+                    const cardFrame = card.parentElement; // also hide br
+                    if (selectedOption === "" || fuzzAttemptNr === selectedOption) {
+                        cardFrame.style.display = "block";
+                        visibleCount++;
+                    } else {
+                        cardFrame.style.display = "none";
+                    }
+                }
+            });
+            allCounts.push(visibleCount);
+        });
+
+        // * For each exit code section, count the visible cards and adjust their progress bar (Works.)
+        const sum = calculateSum(allCounts);
+        const exitCodes = [0, 1, 10, -1];
+        sections.forEach((section, index) => {
+            const progressBar = section.querySelector('.progress'); // ? How does this not include other progress bars
+            const percentage = (allCounts[index] / sum) * 100;
+            progressBar.value = percentage;
+            progressBar.textContent = `${Math.round(percentage)}%`;
+            const idPercentage = "Percentage" + exitCodes[index];
+            const percentageElement = document.getElementById(idPercentage);
+            percentageElement.textContent = `${Math.round(percentage)}%`;
+        });
+
+        // * If the visible count = 0 for the exit code section, show the noCardsMessage (Works.)
+        sections.forEach((section, index) => {
+            const visibleCount = allCounts[index];
+            // if visible count = 0 -> show no cards message, all cards will already be hidden
+            // if visible count != 0 -> do not show no cards message, all cards that should be displayed are already displayed
+            const cards = section.querySelectorAll('.card'); // Select all cards
+            cards.forEach(card => { // for each card in exit code section that is not the no cards one
+                if ((card.id.endsWith("NoCards"))) // ! Changed this
+                    if (visibleCount === 0) {
+                        card.style.display = "block";
+                    } else {
+                        card.style.display = "none";
+                    }
+            });
+        });
+
+        // *  For exit Code 10, let's count per output message (Works.)
+        const exitCode10Section = sections[2];
+        const exitCode10Count = allCounts[2];
+        if (exitCode10Count > 0) {
+            const exitCode10Navbar = exitCode10Section.querySelector('.navbar') // All Buttons in section above as one
+            const exitCode10OutputButtons = exitCode10Navbar.children;
+            const exitCode10Total = exitCode10Section.querySelector('div[id="ExitCode10Cards"]'); // All sections + cards of each output message, their id is Output message id
+            const exitCode10Fields = Array.from(exitCode10Total.children); // Also includes no cards message + div for each ouptut with as id output message, and then seciton awith progress bar and cards
+            // Get only fields and not the <br>
+            const exitCode10NoLinesFields = [];
+            exitCode10Fields.forEach(field => {
+                if (field.className === "field") {
+                    exitCode10NoLinesFields.push(field);
+                }
+            });
+            // Get only cards that are not no cards message
+            const exitCode10OutputFields = []; // All fields without no cards
+            Array.from(exitCode10NoLinesFields).forEach(field => { // ! Changed this
+                if (!(field.id.endsWith("NoCards"))) { // ! Changed this
+                    exitCode10OutputFields.push(field);
+                }
+            });
+            // Count per output message
+            const exitCode10Counts = [];
+            exitCode10OutputFields.forEach((field, index) => {
+                let visibleCount = 0;
+                let allCardsOutputMessageField = field.querySelectorAll('.field'); // Here no worries about card with no .
+                console.log(allCardsOutputMessageField)
+                Array.from(allCardsOutputMessageField).forEach(field => {
+                    console.log(field.style.display);
+                    if (!((field.style.display === "none") || (field.style.display === ""))) {
+                        visibleCount++;
+                    }
+                });
+                // ! Counts hidden cards but also fields around it (no display changes) --> or condition
+                exitCode10Counts.push(visibleCount);
+            });
+
+            // * For each output message, calculate total sum and adjust progress bar accordingly (Works.)
+            // if sum is = 0: hide button and whole section
+            // if sum != 0: display button and whole section
+            exitCode10OutputFields.forEach((field, index) => {
+                const count = exitCode10Counts[index];
+                const percentage = (count / sum) * 100;
+                const button = exitCode10OutputButtons[index];
+                // adjust progressbar first
+                const progressbar = field.querySelector('.progress');
+                progressbar.value = percentage;
+                progressbar.textContent = `${Math.round(percentage)}%`;
+                // display
+                if (count > 0) {
+                    field.style.display = "block";
+                    button.style.display = "block";
+                } else {
+                    field.style.display = "none";
+                    button.style.display = "none";
+                }
+            });
+        }
     }
 
     // Function for constructing the complete file path
@@ -284,6 +496,7 @@
 
         var textWrapTotal = document.createElement("article")
         textWrapTotal.className = "message is-info"
+        textWrapTotal.style.height = "100%" // Added it here
         rightTile.appendChild(textWrapTotal)
         var textWrap = document.createElement("div")
         textWrap.className = "message-body" // Removed textWrap.style = "height:100%"
@@ -467,6 +680,15 @@
         window.addEventListener("beforeunload", function () {
             localStorage.removeItem("hideMessage");
         })
+
+        // Event listener for filter option change
+        const filterOption = document.querySelector('.filter');
+        filterOption.addEventListener('change', () => {
+            filterCards();
+        });
+
+        // Initial function calls
+        filterCards();
 
         // For embedded files in the card
         var cardContents = document.querySelectorAll('.is-collapsible'); // heel die witte card, allemaal

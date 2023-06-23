@@ -1,6 +1,6 @@
 import dataProviders.ConfigFileReader;
-import organizers.DirectoryHandler;
 import managers.FileReaderManager;
+import organizers.DirectoryHandler;
 import organizers.FileHandler;
 import outputProviders.IterationResult;
 import outputProviders.LogFileHandler;
@@ -19,14 +19,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-// TODO Functionality and website documentation fuzz 5 action sequence strings.
+// TODO Website documentation fuzz 4 valid character maps. Would only run 6 on website, which makes it clearer.
+// TODO Functionality and website documentation fuzz 5 action sequence strings. Variate in lenght and special characters. Also look at combinations with map (moving out the borders).
 // TODO Functionality and website documentation fuzz 6 mutation fuzzing.
 // TODO Fuzzing with external program?
 // TODO Push site to netifly, alter markdown read me.
 // TODO Update Pseudocode from what I have in website.
 // TODO Generate final javadoc. Check that everything is documented.
 // TODO Should I write manual on building site? Maybe few sentences in README?
-// TODO Links to directories in HTML should work? Check all links!
 
 /**
  * The Fuzzer class is the main class that runs the fuzzing process.
