@@ -1,0 +1,50 @@
+Iteration Nr.,Exit Code,Output Messages,Action Sequence,Map File Type,Map File Custom Attribute,Absolute Map File Path
+1,10,Error reading file by readAllLines,SWE,.pdf (Portable Document Format),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/EmptyFile_UnknownFileType.pdf
+2,10,No lines,SWE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/FileEmpty.txt
+3,10,Unknown character,SWE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/FirstCharacterEmpty.txt
+4,10,No columns,SWE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/FirstLineEmpty.txt
+5,10,No columns,SWE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/FirstLineEmpty_LinePlayers.txt
+6,10,No columns,SWE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/FirstLineEmpty_LineTooLong.txt
+7,10,No columns,SWE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/FirstLineEmpty_LineTooShort.txt
+8,10,No columns,SWE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/FirstLineEmpty_NoFood.txt
+9,10,No columns,SWE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/FirstLineEmpty_NoMonster.txt
+10,10,No columns,SWE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/FirstLineEmpty_NoPlayer.txt
+11,10,No columns,SWE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/FirstLineEmpty_UnknownCharacter.txt
+12,10,More than one player,SWE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/FirstLinePlayers.txt
+13,10,More than one player,SWE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/FirstLinePlayers_LinePlayers.txt
+14,10,More than one player,SWE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/FirstLinePlayers_LineTooLong.txt
+15,10,More than one player,SWE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/FirstLinePlayers_LineTooShort.txt
+16,10,More than one player,SWE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/FirstLinePlayers_NoFood.txt
+17,10,More than one player,SWE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/FirstLinePlayers_NoMonster.txt
+18,10,Widths mismatch,SWE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/LineEmpty.txt
+19,10,More than one player,SWE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/LinePlayers.txt
+20,10,More than one player,SWE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/LinePlayers_LineTooShort.txt
+21,10,More than one player,SWE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/LinePlayers_NoFood.txt
+22,10,More than one player,SWE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/LinePlayers_NoMonster.txt
+23,10,Widths mismatch,SWE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/LineTooLong.txt
+24,10,Widths mismatch,SWE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/LineTooLong_LinePlayers_After.txt
+25,10,Widths mismatch,SWE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/LineTooLong_LinePlayers_Before.txt
+26,10,Widths mismatch,SWE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/LineTooLong_LinePlayers_On.txt
+27,10,Widths mismatch,SWE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/LineTooLong_NoFood.txt
+28,10,Widths mismatch,SWE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/LineTooLong_NoMonster.txt
+29,10,Widths mismatch,SWE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/LineTooLong_NoPlayer.txt
+30,10,Widths mismatch,SWE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/LineTooLong_TotalPlayers_After.txt
+31,10,Widths mismatch,SWE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/LineTooLong_TotalPlayers_Before.txt
+32,10,Widths mismatch,SWE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/LineTooLong_TotalPlayers_On.txt
+33,10,Widths mismatch,SWE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/LineTooShort.txt
+34,10,Widths mismatch,SWE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/LineTooShort_ LinePlayers.txt
+35,10,Widths mismatch,SWE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/LineTooShort_LineTooLong.txt
+36,10,Widths mismatch,SWE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/LineTooShort_NoFood.txt
+37,10,Widths mismatch,SWE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/LineTooShort_NoMonster.txt
+38,10,Widths mismatch,SWE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/LineTooShort_NoPlayer.txt
+39,10,Widths mismatch,SWE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/LineTooShort_TotalPlayers_Before.txt
+40,0,None,SWE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/MultipleFood.txt
+41,0,None,SWE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/MultipleMonsters.txt
+42,10,No food,SWE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/NoFood.txt
+43,10,No food,SWE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/NoFood_NoMonster.txt
+44,0,None,SWE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/NoMonster.txt
+45,10,No player is set,SWE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/NoPlayer.txt
+46,10,No player is set,SWE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/NoPlayer_NoFood.txt
+47,10,No player is set,SWE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/NoPlayer_NoMonster.txt
+48,10,Unknown character,SWE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/RandomCharacterEmpty.txt
+49,0,None,SWE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/Rectangular.txt

@@ -1,0 +1,450 @@
+Iteration Nr.: 1
+Exit Code: 10 (Rejected)
+Output Messages: Error reading file by readAllLines
+Action Sequence: SWE
+Map File Name: EmptyFile_UnknownFileType.pdf
+Map File Type: .pdf (Portable Document Format (Text file) as Document format)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/EmptyFile_UnknownFileType.pdf
+
+Iteration Nr.: 2
+Exit Code: 10 (Rejected)
+Output Messages: No lines
+Action Sequence: SWE
+Map File Name: FileEmpty.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/FileEmpty.txt
+
+Iteration Nr.: 3
+Exit Code: 10 (Rejected)
+Output Messages: Unknown character
+Action Sequence: SWE
+Map File Name: FirstCharacterEmpty.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/FirstCharacterEmpty.txt
+
+Iteration Nr.: 4
+Exit Code: 10 (Rejected)
+Output Messages: No columns
+Action Sequence: SWE
+Map File Name: FirstLineEmpty.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/FirstLineEmpty.txt
+
+Iteration Nr.: 5
+Exit Code: 10 (Rejected)
+Output Messages: No columns
+Action Sequence: SWE
+Map File Name: FirstLineEmpty_LinePlayers.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/FirstLineEmpty_LinePlayers.txt
+
+Iteration Nr.: 6
+Exit Code: 10 (Rejected)
+Output Messages: No columns
+Action Sequence: SWE
+Map File Name: FirstLineEmpty_LineTooLong.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/FirstLineEmpty_LineTooLong.txt
+
+Iteration Nr.: 7
+Exit Code: 10 (Rejected)
+Output Messages: No columns
+Action Sequence: SWE
+Map File Name: FirstLineEmpty_LineTooShort.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/FirstLineEmpty_LineTooShort.txt
+
+Iteration Nr.: 8
+Exit Code: 10 (Rejected)
+Output Messages: No columns
+Action Sequence: SWE
+Map File Name: FirstLineEmpty_NoFood.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/FirstLineEmpty_NoFood.txt
+
+Iteration Nr.: 9
+Exit Code: 10 (Rejected)
+Output Messages: No columns
+Action Sequence: SWE
+Map File Name: FirstLineEmpty_NoMonster.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/FirstLineEmpty_NoMonster.txt
+
+Iteration Nr.: 10
+Exit Code: 10 (Rejected)
+Output Messages: No columns
+Action Sequence: SWE
+Map File Name: FirstLineEmpty_NoPlayer.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/FirstLineEmpty_NoPlayer.txt
+
+Iteration Nr.: 11
+Exit Code: 10 (Rejected)
+Output Messages: No columns
+Action Sequence: SWE
+Map File Name: FirstLineEmpty_UnknownCharacter.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/FirstLineEmpty_UnknownCharacter.txt
+
+Iteration Nr.: 12
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: FirstLinePlayers.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/FirstLinePlayers.txt
+
+Iteration Nr.: 13
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: FirstLinePlayers_LinePlayers.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/FirstLinePlayers_LinePlayers.txt
+
+Iteration Nr.: 14
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: FirstLinePlayers_LineTooLong.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/FirstLinePlayers_LineTooLong.txt
+
+Iteration Nr.: 15
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: FirstLinePlayers_LineTooShort.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/FirstLinePlayers_LineTooShort.txt
+
+Iteration Nr.: 16
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: FirstLinePlayers_NoFood.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/FirstLinePlayers_NoFood.txt
+
+Iteration Nr.: 17
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: FirstLinePlayers_NoMonster.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/FirstLinePlayers_NoMonster.txt
+
+Iteration Nr.: 18
+Exit Code: 10 (Rejected)
+Output Messages: Widths mismatch
+Action Sequence: SWE
+Map File Name: LineEmpty.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/LineEmpty.txt
+
+Iteration Nr.: 19
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: LinePlayers.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/LinePlayers.txt
+
+Iteration Nr.: 20
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: LinePlayers_LineTooShort.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/LinePlayers_LineTooShort.txt
+
+Iteration Nr.: 21
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: LinePlayers_NoFood.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/LinePlayers_NoFood.txt
+
+Iteration Nr.: 22
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: LinePlayers_NoMonster.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/LinePlayers_NoMonster.txt
+
+Iteration Nr.: 23
+Exit Code: 10 (Rejected)
+Output Messages: Widths mismatch
+Action Sequence: SWE
+Map File Name: LineTooLong.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/LineTooLong.txt
+
+Iteration Nr.: 24
+Exit Code: 10 (Rejected)
+Output Messages: Widths mismatch
+Action Sequence: SWE
+Map File Name: LineTooLong_LinePlayers_After.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/LineTooLong_LinePlayers_After.txt
+
+Iteration Nr.: 25
+Exit Code: 10 (Rejected)
+Output Messages: Widths mismatch
+Action Sequence: SWE
+Map File Name: LineTooLong_LinePlayers_Before.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/LineTooLong_LinePlayers_Before.txt
+
+Iteration Nr.: 26
+Exit Code: 10 (Rejected)
+Output Messages: Widths mismatch
+Action Sequence: SWE
+Map File Name: LineTooLong_LinePlayers_On.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/LineTooLong_LinePlayers_On.txt
+
+Iteration Nr.: 27
+Exit Code: 10 (Rejected)
+Output Messages: Widths mismatch
+Action Sequence: SWE
+Map File Name: LineTooLong_NoFood.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/LineTooLong_NoFood.txt
+
+Iteration Nr.: 28
+Exit Code: 10 (Rejected)
+Output Messages: Widths mismatch
+Action Sequence: SWE
+Map File Name: LineTooLong_NoMonster.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/LineTooLong_NoMonster.txt
+
+Iteration Nr.: 29
+Exit Code: 10 (Rejected)
+Output Messages: Widths mismatch
+Action Sequence: SWE
+Map File Name: LineTooLong_NoPlayer.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/LineTooLong_NoPlayer.txt
+
+Iteration Nr.: 30
+Exit Code: 10 (Rejected)
+Output Messages: Widths mismatch
+Action Sequence: SWE
+Map File Name: LineTooLong_TotalPlayers_After.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/LineTooLong_TotalPlayers_After.txt
+
+Iteration Nr.: 31
+Exit Code: 10 (Rejected)
+Output Messages: Widths mismatch
+Action Sequence: SWE
+Map File Name: LineTooLong_TotalPlayers_Before.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/LineTooLong_TotalPlayers_Before.txt
+
+Iteration Nr.: 32
+Exit Code: 10 (Rejected)
+Output Messages: Widths mismatch
+Action Sequence: SWE
+Map File Name: LineTooLong_TotalPlayers_On.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/LineTooLong_TotalPlayers_On.txt
+
+Iteration Nr.: 33
+Exit Code: 10 (Rejected)
+Output Messages: Widths mismatch
+Action Sequence: SWE
+Map File Name: LineTooShort.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/LineTooShort.txt
+
+Iteration Nr.: 34
+Exit Code: 10 (Rejected)
+Output Messages: Widths mismatch
+Action Sequence: SWE
+Map File Name: LineTooShort_ LinePlayers.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/LineTooShort_ LinePlayers.txt
+
+Iteration Nr.: 35
+Exit Code: 10 (Rejected)
+Output Messages: Widths mismatch
+Action Sequence: SWE
+Map File Name: LineTooShort_LineTooLong.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/LineTooShort_LineTooLong.txt
+
+Iteration Nr.: 36
+Exit Code: 10 (Rejected)
+Output Messages: Widths mismatch
+Action Sequence: SWE
+Map File Name: LineTooShort_NoFood.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/LineTooShort_NoFood.txt
+
+Iteration Nr.: 37
+Exit Code: 10 (Rejected)
+Output Messages: Widths mismatch
+Action Sequence: SWE
+Map File Name: LineTooShort_NoMonster.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/LineTooShort_NoMonster.txt
+
+Iteration Nr.: 38
+Exit Code: 10 (Rejected)
+Output Messages: Widths mismatch
+Action Sequence: SWE
+Map File Name: LineTooShort_NoPlayer.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/LineTooShort_NoPlayer.txt
+
+Iteration Nr.: 39
+Exit Code: 10 (Rejected)
+Output Messages: Widths mismatch
+Action Sequence: SWE
+Map File Name: LineTooShort_TotalPlayers_Before.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/LineTooShort_TotalPlayers_Before.txt
+
+Iteration Nr.: 40
+Exit Code: 0 (Accepted)
+Output Messages: None
+Action Sequence: SWE
+Map File Name: MultipleFood.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/MultipleFood.txt
+
+Iteration Nr.: 41
+Exit Code: 0 (Accepted)
+Output Messages: None
+Action Sequence: SWE
+Map File Name: MultipleMonsters.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/MultipleMonsters.txt
+
+Iteration Nr.: 42
+Exit Code: 10 (Rejected)
+Output Messages: No food
+Action Sequence: SWE
+Map File Name: NoFood.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/NoFood.txt
+
+Iteration Nr.: 43
+Exit Code: 10 (Rejected)
+Output Messages: No food
+Action Sequence: SWE
+Map File Name: NoFood_NoMonster.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/NoFood_NoMonster.txt
+
+Iteration Nr.: 44
+Exit Code: 0 (Accepted)
+Output Messages: None
+Action Sequence: SWE
+Map File Name: NoMonster.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/NoMonster.txt
+
+Iteration Nr.: 45
+Exit Code: 10 (Rejected)
+Output Messages: No player is set
+Action Sequence: SWE
+Map File Name: NoPlayer.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/NoPlayer.txt
+
+Iteration Nr.: 46
+Exit Code: 10 (Rejected)
+Output Messages: No player is set
+Action Sequence: SWE
+Map File Name: NoPlayer_NoFood.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/NoPlayer_NoFood.txt
+
+Iteration Nr.: 47
+Exit Code: 10 (Rejected)
+Output Messages: No player is set
+Action Sequence: SWE
+Map File Name: NoPlayer_NoMonster.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/NoPlayer_NoMonster.txt
+
+Iteration Nr.: 48
+Exit Code: 10 (Rejected)
+Output Messages: Unknown character
+Action Sequence: SWE
+Map File Name: RandomCharacterEmpty.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/RandomCharacterEmpty.txt
+
+Iteration Nr.: 49
+Exit Code: 0 (Accepted)
+Output Messages: None
+Action Sequence: SWE
+Map File Name: Rectangular.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/Rectangular.txt
+
+SUMMARY
+Fuzz Attempt Nr.: 6
+Date and Time: 26-06-2023 20:15
+Execution Time: 00:15
+Total Number of Iterations: 49
+Exit Code 0 Count: 4 occurrences
+Exit Code 1 Count: 0 occurrences
+Exit Code 10 Count: 45 occurrences
+Exit Code -1 Count: 0 occurrences

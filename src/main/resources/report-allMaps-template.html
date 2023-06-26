@@ -119,7 +119,6 @@
         </div>
     </div>
 
-
     <!-- Fuzz attempt filter -->
     <br>
     <div class="box">
@@ -178,6 +177,15 @@
             </div>
         </div>
     </div>
+
+    <!-- Output code percentages -->
+    <br>
+    <div class="box">
+        <div class="level" id="OutputMessagesPercentages">
+            {{OutputMessagesPercentages}}
+        </div>
+    </div>
+
 
     <div class="block">
         <!-- Add all cards -->
@@ -383,9 +391,7 @@
             exitCode10OutputFields.forEach((field, index) => {
                 let visibleCount = 0;
                 let allCardsOutputMessageField = field.querySelectorAll('.field'); // Here no worries about card with no .
-                console.log(allCardsOutputMessageField)
                 Array.from(allCardsOutputMessageField).forEach(field => {
-                    console.log(field.style.display);
                     if (!((field.style.display === "none") || (field.style.display === ""))) {
                         visibleCount++;
                     }
@@ -397,6 +403,8 @@
             // * For each output message, calculate total sum and adjust progress bar accordingly (Works.)
             // if sum is = 0: hide button and whole section
             // if sum != 0: display button and whole section
+            const visibleOutputMessagesPercentageId = [];
+            const visibleOutputMessagesPercentage = [];
             exitCode10OutputFields.forEach((field, index) => {
                 const count = exitCode10Counts[index];
                 const percentage = (count / sum) * 100;
@@ -405,6 +413,10 @@
                 const progressbar = field.querySelector('.progress');
                 progressbar.value = percentage;
                 progressbar.textContent = `${Math.round(percentage)}%`;
+                // for percentage box, the ones that are on display only
+                const idPercentage = "Percentage" + field.id;
+                visibleOutputMessagesPercentageId.push(idPercentage);
+                visibleOutputMessagesPercentage.push(percentage);
                 // display
                 if (count > 0) {
                     field.style.display = "block";
@@ -412,6 +424,29 @@
                 } else {
                     field.style.display = "none";
                     button.style.display = "none";
+                }
+            });
+            const allPercentagesTotal = document.querySelector('div[id="OutputMessagesPercentages"]');
+            console.log(allPercentagesTotal)
+            const allPercentages = Array.from(allPercentagesTotal.children);
+            console.log(allPercentages);
+            allPercentages.forEach(levelItem => {
+                console.log(levelItem);
+                const titleElement = levelItem.querySelector('.title');
+                const titleId = titleElement.id;
+                console.log(titleId)
+                // Check if the title id is present in the list visibleOutputMessagesPercentageId
+                const index = visibleOutputMessagesPercentageId.indexOf(titleId);
+                console.log(index);
+                if (index !== -1) {
+                    // Get the corresponding percentage from the list visibleOutputMessagesPercentage
+                    const percentage = visibleOutputMessagesPercentage[index];
+                    console.log(percentage)
+                    // Set the text content of the title element to the rounded percentage with %
+                    titleElement.textContent = Math.round(percentage) + '%';
+                } else {
+                    // Set the percentage of the title element to 0%
+                    titleElement.textContent = '0%';
                 }
             });
         }

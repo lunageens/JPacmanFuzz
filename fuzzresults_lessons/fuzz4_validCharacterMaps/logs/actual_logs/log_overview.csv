@@ -1,0 +1,10 @@
+Exit Code,Output Messages,Exit Code Count,Exit Code Iterations
+10,Widths mismatch,18,18-23-24-25-26-27-28-29-30-31-32-33-34-35-36-37-38-39
+10,More than one player,10,12-13-14-15-16-17-19-20-21-22
+10,No columns,8,4-5-6-7-8-9-10-11
+10,No player is set,3,45-46-47
+10,Unknown character,2,3-48
+10,No food,2,42-43
+10,No lines,1,2
+10,Error reading file by readAllLines,1,1
+0,None,4,40-41-44-49

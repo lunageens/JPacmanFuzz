@@ -19,7 +19,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-// TODO Website documentation fuzz 4 valid character maps. Would only run 6 on website, which makes it clearer.
 // TODO Functionality and website documentation fuzz 5 action sequence strings. Variate in lenght and special characters. Also look at combinations with map (moving out the borders).
 // TODO Functionality and website documentation fuzz 6 mutation fuzzing.
 // TODO Fuzzing with external program?

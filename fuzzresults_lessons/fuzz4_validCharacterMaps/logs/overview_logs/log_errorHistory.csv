@@ -1,0 +1,18 @@
+Fuzz Attempt Nr.,Date and Time,Exit Code,Output Messages,Count
+1,23-06-2023 21:35,10,More than one player,146
+1,23-06-2023 21:35,10,No columns,14
+1,23-06-2023 21:35,10,No food,2
+1,23-06-2023 21:35,10,No lines,11
+1,23-06-2023 21:35,10,Widths mismatch,77
+2,23-06-2023 21:54,10,More than one player,236
+2,23-06-2023 21:54,10,No food,8
+2,23-06-2023 21:54,10,No player is set,6
+6,26-06-2023 20:15,10,Error reading file by readAllLines,1
+6,26-06-2023 20:15,10,More than one player,10
+6,26-06-2023 20:15,10,No columns,8
+6,26-06-2023 20:15,10,No food,2
+6,26-06-2023 20:15,10,No lines,1
+6,26-06-2023 20:15,10,No player is set,3
+6,26-06-2023 20:15,0,None,4
+6,26-06-2023 20:15,10,Unknown character,2
+6,26-06-2023 20:15,10,Widths mismatch,18

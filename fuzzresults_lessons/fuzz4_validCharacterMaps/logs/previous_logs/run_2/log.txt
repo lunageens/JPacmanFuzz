@@ -1,0 +1,2259 @@
+Iteration Nr.: 1
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_1.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_1.txt
+
+Iteration Nr.: 2
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_2.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_2.txt
+
+Iteration Nr.: 3
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_3.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_3.txt
+
+Iteration Nr.: 4
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_4.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_4.txt
+
+Iteration Nr.: 5
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_5.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_5.txt
+
+Iteration Nr.: 6
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_6.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_6.txt
+
+Iteration Nr.: 7
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_7.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_7.txt
+
+Iteration Nr.: 8
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_8.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_8.txt
+
+Iteration Nr.: 9
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_9.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_9.txt
+
+Iteration Nr.: 10
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_10.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_10.txt
+
+Iteration Nr.: 11
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_11.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_11.txt
+
+Iteration Nr.: 12
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_12.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_12.txt
+
+Iteration Nr.: 13
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_13.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_13.txt
+
+Iteration Nr.: 14
+Exit Code: 10 (Rejected)
+Output Messages: No player is set
+Action Sequence: SWE
+Map File Name: map_14.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_14.txt
+
+Iteration Nr.: 15
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_15.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_15.txt
+
+Iteration Nr.: 16
+Exit Code: 10 (Rejected)
+Output Messages: No food
+Action Sequence: SWE
+Map File Name: map_16.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_16.txt
+
+Iteration Nr.: 17
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_17.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_17.txt
+
+Iteration Nr.: 18
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_18.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_18.txt
+
+Iteration Nr.: 19
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_19.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_19.txt
+
+Iteration Nr.: 20
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_20.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_20.txt
+
+Iteration Nr.: 21
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_21.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_21.txt
+
+Iteration Nr.: 22
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_22.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_22.txt
+
+Iteration Nr.: 23
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_23.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_23.txt
+
+Iteration Nr.: 24
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_24.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_24.txt
+
+Iteration Nr.: 25
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_25.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_25.txt
+
+Iteration Nr.: 26
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_26.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_26.txt
+
+Iteration Nr.: 27
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_27.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_27.txt
+
+Iteration Nr.: 28
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_28.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_28.txt
+
+Iteration Nr.: 29
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_29.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_29.txt
+
+Iteration Nr.: 30
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_30.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_30.txt
+
+Iteration Nr.: 31
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_31.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_31.txt
+
+Iteration Nr.: 32
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_32.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_32.txt
+
+Iteration Nr.: 33
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_33.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_33.txt
+
+Iteration Nr.: 34
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_34.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_34.txt
+
+Iteration Nr.: 35
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_35.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_35.txt
+
+Iteration Nr.: 36
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_36.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_36.txt
+
+Iteration Nr.: 37
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_37.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_37.txt
+
+Iteration Nr.: 38
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_38.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_38.txt
+
+Iteration Nr.: 39
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_39.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_39.txt
+
+Iteration Nr.: 40
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_40.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_40.txt
+
+Iteration Nr.: 41
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_41.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_41.txt
+
+Iteration Nr.: 42
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_42.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_42.txt
+
+Iteration Nr.: 43
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_43.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_43.txt
+
+Iteration Nr.: 44
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_44.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_44.txt
+
+Iteration Nr.: 45
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_45.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_45.txt
+
+Iteration Nr.: 46
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_46.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_46.txt
+
+Iteration Nr.: 47
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_47.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_47.txt
+
+Iteration Nr.: 48
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_48.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_48.txt
+
+Iteration Nr.: 49
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_49.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_49.txt
+
+Iteration Nr.: 50
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_50.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_50.txt
+
+Iteration Nr.: 51
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_51.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_51.txt
+
+Iteration Nr.: 52
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_52.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_52.txt
+
+Iteration Nr.: 53
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_53.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_53.txt
+
+Iteration Nr.: 54
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_54.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_54.txt
+
+Iteration Nr.: 55
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_55.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_55.txt
+
+Iteration Nr.: 56
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_56.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_56.txt
+
+Iteration Nr.: 57
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_57.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_57.txt
+
+Iteration Nr.: 58
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_58.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_58.txt
+
+Iteration Nr.: 59
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_59.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_59.txt
+
+Iteration Nr.: 60
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_60.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_60.txt
+
+Iteration Nr.: 61
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_61.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_61.txt
+
+Iteration Nr.: 62
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_62.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_62.txt
+
+Iteration Nr.: 63
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_63.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_63.txt
+
+Iteration Nr.: 64
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_64.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_64.txt
+
+Iteration Nr.: 65
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_65.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_65.txt
+
+Iteration Nr.: 66
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_66.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_66.txt
+
+Iteration Nr.: 67
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_67.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_67.txt
+
+Iteration Nr.: 68
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_68.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_68.txt
+
+Iteration Nr.: 69
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_69.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_69.txt
+
+Iteration Nr.: 70
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_70.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_70.txt
+
+Iteration Nr.: 71
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_71.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_71.txt
+
+Iteration Nr.: 72
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_72.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_72.txt
+
+Iteration Nr.: 73
+Exit Code: 10 (Rejected)
+Output Messages: No food
+Action Sequence: SWE
+Map File Name: map_73.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_73.txt
+
+Iteration Nr.: 74
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_74.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_74.txt
+
+Iteration Nr.: 75
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_75.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_75.txt
+
+Iteration Nr.: 76
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_76.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_76.txt
+
+Iteration Nr.: 77
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_77.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_77.txt
+
+Iteration Nr.: 78
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_78.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_78.txt
+
+Iteration Nr.: 79
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_79.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_79.txt
+
+Iteration Nr.: 80
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_80.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_80.txt
+
+Iteration Nr.: 81
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_81.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_81.txt
+
+Iteration Nr.: 82
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_82.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_82.txt
+
+Iteration Nr.: 83
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_83.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_83.txt
+
+Iteration Nr.: 84
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_84.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_84.txt
+
+Iteration Nr.: 85
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_85.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_85.txt
+
+Iteration Nr.: 86
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_86.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_86.txt
+
+Iteration Nr.: 87
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_87.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_87.txt
+
+Iteration Nr.: 88
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_88.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_88.txt
+
+Iteration Nr.: 89
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_89.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_89.txt
+
+Iteration Nr.: 90
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_90.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_90.txt
+
+Iteration Nr.: 91
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_91.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_91.txt
+
+Iteration Nr.: 92
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_92.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_92.txt
+
+Iteration Nr.: 93
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_93.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_93.txt
+
+Iteration Nr.: 94
+Exit Code: 10 (Rejected)
+Output Messages: No player is set
+Action Sequence: SWE
+Map File Name: map_94.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_94.txt
+
+Iteration Nr.: 95
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_95.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_95.txt
+
+Iteration Nr.: 96
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_96.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_96.txt
+
+Iteration Nr.: 97
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_97.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_97.txt
+
+Iteration Nr.: 98
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_98.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_98.txt
+
+Iteration Nr.: 99
+Exit Code: 10 (Rejected)
+Output Messages: No food
+Action Sequence: SWE
+Map File Name: map_99.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_99.txt
+
+Iteration Nr.: 100
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_100.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_100.txt
+
+Iteration Nr.: 101
+Exit Code: 10 (Rejected)
+Output Messages: No player is set
+Action Sequence: SWE
+Map File Name: map_101.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_101.txt
+
+Iteration Nr.: 102
+Exit Code: 10 (Rejected)
+Output Messages: No player is set
+Action Sequence: SWE
+Map File Name: map_102.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_102.txt
+
+Iteration Nr.: 103
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_103.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_103.txt
+
+Iteration Nr.: 104
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_104.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_104.txt
+
+Iteration Nr.: 105
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_105.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_105.txt
+
+Iteration Nr.: 106
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_106.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_106.txt
+
+Iteration Nr.: 107
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_107.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_107.txt
+
+Iteration Nr.: 108
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_108.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_108.txt
+
+Iteration Nr.: 109
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_109.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_109.txt
+
+Iteration Nr.: 110
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_110.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_110.txt
+
+Iteration Nr.: 111
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_111.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_111.txt
+
+Iteration Nr.: 112
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_112.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_112.txt
+
+Iteration Nr.: 113
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_113.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_113.txt
+
+Iteration Nr.: 114
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_114.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_114.txt
+
+Iteration Nr.: 115
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_115.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_115.txt
+
+Iteration Nr.: 116
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_116.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_116.txt
+
+Iteration Nr.: 117
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_117.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_117.txt
+
+Iteration Nr.: 118
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_118.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_118.txt
+
+Iteration Nr.: 119
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_119.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_119.txt
+
+Iteration Nr.: 120
+Exit Code: 10 (Rejected)
+Output Messages: No food
+Action Sequence: SWE
+Map File Name: map_120.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_120.txt
+
+Iteration Nr.: 121
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_121.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_121.txt
+
+Iteration Nr.: 122
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_122.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_122.txt
+
+Iteration Nr.: 123
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_123.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_123.txt
+
+Iteration Nr.: 124
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_124.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_124.txt
+
+Iteration Nr.: 125
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_125.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_125.txt
+
+Iteration Nr.: 126
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_126.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_126.txt
+
+Iteration Nr.: 127
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_127.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_127.txt
+
+Iteration Nr.: 128
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_128.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_128.txt
+
+Iteration Nr.: 129
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_129.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_129.txt
+
+Iteration Nr.: 130
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_130.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_130.txt
+
+Iteration Nr.: 131
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_131.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_131.txt
+
+Iteration Nr.: 132
+Exit Code: 10 (Rejected)
+Output Messages: No food
+Action Sequence: SWE
+Map File Name: map_132.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_132.txt
+
+Iteration Nr.: 133
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_133.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_133.txt
+
+Iteration Nr.: 134
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_134.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_134.txt
+
+Iteration Nr.: 135
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_135.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_135.txt
+
+Iteration Nr.: 136
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_136.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_136.txt
+
+Iteration Nr.: 137
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_137.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_137.txt
+
+Iteration Nr.: 138
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_138.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_138.txt
+
+Iteration Nr.: 139
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_139.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_139.txt
+
+Iteration Nr.: 140
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_140.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_140.txt
+
+Iteration Nr.: 141
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_141.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_141.txt
+
+Iteration Nr.: 142
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_142.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_142.txt
+
+Iteration Nr.: 143
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_143.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_143.txt
+
+Iteration Nr.: 144
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_144.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_144.txt
+
+Iteration Nr.: 145
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_145.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_145.txt
+
+Iteration Nr.: 146
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_146.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_146.txt
+
+Iteration Nr.: 147
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_147.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_147.txt
+
+Iteration Nr.: 148
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_148.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_148.txt
+
+Iteration Nr.: 149
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_149.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_149.txt
+
+Iteration Nr.: 150
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_150.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_150.txt
+
+Iteration Nr.: 151
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_151.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_151.txt
+
+Iteration Nr.: 152
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_152.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_152.txt
+
+Iteration Nr.: 153
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_153.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_153.txt
+
+Iteration Nr.: 154
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_154.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_154.txt
+
+Iteration Nr.: 155
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_155.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_155.txt
+
+Iteration Nr.: 156
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_156.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_156.txt
+
+Iteration Nr.: 157
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_157.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_157.txt
+
+Iteration Nr.: 158
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_158.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_158.txt
+
+Iteration Nr.: 159
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_159.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_159.txt
+
+Iteration Nr.: 160
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_160.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_160.txt
+
+Iteration Nr.: 161
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_161.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_161.txt
+
+Iteration Nr.: 162
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_162.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_162.txt
+
+Iteration Nr.: 163
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_163.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_163.txt
+
+Iteration Nr.: 164
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_164.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_164.txt
+
+Iteration Nr.: 165
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_165.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_165.txt
+
+Iteration Nr.: 166
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_166.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_166.txt
+
+Iteration Nr.: 167
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_167.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_167.txt
+
+Iteration Nr.: 168
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_168.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_168.txt
+
+Iteration Nr.: 169
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_169.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_169.txt
+
+Iteration Nr.: 170
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_170.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_170.txt
+
+Iteration Nr.: 171
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_171.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_171.txt
+
+Iteration Nr.: 172
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_172.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_172.txt
+
+Iteration Nr.: 173
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_173.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_173.txt
+
+Iteration Nr.: 174
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_174.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_174.txt
+
+Iteration Nr.: 175
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_175.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_175.txt
+
+Iteration Nr.: 176
+Exit Code: 10 (Rejected)
+Output Messages: No food
+Action Sequence: SWE
+Map File Name: map_176.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_176.txt
+
+Iteration Nr.: 177
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_177.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_177.txt
+
+Iteration Nr.: 178
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_178.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_178.txt
+
+Iteration Nr.: 179
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_179.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_179.txt
+
+Iteration Nr.: 180
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_180.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_180.txt
+
+Iteration Nr.: 181
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_181.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_181.txt
+
+Iteration Nr.: 182
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_182.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_182.txt
+
+Iteration Nr.: 183
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_183.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_183.txt
+
+Iteration Nr.: 184
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_184.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_184.txt
+
+Iteration Nr.: 185
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_185.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_185.txt
+
+Iteration Nr.: 186
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_186.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_186.txt
+
+Iteration Nr.: 187
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_187.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_187.txt
+
+Iteration Nr.: 188
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_188.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_188.txt
+
+Iteration Nr.: 189
+Exit Code: 10 (Rejected)
+Output Messages: No food
+Action Sequence: SWE
+Map File Name: map_189.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_189.txt
+
+Iteration Nr.: 190
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_190.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_190.txt
+
+Iteration Nr.: 191
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_191.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_191.txt
+
+Iteration Nr.: 192
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_192.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_192.txt
+
+Iteration Nr.: 193
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_193.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_193.txt
+
+Iteration Nr.: 194
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_194.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_194.txt
+
+Iteration Nr.: 195
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_195.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_195.txt
+
+Iteration Nr.: 196
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_196.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_196.txt
+
+Iteration Nr.: 197
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_197.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_197.txt
+
+Iteration Nr.: 198
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_198.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_198.txt
+
+Iteration Nr.: 199
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_199.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_199.txt
+
+Iteration Nr.: 200
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_200.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_200.txt
+
+Iteration Nr.: 201
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_201.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_201.txt
+
+Iteration Nr.: 202
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_202.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_202.txt
+
+Iteration Nr.: 203
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_203.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_203.txt
+
+Iteration Nr.: 204
+Exit Code: 10 (Rejected)
+Output Messages: No player is set
+Action Sequence: SWE
+Map File Name: map_204.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_204.txt
+
+Iteration Nr.: 205
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_205.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_205.txt
+
+Iteration Nr.: 206
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_206.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_206.txt
+
+Iteration Nr.: 207
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_207.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_207.txt
+
+Iteration Nr.: 208
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_208.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_208.txt
+
+Iteration Nr.: 209
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_209.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_209.txt
+
+Iteration Nr.: 210
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_210.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_210.txt
+
+Iteration Nr.: 211
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_211.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_211.txt
+
+Iteration Nr.: 212
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_212.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_212.txt
+
+Iteration Nr.: 213
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_213.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_213.txt
+
+Iteration Nr.: 214
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_214.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_214.txt
+
+Iteration Nr.: 215
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_215.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_215.txt
+
+Iteration Nr.: 216
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_216.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_216.txt
+
+Iteration Nr.: 217
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_217.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_217.txt
+
+Iteration Nr.: 218
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_218.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_218.txt
+
+Iteration Nr.: 219
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_219.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_219.txt
+
+Iteration Nr.: 220
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_220.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_220.txt
+
+Iteration Nr.: 221
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_221.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_221.txt
+
+Iteration Nr.: 222
+Exit Code: 10 (Rejected)
+Output Messages: No food
+Action Sequence: SWE
+Map File Name: map_222.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_222.txt
+
+Iteration Nr.: 223
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_223.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_223.txt
+
+Iteration Nr.: 224
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_224.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_224.txt
+
+Iteration Nr.: 225
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_225.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_225.txt
+
+Iteration Nr.: 226
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_226.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_226.txt
+
+Iteration Nr.: 227
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_227.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_227.txt
+
+Iteration Nr.: 228
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_228.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_228.txt
+
+Iteration Nr.: 229
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_229.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_229.txt
+
+Iteration Nr.: 230
+Exit Code: 10 (Rejected)
+Output Messages: No player is set
+Action Sequence: SWE
+Map File Name: map_230.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_230.txt
+
+Iteration Nr.: 231
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_231.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_231.txt
+
+Iteration Nr.: 232
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_232.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_232.txt
+
+Iteration Nr.: 233
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_233.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_233.txt
+
+Iteration Nr.: 234
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_234.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_234.txt
+
+Iteration Nr.: 235
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_235.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_235.txt
+
+Iteration Nr.: 236
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_236.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_236.txt
+
+Iteration Nr.: 237
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_237.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_237.txt
+
+Iteration Nr.: 238
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_238.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_238.txt
+
+Iteration Nr.: 239
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_239.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_239.txt
+
+Iteration Nr.: 240
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_240.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_240.txt
+
+Iteration Nr.: 241
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_241.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_241.txt
+
+Iteration Nr.: 242
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_242.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_242.txt
+
+Iteration Nr.: 243
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_243.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_243.txt
+
+Iteration Nr.: 244
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_244.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_244.txt
+
+Iteration Nr.: 245
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_245.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_245.txt
+
+Iteration Nr.: 246
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_246.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_246.txt
+
+Iteration Nr.: 247
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_247.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_247.txt
+
+Iteration Nr.: 248
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_248.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_248.txt
+
+Iteration Nr.: 249
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_249.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_249.txt
+
+Iteration Nr.: 250
+Exit Code: 10 (Rejected)
+Output Messages: More than one player
+Action Sequence: SWE
+Map File Name: map_250.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode10_rejected/map_250.txt
+
+SUMMARY
+Fuzz Attempt Nr.: 2
+Date and Time: 23-06-2023 21:54
+Execution Time: 00:41
+Total Number of Iterations: 250
+Exit Code 0 Count: 0 occurrences
+Exit Code 1 Count: 0 occurrences
+Exit Code 10 Count: 250 occurrences
+Exit Code -1 Count: 0 occurrences

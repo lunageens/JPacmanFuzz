@@ -13,8 +13,6 @@ public class AllMapsPageGenerator extends LogHTMLFileHandler implements PageGene
 
     /**
      * Alters the template for this specific page.
-     * Currently, this method does nothing.
-     * It is left here in case we want to add functionality in the future.
      *
      * @param templatePath
      *         The path to the template.
@@ -171,6 +169,22 @@ public class AllMapsPageGenerator extends LogHTMLFileHandler implements PageGene
         }
         String cards10 = cardsBuilder10.toString();
         template = template.replace("{{TitlesAndCards10}}", cards10);
+
+        // * Step 4.6: Replace the percentage output messages
+        StringBuilder percentages = new StringBuilder();
+        for (String message : outputMessages) {
+            String hrefMessage = "#" + getIDName(message);
+            String idMessagePercentage = "PercentageTotal" + getIDName(message);
+            // no value is needed, will be calculated in js script automatically
+            percentages.append("<div class=\"level-item has-text-centered has-text-info\">");
+            percentages.append("<div>");
+            percentages.append("<p class=\"has-text-weight-bold is-clickable\" href=\"").append(hrefMessage).append("\">").append(message).append("</p>");
+            percentages.append("<p class=\"title has-text-info-dark\" id=\"").append(idMessagePercentage).append("\"></p>");
+            percentages.append("</div>");
+            percentages.append("</div>");
+        }
+        String percentagesOutput = percentages.toString();
+        template = template.replace("{{OutputMessagesPercentages}}", percentagesOutput);
 
         return template;
     }
