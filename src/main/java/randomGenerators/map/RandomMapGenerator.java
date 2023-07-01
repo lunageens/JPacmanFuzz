@@ -40,7 +40,7 @@ public class RandomMapGenerator extends MapGenerator {
     public RandomMapGenerator() {
         configFileReader = FileReaderManager.getInstance().getConfigReader();
         this.randomBinaryMapGenerator = new RandomBinaryMapGenerator(configFileReader.getMaxBinaryMapSize());
-        this.randomTextMapGenerator = new RandomTextMapGenerator(configFileReader.getMaxTextMapHeight(), configFileReader.getMaxTextMapWidth());
+        this.randomTextMapGenerator = new RandomTextMapGenerator(configFileReader.getMaxTextMapHeight() + 1, configFileReader.getMaxTextMapWidth() + 1);
     }
 
     /**

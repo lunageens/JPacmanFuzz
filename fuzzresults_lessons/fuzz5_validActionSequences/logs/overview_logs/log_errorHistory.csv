@@ -1,0 +1,13 @@
+Fuzz Attempt Nr.,Date and Time,Exit Code,Output Messages,Count
+1,27-06-2023 22:46,0,None,148
+1,27-06-2023 22:46,1,None,115
+1,27-06-2023 22:46,-1,Time Limit of Iteration reached,249
+4,28-06-2023 00:40,0,None,147
+4,28-06-2023 00:40,1,None,18
+4,28-06-2023 00:40,-1,Time Limit of Iteration reached,4
+7,30-06-2023 18:25,0,None,256
+7,30-06-2023 18:25,1,None,145
+7,30-06-2023 18:25,-1,Time Limit of Iteration reached,14
+11,01-07-2023 18:04,-1,Invalid Move,198
+11,01-07-2023 18:04,0,None,159
+11,01-07-2023 18:04,1,None,8

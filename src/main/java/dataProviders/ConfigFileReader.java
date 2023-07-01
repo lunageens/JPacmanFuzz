@@ -294,6 +294,16 @@ public class ConfigFileReader {
             System.err.println("Error writing config file: " + e.getMessage());
         }
     }
+
+    /**
+     * Retrieves the timeout for each iteration in milliseconds, as specified in the configuration file.
+     * If the timeout property is not found or cannot be parsed as a long, it returns a default value of 60000.
+     *
+     * @return The timeout for each iteration in milliseconds.
+     */
+    public long getIterationTimeout() {
+        return Long.parseLong(properties.getProperty("maxTimeIteration", "60000"));
+    }
 }
 
 

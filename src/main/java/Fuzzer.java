@@ -19,13 +19,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-// TODO Functionality and website documentation fuzz 5 action sequence strings. Variate in lenght and special characters. Also look at combinations with map (moving out the borders).
 // TODO Functionality and website documentation fuzz 6 mutation fuzzing.
-// TODO Fuzzing with external program?
-// TODO Push site to netifly, alter markdown read me.
-// TODO Update Pseudocode from what I have in website.
-// TODO Generate final javadoc. Check that everything is documented.
-// TODO Should I write manual on building site? Maybe few sentences in README?
 
 /**
  * The Fuzzer class is the main class that runs the fuzzing process.
@@ -59,48 +53,76 @@ public class Fuzzer {
         long startTime = System.currentTimeMillis();
         long elapsedTime = 0;
 
-        /* In case of random maps or sequences, we need a new file and sequence generator */
+        /* * In case of random maps or sequences, we need a new file and sequence generator */
         RandomActionSequenceGenerator randomActionSequenceGenerator = new RandomActionSequenceGenerator();
         MapGenerator mapGenerator = new RandomMapGenerator();
 
-        /* New file handlers for the maps and logs, organizing result directory */
+        /* * New file handlers for the maps and logs, and then organizing result directory */
          // Create the needed directories and clean them up if that is needed
         FileHandler fileHandler = new FileHandler();
         fileHandler.initializeDirectories(); // Reads count as well
         LogFileHandler logFileHandler = new LogFileHandler();
 
-        /* Initialization result variables */
+        /* * Initialization result variables */
         // Store results of the process ran
         List<IterationResult> iterationResults = new ArrayList<>();
         Map<Integer, List<IterationResult>> iterationResultsByErrorCode = new HashMap<>();
         Map<String, List<IterationResult>> iterationResultsByOutputMessage = new HashMap<>();
 
-        /* Get the maps and output messages first from the custom and then if additional random is needed*/
+        /* * Get the maps and output messages first from the custom and then if additional random is needed*/
         // In case of custom maps or sequence, Add your custom map file paths to this list
         // If 0 or not implemented, nothing is added.
         // Do this last -> otherwise not correct directories and handlers
         List<String> customMaps = getCustomMaps(configFileReader.getCustomMapsNr());
         List<String> customMapsAttributes = getCustomAttributesLog(configFileReader.getCustomMapsNr());
         List<String> customSequences = getCustomSequences(configFileReader.getCustomSequenceNr());
+        /* ! For each iteration with max_iterations */
         for (int i = 0; i < MAX_ITERATIONS; i++) {    // How many times does a random file and sequence has to be created?
-            // Use custom sequences and maps.
+            // Use custom sequences and maps if asked. Otherwise, generate randomly.
             String mapFilePath;
             String actionSequence;
-            if (customMaps.isEmpty()) {mapFilePath = mapGenerator.generateRandomMap();} // If no more, generate randomly with configs file type
-            else {mapFilePath = customMaps.remove(0);} // Use custom map file
-            if (!customSequences.isEmpty()){actionSequence = customSequences.remove(0);}
-            else {actionSequence = randomActionSequenceGenerator.generateRandomActionSequence();}
+            if (customMaps.isEmpty()) {
+                mapFilePath = mapGenerator.generateRandomMap();
+            } // If no more, generate randomly with configs file type
+            else {
+                mapFilePath = customMaps.remove(0);
+            } // Use custom map file
+            if (!customSequences.isEmpty()) {
+                actionSequence = customSequences.remove(0);
+            } else {
+                actionSequence = randomActionSequenceGenerator.generateRandomActionSequence();
+            }
 
-            /* Try to execute pacman and retrieve exitcode and other results. Alter count of the correct exitcode.*/
+            // Check combo map and actions if needed
+            boolean isValidMove = true;
+            if (configFileReader.getCustomSequenceNr() == 7 || configFileReader.getCustomSequenceNr() == 8) { // Checks for out of bounds and monster
+                isValidMove = IterationResult.isValidMove(mapFilePath, actionSequence);
+            }
+
+            /* * Try to execute pacman and retrieve exitcode and other results. Alter count of the correct exitcode.*/
             try {
-                // Retrieve output data process
+                // Execute process fully or wait until timeout reached.
                 Process process = executeJPacman(mapFilePath, actionSequence);
-                int exitCode = process.waitFor();
+                ProcessTimeoutHandler timeoutHandler = new ProcessTimeoutHandler(process);
+                timeoutHandler.start();
+                // Retrieve output data process
+                int exitCode = process.waitFor(); // Wait for the process to complete or timeout
+                timeoutHandler.interrupt(); // Interrupt the timeout handler thread if it's still running (shorter execution)
                 String outputMessages = readOutputMessages(process);
+                if (timeoutHandler.isTimeoutReached()) { // Check if the timeout handler thread triggered the timeout (longer execution)
+                    exitCode = -1;
+                    outputMessages = "Time Limit of Iteration reached";
+                }
+                if (!isValidMove) {
+                    exitCode = -1;
+                    outputMessages = "Invalid Move";
+                }
                 String customAttribute = "";
-                if (!customMapsAttributes.isEmpty()){customAttribute = customMapsAttributes.remove(0);}
+                if (!customMapsAttributes.isEmpty()) {
+                    customAttribute = customMapsAttributes.remove(0);
+                }
                 // Store output data process in iteration results list
-                IterationResult iterationResult = new IterationResult( i + 1, mapFilePath, actionSequence,
+                IterationResult iterationResult = new IterationResult(i + 1, mapFilePath, actionSequence,
                         exitCode, outputMessages, customAttribute);
                 iterationResults.add(iterationResult);
                 // Update iteration results by error code
@@ -120,7 +142,8 @@ public class Fuzzer {
                 System.out.println("Exception during process building.");
                 e.printStackTrace();
             }
-            /* Check if time budget has been exhausted */
+
+            /* ! Check if time budget has been exhausted */
             long endTime = System.currentTimeMillis();
             elapsedTime = endTime - startTime;
             if (elapsedTime >= TIME_BUDGET_MS) {
@@ -128,8 +151,8 @@ public class Fuzzer {
                 break;
             }
         }
-        /* Generate logs and clean up directories if needed*/
-       logFileHandler.generateActualLogs(iterationResults, iterationResultsByErrorCode, iterationResultsByOutputMessage, elapsedTime);
+        /* * Generate logs and clean up directories if needed*/
+        logFileHandler.generateActualLogs(iterationResults, iterationResultsByErrorCode, iterationResultsByOutputMessage, elapsedTime);
         if (FileHandler.cleanDirectories) {
             DirectoryHandler.cleanDirectory(FileHandler.previousLogsDirectoryPath);
             DirectoryHandler.cleanDirectory(FileHandler.previousMapsDirectoryPath);
@@ -183,8 +206,7 @@ public class Fuzzer {
      *     characters can occur 0, 1 or more in the file.</li>
      *     <li>Case 5: Write text files with only valid characters in it (P, M, O, W, F). The map is squared.</li>
      *     <li>Case 6: Read text files with only valid characters in it (P, M, O, W, F). These are corner cases for file content and form.
-     *     The files can be found in fuzz4_validCharacterMaps/custom_maps.
-     *     </li>
+     *     The files can be found in fuzz4_validCharacterMaps/custom_maps.</li>
      *     <li>Case 7: Write text files with only valid characters in it (P, M, O, W, F). The map is squared.</li>
      *     The map holds exactly one player. The map holds at least one food. The map does not contain one or more empty lines.
      *     These maps should all be accepted.</li>
@@ -200,8 +222,8 @@ public class Fuzzer {
         switch (customNr) {
             case 1 -> { // Write text file with some specified one line of the map.
                 RandomTextMapGenerator randomTextMapGenerator = new RandomTextMapGenerator(
-                        FileReaderManager.getInstance().getConfigReader().getMaxTextMapHeight(),
-                        FileReaderManager.getInstance().getConfigReader().getMaxTextMapWidth());
+                        FileReaderManager.getInstance().getConfigReader().getMaxTextMapHeight() + 1,
+                        FileReaderManager.getInstance().getConfigReader().getMaxTextMapWidth() + 1);
                 List<String> customMapsAttributes = getCustomAttributesLog(customNr);
                 for (String mapLine : customMapsAttributes) {
                     customMaps.add(randomTextMapGenerator.generateCustomTextMapOneLine(mapLine));
@@ -222,8 +244,8 @@ public class Fuzzer {
             }
             case 4 -> { //Try valid character maps, all forms, as many as specified max in configs
                 RandomTextMapGenerator randomTextMapGenerator = new RandomTextMapGenerator(
-                        FileReaderManager.getInstance().getConfigReader().getMaxTextMapHeight(),
-                        FileReaderManager.getInstance().getConfigReader().getMaxTextMapWidth());
+                        FileReaderManager.getInstance().getConfigReader().getMaxTextMapHeight() + 1,
+                        FileReaderManager.getInstance().getConfigReader().getMaxTextMapWidth() + 1);
                 int i;
                 for (i = 0; i < MAX_ITERATIONS; i++) {
                     customMaps.add(randomTextMapGenerator.generateRandomValidCharRandomSizeTextMap());
@@ -231,8 +253,8 @@ public class Fuzzer {
             }
             case 5 -> { // Try valid character maps, only squared, as many as specified max in configs
                 RandomTextMapGenerator randomTextMapGenerator = new RandomTextMapGenerator(
-                        FileReaderManager.getInstance().getConfigReader().getMaxTextMapHeight(),
-                        FileReaderManager.getInstance().getConfigReader().getMaxTextMapWidth());
+                        FileReaderManager.getInstance().getConfigReader().getMaxTextMapHeight() + 1,
+                        FileReaderManager.getInstance().getConfigReader().getMaxTextMapWidth() + 1);
                 int i;
                 for (i = 0; i < MAX_ITERATIONS; i++) {
                     customMaps.add(
@@ -246,8 +268,8 @@ public class Fuzzer {
             }
             case 7 -> { // Try valid character maps, only squared, as many as specified max in configs, and checked for player food and size
                 RandomTextMapGenerator randomTextMapGenerator = new RandomTextMapGenerator(
-                        FileReaderManager.getInstance().getConfigReader().getMaxTextMapHeight(),
-                        FileReaderManager.getInstance().getConfigReader().getMaxTextMapWidth());
+                        FileReaderManager.getInstance().getConfigReader().getMaxTextMapHeight() + 1,
+                        FileReaderManager.getInstance().getConfigReader().getMaxTextMapWidth() + 1);
                 int i;
                 for (i = 0; i < MAX_ITERATIONS; i++) {
                     customMaps.add(
@@ -326,26 +348,89 @@ public class Fuzzer {
      * <ul>
      *     <li>Case 1: For all files made, add a valid custom action sequence (SWE Start - Wait - Exit)</li>
      *     <li>Case 2: For all files made, add a random valid custom action sequence (with a valid length)</li>
+     *     <li>Case 3: For the max length specified in the configuration file, add all possible combinations of that length
+     *     that can be made with the valid action sequence characters (S, E, S, Q, U, D, L, R).</li>
+     *     <li>Case 4: For the max length specified in the configuration file, add all possible combinations of that length
+     *     that can be made with the valid action sequence characters (S, E, S, Q, U, D, L, R). However, only possible
+     *     combinations that have at least one time the character 'E' in it will be tested. </li>
+     *     <li>Case 5: For the max length specified in the configuration file, add all possible combinations of that length
+     *     that can be made with the valid action sequence characters (S, E, S, Q, U, D, L, R). However, only possible
+     *     combinations that have at least one time the character 'E' in it will be tested. Also, if the character 'S'
+     *     is present, the character 'E' will be on one of the string characters after the 'S'.</li>
+     *     <li>Case 6: For the max length specified in the configuration file, add all possible combinations of that length
+     *     that can be made with the valid action sequence characters (S, E, S, Q, U, D, L, R). However, only possible
+     *     combinations that have at least one time the character 'E' in it will be tested. Also, if the character 'S'
+     *     is present, the character 'E' will be on one of the string characters after the 'S'. On top of that, each string
+     *     starts with an 'S' and ends with an 'E'.</li>
+     *     <li>Case 7: For the max length specified in the configuration file, add all possible combinations of that length
+     *     that can be made with the valid action sequence characters (S, E, S, Q, U, D, L, R). However, only possible
+     *     combinations that have at least one time the character 'E' in it will be tested. Also, if the character 'S'
+     *     is present, the character 'E' will be on one of the string characters after the 'S'. On top of that, each string
+     *     starts with an 'S' and ends with an 'E'. Actions (up, left, down, right) with that 'S' and 'E' will be checked:
+     *     the player will not move out of the bounds of the map and will also not move to a wall cell. If that is the case,
+     *     the iteration result will get the exit code -1 and an indicating output message. </li>
+     *     <li>Case 8: For the max length specified in the configuration file, add all possible combinations of that length
+     *     that can be made with the valid action sequence characters (S, E, S, Q, U, D, L, R). However, only possible
+     *     combinations that have at least one time the character 'E' in it will be tested. Also, if the character 'S'
+     *     is present, the character 'E' will be on one of the string characters after the 'S'. Actions (up, left, down, right) with that 'S' and 'E' will be checked:
+     *     the player will not move out of the bounds of the map and will also not move to a wall cell. If that is the case,
+     *     the iteration result will get the exit code -1 and an indicating output message. Also, the player will be
+     *     able to move to a cell that is not a wall cell. </li>
+     *     <li>Default: Nothing to add</li>
      * </ul>
      *
-     * @param customNr The number specified in the configuration file.
+     * @param customNr
+     *         The number specified in the configuration file.
+     *
      * @return List of strings that are the custom action sequences.
      */
     private static List<String> getCustomSequences(int customNr){
         List<String> customSequences = new ArrayList<>();
-        switch (customNr){
+        switch (customNr) {
             case 1: { //A hundred times correct string that starts, wait, exit.
                 int i;
-                for (i = 0; i < MAX_ITERATIONS; i++){
-                     customSequences.add("SWE");
+                for (i = 0; i < MAX_ITERATIONS; i++) {
+                    customSequences.add("SWE");
                 }
                 break;
-            } case 2:{
+            }
+            case 2: {
                 RandomActionSequenceGenerator randomActionSequenceGenerator = new RandomActionSequenceGenerator();
                 int i;
-                for(i=0; i < MAX_ITERATIONS; i++){
+                for (i = 0; i < MAX_ITERATIONS; i++) {
                     customSequences.add(randomActionSequenceGenerator.generateRandomActionSequenceValidCharRandomLength());
                 }
+            }
+            case 3: {
+                RandomActionSequenceGenerator randomActionSequenceGenerator = new RandomActionSequenceGenerator();
+                List<String> actionSequences = RandomActionSequenceGenerator.generateAllPossibleCombinations(
+                        FileReaderManager.getInstance().getConfigReader().getMaxActionSequenceLength(),
+                        false, false);
+                customSequences.addAll(actionSequences);
+            }
+            case 4: {
+                RandomActionSequenceGenerator randomActionSequenceGenerator = new RandomActionSequenceGenerator();
+                List<String> actionSequences = RandomActionSequenceGenerator.generateAllPossibleCombinations(
+                        FileReaderManager.getInstance().getConfigReader().getMaxActionSequenceLength(),
+                        true, false);
+                customSequences.addAll(actionSequences);
+            }
+            case 5, 8: {
+                RandomActionSequenceGenerator randomActionSequenceGenerator = new RandomActionSequenceGenerator();
+                List<String> actionSequences = RandomActionSequenceGenerator.generateAllPossibleCombinations(
+                        FileReaderManager.getInstance().getConfigReader().getMaxActionSequenceLength(),
+                        true, true);
+            }
+            case 6, 7: {
+                RandomActionSequenceGenerator randomActionSequenceGenerator = new RandomActionSequenceGenerator();
+                List<String> actionSequences = RandomActionSequenceGenerator.generateAllPossibleCombinations(
+                        FileReaderManager.getInstance().getConfigReader().getMaxActionSequenceLength() - 2,
+                        false, true);
+                for (String actionSequence : actionSequences) {
+                    String customSequence = "S" + actionSequence + "E";
+                    customSequences.add(customSequence);
+                }
+                break;
             }
             default: {
                 // Nothing to add

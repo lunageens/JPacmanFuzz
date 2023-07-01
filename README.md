@@ -1,16 +1,21 @@
 # *Fuzzer - Automated Testing Tool for JPacman*
-The Fuzzer is an automated testing tool designed to perform fuzz testing on the JPacman application. 
+
+The Fuzzer is an automated testing tool designed to perform fuzz testing on the JPacman application.
 It is a black-box fuzzer, meaning that the JPacman application code is not visible while fuzzing.
-One can execute the JPacman code with the help of the jpacman-3.0.1 jar file. 
+One can execute the JPacman code with the help of the jpacman-3.0.1 jar file.
 The fuzzer generates random maps and action sequences to test the functionality and stability of the JPacman game.
 
+For overall information, please run the fuzzer class and open the html report.
+
 ## *A general overview of the project*
+
 ### Features
-- Generates random maps and action sequences for testing. 
-- Executes the JPacman application with the generated inputs. 
-- Captures and analyzes the output and exit codes of the JPacman process. 
-- Logs the results of each iteration and generates summary reports. 
-- Supports both text-based and binary map file formats. 
+
+- Generates random maps and action sequences for testing.
+- Executes the JPacman application with the generated inputs.
+- Captures and analyzes the output and exit codes of the JPacman process.
+- Logs the results of each iteration and generates summary reports.
+- Supports both text-based and binary map file formats.
 - Provides configurable options for maximum iterations, time budget, map dimensions, and more.
 
 ### Prerequisites
@@ -37,6 +42,7 @@ The configuration file (config.properties) allows you to customize various aspec
 - cleanDirectories: Specifies whether to clean directories before running the fuzzing process. Valid values: true, false. Default: true
 - maxIterations: Specifies the maximum number of iterations for the fuzzing process. Default: 100
 - maxTime: Specifies the maximum time budget for the fuzzing process in milliseconds. Default: 900000 (15 minutes)
+- maxTimeIteration: Specifies the maximum time budget for the pacman process in milliseconds. Default: 60000 (1 minute).
 - maxTextMapHeight: Specifies the maximum height of the generated text-based maps. Default: 20
 - maxTextMapWidth: Specifies the maximum width of the generated text-based maps. Default: 20
 - maxBinaryMapSize: Specifies the maximum size of the generated binary maps. Default: 100

@@ -2,15 +2,21 @@ package outputProviders;
 
 import organizers.FileHandler;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
 
 import static organizers.FileHandler.actualMapsDirectoryPath;
 
 /**
  * Represents the result of an iteration in the application.
  * Contains information such as iteration number, map file type, map file path,
- * string sequence, error code, and output messages.
+ * string sequence, error code, and output messages. Also check if the combination
+ * of the map and the actions is valid.
  */
 public class IterationResult {
 
@@ -166,4 +172,147 @@ public class IterationResult {
         return customAttribute;
     }
 
+
+    /**
+     * Checks for each the action sequence if this is a possible move within the map: when the game has already
+     * started, and has not ended yet, the player does not move to a wall cell or outside the bounds of the
+     * map.
+     *
+     * @param mapFilePath
+     *         The file path of the .txt map file
+     * @param actionSequence
+     *         The action sequence to be checked.
+     *
+     * @return True if the actionSequence is true, false otherwise.
+     */
+    public static boolean isValidMove(String mapFilePath, String actionSequence) {
+        boolean isValidMove = true;
+        List<String> executedStrings = extractSubstrings(actionSequence);
+        char[][] map = getMap(mapFilePath);
+        int[] playerCoordinates = getPlayerLocation(map);
+        for (String s : executedStrings) {
+            char[] actions = s.toCharArray();
+            for (char c : actions) {
+                switch (c) {
+                    case 'U' -> playerCoordinates[0]--;
+                    case 'D' -> playerCoordinates[0]++;
+                    case 'L' -> playerCoordinates[1]--;
+                    case 'R' -> playerCoordinates[1]++;
+                }
+                // if player moves out of bounds of map
+                if (playerCoordinates[0] < 0 || playerCoordinates[0] >= map.length || playerCoordinates[1] < 0 || playerCoordinates[1] >= map[0].length) {
+                    isValidMove = false;
+                    break;
+                }
+                // if player moves to wall cell
+                if (map[playerCoordinates[0]][playerCoordinates[1]] == 'W') {
+                    isValidMove = false;
+                    break;
+                }
+            }
+        }
+        return isValidMove;
+    }
+
+    /**
+     * From a full action sequence, get the strings that actually are executed (Starting with
+     * the last S and ending with the first E).
+     *
+     * @param input
+     *         The full action sequence.
+     *
+     * @return A list of strings that are executed.
+     */
+    public static List<String> extractSubstrings(String input) {
+        List<String> substrings = new ArrayList<>();
+        int prevEIndex = -1; // Initialize the previous "E" index to -1
+
+        for (int i = 0; i < input.length(); i++) {
+            if (input.charAt(i) == 'S') {
+                for (int j = i + 1; j < input.length(); j++) {
+                    if (input.charAt(j) == 'E') {
+                        if (prevEIndex == -1 || i > prevEIndex) { // no previous E found or S is after the previous E
+                            substrings.add(input.substring(i, j + 1));
+                        }
+                        prevEIndex = j; // Update the previous "E" index
+                        break;
+                    }
+                }
+            }
+        }
+        return substrings;
+    }
+
+    /**
+     * Makes a map that stores each char at its x and y coordinate, from a .txt file that
+     * represents the map.
+     *
+     * @param mapFilePath
+     *         The path to the .txt file that represents the map.
+     *
+     * @return A 2D array of chars that represents the map.
+     */
+    public static char[][] getMap(String mapFilePath) {
+        List<String> lines = new ArrayList<>();
+        // Get lines of file
+        try (BufferedReader reader = new BufferedReader(new FileReader(mapFilePath))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                lines.add(line);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        // Store height and width map
+        int height = lines.size();
+        int width = 0;
+        for (String line : lines) {
+            width = Math.max(width, line.length());
+        }
+
+        // Make map that stores each char at its x and y coordinate
+        char[][] map = new char[height][width];
+        for (int i = 0; i < height; i++) {
+            String line = lines.get(i);
+            for (int j = 0; j < width; j++) {
+                if (j < line.length()) {
+                    map[i][j] = line.charAt(j);
+                } else {
+                    map[i][j] = ' '; // Assuming empty space if line is shorter
+                }
+            }
+        }
+        return map;
+    }
+
+    /**
+     * Returns the coordinates of the player within the map.
+     *
+     * @param map
+     *         The map that stores each character and its x and y coordinates.
+     *
+     * @return An int array of length 2, where the first element is the x coordinate, and the second element is the y coordinate.
+     */
+    public static int[] getPlayerLocation(char[][] map) {
+        int playerRow = -1;
+        int playerCol = -1;
+
+        int height = map.length;
+        int width = (height > 0) ? map[0].length : 0;
+
+        for (int i = 0; i < height; i++) {
+            for (int j = 0; j < width; j++) {
+                if (map[i][j] == 'P') {
+                    playerRow = i;
+                    playerCol = j;
+                    break;
+                }
+            }
+            if (playerRow != -1) {
+                break;
+            }
+        }
+        return new int[]{playerRow, playerCol};
+    }
 }

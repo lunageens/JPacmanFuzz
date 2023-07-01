@@ -34,13 +34,19 @@
       <!-- Other dependencies -->
 
       <!-- Webjars - Bootstrap CSS -->
-    <!-- WebJars - Bootstrap JavaScript -->
-    <dependency>
-      <groupId>org.webjars</groupId>
-      <artifactId>bootstrap</artifactId>
-      <version>5.2.3</version>
-      <scope>runtime</scope>
-    </dependency>
+      <!-- WebJars - Bootstrap JavaScript -->
+      <dependency>
+          <groupId>org.webjars</groupId>
+          <artifactId>bootstrap</artifactId>
+          <version>5.2.3</version>
+          <scope>runtime</scope>
+      </dependency>
+      <dependency>
+          <groupId>org.testng</groupId>
+          <artifactId>testng</artifactId>
+          <version>7.5</version>
+          <scope>compile</scope>
+      </dependency>
 
 
       <!-- Bootstrap JavaScript -->

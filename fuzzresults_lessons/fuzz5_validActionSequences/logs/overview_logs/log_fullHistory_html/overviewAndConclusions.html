@@ -154,6 +154,13 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="column is-narrow">
+                                        <div class="navbar-item is-small is-marginless">
+                                            <div class="button is-info is-light is-rounded mx-1">
+                                                <a href="#Fuzz6Text">Mutated fuzzing</a>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -300,7 +307,8 @@ if(file has no lines)
                         <div class="columns">
                             <div class="column">
                                 <div class="image">
-                                    <img src="/fuzzresults_lessons/fuzz2_knownCharacters/Fuzz2_SummaryResultsTotal.png" alt="A summary of the results of the second fuzz
+                                    <img src="/fuzzresults_lessons/fuzz2_knownCharacters/Fuzz2_SummaryResultsTotal.png"
+                                         alt="A summary of the results of the second fuzz
                                                                   lesson.">
                                 </div>
                             </div>
@@ -1664,858 +1672,96 @@ for each (line : lines in the map file)
     </div>
 
     <br>
-    <div id="Fuzz5Text" class="columns">
+    <div id="FuzzXFig" class="columns">
         <div class="column">
-            <div class="card">
-                <div class="card-content">
-                    <div class="content has-text-justified">
-                        <h1 class="title has-text-info">
-                            Fuzz 5: Valid action sequences
-                        </h1>
-                        <a class="has-text-weight-bold has-text-info">
-                            Context
-                        </a>
-                        <p>
-                            Using customMaps 7 and a correct action sequence string will always result in acceptation.
-                            It is now time to look at the action sequences. We know from the explanation that the only
-                            valid characters are the following:
-                        <ul>
-                            <li>E: Exit the game.</li>
-                            <li>Q: Quit the game.</li>
-                            <li>S: Start the game.</li>
-                            <li>W: Pause the game for fifty seconds.</li>
-                            <li>U: Move the player once cell up.</li>
-                            <li>D: Move the player once cell down.</li>
-                            <li>R: Move the player once cell to the right.</li>
-                            <li>L: Move the player once cell to the left.</li>
-                        </ul>
-                        </p>
-                        <br>
-                        <a class="has-text-weight-bold has-text-info">
-                            Fuzz Attempt Number 1
-                        </a>
-                        <p>
-                            Let's see which sequences of characters result in acceptation.
-                            Configure the <a
-                                class="is-family-code is-rounded tag has-background-info-light"
-                                href="/configs/Configuration.properties">Configuration.properties</a>
-                            file as followed:
-                        <div class="levels">
-                            <div class="field is-grouped is-grouped-multiline">
-                                <div class="control">
-                                    <div class="tag is-small has-addons is-paddingless">
-                                        <div class="tag is-info">
-                                            customMaps
-                                        </div>
-                                        <div class="tag is-info is-light">
-                                            7
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="control">
-                                    <div class="tag is-small has-addons is-paddingless">
-                                        <div class="tag is-info">
-                                            customSequences
-                                        </div>
-                                        <div class="tag is-info is-light">
-                                            3
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="control">
-                                    <div class="tag is-small has-addons is-paddingless">
-                                        <div class="tag is-info">
-                                            fileType
-                                        </div>
-                                        <div class="tag is-info is-light">
-                                            .txt
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="control">
-                                    <div class="tag is-small has-addons is-paddingless">
-                                        <div class="tag is-info">
-                                            maxActionSequence
-                                        </div>
-                                        <div class="tag is-info is-light">
-                                            4
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="control">
-                                    <div class="tag is-small has-addons is-paddingless">
-                                        <div class="tag is-info">
-                                            maxTimeIteration
-                                        </div>
-                                        <div class="tag is-info is-light">
-                                            50 000
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="control">
-                                    <div class="tag is-small has-addons is-paddingless">
-                                        <div class="tag is-info">
-                                            maxTime
-                                        </div>
-                                        <div class="tag is-info is-light">
-                                            9000000
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="control">
-                                    <div class="tag is-small has-addons is-paddingless">
-                                        <div class="tag is-info">
-                                            maxWidth
-                                        </div>
-                                        <div class="tag is-info is-light">
-                                            3
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="control">
-                                    <div class="tag is-small has-addons is-paddingless">
-                                        <div class="tag is-info">
-                                            maxHeight
-                                        </div>
-                                        <div class="tag is-info is-light">
-                                            3
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="control">
-                                    <div class="tag is-small has-addons is-paddingless">
-                                        <div class="tag is-info">
-                                            maxIterations
-                                        </div>
-                                        <div class="tag is-info is-light">
-                                            4096
-                                        </div>
-                                    </div>
+            <div class="notification is-info is-light">
+                <button class="delete is-small mr-2 mt-2"></button>
+                <div class="level mt-3">
+                    <div class="level-item">
+                        <div class="columns">
+                            <div class="column">
+                                <div class="image">
+                                    <img src="/fuzzresults_lessons/fuzzX_knownCharacters/FuzzX_SummaryResults.png">
                                 </div>
                             </div>
                         </div>
-                        </p>
-                        <p>
-                            The method RandomActionSequenceGenerator.generateAllPossibleCombinations() generates a list
-                            of all possible combinations to be made of these eight characters, for a certain length.
-                            Let's first try 4 characters at the same time. The first run I noticed that some strings
-                            slowed down the whole process immensely because the JPacman application got stuck and
-                            therefore the Fuzzer also remained in that iteration without any process. This is why I
-                            added the TimeHandler class, that stops the JPacman process after a certain time. That time
-                            is specified in the configurations file, namely under maxIterationTime. When that time is
-                            reached, the iteration result will get exit code -1 and output message "Time of iteration
-                            reached". During the first run, i also noticed that over 4000 iterations was too many for my
-                            memory to handle. This is why i also tried combinations of three characters first. To be
-                            certain to have some results in the report, I also decreased the total time. All this gives
-                            me the following configurations:
-                        </p>
-                        <div class="levels">
-                            <div class="field is-grouped is-grouped-multiline">
-                                <div class="control">
-                                    <div class="tag is-small has-addons is-paddingless">
-                                        <div class="tag is-info">
-                                            customMaps
-                                        </div>
-                                        <div class="tag is-info is-light">
-                                            7
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="control">
-                                    <div class="tag is-small has-addons is-paddingless">
-                                        <div class="tag is-info">
-                                            customSequences
-                                        </div>
-                                        <div class="tag is-info is-light">
-                                            3
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="control">
-                                    <div class="tag is-small has-addons is-paddingless">
-                                        <div class="tag is-info">
-                                            fileType
-                                        </div>
-                                        <div class="tag is-info is-light">
-                                            .txt
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="control">
-                                    <div class="tag is-small has-addons is-paddingless">
-                                        <div class="tag is-info">
-                                            maxActionSequence
-                                        </div>
-                                        <div class="tag is-info is-light">
-                                            3
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="control">
-                                    <div class="tag is-small has-addons is-paddingless">
-                                        <div class="tag is-info">
-                                            maxTimeIteration
-                                        </div>
-                                        <div class="tag is-info is-light">
-                                            6 000
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="control">
-                                    <div class="tag is-small has-addons is-paddingless">
-                                        <div class="tag is-info">
-                                            maxTime
-                                        </div>
-                                        <div class="tag is-info is-light">
-                                            900 000
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="control">
-                                    <div class="tag is-small has-addons is-paddingless">
-                                        <div class="tag is-info">
-                                            maxWidth
-                                        </div>
-                                        <div class="tag is-info is-light">
-                                            3
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="control">
-                                    <div class="tag is-small has-addons is-paddingless">
-                                        <div class="tag is-info">
-                                            maxHeight
-                                        </div>
-                                        <div class="tag is-info is-light">
-                                            3
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="control">
-                                    <div class="tag is-small has-addons is-paddingless">
-                                        <div class="tag is-info">
-                                            maxIterations
-                                        </div>
-                                        <div class="tag is-info is-light">
-                                            512
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <br>
-                        <a class="has-text-weight-bold has-text-info">
-                            Fuzz Attempt Number 4
-                        </a>
-                        <p>
-                            This is why we make an additional check in the generateAllPossibleCombinations() method,
-                            called atLeastOneExitCheck, that is set to true for customSequence 4. There will be less
-                            combinations, which is why i decreased the maxIterations. I also noticed that 10 seconds per
-                            iteration might be a bit too optimistic, since a lot of the iteration results actually got
-                            the -1 exit code. This is why I increased the maxTimeIteration as well, to one minute:
-                            Configure the <a
-                                class="is-family-code is-rounded tag has-background-info-light"
-                                href="/configs/Configuration.properties">Configuration.properties</a>
-                            file as followed:
-                        <div class="levels">
-                            <div class="field is-grouped is-grouped-multiline">
-                                <div class="control">
-                                    <div class="tag is-small has-addons is-paddingless">
-                                        <div class="tag is-info">
-                                            customMaps
-                                        </div>
-                                        <div class="tag is-info is-light">
-                                            7
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="control">
-                                    <div class="tag is-small has-addons is-paddingless">
-                                        <div class="tag is-info">
-                                            customSequences
-                                        </div>
-                                        <div class="tag is-info is-light">
-                                            4
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="control">
-                                    <div class="tag is-small has-addons is-paddingless">
-                                        <div class="tag is-info">
-                                            fileType
-                                        </div>
-                                        <div class="tag is-info is-light">
-                                            .txt
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="control">
-                                    <div class="tag is-small has-addons is-paddingless">
-                                        <div class="tag is-info">
-                                            maxActionSequence
-                                        </div>
-                                        <div class="tag is-info is-light">
-                                            3
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="control">
-                                    <div class="tag is-small has-addons is-paddingless">
-                                        <div class="tag is-info">
-                                            maxTimeIteration
-                                        </div>
-                                        <div class="tag is-info is-light">
-                                            50 000
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="control">
-                                    <div class="tag is-small has-addons is-paddingless">
-                                        <div class="tag is-info">
-                                            maxTime
-                                        </div>
-                                        <div class="tag is-info is-light">
-                                            900 000
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="control">
-                                    <div class="tag is-small has-addons is-paddingless">
-                                        <div class="tag is-info">
-                                            maxWidth
-                                        </div>
-                                        <div class="tag is-info is-light">
-                                            3
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="control">
-                                    <div class="tag is-small has-addons is-paddingless">
-                                        <div class="tag is-info">
-                                            maxHeight
-                                        </div>
-                                        <div class="tag is-info is-light">
-                                            3
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="control">
-                                    <div class="tag is-small has-addons is-paddingless">
-                                        <div class="tag is-info">
-                                            maxIterations
-                                        </div>
-                                        <div class="tag is-info is-light">
-                                            512
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        </p>
-                        <p>
-                            Let's see which action sequences still crash.
-                        <ul>
-                            <li>
-                                If there is a start ('S') without a quit ('Q') or an exit ('E'), the program crashes as
-                                well.
-                            </li>
-                            <li>
-                                Everything that is not in between one pair of 'S' and 'E' gets ignored. For example,
-                                'SEU'
-                                get's ingored (even when this would cause the player to move up and out of bounds of the
-                                map), but 'SES' results in a crash because a new 'S' is started but not terminated with
-                                a
-                                quit ('Q') or an exit ('E').
-                            </li>
-                        </ul>
-                        </p>
-                        <br>
-                        <a class="has-text-weight-bold has-text-info">
-                            Fuzz Attempt Number 7
-                        </a>
-                        <p>
-                            There are thus "valid substring(s)" within the actual action sequence, that are the only
-                            characters that get executed. To fullfill the requirement of each 'S' having an 'E', the
-                            boolean startWithExitCheck was introduced as an additional parameter of the
-                            generateAllPossibleCombinations() method. Let's also lenghten our action sequences a bit. To
-                            try this out, configurate the fuzzer as followed:
-                            Configure the <a
-                                class="is-family-code is-rounded tag has-background-info-light"
-                                href="/configs/Configuration.properties">Configuration.properties</a>
-                            file as followed:
-                        <div class="levels">
-                            <div class="field is-grouped is-grouped-multiline">
-                                <div class="control">
-                                    <div class="tag is-small has-addons is-paddingless">
-                                        <div class="tag is-info">
-                                            customMaps
-                                        </div>
-                                        <div class="tag is-info is-light">
-                                            7
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="control">
-                                    <div class="tag is-small has-addons is-paddingless">
-                                        <div class="tag is-info">
-                                            customSequences
-                                        </div>
-                                        <div class="tag is-info is-light">
-                                            5
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="control">
-                                    <div class="tag is-small has-addons is-paddingless">
-                                        <div class="tag is-info">
-                                            fileType
-                                        </div>
-                                        <div class="tag is-info is-light">
-                                            .txt
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="control">
-                                    <div class="tag is-small has-addons is-paddingless">
-                                        <div class="tag is-info">
-                                            maxActionSequence
-                                        </div>
-                                        <div class="tag is-info is-light">
-                                            4
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="control">
-                                    <div class="tag is-small has-addons is-paddingless">
-                                        <div class="tag is-info">
-                                            maxTimeIteration
-                                        </div>
-                                        <div class="tag is-info is-light">
-                                            60 000
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="control">
-                                    <div class="tag is-small has-addons is-paddingless">
-                                        <div class="tag is-info">
-                                            maxTime
-                                        </div>
-                                        <div class="tag is-info is-light">
-                                            900 000
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="control">
-                                    <div class="tag is-small has-addons is-paddingless">
-                                        <div class="tag is-info">
-                                            maxWidth
-                                        </div>
-                                        <div class="tag is-info is-light">
-                                            4
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="control">
-                                    <div class="tag is-small has-addons is-paddingless">
-                                        <div class="tag is-info">
-                                            maxHeight
-                                        </div>
-                                        <div class="tag is-info is-light">
-                                            4
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="control">
-                                    <div class="tag is-small has-addons is-paddingless">
-                                        <div class="tag is-info">
-                                            maxIterations
-                                        </div>
-                                        <div class="tag is-info is-light">
-                                            512
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        </p>
-                        <p>
-                            However, these results are still very random and take a long time to run. To have a more
-                            clear image of what causes the program to crash, we need to look within the valid substrings
-                            only now. Therefore, we are now going to try longer action sequences that start with an 'S'
-                            and end with an 'E', to check which action sequences are allowed within an active game (in
-                            such a substring) and which ones aren't. This results in the following configurations:
-                        </p>
-                        <div class="levels">
-                            <div class="field is-grouped is-grouped-multiline">
-                                <div class="control">
-                                    <div class="tag is-small has-addons is-paddingless">
-                                        <div class="tag is-info">
-                                            customMaps
-                                        </div>
-                                        <div class="tag is-info is-light">
-                                            7
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="control">
-                                    <div class="tag is-small has-addons is-paddingless">
-                                        <div class="tag is-info">
-                                            customSequences
-                                        </div>
-                                        <div class="tag is-info is-light">
-                                            6
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="control">
-                                    <div class="tag is-small has-addons is-paddingless">
-                                        <div class="tag is-info">
-                                            fileType
-                                        </div>
-                                        <div class="tag is-info is-light">
-                                            .txt
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="control">
-                                    <div class="tag is-small has-addons is-paddingless">
-                                        <div class="tag is-info">
-                                            maxActionSequence
-                                        </div>
-                                        <div class="tag is-info is-light">
-                                            5
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="control">
-                                    <div class="tag is-small has-addons is-paddingless">
-                                        <div class="tag is-info">
-                                            maxTimeIteration
-                                        </div>
-                                        <div class="tag is-info is-light">
-                                            60 000
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="control">
-                                    <div class="tag is-small has-addons is-paddingless">
-                                        <div class="tag is-info">
-                                            maxTime
-                                        </div>
-                                        <div class="tag is-info is-light">
-                                            900 000
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="control">
-                                    <div class="tag is-small has-addons is-paddingless">
-                                        <div class="tag is-info">
-                                            maxWidth
-                                        </div>
-                                        <div class="tag is-info is-light">
-                                            5
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="control">
-                                    <div class="tag is-small has-addons is-paddingless">
-                                        <div class="tag is-info">
-                                            maxHeight
-                                        </div>
-                                        <div class="tag is-info is-light">
-                                            5
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="control">
-                                    <div class="tag is-small has-addons is-paddingless">
-                                        <div class="tag is-info">
-                                            maxIterations
-                                        </div>
-                                        <div class="tag is-info is-light">
-                                            512
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <p>
-                            We notice the following crashes:
-                        <ul>
-                            <li>
-                                When the game has started and not yet ended, the application will crash when a player
-                                tries to move out of the map bounds.
-                            </li>
-                            <li>
-                                When the game has started and not yet ended, the application will crash when a player
-                                tries to move to a wall cell.
-                            </li>
-                        </ul>
-                        </p>
-                        <br>
-                        <a class="has-text-weight-bold has-text-info">
-                            Fuzz Attempt Number 11
-                        </a>
-                        <p>
-                            Therefore, some methods were introduced in the IterationResult class to check if all moves
-                            of a particular action sequence on a particular map are valid. One could try to introduce
-                            this within our previous configuration:
-                        <div class="levels">
-                            <div class="field is-grouped is-grouped-multiline">
-                                <div class="control">
-                                    <div class="tag is-small has-addons is-paddingless">
-                                        <div class="tag is-info">
-                                            customMaps
-                                        </div>
-                                        <div class="tag is-info is-light">
-                                            7
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="control">
-                                    <div class="tag is-small has-addons is-paddingless">
-                                        <div class="tag is-info">
-                                            customSequences
-                                        </div>
-                                        <div class="tag is-info is-light">
-                                            7
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="control">
-                                    <div class="tag is-small has-addons is-paddingless">
-                                        <div class="tag is-info">
-                                            fileType
-                                        </div>
-                                        <div class="tag is-info is-light">
-                                            .txt
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="control">
-                                    <div class="tag is-small has-addons is-paddingless">
-                                        <div class="tag is-info">
-                                            maxActionSequence
-                                        </div>
-                                        <div class="tag is-info is-light">
-                                            5
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="control">
-                                    <div class="tag is-small has-addons is-paddingless">
-                                        <div class="tag is-info">
-                                            maxTimeIteration
-                                        </div>
-                                        <div class="tag is-info is-light">
-                                            50 000
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="control">
-                                    <div class="tag is-small has-addons is-paddingless">
-                                        <div class="tag is-info">
-                                            maxTime
-                                        </div>
-                                        <div class="tag is-info is-light">
-                                            900 000
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="control">
-                                    <div class="tag is-small has-addons is-paddingless">
-                                        <div class="tag is-info">
-                                            maxWidth
-                                        </div>
-                                        <div class="tag is-info is-light">
-                                            5
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="control">
-                                    <div class="tag is-small has-addons is-paddingless">
-                                        <div class="tag is-info">
-                                            maxHeight
-                                        </div>
-                                        <div class="tag is-info is-light">
-                                            5
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="control">
-                                    <div class="tag is-small has-addons is-paddingless">
-                                        <div class="tag is-info">
-                                            maxIterations
-                                        </div>
-                                        <div class="tag is-info is-light">
-                                            1000
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        </p>
-                        <p>
-                            However, it looked more objective to provide action sequences where the mentioned checks are
-                            preformed, but that not neccessarily begin with an 'S' and end with an 'E'. This is done by
-                            the following configurations:
-                        </p>
-                        <div class="levels">
-                            <div class="field is-grouped is-grouped-multiline">
-                                <div class="control">
-                                    <div class="tag is-small has-addons is-paddingless">
-                                        <div class="tag is-info">
-                                            customMaps
-                                        </div>
-                                        <div class="tag is-info is-light">
-                                            7
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="control">
-                                    <div class="tag is-small has-addons is-paddingless">
-                                        <div class="tag is-info">
-                                            customSequences
-                                        </div>
-                                        <div class="tag is-info is-light">
-                                            8
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="control">
-                                    <div class="tag is-small has-addons is-paddingless">
-                                        <div class="tag is-info">
-                                            fileType
-                                        </div>
-                                        <div class="tag is-info is-light">
-                                            .txt
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="control">
-                                    <div class="tag is-small has-addons is-paddingless">
-                                        <div class="tag is-info">
-                                            maxActionSequence
-                                        </div>
-                                        <div class="tag is-info is-light">
-                                            5
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="control">
-                                    <div class="tag is-small has-addons is-paddingless">
-                                        <div class="tag is-info">
-                                            maxTimeIteration
-                                        </div>
-                                        <div class="tag is-info is-light">
-                                            60 000
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="control">
-                                    <div class="tag is-small has-addons is-paddingless">
-                                        <div class="tag is-info">
-                                            maxTime
-                                        </div>
-                                        <div class="tag is-info is-light">
-                                            900 000
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="control">
-                                    <div class="tag is-small has-addons is-paddingless">
-                                        <div class="tag is-info">
-                                            maxWidth
-                                        </div>
-                                        <div class="tag is-info is-light">
-                                            5
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="control">
-                                    <div class="tag is-small has-addons is-paddingless">
-                                        <div class="tag is-info">
-                                            maxHeight
-                                        </div>
-                                        <div class="tag is-info is-light">
-                                            5
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="control">
-                                    <div class="tag is-small has-addons is-paddingless">
-                                        <div class="tag is-info">
-                                            maxIterations
-                                        </div>
-                                        <div class="tag is-info is-light">
-                                            1000
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <p>
-                            This only gave us a few crashes:
-                        <ul>
-                            <li>SWERE</li>
-                            <li>SWW*E</li>
-                            <li>SWDEE</li>
-                            <li>SLWQE</li>
-                        </ul>
-                        </p>
-                        <br>
-                        <a class="has-text-weight-bold has-text-info">
-                            Limitations and Results
-                        </a>
-                        <p>
-                            The results are stored in the last fuzzlessons directory.
-                            The causes of these above mentioned crashes remains unclear. One could also test mixes of
-                            incorrect maps and sequences, or action sequences that are very long or empty. On top of
-                            that, one could apply mutational fuzzing on the JPacman application.
-                        </p>
-                        <br>
-                        <p>
-                            Currently, the following psuedocode is our conclusion:
-                        </p>
-                        <pre>
-if(file has not any permission)
-    cannot do input in terminal
- if(file is compressed,not encoded with UTF-8,  encrypted, write-only, or from an invalid data type (pdf, excel or multi-line binary))
-    reject(Error reading file by ReadAllLines)
- if(file is .csv, .html, .xml, .corrupted or multi-line .dat) || (the map does not contain valid characters (M, W, F, P))
-    reject(unknown character)
- if(file is empty)
-    reject(No lines)
-if(first line is empty)
-	reject(No columns)
-if(first line brings the total count of P characters to more than one)
-	reject(More than one player)
-for each (line : lines in the map file)
-	if(line is shorter than first line)
-	if(line is longer than first line)
-		reject(Widths Mismatch)
-	if(line brings the total count of P characters to more than one)
-		reject(More than one player)
- if(the map does not contain character P)
-    reject(No player is set)
- if(the map does not contain character F)
-    reject(No food)
-if(Action sequence does not contain 'E' or 'Q')
-	crash
-if(Every 'S' in the action sequence does not have a corresponding 'E')
-	crash
-if(Within every pair of 'S' and 'E', the player moves to a wall cell or out of bounds)
-	crash
- else
-    accept
-                    </pre>
+                    </div>
+                </div>
+                <div class="level">
+                    <div class="level-item">
+                        <figcaption class="content my-1 is-italic">Fig. X: A summary of the results of
+                                                                   the X fuzz
+                                                                   lesson.
+                        </figcaption>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <br>
+    <div id="FuzzXText" class="columns">
+        <div class="column">
+            <div class="card">
+                <div class="card-content">
+                    <div class="content has-text-justified">
+                        <h1 class="title has-text-info">
+                            Fuzz
+                        </h1>
+                        <a class="has-text-weight-bold has-text-info">
+                            Context
+                        </a>
+                        <p>
+
+                        </p>
+                        <br>
+                        <a class="has-text-weight-bold has-text-info">
+                            Configurations
+                        </a>
+                        <p>
+                            Configure the <a
+                                class="is-family-code is-rounded tag has-background-info-light"
+                                href="/configs/Configuration.properties">Configuration.properties</a>
+                            file as followed:
+
+                        <div class="levels">
+                            <div class="field is-grouped is-grouped-multiline">
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+
+                                        </div>
+                                        <div class="tag is-info is-light">
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </p>
+                        <br>
+                        <a class="has-text-weight-bold has-text-info">
+                            Results
+                        </a>
+                        <p>
+                            The results are stored in the directory
+                            <a href="" class=""></a>
+                        </p>
+                        <br>
+                        <p>
+                            This would give us the following informal pseudocode:
+                        </p>
+                        <pre>
+
+                    </pre>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
+
+<br>
 
 <!-- Footer -->
 <br>
