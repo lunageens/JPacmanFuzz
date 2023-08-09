@@ -1510,7 +1510,7 @@ if(the map does not contain character F)
                         </div>
                         <br>
                         <p>
-                            Here are some additional notes:
+                            Regarding this, there are some additional notes:
                         <ul>
                             <li>
                                 To demonstrate the importance of line order, we have added a file where one line has two
@@ -1543,8 +1543,9 @@ if(the map does not contain character F)
                             </li>
                         </ul>
                         </p>
+                        <br>
                         <p>
-                            After reading all the lines, the occurrence of food and players is checked.
+                            In third place, the occurrence of food and players is checked after reading all the lines.
                         <ul>
                             <li>
                                 No player: If there are no players or no food, the output message "No player" is
@@ -1573,6 +1574,7 @@ if(the map does not contain character F)
                                 ).
                             </li>
                         </ul>
+                        <br>
                         <p>
                             Finally, an important question is where this group of error messages fits into the existing
                             pseudocode.
@@ -1748,7 +1750,7 @@ for each (line : lines in the map file)
                                             maxTimeIteration
                                         </div>
                                         <div class="tag is-info is-light">
-                                            50 000
+                                            60 000
                                         </div>
                                     </div>
                                 </div>
@@ -2022,7 +2024,7 @@ for each (line : lines in the map file)
                             <li>
                                 Everything that is not in between one pair of 'S' and 'E' gets ignored. For example,
                                 'SEU'
-                                get's ingored (even when this would cause the player to move up and out of bounds of the
+                                gets ignored (even when this would cause the player to move up and out of bounds of the
                                 map), but 'SES' results in a crash because a new 'S' is started but not terminated with
                                 a
                                 quit ('Q') or an exit ('E').
@@ -2239,6 +2241,7 @@ for each (line : lines in the map file)
                                 </div>
                             </div>
                         </div>
+                        <br>
                         <p>
                             We notice the following crashes:
                         <ul>
@@ -2357,7 +2360,7 @@ for each (line : lines in the map file)
                         </p>
                         <p>
                             However, it looked more objective to provide action sequences where the mentioned checks are
-                            preformed, but that not neccessarily begin with an 'S' and end with an 'E'. This is done by
+                            preformed, but that not necessarily begin with an 'S' and end with an 'E'. This is done by
                             the following configurations:
                         </p>
                         <div class="levels">
@@ -2454,6 +2457,7 @@ for each (line : lines in the map file)
                                 </div>
                             </div>
                         </div>
+                        <br>
                         <p>
                             This only gave us a few crashes:
                         <ul>
@@ -2469,13 +2473,13 @@ for each (line : lines in the map file)
                         </a>
                         <p>
                             The results are stored in the last fuzzlessons directory.
-                            The causes of these above mentioned crashes remains unclear. One could also test mixes of
+                            The causes of these above-mentioned crashes remains unclear. One could also test mixes of
                             incorrect maps and sequences, or action sequences that are very long or empty. On top of
                             that, one could apply mutational fuzzing on the JPacman application.
                         </p>
                         <br>
                         <p>
-                            Currently, the following psuedocode is our conclusion:
+                            Currently, the following pseudocode is our conclusion:
                         </p>
                         <pre>
 if(file has not any permission)
@@ -2487,25 +2491,25 @@ if(file has not any permission)
  if(file is empty)
     reject(No lines)
 if(first line is empty)
-	reject(No columns)
+    reject(No columns)
 if(first line brings the total count of P characters to more than one)
-	reject(More than one player)
+    reject(More than one player)
 for each (line : lines in the map file)
-	if(line is shorter than first line)
-	if(line is longer than first line)
-		reject(Widths Mismatch)
-	if(line brings the total count of P characters to more than one)
-		reject(More than one player)
+    if(line is shorter than first line)
+    if(line is longer than first line)
+        reject(Widths Mismatch)
+    if(line brings the total count of P characters to more than one)
+        reject(More than one player)
  if(the map does not contain character P)
     reject(No player is set)
  if(the map does not contain character F)
     reject(No food)
-if(Action sequence does not contain 'E' or 'Q')
-	crash
-if(Every 'S' in the action sequence does not have a corresponding 'E')
-	crash
-if(Within every pair of 'S' and 'E', the player moves to a wall cell or out of bounds)
-	crash
+if(action sequence does not contain 'E' or 'Q')
+    crash
+if(every 'S' in the action sequence does not have a corresponding 'E')
+    crash
+if(within every pair of 'S' and 'E', the player moves to a wall cell or out of bounds)
+    crash
  else
     accept
                     </pre>

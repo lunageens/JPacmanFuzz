@@ -51,9 +51,12 @@ public class AllMapsPageGenerator extends LogHTMLFileHandler implements PageGene
 
         // * Step 2: Count exit codes and calculate percentages
         int sum = rows.size(); // ! Also unknown!
-        int exitCode0CountPercentage = (int) Math.round((double) exitCode0Rows.size() / sum * 100);
-        int exitCode1CountPercentage = (int) Math.round((double) exitCode1Rows.size() / sum * 100);
-        int exitCode10CountPercentage = (int) Math.round((double) exitCode10Rows.size() / sum * 100);
+        double exitCode0CountExactPercentage = (double) exitCode0Rows.size() / sum * 100;
+        int exitCode0CountPercentage = (int) Math.round(exitCode0CountExactPercentage);
+        double exitCode1CountExactPercentage = (double) exitCode1Rows.size() / sum * 100;
+        int exitCode1CountPercentage = (int) Math.round(exitCode1CountExactPercentage);
+        double exitCode10CountExactPercentage = (double) exitCode10Rows.size() / sum * 100;
+        int exitCode10CountPercentage = (int) Math.round(exitCode10CountExactPercentage);
 
         // * Step 3: Collect output messages
         Set<String> outputMessages = new TreeSet<>();
@@ -81,7 +84,7 @@ public class AllMapsPageGenerator extends LogHTMLFileHandler implements PageGene
         // * Step 4.2: Replace percentage unknown
         int exitCodeMinus1CountPercentage = (int) Math.round((double) (rows.size() - exitCode0Rows.size() - exitCode1Rows.size() - exitCode10Rows.size()) / sum * 100);
         String percentageUnknown = exitCodeMinus1CountPercentage + "%";
-        // ! dit klopt niet want niet aangepast en zelfs als het klopt hier zal het bij gefiltered neit meer kloppen
+        // ! dit klopt niet want niet aangepast en zelfs als het klopt hier zal het bij gefiltered niet meer kloppen
         template = template.replace("{{PercentageUnknown}}", percentageUnknown);
 
         // * Step 4.3: Replace Exit Code 0 Section
@@ -91,7 +94,7 @@ public class AllMapsPageGenerator extends LogHTMLFileHandler implements PageGene
         template = template.replace("{{ProgressBar0}}", progressBar0);
         // * Replace the cards
         StringBuilder cardsBuilder0 = new StringBuilder();
-        if (exitCode0CountPercentage > 0) {
+        if (exitCode0CountExactPercentage > 0) {
             String noCardsMessage = getNoCardsMessage(false, 0);
             cardsBuilder0.append(noCardsMessage);
             for (List<String> row : exitCode0Rows) {
@@ -111,7 +114,7 @@ public class AllMapsPageGenerator extends LogHTMLFileHandler implements PageGene
         template = template.replace("{{ProgressBar1}}", progressBar1);
         // * Replace the cards
         StringBuilder cardsBuilder1 = new StringBuilder();
-        if (exitCode1CountPercentage > 0) {
+        if (exitCode1CountExactPercentage > 0) {
             String noCardsMessage = getNoCardsMessage(false, 1);
             cardsBuilder0.append(noCardsMessage);
             for (List<String> row : exitCode1Rows) {
@@ -130,7 +133,7 @@ public class AllMapsPageGenerator extends LogHTMLFileHandler implements PageGene
         String progressBar10 = "<progress id=\"ProgressBar10\"  class=\"progress is-small is-info\" value=" + exitCode10CountPercentage + " max=\"100\">" + exitCode10CountPercentage + "%</progress>";
         template = template.replace("{{ProgressBar10}}", progressBar10);
         StringBuilder cardsBuilder10 = new StringBuilder();
-        if (exitCode10CountPercentage > 0) { // if there are exit code 10s, make buttons, hide no cards message, make section per output message
+        if (exitCode10CountExactPercentage > 0) { // if there are exit code 10s, make buttons, hide no cards message, make section per output message
             // * Replace buttons output messages above
             StringBuilder buttonBuilder = new StringBuilder();
             for (String outputMessage : outputMessages) {
@@ -166,6 +169,7 @@ public class AllMapsPageGenerator extends LogHTMLFileHandler implements PageGene
         } else { // If there are not on display no cards message
             String noCardsMessage = getNoCardsMessage(true, 10);
             cardsBuilder10.append(noCardsMessage);
+            template = template.replace("{{Buttons10}}", "");
         }
         String cards10 = cardsBuilder10.toString();
         template = template.replace("{{TitlesAndCards10}}", cards10);

@@ -4,6 +4,7 @@ import dataProviders.ConfigFileReader;
 import managers.FileReaderManager;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
@@ -63,11 +64,13 @@ public class RandomActionSequenceGenerator {
 
     /**
      * Add random valid character to the action sequence string builder.
-     * @param actionSequenceBuilder The action sequence string builder.
+     *
+     * @param actionSequenceBuilder
+     *         The action sequence string builder.
      */
-    private void addRandomValidAction(StringBuilder actionSequenceBuilder) {
+    private static void addRandomValidAction(StringBuilder actionSequenceBuilder) {
         Random rand = new Random();
-        int rand_randomInt =  rand.nextInt(8);
+        int rand_randomInt = rand.nextInt(8);
         actionSequenceBuilder.append(validChar.get(rand_randomInt));
     }
 
@@ -77,7 +80,7 @@ public class RandomActionSequenceGenerator {
      *
      * @return The generated random action sequence string.
      */
-    public String generateRandomActionSequenceValidCharRandomLength() {
+    public static String generateRandomActionSequenceValidCharRandomLength() {
         StringBuilder actionSequenceBuilder = new StringBuilder();
         Random random = new Random();
         // Generate a random length for the action sequence
@@ -150,6 +153,45 @@ public class RandomActionSequenceGenerator {
     }
 
     /**
+     * The problem with the generateAllPossibleCombinations() method is that when the length is a larger number,
+     * the total of possible combinations grows exponentially and the program soon runs out of java heap space.
+     * If u do not want all possible combinations, but just a few random ones, this method can help avoiding this problem.
+     * It generates a random possible combination.
+     *
+     * @param length
+     *         The length of the action sequence.
+     * @param atLeastOneExit
+     *         If true, the string will contain at least one exit action.
+     * @param startWithExitCheck
+     *         If true, the following will always be true for the result: If an S is present,
+     *         one of the following characters in the string (that are after an S) will be an E.
+     *
+     * @return A random possible combination as String.
+     */
+    public static String generateRandomCombination(int length, boolean atLeastOneExit, boolean startWithExitCheck) {
+        // Shuffle the characters in a random order first
+        List<Character> shuffledChar = new ArrayList<>(validChar);
+        Collections.shuffle(shuffledChar);
+        // Add a random character of this shuffled list to the String until the maximum length is reached
+        StringBuilder randomCombination = new StringBuilder();
+        Random random = new Random();
+        for (int i = 0; i < length; i++) {
+            char randomChar = shuffledChar.get(random.nextInt(shuffledChar.size()));
+            randomCombination.append(randomChar);
+        }
+        String currentString = randomCombination.toString();
+        // Do the checks if needed. If they fail the checks, start over.
+        if (!atLeastOneExit || (currentString.contains("E"))) {
+            if (!startWithExitCheck || checkStartWithExit(currentString)) {
+                return currentString;
+            }
+        }
+        return generateRandomCombination(length, atLeastOneExit, startWithExitCheck);
+    }
+
+    ;
+
+    /**
      * Checks if the following condition is met: if there is an S in the string, an E is followed somewhere after that.
      *
      * @param currentString
@@ -158,10 +200,12 @@ public class RandomActionSequenceGenerator {
      * @return True if there is no S without an E that follows.
      */
     private static boolean checkStartWithExit(String currentString) {
-        int indexS = currentString.indexOf("S");
-        if (indexS != -1) { // if s is present, check if there is an e after it. If there is, return false. Otherwise, return true.
+        int indexS = -1; // assume there is no s present
+        while ((indexS = currentString.indexOf("S", indexS + 1)) != -1) {// if one or more s is present, check if there is an e after it. If there is, return false. Otherwise, return true.
             int indexE = currentString.indexOf("E", indexS + 1);
-            return indexE != -1;
+            if (indexE == -1) { // this current s does not have an e after it. no need to check other s.
+                return false;
+            }
         }
         return true; // no s present, no problem
     }

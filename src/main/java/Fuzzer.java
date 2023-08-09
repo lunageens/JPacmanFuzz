@@ -18,6 +18,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.IntStream;
 
 // TODO Functionality and website documentation fuzz 6 mutation fuzzing.
 
@@ -69,7 +70,7 @@ public class Fuzzer {
         Map<Integer, List<IterationResult>> iterationResultsByErrorCode = new HashMap<>();
         Map<String, List<IterationResult>> iterationResultsByOutputMessage = new HashMap<>();
 
-        /* * Get the maps and output messages first from the custom and then if additional random is needed*/
+        /* * Get the maps and output messages first from the custom and then if additional random is needed */
         // In case of custom maps or sequence, Add your custom map file paths to this list
         // If 0 or not implemented, nothing is added.
         // Do this last -> otherwise not correct directories and handlers
@@ -95,7 +96,7 @@ public class Fuzzer {
 
             // Check combo map and actions if needed
             boolean isValidMove = true;
-            if (configFileReader.getCustomSequenceNr() == 7 || configFileReader.getCustomSequenceNr() == 8) { // Checks for out of bounds and monster
+            if (IntStream.of(7, 8, 9).anyMatch(j -> configFileReader.getCustomSequenceNr() == j)) { // Checks for out of bounds and monster
                 isValidMove = IterationResult.isValidMove(mapFilePath, actionSequence);
             }
 
@@ -143,7 +144,7 @@ public class Fuzzer {
                 e.printStackTrace();
             }
 
-            /* ! Check if time budget has been exhausted */
+            /* ! Check if the total time budget has been exhausted */
             long endTime = System.currentTimeMillis();
             elapsedTime = endTime - startTime;
             if (elapsedTime >= TIME_BUDGET_MS) {
@@ -374,8 +375,17 @@ public class Fuzzer {
      *     combinations that have at least one time the character 'E' in it will be tested. Also, if the character 'S'
      *     is present, the character 'E' will be on one of the string characters after the 'S'. Actions (up, left, down, right) with that 'S' and 'E' will be checked:
      *     the player will not move out of the bounds of the map and will also not move to a wall cell. If that is the case,
-     *     the iteration result will get the exit code -1 and an indicating output message. Also, the player will be
-     *     able to move to a cell that is not a wall cell. </li>
+     *     the iteration result will get the exit code -1 and an indicating output message. The first ?MAX_ITERATIONS items of the list of possible combinations
+     *     will be executed. </li>
+     *     <li>Case 9: For the max length specified in the configuration file, add possible combinations of that length
+     *     that can be made with the valid action sequence characters (S, E, S, Q, U, D, L, R). However, only possible
+     *     combinations that have at least one time the character 'E' in it will be tested. Also, if the character 'S'
+     *     is present, the character 'E' will be on one of the string characters after the 'S'.
+     *     Actions (up, left, down, right) with that 'S' and 'E' will be checked:
+     *     the player will not move out of the bounds of the map and will also not move to a wall cell. If that is the case,
+     *     the iteration result will get the exit code -1 and an indicating output message.
+     *     For each execution (specified in ?MAX_ITERATIONS variable),
+     *     an item of the list of all possible combinations will be picked randomly. </li>
      *     <li>Default: Nothing to add</li>
      * </ul>
      *
@@ -387,42 +397,34 @@ public class Fuzzer {
     private static List<String> getCustomSequences(int customNr){
         List<String> customSequences = new ArrayList<>();
         switch (customNr) {
-            case 1: { //A hundred times correct string that starts, wait, exit.
+            case 1: { //A ... times correct string that starts, wait, exit.
                 int i;
                 for (i = 0; i < MAX_ITERATIONS; i++) {
                     customSequences.add("SWE");
                 }
-                break;
             }
             case 2: {
-                RandomActionSequenceGenerator randomActionSequenceGenerator = new RandomActionSequenceGenerator();
                 int i;
                 for (i = 0; i < MAX_ITERATIONS; i++) {
-                    customSequences.add(randomActionSequenceGenerator.generateRandomActionSequenceValidCharRandomLength());
+                    customSequences.add(RandomActionSequenceGenerator.generateRandomActionSequenceValidCharRandomLength());
                 }
             }
             case 3: {
-                RandomActionSequenceGenerator randomActionSequenceGenerator = new RandomActionSequenceGenerator();
-                List<String> actionSequences = RandomActionSequenceGenerator.generateAllPossibleCombinations(
+                customSequences = RandomActionSequenceGenerator.generateAllPossibleCombinations(
                         FileReaderManager.getInstance().getConfigReader().getMaxActionSequenceLength(),
                         false, false);
-                customSequences.addAll(actionSequences);
             }
             case 4: {
-                RandomActionSequenceGenerator randomActionSequenceGenerator = new RandomActionSequenceGenerator();
-                List<String> actionSequences = RandomActionSequenceGenerator.generateAllPossibleCombinations(
+                customSequences = RandomActionSequenceGenerator.generateAllPossibleCombinations(
                         FileReaderManager.getInstance().getConfigReader().getMaxActionSequenceLength(),
                         true, false);
-                customSequences.addAll(actionSequences);
             }
             case 5, 8: {
-                RandomActionSequenceGenerator randomActionSequenceGenerator = new RandomActionSequenceGenerator();
-                List<String> actionSequences = RandomActionSequenceGenerator.generateAllPossibleCombinations(
+                customSequences = RandomActionSequenceGenerator.generateAllPossibleCombinations(
                         FileReaderManager.getInstance().getConfigReader().getMaxActionSequenceLength(),
                         true, true);
             }
             case 6, 7: {
-                RandomActionSequenceGenerator randomActionSequenceGenerator = new RandomActionSequenceGenerator();
                 List<String> actionSequences = RandomActionSequenceGenerator.generateAllPossibleCombinations(
                         FileReaderManager.getInstance().getConfigReader().getMaxActionSequenceLength() - 2,
                         false, true);
@@ -430,10 +432,15 @@ public class Fuzzer {
                     String customSequence = "S" + actionSequence + "E";
                     customSequences.add(customSequence);
                 }
-                break;
             }
-            default: {
-                // Nothing to add
+            case 9:
+                while (customSequences.size() < MAX_ITERATIONS) {
+                    String randomCombination = RandomActionSequenceGenerator.generateRandomCombination(
+                            FileReaderManager.getInstance().getConfigReader().getMaxActionSequenceLength(),
+                            true, true);
+                    customSequences.add(randomCombination);
+                }
+            default: { // Nothing to add
                 break;
             }
         }

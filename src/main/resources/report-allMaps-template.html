@@ -172,7 +172,6 @@
                 <div>
                     <p class="has-text-weight-bold">Unknown</p>
                     <p class="title has-text-info-dark" id="Percentage-1">{{PercentageUnknown}}</p>
-                    <!-- ! Never change -->
                 </div>
             </div>
         </div>
@@ -186,10 +185,9 @@
         </div>
     </div>
 
-
+    <!-- Add all cards -->
+    <!-- Per exit code & error message (for 10): Previous runs 1 first, ..., sorted until actual run, id = absolute path, so we can link it but no / allowed, make _??? maybe with rows index?-->
     <div class="block">
-        <!-- Add all cards -->
-        <!-- Per exit code & error message (for 10): Previous runs 1 first, ..., sorted until actual run, id = absolute path, so we can link it but no / allowed, make _??? maybe with rows index?-->
 
         <div id="TotalExitCode0" class="field">
             <section id="ExitCode0" class="section mt-6">
@@ -215,7 +213,7 @@
                 <h2 class="subtitle">Inputs with this exit code have no output messages.</h2>
             </section>
 
-            <!-- * Add cards with exit code 0 here -->
+            <!-- * Add cards with exit code 1 here -->
             <!-- ! If there are no maps, add text to say so -->
             <div id="ExitCode1Cards">
                 {{Cards1}}
@@ -313,14 +311,14 @@
         const selectedOption = document.querySelector('.filter').value;
         const sections = document.querySelectorAll('div[id^="TotalExitCode"]');
         const allCards = document.querySelectorAll('.card');
-        const allCounts = [];
 
-        // * For each total section of exit code (titles and cards) (Works.)
+        // * For each exit code section (titles and cards), display only the filtered cards and count them.
+        const allCounts = [];
         sections.forEach(section => {
             const cards = section.querySelectorAll('.card'); // Select all cards
             let visibleCount = 0;
-            cards.forEach(card => { // for each card in exit code section that is not the no cards one
-                if (!(card.id.endsWith("NoCards"))) { // ! Changed this
+            cards.forEach(card => { // For each card in exit code section that is not the no cards one
+                if (!(card.id.endsWith("NoCards"))) {
                     const fuzzAttemptNr = card.querySelector('.card-header-title').textContent.match(/\d+/)[0];
                     // display is necessary, and count the ones that are visible.
                     const cardFrame = card.parentElement; // also hide br
@@ -335,11 +333,11 @@
             allCounts.push(visibleCount);
         });
 
-        // * For each exit code section, count the visible cards and adjust their progress bar (Works.)
+        // * For each exit code section, calculate the percentage of the visible cards and adjust their progress bar accordingly.
         const sum = calculateSum(allCounts);
         const exitCodes = [0, 1, 10, -1];
         sections.forEach((section, index) => {
-            const progressBar = section.querySelector('.progress'); // ? How does this not include other progress bars
+            const progressBar = section.querySelector('.progress');
             const percentage = (allCounts[index] / sum) * 100;
             progressBar.value = percentage;
             progressBar.textContent = `${Math.round(percentage)}%`;
@@ -348,14 +346,14 @@
             percentageElement.textContent = `${Math.round(percentage)}%`;
         });
 
-        // * If the visible count = 0 for the exit code section, show the noCardsMessage (Works.)
+        // * For each exit code section, if the visible count = 0, show the noCardsMessage.
         sections.forEach((section, index) => {
             const visibleCount = allCounts[index];
             // if visible count = 0 -> show no cards message, all cards will already be hidden
             // if visible count != 0 -> do not show no cards message, all cards that should be displayed are already displayed
             const cards = section.querySelectorAll('.card'); // Select all cards
             cards.forEach(card => { // for each card in exit code section that is not the no cards one
-                if ((card.id.endsWith("NoCards"))) // ! Changed this
+                if ((card.id.endsWith("NoCards")))
                     if (visibleCount === 0) {
                         card.style.display = "block";
                     } else {
@@ -364,91 +362,102 @@
             });
         });
 
-        // *  For exit Code 10, let's count per output message (Works.)
-        const exitCode10Section = sections[2];
-        const exitCode10Count = allCounts[2];
-        if (exitCode10Count > 0) {
-            const exitCode10Navbar = exitCode10Section.querySelector('.navbar') // All Buttons in section above as one
-            const exitCode10OutputButtons = exitCode10Navbar.children;
-            const exitCode10Total = exitCode10Section.querySelector('div[id="ExitCode10Cards"]'); // All sections + cards of each output message, their id is Output message id
-            const exitCode10Fields = Array.from(exitCode10Total.children); // Also includes no cards message + div for each ouptut with as id output message, and then seciton awith progress bar and cards
-            // Get only fields and not the <br>
-            const exitCode10NoLinesFields = [];
-            exitCode10Fields.forEach(field => {
-                if (field.className === "field") {
-                    exitCode10NoLinesFields.push(field);
+        // *  For exit Code 10, let's count per output message. Adjust subsections (including progress bars), percentages above
+        // * and buttons according to the percentages. If count 10 > 0, display those.
+        const exitCode10Section = sections[2]; // Full exit code 10 section
+        const exitCode10Count = allCounts[2]; // Total amount of exit code 10 visible cards
+        // * 1. Find total field of each output message
+        const exitCode10Navbar = exitCode10Section.querySelector('.navbar') // All Buttons in section below exit code 10 title as one
+        const exitCode10OutputButtons = exitCode10Navbar.children;
+        const exitCode10Total = exitCode10Section.querySelector('div[id="ExitCode10Cards"]'); // All sections + cards of each output message, their id is Output message id
+        const exitCode10Fields = Array.from(exitCode10Total.children); // Also includes no cards message + div for each output with as id output message, and then section with progress bar and cards
+        // Get only fields and not the <br>
+        const exitCode10NoLinesFields = [];
+        exitCode10Fields.forEach(field => {
+            if (field.className === "field") {
+                exitCode10NoLinesFields.push(field);
+            }
+        });
+        // Get only cards that are not no cards message
+        const exitCode10OutputFields = []; // All fields without no cards
+        Array.from(exitCode10NoLinesFields).forEach(field => {
+            if (!(field.id.endsWith("NoCards"))) {
+                exitCode10OutputFields.push(field);
+            }
+        });
+        // * 2. Count cards per output message
+        const exitCode10Counts = [];
+        exitCode10OutputFields.forEach((field, index) => {
+            let visibleCount = 0;
+            let allCardsOutputMessageField = field.querySelectorAll('.field'); // Here no worries about card with no .
+            Array.from(allCardsOutputMessageField).forEach(field => {
+                if (!((field.style.display === "none") || (field.style.display === ""))) {
+                    visibleCount++;
                 }
             });
-            // Get only cards that are not no cards message
-            const exitCode10OutputFields = []; // All fields without no cards
-            Array.from(exitCode10NoLinesFields).forEach(field => { // ! Changed this
-                if (!(field.id.endsWith("NoCards"))) { // ! Changed this
-                    exitCode10OutputFields.push(field);
-                }
-            });
-            // Count per output message
-            const exitCode10Counts = [];
-            exitCode10OutputFields.forEach((field, index) => {
-                let visibleCount = 0;
-                let allCardsOutputMessageField = field.querySelectorAll('.field'); // Here no worries about card with no .
-                Array.from(allCardsOutputMessageField).forEach(field => {
-                    if (!((field.style.display === "none") || (field.style.display === ""))) {
-                        visibleCount++;
-                    }
-                });
-                // ! Counts hidden cards but also fields around it (no display changes) --> or condition
-                exitCode10Counts.push(visibleCount);
-            });
-
-            // * For each output message, calculate total sum and adjust progress bar accordingly (Works.)
-            // if sum is = 0: hide button and whole section
-            // if sum != 0: display button and whole section
-            const visibleOutputMessagesPercentageId = [];
-            const visibleOutputMessagesPercentage = [];
-            exitCode10OutputFields.forEach((field, index) => {
-                const count = exitCode10Counts[index];
-                const percentage = (count / sum) * 100;
-                const button = exitCode10OutputButtons[index];
-                // adjust progressbar first
-                const progressbar = field.querySelector('.progress');
-                progressbar.value = percentage;
-                progressbar.textContent = `${Math.round(percentage)}%`;
-                // for percentage box, the ones that are on display only
-                const idPercentage = "Percentage" + field.id;
-                visibleOutputMessagesPercentageId.push(idPercentage);
-                visibleOutputMessagesPercentage.push(percentage);
-                // display
-                if (count > 0) {
-                    field.style.display = "block";
-                    button.style.display = "block";
-                } else {
-                    field.style.display = "none";
-                    button.style.display = "none";
-                }
-            });
-            const allPercentagesTotal = document.querySelector('div[id="OutputMessagesPercentages"]');
-            console.log(allPercentagesTotal)
-            const allPercentages = Array.from(allPercentagesTotal.children);
-            console.log(allPercentages);
-            allPercentages.forEach(levelItem => {
-                console.log(levelItem);
-                const titleElement = levelItem.querySelector('.title');
-                const titleId = titleElement.id;
-                console.log(titleId)
-                // Check if the title id is present in the list visibleOutputMessagesPercentageId
-                const index = visibleOutputMessagesPercentageId.indexOf(titleId);
-                console.log(index);
-                if (index !== -1) {
-                    // Get the corresponding percentage from the list visibleOutputMessagesPercentage
-                    const percentage = visibleOutputMessagesPercentage[index];
-                    console.log(percentage)
-                    // Set the text content of the title element to the rounded percentage with %
-                    titleElement.textContent = Math.round(percentage) + '%';
-                } else {
-                    // Set the percentage of the title element to 0%
-                    titleElement.textContent = '0%';
-                }
-            });
+            // ! Counts hidden cards but also fields around it (no display changes) --> or condition
+            exitCode10Counts.push(visibleCount);
+        });
+        // * 3. For each output message, calculate total sum and adjust progress bar, subsections and buttons accordingly (Works.)
+        // if sum is = 0: hide button, percentage and whole section
+        // if sum != 0: display button, percentage and whole section
+        const visibleOutputMessagesPercentageId = [];
+        const visibleOutputMessagesPercentage = [];
+        // for each output section, display field is needed. adjust progress bar in that field. display button if needed.
+        exitCode10OutputFields.forEach((field, index) => {
+            // calculate the total percentage of this output message in comparison to all cards of this fuzz attempt
+            const count = exitCode10Counts[index];
+            const percentage = (count / sum) * 100;
+            const button = exitCode10OutputButtons[index];
+            // adjust progressbar % of this output message first
+            const progressbar = field.querySelector('.progress');
+            progressbar.value = percentage;
+            progressbar.textContent = `${Math.round(percentage)}%`;
+            // for percentage in the box above, store all ids and percentages
+            const idPercentage = "Percentage" + field.id;
+            visibleOutputMessagesPercentageId.push(idPercentage);
+            visibleOutputMessagesPercentage.push(percentage);
+            // display the progress bar and sections if needed.
+            if (count > 0) {
+                field.style.display = "block";
+                button.style.display = "block";
+            } else {
+                field.style.display = "none";
+                button.style.display = "none";
+            }
+        });
+        // adjust percentages above
+        const allPercentagesTotal = document.querySelector('div[id="OutputMessagesPercentages"]');
+        console.log(allPercentagesTotal)
+        const allPercentages = Array.from(allPercentagesTotal.children);
+        console.log(allPercentages);
+        allPercentages.forEach(levelItem => {
+            console.log(levelItem);
+            const titleElement = levelItem.querySelector('.title');
+            const titleId = titleElement.id;
+            console.log(titleId)
+            // Check if the title id is present in the list visibleOutputMessagesPercentageId
+            const index = visibleOutputMessagesPercentageId.indexOf(titleId);
+            console.log(index);
+            if (index !== -1) {
+                // Get the corresponding percentage from the list visibleOutputMessagesPercentage
+                const percentage = visibleOutputMessagesPercentage[index];
+                console.log(percentage)
+                // Set the text content of the title element to the rounded percentage with %
+                titleElement.textContent = Math.round(percentage) + '%';
+            } else {
+                // Set the percentage of the title element to 0%
+                titleElement.textContent = '0%';
+            }
+        });
+        // * 4. If total count of exit code 10 cards is 0, do not display the output messages percentages and output buttons.
+        const allPercentagesTotalBox = allPercentagesTotal.parentElement;
+        if (exitCode10Count === 0) {
+            allPercentagesTotalBox.style.display = "none";
+            exitCode10Navbar.style.display = "none";
+        } else {
+            allPercentagesTotalBox.style.display = "block";
+            exitCode10Navbar.style.display = "in-line"; // ! In-line, otherwise buttons will display below each other.
         }
     }
 
