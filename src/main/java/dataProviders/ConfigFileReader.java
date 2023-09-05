@@ -170,7 +170,6 @@ public class ConfigFileReader {
         return projectRoot + "/" + mapResultProject;
     }
 
-
     /**
      * Retrieves the maximum number of iterations specified in the configuration file.
      * If the maximum iterations property is not found or cannot be parsed as an integer, it returns a default value of 100.
@@ -179,6 +178,21 @@ public class ConfigFileReader {
      */
     public int getMaxIterations() {
         return Integer.parseInt(properties.getProperty("maxIterations", "100"));
+    }
+
+    /**
+     * Retrieves the flag indicating whether the max number of iterations should be ignored, and the number of
+     * custom maps or sequences should be used instead.
+     * If the max iterations property is not found or cannot be parsed as a boolean, it returns a default value of false.
+     *
+     * @return The flag indicating whether the max number of iterations should be ignored.
+     */
+    public boolean getMaxCustomIterations() {
+        String ignoreMaxIterations = properties.getProperty("maxCustomIterations");
+        if (ignoreMaxIterations != null) {
+            return Boolean.parseBoolean(ignoreMaxIterations);
+        }
+        return false;
     }
 
     /**
@@ -276,6 +290,17 @@ public class ConfigFileReader {
         return Integer.parseInt(customSeqNr);
     }
 
+    /**
+     * Retrieves the flag indicating whether to combine the custom maps and sequences in the configuration file.
+     * If the clean directories property is not found or cannot be parsed as a boolean, it returns false.
+     *
+     * @return true if every unique combination of the custom maps and sequences should be fuzzed, false otherwise.
+     */
+    public boolean getCombinedCustomMapsAndSequences() {
+        String combine = properties.getProperty("combineCustomMapsAndSequences");
+        if (combine != null) return Boolean.parseBoolean(combine);
+        return false;
+    }
 
     /**
      * Write a configs.js  file in the configs directory with the basePath variable set to the current project directory.

@@ -1,0 +1,738 @@
+Iteration Nr.: 1
+Exit Code: 1  (Crash)
+Output Messages: None
+Action Sequence: SWWDSQSEEU
+Map File Name: originalMap_2.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode1_crash/originalMap_2.txt
+
+Iteration Nr.: 2
+Exit Code: 0 (Accepted)
+Output Messages: None
+Action Sequence: SWWDSQSEEU
+Map File Name: map_1.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_1.txt
+
+Iteration Nr.: 3
+Exit Code: 0 (Accepted)
+Output Messages: None
+Action Sequence: SWWDSQSEEU
+Map File Name: map_2.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_2.txt
+
+Iteration Nr.: 4
+Exit Code: 0 (Accepted)
+Output Messages: None
+Action Sequence: SWWDSQSEEU
+Map File Name: map_3.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_3.txt
+
+Iteration Nr.: 5
+Exit Code: Unknown
+Output Messages: Invalid Move
+Action Sequence: SWWDSQSEEU
+Map File Name: map_4.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcodeX_unknown/map_4.txt
+
+Iteration Nr.: 6
+Exit Code: 0 (Accepted)
+Output Messages: None
+Action Sequence: SWWDSQSEEU
+Map File Name: map_5.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_5.txt
+
+Iteration Nr.: 7
+Exit Code: 0 (Accepted)
+Output Messages: None
+Action Sequence: SWWDSQSEEU
+Map File Name: map_6.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_6.txt
+
+Iteration Nr.: 8
+Exit Code: 0 (Accepted)
+Output Messages: None
+Action Sequence: SWWDSQSEEU
+Map File Name: map_7.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_7.txt
+
+Iteration Nr.: 9
+Exit Code: 1  (Crash)
+Output Messages: None
+Action Sequence: SWWDSQSEEU
+Map File Name: map_8.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode1_crash/map_8.txt
+
+Iteration Nr.: 10
+Exit Code: 1  (Crash)
+Output Messages: None
+Action Sequence: SWWDSQSEEU
+Map File Name: map_9.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode1_crash/map_9.txt
+
+Iteration Nr.: 11
+Exit Code: 0 (Accepted)
+Output Messages: None
+Action Sequence: SWWDSQSEEU
+Map File Name: map_10.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_10.txt
+
+Iteration Nr.: 12
+Exit Code: 0 (Accepted)
+Output Messages: None
+Action Sequence: SWWDSQSEEU
+Map File Name: map_11.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_11.txt
+
+Iteration Nr.: 13
+Exit Code: 0 (Accepted)
+Output Messages: None
+Action Sequence: SWWDSQSEEU
+Map File Name: map_12.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_12.txt
+
+Iteration Nr.: 14
+Exit Code: 0 (Accepted)
+Output Messages: None
+Action Sequence: EWWDSQSEEU
+Map File Name: mapcopy_1.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/mapcopy_1.txt
+
+Iteration Nr.: 15
+Exit Code: 0 (Accepted)
+Output Messages: None
+Action Sequence: QWWDSQSEEU
+Map File Name: mapcopy_2.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/mapcopy_2.txt
+
+Iteration Nr.: 16
+Exit Code: 0 (Accepted)
+Output Messages: None
+Action Sequence: WWWDSQSEEU
+Map File Name: mapcopy_3.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/mapcopy_3.txt
+
+Iteration Nr.: 17
+Exit Code: 0 (Accepted)
+Output Messages: None
+Action Sequence: UWWDSQSEEU
+Map File Name: mapcopy_4.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/mapcopy_4.txt
+
+Iteration Nr.: 18
+Exit Code: 0 (Accepted)
+Output Messages: None
+Action Sequence: LWWDSQSEEU
+Map File Name: mapcopy_5.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/mapcopy_5.txt
+
+Iteration Nr.: 19
+Exit Code: 0 (Accepted)
+Output Messages: None
+Action Sequence: DWWDSQSEEU
+Map File Name: mapcopy_6.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/mapcopy_6.txt
+
+Iteration Nr.: 20
+Exit Code: 0 (Accepted)
+Output Messages: None
+Action Sequence: RWWDSQSEEU
+Map File Name: mapcopy_7.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/mapcopy_7.txt
+
+Iteration Nr.: 21
+Exit Code: 0 (Accepted)
+Output Messages: None
+Action Sequence: SEWDSQSEEU
+Map File Name: mapcopy_8.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/mapcopy_8.txt
+
+Iteration Nr.: 22
+Exit Code: 0 (Accepted)
+Output Messages: None
+Action Sequence: SQWDSQSEEU
+Map File Name: mapcopy_9.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/mapcopy_9.txt
+
+Iteration Nr.: 23
+Exit Code: 1  (Crash)
+Output Messages: None
+Action Sequence: SSWDSQSEEU
+Map File Name: mapcopy_10.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode1_crash/mapcopy_10.txt
+
+Iteration Nr.: 24
+Exit Code: 0 (Accepted)
+Output Messages: None
+Action Sequence: SUWDSQSEEU
+Map File Name: mapcopy_11.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/mapcopy_11.txt
+
+Iteration Nr.: 25
+Exit Code: Unknown
+Output Messages: Invalid Move
+Action Sequence: SLWDSQSEEU
+Map File Name: mapcopy_12.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcodeX_unknown/mapcopy_12.txt
+
+Iteration Nr.: 26
+Exit Code: 0 (Accepted)
+Output Messages: None
+Action Sequence: SDWDSQSEEU
+Map File Name: mapcopy_13.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/mapcopy_13.txt
+
+Iteration Nr.: 27
+Exit Code: Unknown
+Output Messages: Invalid Move
+Action Sequence: SRWDSQSEEU
+Map File Name: mapcopy_14.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcodeX_unknown/mapcopy_14.txt
+
+Iteration Nr.: 28
+Exit Code: 0 (Accepted)
+Output Messages: None
+Action Sequence: SWEDSQSEEU
+Map File Name: mapcopy_15.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/mapcopy_15.txt
+
+Iteration Nr.: 29
+Exit Code: 0 (Accepted)
+Output Messages: None
+Action Sequence: SWQDSQSEEU
+Map File Name: mapcopy_16.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/mapcopy_16.txt
+
+Iteration Nr.: 30
+Exit Code: 0 (Accepted)
+Output Messages: None
+Action Sequence: SWSDSQSEEU
+Map File Name: mapcopy_17.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/mapcopy_17.txt
+
+Iteration Nr.: 31
+Exit Code: 0 (Accepted)
+Output Messages: None
+Action Sequence: SWUDSQSEEU
+Map File Name: mapcopy_18.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/mapcopy_18.txt
+
+Iteration Nr.: 32
+Exit Code: Unknown
+Output Messages: Invalid Move
+Action Sequence: SWLDSQSEEU
+Map File Name: mapcopy_19.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcodeX_unknown/mapcopy_19.txt
+
+Iteration Nr.: 33
+Exit Code: 0 (Accepted)
+Output Messages: None
+Action Sequence: SWDDSQSEEU
+Map File Name: mapcopy_20.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/mapcopy_20.txt
+
+Iteration Nr.: 34
+Exit Code: Unknown
+Output Messages: Invalid Move
+Action Sequence: SWRDSQSEEU
+Map File Name: mapcopy_21.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcodeX_unknown/mapcopy_21.txt
+
+Iteration Nr.: 35
+Exit Code: 1  (Crash)
+Output Messages: None
+Action Sequence: SWWESQSEEU
+Map File Name: mapcopy_22.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode1_crash/mapcopy_22.txt
+
+Iteration Nr.: 36
+Exit Code: 1  (Crash)
+Output Messages: None
+Action Sequence: SWWQSQSEEU
+Map File Name: mapcopy_23.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode1_crash/mapcopy_23.txt
+
+Iteration Nr.: 37
+Exit Code: 1  (Crash)
+Output Messages: None
+Action Sequence: SWWSSQSEEU
+Map File Name: mapcopy_24.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode1_crash/mapcopy_24.txt
+
+Iteration Nr.: 38
+Exit Code: 1  (Crash)
+Output Messages: None
+Action Sequence: SWWWSQSEEU
+Map File Name: mapcopy_25.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode1_crash/mapcopy_25.txt
+
+Iteration Nr.: 39
+Exit Code: 1  (Crash)
+Output Messages: None
+Action Sequence: SWWUSQSEEU
+Map File Name: mapcopy_26.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode1_crash/mapcopy_26.txt
+
+Iteration Nr.: 40
+Exit Code: Unknown
+Output Messages: Invalid Move
+Action Sequence: SWWLSQSEEU
+Map File Name: mapcopy_27.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcodeX_unknown/mapcopy_27.txt
+
+Iteration Nr.: 41
+Exit Code: Unknown
+Output Messages: Invalid Move
+Action Sequence: SWWRSQSEEU
+Map File Name: mapcopy_28.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcodeX_unknown/mapcopy_28.txt
+
+Iteration Nr.: 42
+Exit Code: 1  (Crash)
+Output Messages: None
+Action Sequence: SWWDEQSEEU
+Map File Name: mapcopy_29.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode1_crash/mapcopy_29.txt
+
+Iteration Nr.: 43
+Exit Code: 1  (Crash)
+Output Messages: None
+Action Sequence: SWWDQQSEEU
+Map File Name: mapcopy_30.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode1_crash/mapcopy_30.txt
+
+Iteration Nr.: 44
+Exit Code: 1  (Crash)
+Output Messages: None
+Action Sequence: SWWDWQSEEU
+Map File Name: mapcopy_31.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode1_crash/mapcopy_31.txt
+
+Iteration Nr.: 45
+Exit Code: 1  (Crash)
+Output Messages: None
+Action Sequence: SWWDUQSEEU
+Map File Name: mapcopy_32.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode1_crash/mapcopy_32.txt
+
+Iteration Nr.: 46
+Exit Code: Unknown
+Output Messages: Invalid Move
+Action Sequence: SWWDLQSEEU
+Map File Name: mapcopy_33.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcodeX_unknown/mapcopy_33.txt
+
+Iteration Nr.: 47
+Exit Code: 1  (Crash)
+Output Messages: None
+Action Sequence: SWWDDQSEEU
+Map File Name: mapcopy_34.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode1_crash/mapcopy_34.txt
+
+Iteration Nr.: 48
+Exit Code: Unknown
+Output Messages: Invalid Move
+Action Sequence: SWWDRQSEEU
+Map File Name: mapcopy_35.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcodeX_unknown/mapcopy_35.txt
+
+Iteration Nr.: 49
+Exit Code: 1  (Crash)
+Output Messages: None
+Action Sequence: SWWDSESEEU
+Map File Name: mapcopy_36.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode1_crash/mapcopy_36.txt
+
+Iteration Nr.: 50
+Exit Code: 1  (Crash)
+Output Messages: None
+Action Sequence: SWWDSSSEEU
+Map File Name: mapcopy_37.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode1_crash/mapcopy_37.txt
+
+Iteration Nr.: 51
+Exit Code: 1  (Crash)
+Output Messages: None
+Action Sequence: SWWDSWSEEU
+Map File Name: mapcopy_38.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode1_crash/mapcopy_38.txt
+
+Iteration Nr.: 52
+Exit Code: 1  (Crash)
+Output Messages: None
+Action Sequence: SWWDSUSEEU
+Map File Name: mapcopy_39.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode1_crash/mapcopy_39.txt
+
+Iteration Nr.: 53
+Exit Code: Unknown
+Output Messages: Invalid Move
+Action Sequence: SWWDSLSEEU
+Map File Name: mapcopy_40.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcodeX_unknown/mapcopy_40.txt
+
+Iteration Nr.: 54
+Exit Code: 1  (Crash)
+Output Messages: None
+Action Sequence: SWWDSDSEEU
+Map File Name: mapcopy_41.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode1_crash/mapcopy_41.txt
+
+Iteration Nr.: 55
+Exit Code: Unknown
+Output Messages: Invalid Move
+Action Sequence: SWWDSRSEEU
+Map File Name: mapcopy_42.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcodeX_unknown/mapcopy_42.txt
+
+Iteration Nr.: 56
+Exit Code: 1  (Crash)
+Output Messages: None
+Action Sequence: SWWDSQEEEU
+Map File Name: mapcopy_43.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode1_crash/mapcopy_43.txt
+
+Iteration Nr.: 57
+Exit Code: 1  (Crash)
+Output Messages: None
+Action Sequence: SWWDSQQEEU
+Map File Name: mapcopy_44.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode1_crash/mapcopy_44.txt
+
+Iteration Nr.: 58
+Exit Code: 1  (Crash)
+Output Messages: None
+Action Sequence: SWWDSQWEEU
+Map File Name: mapcopy_45.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode1_crash/mapcopy_45.txt
+
+Iteration Nr.: 59
+Exit Code: 1  (Crash)
+Output Messages: None
+Action Sequence: SWWDSQUEEU
+Map File Name: mapcopy_46.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode1_crash/mapcopy_46.txt
+
+Iteration Nr.: 60
+Exit Code: 1  (Crash)
+Output Messages: None
+Action Sequence: SWWDSQLEEU
+Map File Name: mapcopy_47.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode1_crash/mapcopy_47.txt
+
+Iteration Nr.: 61
+Exit Code: 1  (Crash)
+Output Messages: None
+Action Sequence: SWWDSQDEEU
+Map File Name: mapcopy_48.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode1_crash/mapcopy_48.txt
+
+Iteration Nr.: 62
+Exit Code: 1  (Crash)
+Output Messages: None
+Action Sequence: SWWDSQREEU
+Map File Name: mapcopy_49.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode1_crash/mapcopy_49.txt
+
+Iteration Nr.: 63
+Exit Code: 1  (Crash)
+Output Messages: None
+Action Sequence: SWWDSQSQEU
+Map File Name: mapcopy_50.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode1_crash/mapcopy_50.txt
+
+Iteration Nr.: 64
+Exit Code: 1  (Crash)
+Output Messages: None
+Action Sequence: SWWDSQSSEU
+Map File Name: mapcopy_51.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode1_crash/mapcopy_51.txt
+
+Iteration Nr.: 65
+Exit Code: 1  (Crash)
+Output Messages: None
+Action Sequence: SWWDSQSWEU
+Map File Name: mapcopy_52.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode1_crash/mapcopy_52.txt
+
+Iteration Nr.: 66
+Exit Code: 1  (Crash)
+Output Messages: None
+Action Sequence: SWWDSQSUEU
+Map File Name: mapcopy_53.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode1_crash/mapcopy_53.txt
+
+Iteration Nr.: 67
+Exit Code: Unknown
+Output Messages: Invalid Move
+Action Sequence: SWWDSQSLEU
+Map File Name: mapcopy_54.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcodeX_unknown/mapcopy_54.txt
+
+Iteration Nr.: 68
+Exit Code: 1  (Crash)
+Output Messages: None
+Action Sequence: SWWDSQSDEU
+Map File Name: mapcopy_55.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode1_crash/mapcopy_55.txt
+
+Iteration Nr.: 69
+Exit Code: Unknown
+Output Messages: Invalid Move
+Action Sequence: SWWDSQSREU
+Map File Name: mapcopy_56.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcodeX_unknown/mapcopy_56.txt
+
+Iteration Nr.: 70
+Exit Code: 1  (Crash)
+Output Messages: None
+Action Sequence: SWWDSQSEQU
+Map File Name: mapcopy_57.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode1_crash/mapcopy_57.txt
+
+Iteration Nr.: 71
+Exit Code: 1  (Crash)
+Output Messages: None
+Action Sequence: SWWDSQSEWU
+Map File Name: mapcopy_58.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode1_crash/mapcopy_58.txt
+
+Iteration Nr.: 72
+Exit Code: 1  (Crash)
+Output Messages: None
+Action Sequence: SWWDSQSEUU
+Map File Name: mapcopy_59.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode1_crash/mapcopy_59.txt
+
+Iteration Nr.: 73
+Exit Code: 1  (Crash)
+Output Messages: None
+Action Sequence: SWWDSQSELU
+Map File Name: mapcopy_60.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode1_crash/mapcopy_60.txt
+
+Iteration Nr.: 74
+Exit Code: 1  (Crash)
+Output Messages: None
+Action Sequence: SWWDSQSEDU
+Map File Name: mapcopy_61.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode1_crash/mapcopy_61.txt
+
+Iteration Nr.: 75
+Exit Code: 1  (Crash)
+Output Messages: None
+Action Sequence: SWWDSQSERU
+Map File Name: mapcopy_62.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode1_crash/mapcopy_62.txt
+
+Iteration Nr.: 76
+Exit Code: 1  (Crash)
+Output Messages: None
+Action Sequence: SWWDSQSEEE
+Map File Name: mapcopy_63.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode1_crash/mapcopy_63.txt
+
+Iteration Nr.: 77
+Exit Code: 1  (Crash)
+Output Messages: None
+Action Sequence: SWWDSQSEEQ
+Map File Name: mapcopy_64.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode1_crash/mapcopy_64.txt
+
+Iteration Nr.: 78
+Exit Code: 1  (Crash)
+Output Messages: None
+Action Sequence: SWWDSQSEEW
+Map File Name: mapcopy_65.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode1_crash/mapcopy_65.txt
+
+Iteration Nr.: 79
+Exit Code: 1  (Crash)
+Output Messages: None
+Action Sequence: SWWDSQSEEL
+Map File Name: mapcopy_66.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode1_crash/mapcopy_66.txt
+
+Iteration Nr.: 80
+Exit Code: 1  (Crash)
+Output Messages: None
+Action Sequence: SWWDSQSEED
+Map File Name: mapcopy_67.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode1_crash/mapcopy_67.txt
+
+Iteration Nr.: 81
+Exit Code: 1  (Crash)
+Output Messages: None
+Action Sequence: SWWDSQSEER
+Map File Name: mapcopy_68.txt
+Map File Type: .txt (Unformatted Text Document (Text file) as Text file)
+Map File Custom Attribute: None
+Absolute Map File Path: C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode1_crash/mapcopy_68.txt
+
+SUMMARY
+Fuzz Attempt Nr.: 2
+Date and Time: 04-09-2023 16:29
+Execution Time: 01:47
+Total Number of Iterations: 81
+Exit Code 0 Count: 25 occurrences
+Exit Code 1 Count: 43 occurrences
+Exit Code 10 Count: 0 occurrences
+Exit Code -1 Count: 13 occurrences

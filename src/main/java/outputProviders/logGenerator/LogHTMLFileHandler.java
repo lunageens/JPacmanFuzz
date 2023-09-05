@@ -115,7 +115,7 @@ public class LogHTMLFileHandler {
      * HTMLs to the appropriate HTML files.
      */
     public void generateHTMLReport()  {
-        // Read data in from CSV file and add it to the rigth class.
+        // Read data in from CSV file and add it to the right class.
         processLogFile();
 
         // Initialize the subclasses of the LogHTMLFileHandler class.

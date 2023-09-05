@@ -34,6 +34,9 @@ import java.util.Random;
  */
 public class RandomActionSequenceGenerator {
 
+    /**
+     * Specifies the list of valid actions in the action sequence string
+     */
     private static List<Character> validChar;
     /**
      * The ConfigFileReader instance used for reading configuration properties.
@@ -189,8 +192,6 @@ public class RandomActionSequenceGenerator {
         return generateRandomCombination(length, atLeastOneExit, startWithExitCheck);
     }
 
-    ;
-
     /**
      * Checks if the following condition is met: if there is an S in the string, an E is followed somewhere after that.
      *
@@ -201,12 +202,90 @@ public class RandomActionSequenceGenerator {
      */
     private static boolean checkStartWithExit(String currentString) {
         int indexS = -1; // assume there is no s present
+        // find next S in the sting. As long as there is one, keep checking.
+        // The next S is found by taking the previous index, and searching from the character after that.
         while ((indexS = currentString.indexOf("S", indexS + 1)) != -1) {// if one or more s is present, check if there is an e after it. If there is, return false. Otherwise, return true.
-            int indexE = currentString.indexOf("E", indexS + 1);
+            int indexE = currentString.indexOf("E", indexS + 1); // look for and E from the character after that S.
             if (indexE == -1) { // this current s does not have an e after it. no need to check other s.
                 return false;
             }
         }
         return true; // no s present, no problem
     }
+
+    /**
+     * This method mutates the given action sequence, by replacing each character of the string in turn, with
+     * each of the valid characters. It will return a list of all possible mutated action sequences.
+     *
+     * @param actionSequence
+     *         The action sequence to mutate.
+     *
+     * @return A list of all possible mutated action sequences.
+     */
+    public static List<String> mutateActionSequence(String actionSequence) {
+        List<String> mutatedActionSequences = new ArrayList<>();
+        // niet vergeten eerst originele action sequence te doen!
+        // do not check original sequence, since they will prob crash as well
+        mutatedActionSequences.add(actionSequence);
+
+        // make new action sequences
+        // check every one of them
+        for (int charIndex = 0; charIndex < actionSequence.length(); charIndex++) {
+            char initialChar = actionSequence.charAt(charIndex);
+            for (char newChar : validChar) {
+                if (newChar != initialChar) {
+                    // * Get new action sequence
+                    // copy old action sequence and replace the char at the given index
+                    StringBuilder builder = new StringBuilder(actionSequence);
+                    builder.setCharAt(charIndex, newChar);
+                    String alteredActionSequence = builder.toString();
+                    // * Check new action sequence. If check is passed, write away
+                    if (checkActionSequence(alteredActionSequence, true, true)) {
+                        mutatedActionSequences.add(alteredActionSequence);
+                    }
+                }
+            }
+        }
+
+        return mutatedActionSequences;
+    }
+
+    /**
+     * This method checks if the given action sequence is valid.
+     *
+     * @param alteredActionSequence
+     *         The action sequence to check.
+     * @param atLeastOneExitCheck
+     *         True if the action sequence should contain at least one exit.
+     * @param startWithExitOrQuitCheck
+     *         True if the action sequence needs to pass following check: if it has one or multiple 'S', there should
+     *         not be one or more 'S' without at least one 'Q' or 'E' later on in the string.
+     *
+     * @return True if the action sequence is valid, for the performed checks.
+     */
+    private static boolean checkActionSequence(String alteredActionSequence, boolean atLeastOneExitCheck, boolean startWithExitOrQuitCheck) {
+        // check if it contains at least one exit
+        boolean atLeastOneExit = true;
+        if (atLeastOneExitCheck) { // if we have to check
+            if (!alteredActionSequence.contains("E")) { // does not contain one
+                atLeastOneExit = false;
+            }
+        }
+
+        // check pairs
+        boolean startWithExitOrQuit = true;
+        if (startWithExitOrQuitCheck) { // if we have to check
+            int indexS = -1; // assume there is no s present, then stays true
+            while ((indexS = alteredActionSequence.indexOf("S", indexS + 1)) != -1) {// if one or more s is present, check if there is an e after it. If there is, return false. Otherwise, return true.
+                int indexE = alteredActionSequence.indexOf("E", indexS + 1); // look for and E from the character after that S.
+                int indexQ = alteredActionSequence.indexOf("Q", indexS + 1); // look for an Q from the character after that S.
+                if ((indexQ == -1) && (indexE == -1)) { // this current s does not have an e or q after it. no need to check other s.
+                    startWithExitOrQuit = false;
+                }
+            }
+        }
+
+        return atLeastOneExit && startWithExitOrQuit;
+    }
+
 }

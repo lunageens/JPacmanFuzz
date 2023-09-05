@@ -112,6 +112,22 @@
                         the application could
                         recognize an invalid input and
                         rejected it.
+
+                        If the JPacman program returns any other response code, this is registered as <a
+                            href="#ExitCode-1">exit
+                                               code -1</a>. Note that the fuzzing program itself also categorizes
+                        certain inputs as -1 to avoid crashes.
+                        This is always indicated with a corresponding output message. For example, an action sequence
+                        and map that
+                        lets the player move to a wall cell will always let the program crash and thus return the exit
+                        code 1. Therefore,
+                        the fuzzing program checks (for certain customActionSequenceNr configurations) whether the
+                        inputs would result
+                        in invalid moves before sending the inputs to the JPacman application. If this is the case, the
+                        input will get exit code
+                        -1 and output message "Invalid move". Note that the fuzzing application will not send those
+                        inputs to the JPacman application.
+                        This is to speed up the fuzzing process.
                     </div>
                 </article>
             </div>
@@ -152,26 +168,26 @@
             </div>
             <div class="level-item has-text-centered has-text-info">
                 <div>
-                    <p class="has-text-weight-bold">Accepted</p>
+                    <p class="has-text-weight-bold is-clickable" href="#ExitCode0">Accepted</p>
                     <p class="title has-text-info-dark" id="Percentage0">0%</p>
                 </div>
             </div>
             <div class="level-item has-text-centered has-text-info">
                 <div>
-                    <p class="has-text-weight-bold">Crashed</p>
+                    <p class="has-text-weight-bold is-clickable" href="#ExitCode1">Crashed</p>
                     <p class="title has-text-info-dark" id="Percentage1">0%</p>
                 </div>
             </div>
             <div class="level-item has-text-centered has-text-info">
                 <div>
-                    <p class="has-text-weight-bold">Rejected</p>
+                    <p class="has-text-weight-bold is-clickable" href="#ExitCode10">Rejected</p>
                     <p class="title has-text-info-dark" id="Percentage10">0%</p>
                 </div>
             </div>
             <div class="level-item has-text-centered has-text-info">
                 <div>
-                    <p class="has-text-weight-bold">Unknown</p>
-                    <p class="title has-text-info-dark" id="Percentage-1">{{PercentageUnknown}}</p>
+                    <p class="has-text-weight-bold is-clickable" href="#ExitCode-1">Unknown</p>
+                    <p class="title has-text-info-dark" id="Percentage-1">0%</p>
                 </div>
             </div>
         </div>
@@ -226,7 +242,7 @@
                 <!-- * Add progress bar line here -->
                 {{ProgressBar10}}
                 <h1 class="title has-text-info">Exit code 10: Rejected by the Jpacman application</h1>
-                <h2 class="subtitle">There are several output messages.</h2>
+                <h2 class="subtitle">There are several output messages, coming from the Jpacman application.</h2>
 
                 <div class="navbar mb-0 mx-0 px-0">
                     <!-- * Add different buttons here -->
@@ -239,6 +255,28 @@
                 {{TitlesAndCards10}}
             </div>
         </div>
+
+        <div id="TotalExitCode-1" class="field">
+            <br>
+            <section id="ExitCode-1" class="section mt-6 mb-0 pb-0">
+                <!-- * Add progress bar line here -->
+                {{ProgressBarMinus1}}
+                <h1 class="title has-text-info">Exit code -1: Unknown by the Jpacman application</h1>
+                <h2 class="subtitle">There are several output messages, coming from the fuzzing program itself to avoid
+                                     crashes.</h2>
+
+                <div class="navbar mb-0 mx-0 px-0">
+                    <!-- * Add different buttons here -->
+                    {{ButtonsMinus1}}
+                </div>
+            </section>
+
+            <!-- * Add each title + cards here -->
+            <div id="ExitCode-1Cards" class="field">
+                {{TitlesAndCardsMinus1}}
+            </div>
+        </div>
+
     </div>
 
     <!-- Footer -->
@@ -282,10 +320,12 @@
         localStorage.setItem("hideMessage", "true");
     }
 
+    // Calculate sum of total cards visible
     function calculateSum(allCounts) {
         const sum = 0;
 
         // * Get unknown percentage
+        // ! Heb dit nog even laten staan maar in principe dus allemaal niet meer nodig
         const texts = document.querySelectorAll('p[id^="Percentage"]');
         const percentages = [];
         texts.forEach((text, index) => {
@@ -303,7 +343,7 @@
 
         const sumUnknown = (sumOthers / percentageOthers) * percentageUnknown;
 
-        return sumUnknown + sumOthers;
+        return sumOthers + allCounts[3]
     }
 
     // Function to filter cards based on selected option
@@ -401,8 +441,8 @@
         // * 3. For each output message, calculate total sum and adjust progress bar, subsections and buttons accordingly (Works.)
         // if sum is = 0: hide button, percentage and whole section
         // if sum != 0: display button, percentage and whole section
-        const visibleOutputMessagesPercentageId = [];
-        const visibleOutputMessagesPercentage = [];
+        const visibleOutputMessages10PercentageId = [];
+        const visibleOutputMessages10Percentage = [];
         // for each output section, display field is needed. adjust progress bar in that field. display button if needed.
         exitCode10OutputFields.forEach((field, index) => {
             // calculate the total percentage of this output message in comparison to all cards of this fuzz attempt
@@ -415,8 +455,8 @@
             progressbar.textContent = `${Math.round(percentage)}%`;
             // for percentage in the box above, store all ids and percentages
             const idPercentage = "Percentage" + field.id;
-            visibleOutputMessagesPercentageId.push(idPercentage);
-            visibleOutputMessagesPercentage.push(percentage);
+            visibleOutputMessages10PercentageId.push(idPercentage);
+            visibleOutputMessages10Percentage.push(percentage);
             // display the progress bar and sections if needed.
             if (count > 0) {
                 field.style.display = "block";
@@ -427,22 +467,16 @@
             }
         });
         // adjust percentages above
-        const allPercentagesTotal = document.querySelector('div[id="OutputMessagesPercentages"]');
-        console.log(allPercentagesTotal)
-        const allPercentages = Array.from(allPercentagesTotal.children);
-        console.log(allPercentages);
-        allPercentages.forEach(levelItem => {
-            console.log(levelItem);
+        const allPercentages10Total = document.querySelector('div[id="OutputMessagesPercentages"]');
+        const allPercentages10 = Array.from(allPercentages10Total.children);
+        allPercentages10.forEach(levelItem => {
             const titleElement = levelItem.querySelector('.title');
             const titleId = titleElement.id;
-            console.log(titleId)
             // Check if the title id is present in the list visibleOutputMessagesPercentageId
-            const index = visibleOutputMessagesPercentageId.indexOf(titleId);
-            console.log(index);
+            const index = visibleOutputMessages10PercentageId.indexOf(titleId);
             if (index !== -1) {
                 // Get the corresponding percentage from the list visibleOutputMessagesPercentage
-                const percentage = visibleOutputMessagesPercentage[index];
-                console.log(percentage)
+                const percentage = visibleOutputMessages10Percentage[index];
                 // Set the text content of the title element to the rounded percentage with %
                 titleElement.textContent = Math.round(percentage) + '%';
             } else {
@@ -451,13 +485,78 @@
             }
         });
         // * 4. If total count of exit code 10 cards is 0, do not display the output messages percentages and output buttons.
-        const allPercentagesTotalBox = allPercentagesTotal.parentElement;
+        const allPercentages10TotalBox = allPercentages10Total.parentElement;
         if (exitCode10Count === 0) {
-            allPercentagesTotalBox.style.display = "none";
+            allPercentages10TotalBox.style.display = "none";
             exitCode10Navbar.style.display = "none";
         } else {
-            allPercentagesTotalBox.style.display = "block";
-            exitCode10Navbar.style.display = "in-line"; // ! In-line, otherwise buttons will display below each other.
+            allPercentages10TotalBox.style.display = "block";
+            exitCode10Navbar.style.display = "flex"; // ! Flex, otherwise buttons will display below each other.
+        }
+
+        // *  For exit Code -1, let's count per output message. Adjust subsections (including progress bars)
+        // * and buttons according to the percentages. If count -1 > 0, display those.
+        const exitCodeMinus1Section = sections[3]; // Full exit code 10 section
+        const exitCodeMinus1Count = allCounts[3]; // Total amount of exit code 10 visible cards
+        // * 1. Find total field of each output message
+        const exitCodeMinus1Navbar = exitCodeMinus1Section.querySelector('.navbar') // All Buttons in section below exit code 10 title as one
+        const exitCodeMinus1OutputButtons = exitCodeMinus1Navbar.children;
+        const exitCodeMinus1Total = exitCodeMinus1Section.querySelector('div[id="ExitCode-1Cards"]'); // All sections + cards of each output message, their id is Output message id
+        const exitCodeMinus1Fields = Array.from(exitCodeMinus1Total.children); // Also includes no cards message + div for each output with as id output message, and then section with progress bar and cards
+        // Get only fields and not the <br>
+        const exitCodeMinus1NoLinesFields = [];
+        exitCodeMinus1Fields.forEach(field => {
+            if (field.className === "field") {
+                exitCodeMinus1NoLinesFields.push(field);
+            }
+        });
+        // Get only cards that are not no cards message
+        const exitCodeMinus1OutputFields = []; // All fields without no cards
+        Array.from(exitCodeMinus1NoLinesFields).forEach(field => {
+            if (!(field.id.endsWith("NoCards"))) {
+                exitCodeMinus1OutputFields.push(field);
+            }
+        });
+        // * 2. Count cards per output message
+        const exitCodeMinus1Counts = [];
+        exitCodeMinus1OutputFields.forEach((field, index) => {
+            let visibleCount = 0;
+            let allCardsOutputMessageField = field.querySelectorAll('.field'); // Here no worries about card with no .
+            Array.from(allCardsOutputMessageField).forEach(field => {
+                if (!((field.style.display === "none") || (field.style.display === ""))) {
+                    visibleCount++;
+                }
+            });
+            // ! Counts hidden cards but also fields around it (no display changes) --> or condition
+            exitCodeMinus1Counts.push(visibleCount);
+        });
+        // * 3. For each output message, calculate total sum and adjust progress bar, subsections and buttons accordingly (Works.)
+        // if sum is = 0: hide button, percentage and whole section
+        // if sum != 0: display button, percentage and whole section
+        // for each output section, display field is needed. adjust progress bar in that field. display button if needed.
+        exitCodeMinus1OutputFields.forEach((field, index) => {
+            // calculate the total percentage of this output message in comparison to all cards of this fuzz attempt
+            const count = exitCodeMinus1Counts[index];
+            const percentage = (count / sum) * 100;
+            const button = exitCodeMinus1OutputButtons[index];
+            // adjust progressbar % of this output message first
+            const progressbar = field.querySelector('.progress');
+            progressbar.value = percentage;
+            progressbar.textContent = `${Math.round(percentage)}%`;
+            // display the progress bar and sections if needed.
+            if (count > 0) {
+                field.style.display = "block";
+                button.style.display = "block";
+            } else {
+                field.style.display = "none";
+                button.style.display = "none";
+            }
+        });
+        // * 4. If total count of exit code 10 cards is 0, do not display the output buttons.
+        if (exitCodeMinus1Count === 0) {
+            exitCodeMinus1Navbar.style.display = "none";
+        } else {
+            exitCodeMinus1Navbar.style.display = "flex"; // ! Flex, otherwise buttons will display below each other.
         }
     }
 

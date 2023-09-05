@@ -1,0 +1,8 @@
+PWM
+0MW
+FWM
+WW0
+W0W
+W00
+0WW
+M0M

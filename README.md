@@ -31,8 +31,11 @@ Update the configuration file with the desired settings (see "Configuration" sec
 ### Configuration
 The configuration file (config.properties) allows you to customize various aspects of the fuzzing process. You can modify the following settings:
 
-- customMaps: Specifies the index number of custom map files group to be used instead of using the random generator.
-- customSequences: Specifies the index number of action sequence strings group to be used instead of using the random generator. 
+- customMapsNr: Specifies the index number of custom map files group to be used instead of using the random generator.
+- customSequencesNr: Specifies the index number of action sequence strings group to be used instead of using the random
+  generator.
+- combineCustomMapsAndSequences: Each custom map is tested with the original action sequence and vice versa. Only to be
+  used when fuzzing mutational. Valid values: true, false. Default: false.
 - fileType: Specifies the type of map files to be generated. Valid values: TEXT, BINARY, ALL. Default: ALL
 - resultPath: Specifies the path to store the fuzzing results. Default: fuzzresults
 - logFilePath: Specifies the path to store the log files. Default: logs
@@ -41,6 +44,8 @@ The configuration file (config.properties) allows you to customize various aspec
 - mapFilePath: Specifies the path to store the generated map files. Default: maps
 - cleanDirectories: Specifies whether to clean directories before running the fuzzing process. Valid values: true, false. Default: true
 - maxIterations: Specifies the maximum number of iterations for the fuzzing process. Default: 100
+- maxCustomIterations: Specified whether the maxIterations should be ignored, and the number of custom maps and
+  sequences should be used instead. Only to be used when fuzzing mutational. Valid values: true, false. Default: false.
 - maxTime: Specifies the maximum time budget for the fuzzing process in milliseconds. Default: 900000 (15 minutes)
 - maxTimeIteration: Specifies the maximum time budget for the pacman process in milliseconds. Default: 60000 (1 minute).
 - maxTextMapHeight: Specifies the maximum height of the generated text-based maps. Default: 20
@@ -73,7 +78,9 @@ The Fuzzer was developed by Luna Geens as a project for the Software Testing cou
 We would like to express our gratitude to the creators of JPacman for providing an excellent application to test and fuzz.
 
 ## *Lessons learned about the JPacman project*
-The directory fuzzresults_lessons includes some interesting conclusions about valid input for the JPacman application and are explained in the Pseudocode.markdown file.
+
+The directory fuzzresults_lessons includes some interesting conclusions about valid input for the JPacman application
+and are explained in the HTML report. 
 
 
 

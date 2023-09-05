@@ -14,7 +14,6 @@
 <body>
 <div class="container is-fluid" id="main-container">
 
-
     <!-- Section above with breadcrumbs, header and navigation bar -->
     <div class="hero has-background-white mb-0 pb-0">
         <div class="hero-body py-1 pb=1">
@@ -154,6 +153,20 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="column is-narrow is-gapless">
+                                        <div class="navbar-item is-small is-marginless">
+                                            <div class="button is-info is-light is-rounded max-1">
+                                                <a href="#Fuzz6Text">Conclusion manual testing</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="column is-narrow is-gapless">
+                                        <div class="navbar-item is-small is-marginless">
+                                            <div class="button is-info is-light is-rounded max-1">
+                                                <a href="#Fuzz7Text">Conclusion mutational testing</a>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -221,7 +234,7 @@
                                             maxIterations
                                         </div>
                                         <div class="tag  is-info is-light">
-                                            1000
+                                            1 000
                                         </div>
                                     </div>
                                 </div>
@@ -231,7 +244,7 @@
                                             maxTime
                                         </div>
                                         <div class="tag is-info is-light">
-                                            9000
+                                            900 000 (15 min)
                                         </div>
                                     </div>
                                 </div>
@@ -253,7 +266,9 @@
                         <p>
                             The results are stored in the <a
                                 class="is-family-code is-rounded tag has-background-info-light"
-                                href="/fuzzresults_lessons/fuzz1_binary">fuzz1_binary</a> directory. Running the Fuzz
+                                href="/fuzzresults_lessons/fuzz1_binary">
+                            fuzz1_binary</a>
+                            directory. Running the Fuzz
                             class with the right configurations would give u something like shown in the above figure.
                             Open the binary files in a binary editor like <a class="is-link"
                                                                              href="https://mh-nexus.de/en/hxd/">HxD</a>
@@ -323,7 +338,7 @@ if(file has no lines)
                 <div class="card-content">
                     <div class="content has-text-justified">
                         <h1 class="title has-text-info">
-                            Fuzz 2: File content ~ Known ASCII characters
+                            Fuzz 2: Manual random testing of map file content with known ASCII characters
                         </h1>
                         <a class="has-text-weight-bold has-text-info">
                             Context
@@ -389,7 +404,7 @@ if(file has no lines)
                                             maxTime
                                         </div>
                                         <div class="tag is-info is-light">
-                                            90000
+                                            900 000 (15 min)
                                         </div>
                                     </div>
                                 </div>
@@ -523,7 +538,7 @@ if(the map does not contain character F)
                 <div class="card-content">
                     <div class="content has-text-justified">
                         <h1 class="title has-text-info">
-                            Fuzz 3: Valid (binary) file types
+                            Fuzz 3: Manual random testing of map file types
                         </h1>
                         <a class="has-text-weight-bold has-text-info">
                             Context
@@ -668,7 +683,7 @@ if(the map does not contain character F)
                                             maxBinaryMapSize
                                         </div>
                                         <div class="tag is-info is-light">
-                                            5000
+                                            5 000
                                         </div>
                                     </div>
                                 </div>
@@ -889,7 +904,7 @@ if(the map does not contain character F)
                 <div class="card-content">
                     <div class="content has-text-justified">
                         <h1 class="title has-text-info">
-                            Fuzz 4: File content ~ No player set, no food, map form
+                            Fuzz 4: Manual random testing of file content with valid characters
                         </h1>
                         <a class="has-text-weight-bold has-text-info">
                             Context
@@ -979,7 +994,7 @@ if(the map does not contain character F)
                                             maxTime
                                         </div>
                                         <div class="tag is-info is-light">
-                                            900 000
+                                            900 000 (15 min)
                                         </div>
                                     </div>
                                 </div>
@@ -1636,25 +1651,25 @@ if(the map does not contain character F)
                         <pre>
 if(file has not any permission)
     cannot do input in terminal
- if(file is compressed,not encoded with UTF-8,  encrypted, write-only, or from an invalid data type (pdf, excel or multi-line binary))
+if(file is compressed,not encoded with UTF-8,  encrypted, write-only, or from an invalid data type (pdf, excel or multi-line binary))
     reject(Error reading file by ReadAllLines)
- if(file is .csv, .html, .xml, .corrupted or multi-line .dat) || (the map does not contain valid characters (M, W, F, P))
+if(file is .csv, .html, .xml, .corrupted or multi-line .dat) || (the map does not contain valid characters (M, W, F, P))
     reject(unknown character)
- if(file is empty)
+if(file is empty)
     reject(No lines)
 if(first line is empty)
-	reject(No columns)
+    reject(No columns)
 if(first line brings the total count of P characters to more than one)
-	reject(More than one player)
+    reject(More than one player)
 for each (line : lines in the map file)
-	if(line is shorter than first line)
-	if(line is longer than first line)
-		reject(Widths Mismatch)
-	if(line brings the total count of P characters to more than one)
-		reject(More than one player)
- if(the map does not contain character P)
+    if(line is shorter than first line)
+    if(line is longer than first line)
+        reject(Widths Mismatch)
+    if(line brings the total count of P characters to more than one)
+        reject(More than one player)
+if(the map does not contain character P)
     reject(No player is set)
- if(the map does not contain character F)
+if(the map does not contain character F)
     reject(No food)
  else
     accept
@@ -1672,7 +1687,7 @@ for each (line : lines in the map file)
                 <div class="card-content">
                     <div class="content has-text-justified">
                         <h1 class="title has-text-info">
-                            Fuzz 5: Valid action sequences
+                            Fuzz 5: Manual random testing of action sequences
                         </h1>
                         <a class="has-text-weight-bold has-text-info">
                             Context
@@ -1681,6 +1696,7 @@ for each (line : lines in the map file)
                             Using customMaps 7 and a correct action sequence string will always result in acceptation.
                             It is now time to look at the action sequences. We know from the explanation that the only
                             valid characters are the following:
+
                         <ul>
                             <li>E: Exit the game.</li>
                             <li>Q: Quit the game.</li>
@@ -1694,7 +1710,7 @@ for each (line : lines in the map file)
                         </p>
                         <br>
                         <a class="has-text-weight-bold has-text-info">
-                            Fuzz Attempt Number 1
+                            Fuzz Attempt Number 1: Always one exit
                         </a>
                         <p>
                             Let's see which sequences of characters result in acceptation.
@@ -1737,7 +1753,7 @@ for each (line : lines in the map file)
                                 <div class="control">
                                     <div class="tag is-small has-addons is-paddingless">
                                         <div class="tag is-info">
-                                            maxActionSequence
+                                            maxActionSequenceLength
                                         </div>
                                         <div class="tag is-info is-light">
                                             4
@@ -1750,7 +1766,7 @@ for each (line : lines in the map file)
                                             maxTimeIteration
                                         </div>
                                         <div class="tag is-info is-light">
-                                            60 000
+                                            60 000 (1 min)
                                         </div>
                                     </div>
                                 </div>
@@ -1760,7 +1776,7 @@ for each (line : lines in the map file)
                                             maxTime
                                         </div>
                                         <div class="tag is-info is-light">
-                                            9000000
+                                            900 000 (15 min)
                                         </div>
                                     </div>
                                 </div>
@@ -1790,7 +1806,7 @@ for each (line : lines in the map file)
                                             maxIterations
                                         </div>
                                         <div class="tag is-info is-light">
-                                            4096
+                                            4 096
                                         </div>
                                     </div>
                                 </div>
@@ -1798,13 +1814,31 @@ for each (line : lines in the map file)
                         </div>
                         </p>
                         <p>
-                            The method RandomActionSequenceGenerator.generateAllPossibleCombinations() generates a list
+                            The method
+                            <a
+                                    class="is-family-code is-rounded tag has-background-info-light"
+                                    href="/src/main/java/randomGenerators/RandomActionSequenceGenerator.java">
+                                RandomActionSequenceGenerator.generateAllPossibleCombinations()
+                            </a>
+                            generates a list
                             of all possible combinations to be made of these eight characters, for a certain length.
                             Let's first try 4 characters at the same time. The first run I noticed that some strings
                             slowed down the whole process immensely because the JPacman application got stuck and
                             therefore the Fuzzer also remained in that iteration without any process. This is why I
-                            added the TimeHandler class, that stops the JPacman process after a certain time. That time
-                            is specified in the configurations file, namely under maxIterationTime. When that time is
+                            added the
+                            <a
+                                    class="is-family-code is-rounded tag has-background-info-light"
+                                    href="/src/main/java/ProcessTimeOutHandler.java">
+                                ProcessTimeOutHandler
+                            </a>
+                            class, that stops the JPacman process after a certain time. That time
+                            is specified in the
+                            <a
+                                    class="is-family-code is-rounded tag has-background-info-light"
+                                    href="/configs/Configurations.properties">
+                                configurations
+                            </a>
+                            file, namely under maxIterationTime. When that time is
                             reached, the iteration result will get exit code -1 and output message "Time of iteration
                             reached". During the first run, i also noticed that over 4000 iterations was too many for my
                             memory to handle. This is why i also tried combinations of three characters first. To be
@@ -1846,7 +1880,7 @@ for each (line : lines in the map file)
                                 <div class="control">
                                     <div class="tag is-small has-addons is-paddingless">
                                         <div class="tag is-info">
-                                            maxActionSequence
+                                            maxActionSequenceLength
                                         </div>
                                         <div class="tag is-info is-light">
                                             3
@@ -1859,7 +1893,7 @@ for each (line : lines in the map file)
                                             maxTimeIteration
                                         </div>
                                         <div class="tag is-info is-light">
-                                            6 000
+                                            60 000 (1 min)
                                         </div>
                                     </div>
                                 </div>
@@ -1869,7 +1903,7 @@ for each (line : lines in the map file)
                                             maxTime
                                         </div>
                                         <div class="tag is-info is-light">
-                                            900 000
+                                            900 000 (15 min)
                                         </div>
                                     </div>
                                 </div>
@@ -1906,11 +1940,21 @@ for each (line : lines in the map file)
                             </div>
                         </div>
                         <br>
+                        <p>
+                            I have noticed that strings that do not contain at least one 'E' (Exit) always crash.
+                        </p>
+                        <br>
                         <a class="has-text-weight-bold has-text-info">
-                            Fuzz Attempt Number 4
+                            Fuzz Attempt Number 4: Pairs of S and Q/E
                         </a>
                         <p>
-                            This is why we make an additional check in the generateAllPossibleCombinations() method,
+                            This is why we make an additional check in the
+                            <a
+                                    class="is-family-code is-rounded tag has-background-info-light"
+                                    href="/src/main/java/randomGenerators/RandomActionSequenceGenerator.java">
+                                generateAllPossibleCombinations()
+                            </a>
+                            method,
                             called atLeastOneExitCheck, that is set to true for customSequence 4. There will be less
                             combinations, which is why i decreased the maxIterations. I also noticed that 10 seconds per
                             iteration might be a bit too optimistic, since a lot of the iteration results actually got
@@ -1954,7 +1998,7 @@ for each (line : lines in the map file)
                                 <div class="control">
                                     <div class="tag is-small has-addons is-paddingless">
                                         <div class="tag is-info">
-                                            maxActionSequence
+                                            maxActionSequenceLength
                                         </div>
                                         <div class="tag is-info is-light">
                                             3
@@ -1967,7 +2011,7 @@ for each (line : lines in the map file)
                                             maxTimeIteration
                                         </div>
                                         <div class="tag is-info is-light">
-                                            50 000
+                                            60 000 (1 min)
                                         </div>
                                     </div>
                                 </div>
@@ -1977,7 +2021,7 @@ for each (line : lines in the map file)
                                             maxTime
                                         </div>
                                         <div class="tag is-info is-light">
-                                            900 000
+                                            900 000 (15 min)
                                         </div>
                                     </div>
                                 </div>
@@ -2018,33 +2062,48 @@ for each (line : lines in the map file)
                             Let's see which action sequences still crash.
                         <ul>
                             <li>
-                                If there is a start ('S') without a quit ('Q') or an exit ('E'), the program crashes as
-                                well.
+                                Every start ('S') can be ended with an exit ('E') or a quit ('Q').
                             </li>
-                            <li>
-                                Everything that is not in between one pair of 'S' and 'E' gets ignored. For example,
-                                'SEU'
-                                gets ignored (even when this would cause the player to move up and out of bounds of the
-                                map), but 'SES' results in a crash because a new 'S' is started but not terminated with
-                                a
-                                quit ('Q') or an exit ('E').
+                        <li>
+                            Everything that is not in between one pair of 'S' and 'E' or 'Q' gets ignored. For
+                            example,
+                            'SEU' gets ignored (the player does not move up in any case), but 'SES' results in a
+                            crash
+                            because a new 'S' is started but not terminated with an exit ('E').
+                        </li>
+                        <li>
+                            One could state that therefore, every 'S' needs to be accompanied by a 'Q' or 'E'.
+                            However, this is not true for an S that is within another Start-Exit pair. This S gets
+                            ignored. For example, in the valid action sequence S - U - S - D - E - R - E: the player
+                            will move up and down, but will not move to the right. The same is true for the valid action
+                            sequence S - U - S - D - E - R: the player moves up and down, but not to the right. The
+                            second
+                            S does not need another E because it is placed within the first SE pair. In contradiction,
+                            the valid action sequence S - UD - E - S - R - E will result in the player moving up, down,
+                            and
+                            to the right. If we take away the second exit action here (S - UD - E- S - R), the program
+                            would crash. The second S is not ignored since it is placed after the first Start-Exit pair.
+                        </li>
+                        <li>
+                            Although all previous examples are illustrated with exit actions, the same holds for quit.
                             </li>
                         </ul>
                         </p>
                         <br>
                         <a class="has-text-weight-bold has-text-info">
-                            Fuzz Attempt Number 7
+                            Fuzz Attempt Number 7: Valid executed actions
                         </a>
                         <p>
                             There are thus "valid substring(s)" within the actual action sequence, that are the only
                             characters that get executed. To fullfill the requirement of each 'S' having an 'E', the
                             boolean startWithExitCheck was introduced as an additional parameter of the
-                            generateAllPossibleCombinations() method. Let's also lenghten our action sequences a bit. To
+                            <a
+                                    class="is-family-code is-rounded tag has-background-info-light"
+                                    href="/src/main/java/randomGenerators/RandomActionSequenceGenerator.java">
+                                generateAllPossibleCombinations()
+                            </a>
+                            method. Let's also lenghten our action sequences a bit. To
                             try this out, configurate the fuzzer as followed:
-                            Configure the <a
-                                class="is-family-code is-rounded tag has-background-info-light"
-                                href="/configs/Configuration.properties">Configuration.properties</a>
-                            file as followed:
                         <div class="levels">
                             <div class="field is-grouped is-grouped-multiline">
                                 <div class="control">
@@ -2080,7 +2139,7 @@ for each (line : lines in the map file)
                                 <div class="control">
                                     <div class="tag is-small has-addons is-paddingless">
                                         <div class="tag is-info">
-                                            maxActionSequence
+                                            maxActionSequenceLength
                                         </div>
                                         <div class="tag is-info is-light">
                                             4
@@ -2093,7 +2152,7 @@ for each (line : lines in the map file)
                                             maxTimeIteration
                                         </div>
                                         <div class="tag is-info is-light">
-                                            60 000
+                                            60 000 (1 min)
                                         </div>
                                     </div>
                                 </div>
@@ -2103,7 +2162,7 @@ for each (line : lines in the map file)
                                             maxTime
                                         </div>
                                         <div class="tag is-info is-light">
-                                            900 000
+                                            900 000 (15 min)
                                         </div>
                                     </div>
                                 </div>
@@ -2182,7 +2241,7 @@ for each (line : lines in the map file)
                                 <div class="control">
                                     <div class="tag is-small has-addons is-paddingless">
                                         <div class="tag is-info">
-                                            maxActionSequence
+                                            maxActionSequenceLength
                                         </div>
                                         <div class="tag is-info is-light">
                                             5
@@ -2195,7 +2254,7 @@ for each (line : lines in the map file)
                                             maxTimeIteration
                                         </div>
                                         <div class="tag is-info is-light">
-                                            60 000
+                                            60 000 (1 min)
                                         </div>
                                     </div>
                                 </div>
@@ -2205,7 +2264,7 @@ for each (line : lines in the map file)
                                             maxTime
                                         </div>
                                         <div class="tag is-info is-light">
-                                            900 000
+                                            900 000 (15 min)
                                         </div>
                                     </div>
                                 </div>
@@ -2257,10 +2316,16 @@ for each (line : lines in the map file)
                         </p>
                         <br>
                         <a class="has-text-weight-bold has-text-info">
-                            Fuzz Attempt Number 11
+                            Fuzz Attempt Number 11: Some unsolved crashes
                         </a>
                         <p>
-                            Therefore, some methods were introduced in the IterationResult class to check if all moves
+                            Therefore, some methods were introduced in the
+                            <a
+                                    class="is-family-code is-rounded tag has-background-info-light"
+                                    href="/src/main/java/outputProviders/IterationResult.java">
+                                IterationResult
+                            </a>
+                            class to check if all moves
                             of a particular action sequence on a particular map are valid. One could try to introduce
                             this within our previous configuration:
                         <div class="levels">
@@ -2298,7 +2363,7 @@ for each (line : lines in the map file)
                                 <div class="control">
                                     <div class="tag is-small has-addons is-paddingless">
                                         <div class="tag is-info">
-                                            maxActionSequence
+                                            maxActionSequenceLength
                                         </div>
                                         <div class="tag is-info is-light">
                                             5
@@ -2311,7 +2376,7 @@ for each (line : lines in the map file)
                                             maxTimeIteration
                                         </div>
                                         <div class="tag is-info is-light">
-                                            50 000
+                                            60 000 (1 min)
                                         </div>
                                     </div>
                                 </div>
@@ -2321,7 +2386,7 @@ for each (line : lines in the map file)
                                             maxTime
                                         </div>
                                         <div class="tag is-info is-light">
-                                            900 000
+                                            900 000 (15 min)
                                         </div>
                                     </div>
                                 </div>
@@ -2351,7 +2416,7 @@ for each (line : lines in the map file)
                                             maxIterations
                                         </div>
                                         <div class="tag is-info is-light">
-                                            1000
+                                            1 000
                                         </div>
                                     </div>
                                 </div>
@@ -2398,7 +2463,7 @@ for each (line : lines in the map file)
                                 <div class="control">
                                     <div class="tag is-small has-addons is-paddingless">
                                         <div class="tag is-info">
-                                            maxActionSequence
+                                            maxActionSequenceLength
                                         </div>
                                         <div class="tag is-info is-light">
                                             5
@@ -2411,7 +2476,7 @@ for each (line : lines in the map file)
                                             maxTimeIteration
                                         </div>
                                         <div class="tag is-info is-light">
-                                            60 000
+                                            60 000 (1 min)
                                         </div>
                                     </div>
                                 </div>
@@ -2421,7 +2486,7 @@ for each (line : lines in the map file)
                                             maxTime
                                         </div>
                                         <div class="tag is-info is-light">
-                                            900 000
+                                            900 000 (15 min)
                                         </div>
                                     </div>
                                 </div>
@@ -2451,7 +2516,7 @@ for each (line : lines in the map file)
                                             maxIterations
                                         </div>
                                         <div class="tag is-info is-light">
-                                            1000
+                                            1 000
                                         </div>
                                     </div>
                                 </div>
@@ -2472,7 +2537,13 @@ for each (line : lines in the map file)
                             Limitations and Results
                         </a>
                         <p>
-                            The results are stored in the last fuzzlessons directory.
+                            The results are stored in the
+                            <a
+                                    class="is-family-code is-rounded tag has-background-info-light"
+                                    href="/fuzzlessons/fuzz5_validActionSequences">
+                                fuzz5_validActionSequences
+                            </a>
+                            directory.
                             The causes of these above-mentioned crashes remains unclear. One could also test mixes of
                             incorrect maps and sequences, or action sequences that are very long or empty. On top of
                             that, one could apply mutational fuzzing on the JPacman application.
@@ -2484,11 +2555,11 @@ for each (line : lines in the map file)
                         <pre>
 if(file has not any permission)
     cannot do input in terminal
- if(file is compressed,not encoded with UTF-8,  encrypted, write-only, or from an invalid data type (pdf, excel or multi-line binary))
+if(file is compressed,not encoded with UTF-8,  encrypted, write-only, or from an invalid data type (pdf, excel or multi-line binary))
     reject(Error reading file by ReadAllLines)
- if(file is .csv, .html, .xml, .corrupted or multi-line .dat) || (the map does not contain valid characters (M, W, F, P))
+if(file is .csv, .html, .xml, .corrupted or multi-line .dat) || (the map does not contain valid characters (M, W, F, P))
     reject(unknown character)
- if(file is empty)
+if(file is empty)
     reject(No lines)
 if(first line is empty)
     reject(No columns)
@@ -2500,13 +2571,13 @@ for each (line : lines in the map file)
         reject(Widths Mismatch)
     if(line brings the total count of P characters to more than one)
         reject(More than one player)
- if(the map does not contain character P)
+if(the map does not contain character P)
     reject(No player is set)
- if(the map does not contain character F)
+if(the map does not contain character F)
     reject(No food)
-if(action sequence does not contain 'E' or 'Q')
+if(action sequence does not contain 'E')
     crash
-if(every 'S' in the action sequence does not have a corresponding 'E')
+if(every 'S' in the action sequence: (does not have a corresponding 'E') || (does not have a corresponding 'Q') || (is placed within another Start-Exit or Start-Quit pair))
     crash
 if(within every pair of 'S' and 'E', the player moves to a wall cell or out of bounds)
     crash
@@ -2518,6 +2589,579 @@ if(within every pair of 'S' and 'E', the player moves to a wall cell or out of b
             </div>
         </div>
     </div>
+
+    <br>
+    <div id="Fuzz6Fig" class="columns">
+        <div class="column">
+            <div class="notification is-info is-light">
+                <button class="delete is-small mr-2 mt-2"></button>
+                <div class="level mt-3">
+                    <div class="level-item">
+                        <div class="columns">
+                            <div class="column">
+                                <div class="image">
+                                    <img src="/fuzzresults_lessons/fuzz6_conclusionManualFuzzing/Results_ActionSequencesWithSW.png"
+                                         alt="Lessons fuzz 6">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="level">
+                    <div class="level-item">
+                        <figcaption class="content my-1 is-italic">
+                            Fig. 20: All crashes had an action sequence with 'SW' in it. However, most action sequences
+                            with 'SW' got accepted.
+                            Others got the exit code -1 because they contained an invalid move and thus would crash
+                            anyway.
+                        </figcaption>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="Fuzz6Text" class="columns">
+        <div class="column">
+            <div class="card">
+                <div class="card-content">
+                    <div class="content has-text-justified">
+                        <h1 class="title has-text-info">
+                            Fuzz 6: Conclusion on manual testing
+                        </h1>
+                        <a class="has-text-weight-bold has-text-info">
+                            Context
+                        </a>
+                        <p>
+                            The crashes that occur, often linked to the 'Start wait' (SW) command in action sequences,
+                            are unexplained. We need to acknowledge the limitations of our previous testing attempts as
+                            we dig deeper into the details.
+                        </p>
+                        <p>
+                            A key realization comes to light when we examine the setup using the customSequenceNr
+                            parameter set to 8. This setup involves creating a list of all possible actions sequence
+                            combinations. Those combinations grow exponentially in number when the
+                            maxActionSequenceLength increases. Soon, issues arise when this list becomes too large for
+                            the app's memory, causing it to crash with a 'java heap space' error. Even when there's
+                            enough memory available, the testing process unintentionally becomes skewed, focusing
+                            primarily on a specific subset of initial action combinations (namely, the first x items of
+                            the list, with x = maxIterations). Thus, even when we can test, we will always test the same
+                            action sequences.
+                        </p>
+                        <a class="has-text-weight-bold has-text-info">
+                            Configurations
+                        </a>
+                        <p>
+                            To gain a complete and unbiased understanding of these recurring crashes, we propose
+                            selecting random action sequences from the list without having to generate the entire list.
+                            This approach is made possible by introducing the customSequenceNr = 9 parameter, allowing
+                            us to test longer and more complex action sequences. In order to obtain a full image, we
+                            will also expand the dimensions of the map. Configure the <a
+                                class="is-family-code is-rounded tag has-background-info-light"
+                                href="/configs/Configuration.properties">Configuration.properties</a>
+                            file as followed:
+                        <div class="levels">
+                            <div class="field is-grouped is-grouped-multiline">
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            customMaps
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            7
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            customSequences
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            9
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            fileType
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            .txt
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            maxActionSequenceLength
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            10
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            maxTimeIteration
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            120 000 (2 min)
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            maxTime
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            600 000 (10 min)
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            maxWidth
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            10
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            maxHeight
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            10
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            maxIterations
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            1 000
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        As per the assignment's requirements, our fuzzer subjects the JPacman application to a series of
+                        random action sequences paired with valid maps over a 10-minute period. It is noteworthy that
+                        our initial 10-minute attempt resulted in only one crash. To expand our insights further, we
+                        repeated the process using the same parameters. Although we've set the maxIterations parameter
+                        to 1000, it's important to recognize this time constraint will most likely lead to the test
+                        concluding before reaching that maximum iteration count.
+                        </p>
+                        <a class="has-text-weight-bold has-text-info">
+                            Results
+                        </a>
+                        <br>
+                        <div class="columns is-vcentered">
+                            <div class="column">
+                                <figure>
+                                    <div class="columns">
+                                        <div class="column">
+                                            <img
+                                                    src="/fuzzresults_lessons/fuzz6_conclusionManualFuzzing/Fuzz1_Map131.png">
+                                        </div>
+                                    </div>
+                                    <figcaption>
+                                        Fig. 21: In the initial attempt of running the JPacman application, only one
+                                        input combination crashed.
+                                    </figcaption>
+                                </figure>
+                            </div>
+                            <div class="column">
+                                <figure>
+                                    <div class="columns">
+                                        <div class="column">
+                                            <img src="/fuzzresults_lessons/fuzz6_conclusionManualFuzzing/Fuzz2_Map140.png">
+                                        </div>
+                                        <div class="column">
+                                            <img src="/fuzzresults_lessons/fuzz6_conclusionManualFuzzing/Fuzz2_Map171.png">
+                                        </div>
+                                        <div class="column">
+                                            <img src="/fuzzresults_lessons/fuzz6_conclusionManualFuzzing/Fuzz2_Map206.png">
+                                        </div>
+                                    </div>
+                                    <figcaption>
+                                        Fig. 22: There were three crashes in the second fuzz attempt.
+                                    </figcaption>
+                                </figure>
+                            </div>
+                        </div>
+                        <br>
+                        <p>
+                            The logs from running the fuzzer twice with this particular configuration are saved within
+                            the directory
+                            <a class="is-family-code is-rounded tag has-background-info-light"
+                               href="/fuzzresults/fuzz6_conclusionManualFuzzing/logs">
+                                fuzz6_conclusionManualFuzzing/logs
+                            </a>
+                            .
+                            Additionally, the following maps are stored in
+                            <a class="is-family-code is-rounded tag has-background-info-light"
+                               href="/fuzzresults/fuzz6_conclusionManualFuzzing/maps">
+                                fuzz6_conclusionManualFuzzing/maps
+                            </a>
+                            : all crashed inputs, all inputs with exit code -1
+                            (since they would normally crash) and the accepted inputs that had an action sequence with
+                            'SW' in it. There were no rejected maps. In total, there were 553 combinations tested. We
+                            can see that all crashed has 'SW' in their action sequence, but not all action sequences
+                            that contain the start-wait actions crash.
+                        </p>
+                        <p>
+                            After extensively testing the JPacman application manually, I'm now focusing on solving
+                            those recurring crashes. Despite careful testing, some crashes still occur without clear
+                            reasons. I'm switching to mutational testing to address this. This approach automates input
+                            creation and explores a wider range of combinations, including ones that manual testing
+                            might miss. It's also faster. With mutational testing, I aim to uncover the reasons behind
+                            these crashes faster and ensure the JPacman application works reliably.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <div id="Fuzz7Fig" class="columns">
+        <div class="column">
+            <div class="notification is-info is-light">
+                <button class="delete is-small mr-2 mt-2"></button>
+                <div class="level mt-3">
+                    <div class="level-item">
+                        <div class="columns">
+                            <div class="column">
+                                <div class="image">
+                                    <img src="/fuzzresults_lessons/fuzz7_mutationalFuzzing/img/IdenticalInput_DifferentErrorCode.png"
+                                         alt="Lessons fuzz 7">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="level">
+                    <div class="level-item">
+                        <figcaption class="content my-1 is-italic">
+                            Fig. 23: The same inputs resulting in different exit codes: acceptance or a crash related to
+                            monster moves.
+                        </figcaption>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="Fuzz7Text" class="columns">
+        <div class="column">
+            <div class="card">
+                <div class="card-content">
+                    <div class="content has-text-justified">
+                        <h1 class="title has-text-info">
+                            Fuzz 7: Conclusion on mutational fuzzing
+                        </h1>
+                        <a class="has-text-weight-bold has-text-info">
+                            Context
+                        </a>
+                        <p>
+                            Throughout this process, we encountered unexplained crashes. To address these issues, we
+                            employed mutational fuzzing. Here's how it works:
+                        </p>
+                        <ul>
+                            <li>
+                                Initially, it takes an original action sequence and an original map, both of which were
+                                part of the four combinations that previously caused crashes.
+                            </li>
+                            <li>
+                                Firstly, we will mutate action sequences and maps. It starts changing things in the
+                                action sequence and checks if it still follows the rules (e.g. At least one exit). The
+                                fuzzer systematically modifies the action sequence by altering individual letters, such
+                                as changing it to any other valid action. For example, it might change the first letter
+                                from 'S' to 'E,' 'Q,' 'W,' and so on. It does this for all the letters in the action
+                                sequence, and all valid characters. It also changes characters in the map, like the
+                                player 'P' or other elements, and checks if the map still follows the rules (e.g. Still
+                                has only one player, at least one food). Again, this process is repeated for all letters
+                                on the map and all valid map characters. It creates a bunch of "mutated" action
+                                sequences and maps.
+                            </li>
+                            <li>
+                                Then, it pairs each mutated action sequence with the original map and vice versa,
+                                creating unique combinations. This results in a list of custom maps and action
+                                sequences.
+                            </li>
+                            <li>
+                                Finally, it takes these custom maps and action sequences and, if there are no invalid
+                                player moves made, feeds them into JPacman. JPacman runs with these inputs, and the
+                                fuzzer checks what happens. Does it work? Does it crash? What's the resulting exit code?
+                                By doing this, it tests JPacman with various scenarios to find problems or
+                                vulnerabilities.
+                            </li>
+                        </ul>
+                        <a class="has-text-weight-bold has-text-info">
+                            Configurations
+                        </a>
+                        <p>
+                            For this phase of the testing, we will focus on the four action sequences and maps that
+                            resulted in crashes during fuzz 7. The maps can be found in the
+                            <a
+                                    class="is-family-code is-rounded tag has-background-info-light"
+                                    href="/fuzzresults_lessons/fuzz7_mutationalFuzzing/custom_maps_7">
+                                custom_maps_7
+                            </a>
+                            directory. The corresponding
+                            action sequences are stored in
+                            <a
+                                    class="is-family-code is-rounded tag has-background-info-light"
+                                    href="/fuzzresults_lessons/fuzz7_mutationalFuzzing/custom_actionSequences_7.txt">
+                                custom_actionSequences_7.txt
+                            </a>
+                            file. We are going to
+                            mutate the combinations one by one. To initiate the mutation process for each combination,
+                            follow these steps:
+                        </p>
+                        <p>
+                            Firstly, copy the specific map into the
+                            <a
+                                    class="is-family-code is-rounded tag has-background-info-light"
+                                    href="/fuzzresults_lessons/fuzz7_mutationalFuzzing/custom_maps_inputCopy_7">
+                                custom_maps_inputCopy_7
+                            </a>
+                            directory.
+                            Consequentially, the action sequence should be copy-pasted into the
+                            <a
+                                    class="is-family-code is-rounded tag has-background-info-light"
+                                    href="/fuzzresults_lessons/fuzz7_mutationalFuzzing/custom_actionSequences_inputCopy_7.txt">
+                                custom_actionSequences_inputCopy_7.txt
+                            </a>
+                            file. On
+                            top of that, configure the
+                            <a
+                                    class="is-family-code is-rounded tag has-background-info-light"
+                                    href="/configs/Configuration.properties">Configuration.properties</a>
+                            file as followed:
+                        </p>
+                        <p>
+                        <div class="levels">
+                            <div class="field is-grouped is-grouped-multiline">
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            customMaps
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            8
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            customSequences
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            10
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            combineCustomMapsAndSequences
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            true
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            maxCustomIterations
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            true
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            maxTimeIteration
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            120 000 (2 min)
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            maxTime
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            600 000 (10 min)
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        Note: Combining the mutated versions of the map with copies of the original action sequences and
+                        vice versa (as described before), can be done by setting the combineCustomMapsAndSequences
+                        parameter to true. The maxCustomIterations flag specifies whether the maximum number of
+                        iterations should be ignored, and the number of custom maps or sequences should be used instead.
+                        This way we can just test all original and mutated combinations that apply to the rules without
+                        accidentally letting the program stop before all of them are tested or generating unnecessary
+                        random maps if the maximum iterations would be bigger then the number of custom combinations.
+                        Please note that both of these parameter should be used for mutational fuzzing only.
+                        </p>
+                        <a class="has-text-weight-bold has-text-info">
+                            Results
+                        </a>
+                        <br>
+                        <p>
+                            The logs from running the fuzzer four times with this particular configuration are saved
+                            within
+                            the directory
+                            <a class="is-family-code is-rounded tag has-background-info-light"
+                               href="/fuzzresults/fuzz7_mutationalFuzzing/logs">
+                                fuzz7_mutationalFuzzing/logs
+                            </a>
+                            .
+                            Additionally, the maps are stored in
+                            <a class="is-family-code is-rounded tag has-background-info-light"
+                               href="/fuzzresults/fuzz7_mutationalFuzzing/maps">
+                                fuzz7_mutationalFuzzing/maps
+                            </a>
+                            .
+                            The initial results were rather perplexing. Notably, repeating the same map and action
+                            sequence inputs often yielded different exit codes. This inconsistency indicated that
+                            crashes might be attributed to randomly generated monster movements. When sending the inputs
+                            into the program via the terminal instead of using the fuzzer, one can actually see the
+                            trace stack. Doing so, the errors all happened when moving monster methods were used. Those
+                            two observations started my deep dive into the results.
+                        </p>
+                        <p>
+                            In order to have a more clear view of the results, I made a
+                            <a
+                                    class="is-family-code is-rounded tag has-background-info-light"
+                                    href="/fuzzresults_lessons/fuzz7_mutationalFuzzing/mutationalFuzzingResults.xlsx">
+                                colour-coded excel
+                            </a>
+                            . There are a few remarks to be made:
+                        </p>
+                        <ul>
+                            <li>
+                                Monster movement machanism: I noticed that a little knowledge about how the JPacman
+                                program actually works was needed. The monsters moves are triggered by a timer that runs
+                                from the game's start until the player's death, win, quit or exit. The timer prompts the
+                                creation of random monster movements at set intervals. These monster moves involve
+                                selecting
+                                a random monster and a random direction (up, left, down, right) for its movement.
+                            </li>
+                            <li>
+                                Monster movement time intervals: It's crucial to focus on action sequence substrings
+                                that
+                                are executed while the timer is active, typically between 'S' (start) and 'E' (end) or
+                                'Q'
+                                (quit). I observed that using the original maps with the action sequence "SWE"
+                                consistently
+                                resulted in acceptance, while "SWWE" frequently caused crashes. This suggests that the
+                                time
+                                interval between monster moves should fall within the range of 50 to 100 milliseconds.
+                            </li>
+                            <li>
+                                Possible crashes: In cases where the monster makes its move before the player has had a
+                                chance to act, a certain level of unpredictability is introduced. Crashes may occur when
+                                the
+                                monster moves before the player wins, dies or exists, such as in action sequences "SWWE"
+                                or
+                                "SWUE." Depending on the timing and direction of the monster's movement, different
+                                outcomes
+                                may occur. Since the monster moves are not checked, crashes can occur when the there are
+                                no
+                                monsters in the map, when monsters moves out of bounds of the map or to a wall cell and
+                                when
+                                monsters collide with each other.
+                            </li>
+                        </ul>
+                        <br>
+                        <div class="columns is-vcentered">
+                            <div class="column">
+                                <figure>
+                                    <div class="columns">
+                                        <div class="column">
+                                            <img
+                                                    src="/fuzzresults_lessons/fuzz7_mutationalFuzzing/img/OriginalMap2_MutatedActionSequences.png">
+                                        </div>
+                                    </div>
+                                    <figcaption>
+                                        Fig. 24: The characteristics of the map itself play a pivotal role in
+                                        determining the likelihood of a crash. For instance, consider a map with only a
+                                        single column and a lone monster positioned in the first row, such as the second
+                                        map. In such a scenario, the potential moves for the monster are constrained.
+                                        If a random monster selection results in a direction that would lead the monster
+                                        out of bounds, it becomes a critical issue. If this monster gets randomly
+                                        selected, it's only acceptable move is downwards. The program has no inherent
+                                        mechanism to prevent such out-of-bounds monster movements.
+                                    </figcaption>
+                                </figure>
+                            </div>
+                            <div class="column">
+                                <figure>
+                                    <div class="columns">
+                                        <div class="column">
+                                            <img src="/fuzzresults_lessons/fuzz7_mutationalFuzzing/img/OriginalMap1_MutatedActionSequences.png">
+                                        </div>
+                                    </div>
+                                    <figcaption>
+                                        Fig. 25: However, for the first map, there are no monsters in the map at all.
+                                        Therefore, these monstermove will always result in a crash when triggered. If
+                                        the action sequence has executed parts that are long enough for the timer to
+                                        trigger, this will always result in a crash.
+                                    </figcaption>
+                                </figure>
+                            </div>
+                        </div>
+                        <br>
+                        <p>
+                            The benefits of mutational fuzzing become clear. Longer gameplay sessions with an active
+                            timer increase the opportunities for unexpected interactions between player actions and
+                            monster movements, elevating the risk of crashes. By being able to test longer action
+                            sequences, we could collect more data about the crashes.
+                            Systematically testing by replacing factors one by one made the root problem easier to find.
+                        </p>
+                        <p>
+                            In conclusion, the following checks are not performed in the program:
+                        <ul>
+                            <li>
+                                There should be at least one monster in the map.
+                            </li>
+                            <li>
+                                When the monster makes a move, the monster cannot move out of bounds, to a wall cell or
+                                to another monster.
+                            </li>
+                        </ul>
+                        These bugs will only result in crashes when the timer is running long enough to trigger a
+                        monster move, and if the random monster and direction selected result in such an invalid
+                        monster move.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <br>
 </div>
 

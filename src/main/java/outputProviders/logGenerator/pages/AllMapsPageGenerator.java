@@ -12,6 +12,11 @@ import java.util.*;
 public class AllMapsPageGenerator extends LogHTMLFileHandler implements PageGenerator {
 
     /**
+     * The total amount of cards visible.
+     */
+    int sum;
+
+    /**
      * Alters the template for this specific page.
      *
      * @param templatePath
@@ -28,12 +33,12 @@ public class AllMapsPageGenerator extends LogHTMLFileHandler implements PageGene
         List<List<String>> exitCode0Rows = new ArrayList<>();
         List<List<String>> exitCode1Rows = new ArrayList<>();
         List<List<String>> exitCode10Rows = new ArrayList<>();
+        List<List<String>> exitCodeMinus1Rows = new ArrayList<>();
         for (List<String> row : rows) {
             int exitCode = Integer.parseInt(row.get(3));
             if (exitCode == -1) {
-                continue;
-            } // Disregard rows with exit code -1
-            if (exitCode == 0) {
+                exitCodeMinus1Rows.add(row);
+            } else if (exitCode == 0) {
                 exitCode0Rows.add(row);
             } else if (exitCode == 1) {
                 exitCode1Rows.add(row);
@@ -42,33 +47,28 @@ public class AllMapsPageGenerator extends LogHTMLFileHandler implements PageGene
             }
         }
         // Each separate exit code list should be sorted by run and iteration order.
-        exitCode0Rows.sort(Comparator.comparingInt(row -> Integer.parseInt(row.get(2))));
-        exitCode0Rows.sort(Comparator.comparingInt(row -> Integer.parseInt(row.get(0))));
-        exitCode1Rows.sort(Comparator.comparingInt(row -> Integer.parseInt(row.get(2))));
-        exitCode1Rows.sort(Comparator.comparingInt(row -> Integer.parseInt(row.get(0))));
-        exitCode10Rows.sort(Comparator.comparingInt(row -> Integer.parseInt(row.get(2))));
-        exitCode10Rows.sort(Comparator.comparingInt(row -> Integer.parseInt(row.get(0))));
+        exitCode0Rows = sortExitCodeRows(exitCode0Rows);
+        exitCode1Rows = sortExitCodeRows(exitCode1Rows);
+        exitCode10Rows = sortExitCodeRows(exitCode10Rows);
+        exitCodeMinus1Rows = sortExitCodeRows(exitCodeMinus1Rows);
 
-        // * Step 2: Count exit codes and calculate percentages
-        int sum = rows.size(); // ! Also unknown!
+        // * Step 2: Count exit codes and calculate exact and formatted percentages
+        sum = rows.size();
         double exitCode0CountExactPercentage = (double) exitCode0Rows.size() / sum * 100;
         int exitCode0CountPercentage = (int) Math.round(exitCode0CountExactPercentage);
         double exitCode1CountExactPercentage = (double) exitCode1Rows.size() / sum * 100;
         int exitCode1CountPercentage = (int) Math.round(exitCode1CountExactPercentage);
         double exitCode10CountExactPercentage = (double) exitCode10Rows.size() / sum * 100;
         int exitCode10CountPercentage = (int) Math.round(exitCode10CountExactPercentage);
+        double exitCodeMinus1CountExactPercentage = (double) exitCodeMinus1Rows.size() / sum * 100;
+        int exitCodeMinus1CountPercentage = (int) Math.round(exitCodeMinus1CountExactPercentage);
 
-        // * Step 3: Collect output messages
-        Set<String> outputMessages = new TreeSet<>();
-        Map<String, List<List<String>>> outputMessagesMap = new HashMap<>(); // Keep count of each different output message and their different rows
-        for (List<String> row : exitCode10Rows) {
-            String outputMessage = row.get(4);
-            if (!outputMessage.trim().isEmpty()) {
-                outputMessages.add(outputMessage);
-                outputMessagesMap.putIfAbsent(outputMessage, new ArrayList<>());
-                outputMessagesMap.get(outputMessage).add(row);
-            }
-        }
+        // * Step 3: Collect output messages of exit code 10 and -1
+        // Keep count of each different output message and their different rows
+        Set<String> outputMessages10 = getOutputMessages(exitCode10Rows);
+        Map<String, List<List<String>>> outputMessages10Map = getOutputMessagesMap(exitCode10Rows);
+        Set<String> outputMessagesMinus1 = getOutputMessages(exitCodeMinus1Rows);
+        Map<String, List<List<String>>> outputMessagesMinus1Map = getOutputMessagesMap(exitCodeMinus1Rows);
 
         // * Step 4: Alter the template
         // * Step 4.1: Replace the filter options with the different fuzz-attempts in the top section
@@ -81,108 +81,43 @@ public class AllMapsPageGenerator extends LogHTMLFileHandler implements PageGene
         String filterOptionsString = filterOptions.toString();
         template = template.replace("{{FuzzAttemptFilterOptions}}", filterOptionsString);
 
-        // * Step 4.2: Replace percentage unknown
-        int exitCodeMinus1CountPercentage = (int) Math.round((double) (rows.size() - exitCode0Rows.size() - exitCode1Rows.size() - exitCode10Rows.size()) / sum * 100);
-        String percentageUnknown = exitCodeMinus1CountPercentage + "%";
-        // ! dit klopt niet want niet aangepast en zelfs als het klopt hier zal het bij gefiltered niet meer kloppen
-        template = template.replace("{{PercentageUnknown}}", percentageUnknown);
-
-        // * Step 4.3: Replace Exit Code 0 Section
+        // * Step 4.2: Replace Exit Code 0 Section
         // * Replace the progress bar
         // <progress class="progress is-small is-info" value=0 max="100">0%</progress>
         String progressBar0 = "<progress id=\"ProgressBar0\" class=\"progress is-small is-info\" value=" + exitCode0CountPercentage + " max=\"100\">" + exitCode0CountPercentage + "%</progress>";
         template = template.replace("{{ProgressBar0}}", progressBar0);
         // * Replace the cards
-        StringBuilder cardsBuilder0 = new StringBuilder();
-        if (exitCode0CountExactPercentage > 0) {
-            String noCardsMessage = getNoCardsMessage(false, 0);
-            cardsBuilder0.append(noCardsMessage);
-            for (List<String> row : exitCode0Rows) {
-                String card = generateCard(row);
-                cardsBuilder0.append(card);
-            }
-        } else {
-            String noCardsMessage = getNoCardsMessage(true, 0);
-            cardsBuilder0.append(noCardsMessage);
-        }
-        String cards = cardsBuilder0.toString();
-        template = template.replace("{{Cards0}}", cards);
+        String cards0 = buildCards(0, exitCode0Rows, exitCode0CountExactPercentage);
+        template = template.replace("{{Cards0}}", cards0);
 
-        // * Step 4.4: Replace Exit Code 1 Section (Idem)
+        // * Step 4.3: Replace Exit Code 1 Section (Idem)
         // * Replace the progress bar
         String progressBar1 = "<progress  id=\"ProgressBar1\" class=\"progress is-small is-info\" value=" + exitCode1CountPercentage + " max=\"100\">" + exitCode1CountPercentage + "%</progress>";
         template = template.replace("{{ProgressBar1}}", progressBar1);
         // * Replace the cards
-        StringBuilder cardsBuilder1 = new StringBuilder();
-        if (exitCode1CountExactPercentage > 0) {
-            String noCardsMessage = getNoCardsMessage(false, 1);
-            cardsBuilder0.append(noCardsMessage);
-            for (List<String> row : exitCode1Rows) {
-                String card = generateCard(row);
-                cardsBuilder1.append(card);
-            }
-        } else {
-            String noCardsMessage = getNoCardsMessage(true, 1);
-            cardsBuilder1.append(noCardsMessage);
-        }
-        cards = cardsBuilder1.toString();
-        template = template.replace("{{Cards1}}", cards);
+        String cards1 = buildCards(1, exitCode1Rows, exitCode1CountExactPercentage);
+        template = template.replace("{{Cards1}}", cards1);
 
-        // * Step 4.5 Replace Exit Code 10 Section (Also sorted per output message)
+        // * Step 4.4 Replace Exit Code 10 Section (Also sorted per output message)
         // * Replace the progress bar
         String progressBar10 = "<progress id=\"ProgressBar10\"  class=\"progress is-small is-info\" value=" + exitCode10CountPercentage + " max=\"100\">" + exitCode10CountPercentage + "%</progress>";
         template = template.replace("{{ProgressBar10}}", progressBar10);
-        StringBuilder cardsBuilder10 = new StringBuilder();
-        if (exitCode10CountExactPercentage > 0) { // if there are exit code 10s, make buttons, hide no cards message, make section per output message
-            // * Replace buttons output messages above
-            StringBuilder buttonBuilder = new StringBuilder();
-            for (String outputMessage : outputMessages) {
-                String button = generateButton(outputMessage);
-                buttonBuilder.append(button);
-            }
-            String buttons = buttonBuilder.toString();
-            template = template.replace("{{Buttons10}}", buttons);
-            // * Add hidden no cards message
-            String noCardsMessage = getNoCardsMessage(false, 10);
-            cardsBuilder10.append(noCardsMessage);
-            // * Per output message - replace title + progress bar and cards
-            for (String message : outputMessages) {
-                List<List<String>> rowsWithMessage = outputMessagesMap.get(message);
-                String idMessage = getIDName(message);
-                cardsBuilder10.append("<div id=\"Total").append(idMessage).append("\" class=\"field\">");
-                // * Subtitle and progress bar
-                cardsBuilder10.append("<br>");
-                cardsBuilder10.append("<section id=\"").append(idMessage).append("\" class=\"section\">");
-                int count = rowsWithMessage.size();
-                int percentage = (int) Math.round((double) count / sum * 100);
-                String progressBar = "<progress id=\"ProgressBar" + idMessage + "\" class=\"progress is-small is-link\" value=" + percentage + " max=\"100\">" + percentage + "%</progress>";
-                cardsBuilder10.append(progressBar);
-                cardsBuilder10.append("<h2 class=\"subtitle\">Inputs with output message <a class=\"has-text-weight-bold\">").append(message).append("</a>:</h2>");
-                cardsBuilder10.append("</section>");
-                // * Cards
-                for (List<String> row : rowsWithMessage) {
-                    String card = generateCard(row);
-                    cardsBuilder10.append(card);
-                }
-                cardsBuilder10.append("</div>");
-            }
-        } else { // If there are not on display no cards message
-            String noCardsMessage = getNoCardsMessage(true, 10);
-            cardsBuilder10.append(noCardsMessage);
-            template = template.replace("{{Buttons10}}", "");
-        }
-        String cards10 = cardsBuilder10.toString();
+        // * Replace the buttons
+        String buttons10 = buildButtons(outputMessages10, exitCode10CountExactPercentage);
+        template = template.replace("{{Buttons10}}", buttons10);
+        // * Replace the cards and titles.
+        String cards10 = buildCardsPerOutputMessage(10, exitCode10CountExactPercentage, outputMessages10, outputMessages10Map);
         template = template.replace("{{TitlesAndCards10}}", cards10);
-
-        // * Step 4.6: Replace the percentage output messages
+        // * Replace the percentage output messages
         StringBuilder percentages = new StringBuilder();
-        for (String message : outputMessages) {
+        for (String message : outputMessages10) {
             String hrefMessage = "#" + getIDName(message);
             String idMessagePercentage = "PercentageTotal" + getIDName(message);
             // no value is needed, will be calculated in js script automatically
             percentages.append("<div class=\"level-item has-text-centered has-text-info\">");
             percentages.append("<div>");
-            percentages.append("<p class=\"has-text-weight-bold is-clickable\" href=\"").append(hrefMessage).append("\">").append(message).append("</p>");
+            // <p class = "has-text-weight-bold"><a href = "#NoColumns">No columns </a></p>
+            percentages.append("<p class=\"has-text-weight-bold\">").append("<a href=\"").append(hrefMessage).append("\">").append(message).append("</a></p>");
             percentages.append("<p class=\"title has-text-info-dark\" id=\"").append(idMessagePercentage).append("\"></p>");
             percentages.append("</div>");
             percentages.append("</div>");
@@ -190,32 +125,160 @@ public class AllMapsPageGenerator extends LogHTMLFileHandler implements PageGene
         String percentagesOutput = percentages.toString();
         template = template.replace("{{OutputMessagesPercentages}}", percentagesOutput);
 
+        // * Step 4.5: Replace the Exit Code -1 Section (Also sorted per output message)
+        // * Replace the progress bar
+        String progressBarMinus1 = "<progress id=\"ProgressBar-1\" class=\"progress is-small is-info\" value=" + exitCodeMinus1CountPercentage + " max=\"100\">" + exitCodeMinus1CountPercentage + "%</progress>";
+        template = template.replace("{{ProgressBarMinus1}}", progressBarMinus1);
+        // * Replace the buttons
+        String buttonsMinus1 = buildButtons(outputMessagesMinus1, exitCodeMinus1CountExactPercentage);
+        template = template.replace("{{ButtonsMinus1}}", buttonsMinus1);
+        // * Replace the cards and titles.
+        String cardsMinus1 = buildCardsPerOutputMessage(-1, exitCodeMinus1CountExactPercentage, outputMessagesMinus1, outputMessagesMinus1Map);
+        template = template.replace("{{TitlesAndCardsMinus1}}", cardsMinus1);
+
         return template;
     }
 
     /**
-     * Generates HTML code for buttons
-     * @param outputMessage Output message of the button (e.g. "Widths Mismatch")
-     * @return String HTML Code for the button with that text
+     * Sorts the rows of a particular exit code first by run order, and sub sequentially by iteration order.
+     * @param rows List of rows with the same exit code to sort
+     * @return The list of rows in correct order.
      */
-    /*
-       <div class="navbar-item is-small px-0"> <!-- Enkel bij de eerste px-0? Sorteer alfabetisch -->
-                   <div class="button is-info is-rounded mx-1">
-                       <a class="has-text-white has-text-weight-bold " href="#WidthsMismatch">Widths Mismatch</a>
-                   </div>
-               </div>
-        */
-    private String generateButton(String outputMessage) {
-        String idSection = getIDName(outputMessage);
-        String idButton = getIDName(outputMessage) + "Button";
-        String s = "<div id=\"" + idButton + "\" class=\"navbar-item is-small px-0\">" +
-                "<div class=\"button is-info is-rounded mx-1\">" +
-                "<a class=\"has-text-white has-text-weight-bold \" href=\"#" + idSection + "\">" + outputMessage + "</a>" +
-                "</div>" +
-                "</div>";
-        return s;
+    private List<List<String>> sortExitCodeRows(List<List<String>> rows) {
+        rows.sort(Comparator.comparingInt(row -> Integer.parseInt(row.get(2))));
+        rows.sort(Comparator.comparingInt(row -> Integer.parseInt(row.get(0))));
+        return rows;
     }
 
+    /**
+     * Makes a set of different output messages from the rows with the same exit code. A set is a collection with
+     * unique elements.
+     *
+     * @param exitCodeRows
+     *         List of rows with the same exit code
+     *
+     * @return Set of different output messages from the rows with the same exit code.
+     */
+    private Set<String> getOutputMessages(List<List<String>> exitCodeRows) {
+        Set<String> outputMessages = new TreeSet<>();
+        for (List<String> row : exitCodeRows) {
+            String outputMessage = row.get(4);
+            if (!outputMessage.trim().isEmpty()) {
+                outputMessages.add(outputMessage);
+            }
+        }
+        return outputMessages;
+    }
+
+    /**
+     * Makes a map of each unique output message that occurs in the rows with the same exit code, linked to all the
+     * rows with that exit code and that output message.
+     * @param exitCodeRows List of rows with the same exit code
+     * @return Map of each unique output message that occurs in the rows, linked to all the rows with that exit code and
+     * that output message.
+     */
+    private Map<String, List<List<String>>> getOutputMessagesMap(List<List<String>> exitCodeRows) {
+        Map<String, List<List<String>>> outputMessagesMap = new HashMap<>(); // Keep count of each different output message and their different rows
+        for (List<String> row : exitCodeRows) {
+            String outputMessage = row.get(4);
+            if (!outputMessage.trim().isEmpty()) {
+                outputMessagesMap.putIfAbsent(outputMessage, new ArrayList<>());
+                outputMessagesMap.get(outputMessage).add(row);
+            }
+        }
+        return outputMessagesMap;
+    }
+
+    /**
+     * Builds the cards for each different input with the rows that have that output message. Also builds the
+     * no cards message (hidden or displayed, depending on the amount of other cards).
+     *
+     * @param exitCode
+     *         The shared exitcode of the rows.
+     * @param exitCodeRows
+     *         All the rows with that exit code.
+     * @param exitCodeCountExactPercentage
+     *         The exact percentage that represents the amount of rows with this exit code in
+     *         comparison to all the rows.
+     *
+     * @return String with HTML code for the cards.
+     */
+    private String buildCards(int exitCode, List<List<String>> exitCodeRows, double exitCodeCountExactPercentage) {
+        StringBuilder cardsBuilder = new StringBuilder();
+        if (exitCodeCountExactPercentage > 0) {
+            // * Add hidden no cards message
+            String noCardsMessage = buildNoCardsMessage(false, exitCode);
+            cardsBuilder.append(noCardsMessage);
+            // * Add cards
+            for (List<String> row : exitCodeRows) {
+                String card = buildCard(row);
+                cardsBuilder.append(card);
+            }
+        } else {
+            // * Add displayed no cards message
+            String noCardsMessage = buildNoCardsMessage(true, exitCode);
+            cardsBuilder.append(noCardsMessage);
+        }
+        String cards = cardsBuilder.toString();
+        return cards;
+    }
+
+    /**
+     * Builds the cards for each different row with that exit code. Sorts these cards per output message and adds a
+     * title and a progress bar for each unique output message.  Also builds the no cards message (hidden or displayed,
+     * depending on the amount of other cards).
+     *
+     * @param exitCode
+     *         The shared exitcode of the rows.
+     * @param exitCodeCountExactPercentage
+     *         The exact percentage that represents the amount of rows with this exit code
+     *         in comparison to all the rows.
+     * @param outputMessages
+     *         Set of unique different output messages occurring in those rows.
+     * @param outputMessagesMap
+     *         Map that links each unique output message of that set to the rows that have that output
+     *         message.
+     *
+     * @return String with HTML code for the cards, progressbars and titles.
+     */
+    private String buildCardsPerOutputMessage(int exitCode, double exitCodeCountExactPercentage, Set<String> outputMessages,
+                                              Map<String, List<List<String>>> outputMessagesMap) {
+        StringBuilder cardsBuilder = new StringBuilder();
+        // if there are any exit code rows, make buttons, hide no cards message, make section per output message
+        if (exitCodeCountExactPercentage > 0) {
+            // * Add hidden no cards message
+            String noCardsMessage = buildNoCardsMessage(false, exitCode);
+            cardsBuilder.append(noCardsMessage);
+
+            // * Per output message: replace title + progress bar and add cards
+            for (String message : outputMessages) {
+                // Begin full section
+                List<List<String>> rowsWithMessage = outputMessagesMap.get(message);
+                String idMessage = getIDName(message);
+                cardsBuilder.append("<div id=\"Total").append(idMessage).append("\" class=\"field\">");
+                // Subtitle and progress bar
+                cardsBuilder.append("<br>");
+                cardsBuilder.append("<section id=\"").append(idMessage).append("\" class=\"section\">");
+                int count = rowsWithMessage.size();
+                int percentage = (int) Math.round((double) count / sum * 100);
+                String progressBar = "<progress id=\"ProgressBar" + idMessage + "\" class=\"progress is-small is-link\" value=" + percentage + " max=\"100\">" + percentage + "%</progress>";
+                cardsBuilder.append(progressBar);
+                cardsBuilder.append("<h2 class=\"subtitle\">Inputs with output message <a class=\"has-text-weight-bold\">").append(message).append("</a>:</h2>");
+                cardsBuilder.append("</section>");
+                // Add Cards
+                for (List<String> row : rowsWithMessage) {
+                    String card = buildCard(row);
+                    cardsBuilder.append(card);
+                }
+                cardsBuilder.append("</div>");
+            }
+        } else { // If there are not on display, no cards message
+            String noCardsMessage = buildNoCardsMessage(true, exitCode);
+            cardsBuilder.append(noCardsMessage);
+        }
+        String cards = cardsBuilder.toString();
+        return cards;
+    }
 
     /**
      * Generates a card from a row
@@ -256,7 +319,7 @@ public class AllMapsPageGenerator extends LogHTMLFileHandler implements PageGene
           </div>
       </div>
        */
-    private String generateCard(List<String> row) {
+    private String buildCard(List<String> row) {
         StringBuilder card = new StringBuilder();
         card.append("<div class=\"field\">");
         card.append("<br>");
@@ -323,7 +386,7 @@ public class AllMapsPageGenerator extends LogHTMLFileHandler implements PageGene
             <br>
         </div>
      */
-    private String getNoCardsMessage(boolean displayed, int exitCode) {
+    private String buildNoCardsMessage(boolean displayed, int exitCode) {
         String display = "";
         if (!displayed) {
             display = " style=\"display:none;\"";
@@ -339,6 +402,57 @@ public class AllMapsPageGenerator extends LogHTMLFileHandler implements PageGene
                 "There were no inputs that had this exit code." +
                 "</span>" +
                 "<br>" +
+                "</div>";
+        return s;
+    }
+
+    /**
+     * Given a set of different output messages, returns a string that describes the HTML code needed for buttons
+     * of this output message. If there are no outputMessages, returns an empty string.
+     *
+     * @param outputMessages
+     *         Set of unique output-messages in string form.
+     *
+     * @return String with HTML Code for the buttons.
+     */
+    private String buildButtons(Set<String> outputMessages, double exitCodeCountExactPercentage) {
+        String buttons;
+        // * Replace buttons output messages above with buttons if there are any needed
+        if (exitCodeCountExactPercentage > 0) {
+            StringBuilder buttonBuilder = new StringBuilder();
+            for (String outputMessage : outputMessages) {
+                String button = buildButton(outputMessage);
+                buttonBuilder.append(button);
+            }
+            buttons = buttonBuilder.toString();
+        } else {
+            buttons = "";
+        }
+        return buttons;
+    }
+
+    /**
+     * Generates HTML code for buttons
+     *
+     * @param outputMessage
+     *         Output message of the button (e.g. "Widths Mismatch")
+     *
+     * @return String HTML Code for the button with that text
+     */
+    /*
+       <div class="navbar-item is-small px-0"> <!-- Enkel bij de eerste px-0? Sorteer alfabetisch -->
+                   <div class="button is-info is-rounded mx-1">
+                       <a class="has-text-white has-text-weight-bold " href="#WidthsMismatch">Widths Mismatch</a>
+                   </div>
+               </div>
+        */
+    private String buildButton(String outputMessage) {
+        String idSection = getIDName(outputMessage);
+        String idButton = getIDName(outputMessage) + "Button";
+        String s = "<div id=\"" + idButton + "\" class=\"navbar-item is-small px-0\">" +
+                "<div class=\"button is-info is-rounded mx-1\">" +
+                "<a class=\"has-text-white has-text-weight-bold \" href=\"#" + idSection + "\">" + outputMessage + "</a>" +
+                "</div>" +
                 "</div>";
         return s;
     }

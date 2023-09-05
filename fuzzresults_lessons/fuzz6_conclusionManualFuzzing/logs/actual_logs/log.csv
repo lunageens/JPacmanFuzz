@@ -1,0 +1,272 @@
+Iteration Nr.,Exit Code,Output Messages,Action Sequence,Map File Type,Map File Custom Attribute,Absolute Map File Path
+1,0,None,LQERLUDLUU,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_1.txt
+2,-1,Invalid Move,WSWUQREDWD,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcodeX_unknown/map_2.txt
+3,0,None,LURRUSEEUU,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_3.txt
+4,-1,Invalid Move,USRSDDELEW,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcodeX_unknown/map_4.txt
+5,-1,Invalid Move,WEDRSUSLEE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcodeX_unknown/map_5.txt
+6,-1,Invalid Move,QSQSQLWLUE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcodeX_unknown/map_6.txt
+7,0,None,QWDWQLDWLE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_7.txt
+8,0,None,SSDDSEEQDE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_8.txt
+9,0,None,WWERDQQELW,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_9.txt
+10,0,None,DEDSELUEUE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_10.txt
+11,0,None,RQLWLEUUDW,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_11.txt
+12,0,None,EERLQELRRR,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_12.txt
+13,0,None,QDLUWSDUEE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_13.txt
+14,0,None,ERLSEWWQWL,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_14.txt
+15,0,None,RQWDUEQQWL,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_15.txt
+16,-1,Invalid Move,SSRUSERLEU,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcodeX_unknown/map_16.txt
+17,0,None,RDLQEULRQR,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_17.txt
+18,-1,Invalid Move,RELQSLEEDW,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcodeX_unknown/map_18.txt
+19,0,None,EEQQDEUDEL,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_19.txt
+20,0,None,UEQQUDEUED,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_20.txt
+21,0,None,QUSRSEDEDD,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_21.txt
+22,-1,Invalid Move,URERSLWEQR,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcodeX_unknown/map_22.txt
+23,0,None,DUEUWDDQEU,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_23.txt
+24,0,None,WDEQULWSRE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_24.txt
+25,0,None,DEUWUQWQLU,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_25.txt
+26,0,None,LQUEDRWUQL,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_26.txt
+27,0,None,WSSEDUEELL,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_27.txt
+28,0,None,RLREWWULRU,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_28.txt
+29,-1,Invalid Move,SLQUEUQEUR,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcodeX_unknown/map_29.txt
+30,-1,Invalid Move,DSWRWESRSE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcodeX_unknown/map_30.txt
+31,0,None,EELLDWQEUD,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_31.txt
+32,0,None,ERQLURWRUE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_32.txt
+33,0,None,RULQSSELLR,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_33.txt
+34,0,None,LEEEWSERWL,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_34.txt
+35,0,None,EWSEUDLUQR,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_35.txt
+36,-1,Invalid Move,USUDWSLLUE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcodeX_unknown/map_36.txt
+37,0,None,DRWEQLUUQQ,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_37.txt
+38,0,None,DDQWQDEDQQ,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_38.txt
+39,0,None,LLUEWEUWWL,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_39.txt
+40,0,None,UULELUUEWW,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_40.txt
+41,0,None,QESWWEQEEE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_41.txt
+42,0,None,RUDELSDUQE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_42.txt
+43,0,None,LERWUUEUDL,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_43.txt
+44,0,None,UUUSEWDQUD,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_44.txt
+45,0,None,QSERERWDQR,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_45.txt
+46,0,None,EDQWSEEWUU,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_46.txt
+47,0,None,DDRREQUDRD,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_47.txt
+48,0,None,QWUSSEQRUW,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_48.txt
+49,-1,Invalid Move,SREEEWLWLU,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcodeX_unknown/map_49.txt
+50,0,None,LQRUWRSELL,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_50.txt
+51,0,None,RLRELQEQUU,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_51.txt
+52,0,None,EUERREEDLW,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_52.txt
+53,0,None,RRQQRSREWU,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_53.txt
+54,-1,Invalid Move,ESURWDEUSE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcodeX_unknown/map_54.txt
+55,0,None,EEWQREQUWU,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_55.txt
+56,0,None,UESWELDLDL,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_56.txt
+57,-1,Invalid Move,QSDRELQRDE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcodeX_unknown/map_57.txt
+58,0,None,UQQWULSEDU,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_58.txt
+59,-1,Invalid Move,LLWUUDLSUE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcodeX_unknown/map_59.txt
+60,0,None,QWSERRWQDD,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_60.txt
+61,-1,Invalid Move,WQLRDWSLRE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcodeX_unknown/map_61.txt
+62,0,None,WRQRUUELQD,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_62.txt
+63,0,None,SEDWLQQUEU,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_63.txt
+64,0,None,ELLEQWLUWQ,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_64.txt
+65,0,None,EEURWDSDEQ,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_65.txt
+66,0,None,DEELDSDEUR,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_66.txt
+67,0,None,QELELWUDRR,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_67.txt
+68,0,None,RUURQEQDER,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_68.txt
+69,0,None,EQEQLUQEDD,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_69.txt
+70,0,None,WQSERQEESE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_70.txt
+71,0,None,RQEWLSRLWE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_71.txt
+72,0,None,SQSEUUUUSE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_72.txt
+73,-1,Invalid Move,ESULQURRWE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcodeX_unknown/map_73.txt
+74,0,None,QQRDQRDLER,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_74.txt
+75,0,None,EQSSESEQUW,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_75.txt
+76,0,None,RUQWWSSEWL,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_76.txt
+77,-1,Invalid Move,ERLQSDRRRE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcodeX_unknown/map_77.txt
+78,0,None,EUWDQWSWED,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_78.txt
+79,0,None,SERUWDELLE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_79.txt
+80,-1,Invalid Move,URSESQRLQE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcodeX_unknown/map_80.txt
+81,0,None,WQSEWRDDDW,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_81.txt
+82,0,None,DDEQREUUWE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_82.txt
+83,0,None,QUREQEDWEL,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_83.txt
+84,0,None,QQQLULUERW,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_84.txt
+85,0,None,DQWLEWLWRQ,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_85.txt
+86,0,None,SDSEWDDLUQ,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_86.txt
+87,0,None,SEWQUDWUWQ,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_87.txt
+88,0,None,RWSLEQDRQE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_88.txt
+89,0,None,UUESWSELRQ,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_89.txt
+90,-1,Invalid Move,QSRLDWWEQU,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcodeX_unknown/map_90.txt
+91,0,None,RUUSSREQRU,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_91.txt
+92,0,None,RQRREUEQER,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_92.txt
+93,0,None,UWUUSSWQEE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_93.txt
+94,0,None,WRLQDQQEWE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_94.txt
+95,0,None,SQDELLDWQW,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_95.txt
+96,0,None,DEERDLDUSE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_96.txt
+97,0,None,EEWLLDQESE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_97.txt
+98,0,None,DRQREERQUL,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_98.txt
+99,-1,Invalid Move,QDQWDSSDDE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcodeX_unknown/map_99.txt
+100,0,None,LLLRSEDLDL,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_100.txt
+101,0,None,LDUEWEUEQL,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_101.txt
+102,0,None,LSREDESLQE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_102.txt
+103,0,None,WUDELQWSQE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_103.txt
+104,0,None,RWDWWUEDWD,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_104.txt
+105,0,None,WEEDUQUELQ,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_105.txt
+106,-1,Invalid Move,WEDQSQSUEQ,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcodeX_unknown/map_106.txt
+107,0,None,WUWWREEDUU,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_107.txt
+108,0,None,WDRELWLELE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_108.txt
+109,0,None,QERDUQDQUW,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_109.txt
+110,0,None,ELDRWEDURD,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_110.txt
+111,0,None,EWDERQEREQ,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_111.txt
+112,-1,Invalid Move,QSRUEQUERU,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcodeX_unknown/map_112.txt
+113,0,None,UQDEWUQUED,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_113.txt
+114,0,None,ERQURWDRRR,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_114.txt
+115,0,None,LQWLLEWWRW,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_115.txt
+116,0,None,DWELWUSEQU,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_116.txt
+117,0,None,DQUEREUUWR,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_117.txt
+118,0,None,LSEWELLQWL,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_118.txt
+119,0,None,EWUQSEEERE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_119.txt
+120,0,None,SQELQELQDQ,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_120.txt
+121,0,None,UWWERWDQQQ,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_121.txt
+122,0,None,WRDLLSSERD,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_122.txt
+123,-1,Invalid Move,LRSQDRULEL,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcodeX_unknown/map_123.txt
+124,0,None,WUSUSQWQQE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_124.txt
+125,0,None,DQRRELUDRW,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_125.txt
+126,0,None,LUQDRSEUQD,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_126.txt
+127,0,None,ERRLRRQLEQ,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_127.txt
+128,0,None,WEQRSEQLUR,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_128.txt
+129,0,None,DDRREDLDRR,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_129.txt
+130,0,None,USQUEDUUQR,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_130.txt
+131,0,None,RERELLQEDR,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_131.txt
+132,-1,Invalid Move,SDEWEUWWDU,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcodeX_unknown/map_132.txt
+133,0,None,EWULDEUQUD,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_133.txt
+134,0,None,LEWUDSQELQ,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_134.txt
+135,0,None,UQWRQSEDRD,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_135.txt
+136,0,None,QERDSUWEEL,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_136.txt
+137,0,None,DSQDQSESEU,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_137.txt
+138,0,None,URERRSERWE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_138.txt
+139,0,None,WQEUESEUWQ,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_139.txt
+140,1,None,SWWDSQSEEU,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode1_crash/map_140.txt
+141,0,None,DLLWSSELDU,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_141.txt
+142,0,None,UEREWDWULE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_142.txt
+143,0,None,UWUQLERLDR,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_143.txt
+144,0,None,RUEWUDWQEE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_144.txt
+145,0,None,DSEEQDRQWQ,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_145.txt
+146,0,None,LREELSQQEW,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_146.txt
+147,-1,Invalid Move,SWQLWURQSE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcodeX_unknown/map_147.txt
+148,0,None,QULRSEQWLL,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_148.txt
+149,-1,Invalid Move,QLDRSLREEW,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcodeX_unknown/map_149.txt
+150,0,None,ELREUWEQRE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_150.txt
+151,0,None,LDWWRLLDEQ,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_151.txt
+152,0,None,RQQUSDEEUL,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_152.txt
+153,-1,Invalid Move,ERESQREWRW,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcodeX_unknown/map_153.txt
+154,0,None,DEDDQRLLWR,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_154.txt
+155,0,None,DSWLQWRELR,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_155.txt
+156,0,None,RQEEWRLQEE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_156.txt
+157,0,None,SREURDQRUQ,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_157.txt
+158,-1,Invalid Move,LWQLSULDRE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcodeX_unknown/map_158.txt
+159,0,None,WUWEEQEURW,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_159.txt
+160,-1,Invalid Move,UUQSLRWRLE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcodeX_unknown/map_160.txt
+161,0,None,WLEEDQDQLQ,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_161.txt
+162,-1,Invalid Move,QLESLUUEEE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcodeX_unknown/map_162.txt
+163,0,None,QSSWEELLUU,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_163.txt
+164,0,None,RWQRESEQDU,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_164.txt
+165,0,None,WQEULQRLEE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_165.txt
+166,0,None,UWEELWLLLU,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_166.txt
+167,0,None,WEERSDWSEW,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_167.txt
+168,0,None,DQUSSRQQEW,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_168.txt
+169,0,None,LEDDDRUDRL,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_169.txt
+170,0,None,QRLUREUSEW,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_170.txt
+171,1,None,QWQRSWWERW,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode1_crash/map_171.txt
+172,0,None,ELREUUURQD,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_172.txt
+173,-1,Invalid Move,WRERSWULLE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcodeX_unknown/map_173.txt
+174,0,None,UEELUUEUQR,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_174.txt
+175,0,None,LDERLEEDUU,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_175.txt
+176,0,None,EULDDLRDUW,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_176.txt
+177,0,None,DLDQUDERUL,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_177.txt
+178,0,None,WUQLWLDEQE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_178.txt
+179,0,None,EWWDELQDRU,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_179.txt
+180,0,None,QRLWEWSWED,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_180.txt
+181,0,None,QEUDDREUWL,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_181.txt
+182,0,None,LRELWWEEWR,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_182.txt
+183,0,None,RSLREQRURL,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_183.txt
+184,0,None,EWDEQUQUQU,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_184.txt
+185,0,None,WUDLRLUREL,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_185.txt
+186,0,None,LUQEURRLQL,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_186.txt
+187,-1,Invalid Move,LLDDLRSRER,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcodeX_unknown/map_187.txt
+188,0,None,QUWSQEQDWW,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_188.txt
+189,-1,Invalid Move,RSWRSLEEED,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcodeX_unknown/map_189.txt
+190,0,None,DLWLEWDELW,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_190.txt
+191,0,None,WDLWLLWEUU,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_191.txt
+192,0,None,DESDRDWERQ,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_192.txt
+193,0,None,REDDEEUDQR,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_193.txt
+194,0,None,WEEELUQULU,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_194.txt
+195,0,None,WWWEDLRREU,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_195.txt
+196,0,None,QEQWWDWERE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_196.txt
+197,0,None,RRLDRRWERD,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_197.txt
+198,-1,Invalid Move,REWSLLWSLE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcodeX_unknown/map_198.txt
+199,0,None,QSQQSRLQEQ,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_199.txt
+200,-1,Invalid Move,WUSULSEQEQ,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcodeX_unknown/map_200.txt
+201,0,None,LRSERQDWWD,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_201.txt
+202,0,None,UWRLEWRLSE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_202.txt
+203,-1,Invalid Move,EEUUSDSRSE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcodeX_unknown/map_203.txt
+204,0,None,UQQDLRLUEQ,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_204.txt
+205,-1,Invalid Move,WSWLSUEDEU,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcodeX_unknown/map_205.txt
+206,1,None,SDSWUELQLU,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode1_crash/map_206.txt
+207,-1,Invalid Move,SUEDWUDSEE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcodeX_unknown/map_207.txt
+208,-1,Invalid Move,SDLRQELLLD,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcodeX_unknown/map_208.txt
+209,0,None,WULLEQERWU,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_209.txt
+210,-1,Invalid Move,SUUWQEQWLD,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcodeX_unknown/map_210.txt
+211,0,None,QLDQEQRLWL,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_211.txt
+212,0,None,DDUEUWDULR,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_212.txt
+213,0,None,EUSSQEDQQD,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_213.txt
+214,0,None,EEDEEEUDED,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_214.txt
+215,0,None,EUQQQEDLLR,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_215.txt
+216,0,None,UEREEDUEDR,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_216.txt
+217,0,None,WLQQQDDRER,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_217.txt
+218,0,None,LRDWLWELSE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_218.txt
+219,0,None,WDEWUDREQR,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_219.txt
+220,-1,Invalid Move,QWEDSQDEEE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcodeX_unknown/map_220.txt
+221,-1,Invalid Move,UDDWSLQSUE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcodeX_unknown/map_221.txt
+222,0,None,RWDDWLEWDU,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_222.txt
+223,-1,Invalid Move,RREDSSSUEU,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcodeX_unknown/map_223.txt
+224,0,None,RURUSEUQUW,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_224.txt
+225,-1,Invalid Move,SQESQUEESE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcodeX_unknown/map_225.txt
+226,-1,Invalid Move,SDDREQLQUL,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcodeX_unknown/map_226.txt
+227,0,None,EQLELLUDUE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_227.txt
+228,0,None,RRQDEQWERR,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_228.txt
+229,-1,Invalid Move,WLSURSREDW,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcodeX_unknown/map_229.txt
+230,-1,Invalid Move,LRSDRSLLRE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcodeX_unknown/map_230.txt
+231,0,None,URUWSWDWUE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_231.txt
+232,-1,Invalid Move,DWDDSLUERE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcodeX_unknown/map_232.txt
+233,0,None,RERRWLQERL,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_233.txt
+234,0,None,DSERLRLDRE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_234.txt
+235,-1,Invalid Move,SSSWLUDDRE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcodeX_unknown/map_235.txt
+236,-1,Invalid Move,QWRSLUDEUU,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcodeX_unknown/map_236.txt
+237,0,None,UULRUSLERR,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_237.txt
+238,-1,Invalid Move,SDRDQQUEQR,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcodeX_unknown/map_238.txt
+239,0,None,WWQULREUDD,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_239.txt
+240,0,None,REQQRELDDU,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_240.txt
+241,0,None,DUUEUEEELW,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_241.txt
+242,0,None,RDQEEWDREE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_242.txt
+243,0,None,LLSEWQRQRE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_243.txt
+244,0,None,UQUQLEQWUE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_244.txt
+245,0,None,REWURUELUD,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_245.txt
+246,0,None,LRWQQUWELL,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_246.txt
+247,0,None,EDDDLQRRRD,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_247.txt
+248,0,None,DULQEUWDWE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_248.txt
+249,0,None,WLLRQSQDER,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_249.txt
+250,-1,Invalid Move,SLUEWUQUEQ,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcodeX_unknown/map_250.txt
+251,0,None,SEDWEDDWRU,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_251.txt
+252,0,None,EDSEWWWWDU,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_252.txt
+253,-1,Invalid Move,DSRLWLUSEU,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcodeX_unknown/map_253.txt
+254,-1,Invalid Move,LSSWUSWLWE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcodeX_unknown/map_254.txt
+255,0,None,UQWRLEWWQD,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_255.txt
+256,-1,Invalid Move,SDDDSEDRDL,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcodeX_unknown/map_256.txt
+257,-1,Invalid Move,SUUSRDUQDE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcodeX_unknown/map_257.txt
+258,0,None,DQWDLQEQUR,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_258.txt
+259,-1,Invalid Move,SSRRQEQWLD,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcodeX_unknown/map_259.txt
+260,0,None,UDLWEWLUEQ,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_260.txt
+261,0,None,WWWWDEULQW,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_261.txt
+262,-1,Invalid Move,LSUERQQSEQ,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcodeX_unknown/map_262.txt
+263,0,None,WLEELDQWUQ,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_263.txt
+264,0,None,SLQWWDQUEU,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_264.txt
+265,0,None,SEUQLRLDQE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_265.txt
+266,0,None,LQEQEDEDWE,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_266.txt
+267,0,None,SSEULDRDQU,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_267.txt
+268,0,None,SELRSEDLRD,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_268.txt
+269,-1,Invalid Move,SLERQLREDL,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcodeX_unknown/map_269.txt
+270,0,None,QDERDWQUQD,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_270.txt
+271,0,None,WLLELUEEWR,.txt (Unformatted Text Document),None,C:/ST/JPacmanFuzz/fuzzresults/maps/actual_maps/exitcode0_accepted/map_271.txt

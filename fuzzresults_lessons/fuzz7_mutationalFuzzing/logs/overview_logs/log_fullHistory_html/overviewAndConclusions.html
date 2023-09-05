@@ -1,0 +1,2903 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Jpacman Fuzzing report - Overview and conclusions</title>
+    <link href="../../../../../../dist/css/mystyles.css" rel="stylesheet">
+    <script src="../../../../../../dist/js/http_kit.fontawesome.com_6fcea80876.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+<div class="container is-fluid" id="main-container">
+
+    <!-- Section above with breadcrumbs, header and navigation bar -->
+    <div class="hero has-background-white mb-0 pb-0">
+        <div class="hero-body py-1 pb=1">
+            <!-- Breadcrumbs -->
+            <div class="level mb-0">
+                <div class="level-left">
+                    <div class="level-item">
+                        <div class="image">
+                            <img width="100" height="100"
+                                 src="https://img.icons8.com/bubbles/100/000000/pacman--v1.png" alt="pacman--v1"/>
+                        </div>
+                    </div>
+                    <div class="level-item mt-0">
+                        <!-- BreadCrumbs -->
+                        <!-- Add correct urls to other package-->
+                        <div class="field" id="breadcrumbs-field">
+                            <nav aria-label="breadcrumbs" class="breadcrumb">
+                                <ul>
+                                    <li>
+                                        <a href="welcomePage.html">
+        <span class="icon is-small">
+          <i aria-hidden="true" class="fas fa-ghost"></i>
+        </span>
+                                            <span>Welcome</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="home.html">
+        <span class="icon is-small">
+          <i aria-hidden="true" class="fa-solid fa-table"></i>
+        </span>
+                                            <span>Home</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="aboutTheFuzzer.html">
+        <span class="icon is-small">
+          <i aria-hidden="true" class="fa-solid fa-quote-left"></i>
+        </span>
+                                            <span>About the fuzzer</span>
+                                        </a>
+                                    </li>
+                                    <li class="is-active">
+                                        <a class="has-text-weight-bold" href="overviewAndConclusions.html">
+        <span class="icon is-small">
+          <i aria-hidden="true" class="fa-solid fa-lightbulb"></i>
+        </span>
+                                            <span>Overview report and conclusions</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="allMaps.html">
+        <span class="icon is-small">
+          <i aria-hidden="true" class="fa-regular fa-file-lines"></i>
+        </span>
+                                            <span>All maps</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://github.com/lunageens/JPacmanFuzz">
+                                <span class="icon is-small">
+                                    <i aria-hidden="true" class="fa-brands fa-github"></i>
+                                </span>
+                                            <span>Download</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+                <div class="level-right">
+
+                </div>
+            </div>
+
+            <!-- Header-->
+            <!-- Add action listener to delete button, isactive this element, to remove the message-->
+            <br>
+            <div class="field" id="header-field">
+                <article class="message is-info" id="message">
+                    <div class="message-header">
+                        <p class="label">Jpacman Fuzzing report - Overview and conclusions</p>
+                        <button aria-label="delete" class="delete" id="message-exit-button"></button>
+                    </div>
+                    <div class="message-body">
+                        This report presents the key findings and lessons learned from the recent fuzzing exercise
+                        conducted on the Pacman application. The objective of this exercise was to assess the robustness
+                        and
+                        security of the Pacman application through extensive input testing. By analyzing the results, we
+                        gained valuable insights into potential vulnerabilities and their root causes. This report aims
+                        to provide a comprehensive overview of the lessons learned and recommendations for enhancing the
+                        security and reliability of the Pacman application.
+                    </div>
+                </article>
+            </div>
+
+            <!-- Navigation bar -->
+            <div class="field">
+                <div class="columns">
+                    <div class="column is-12">
+                        <div class="level">
+                            <div class="navbar is-transparent mb-1">
+                                <div class="columns is-multiline is-grouped is-centered is-gapless">
+                                    <div class="column is-narrow is-gapless">
+                                        <div class="navbar-item is-small is-marginless">
+                                            <div class="button is-info is-light is-rounded mx-1">
+                                                <a href="#Fuzz1Text"> Random binary map files </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="column is-narrow is-gapless">
+                                        <div class="navbar-item is-small is-marginless">
+                                            <div class="button is-info is-light is-rounded mx-1">
+                                                <a href="#Fuzz2Text">Random ASCII characters in map text files</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="column is-narrow is-gapless">
+                                        <div class="navbar-item is-small is-marginless">
+                                            <div class="button is-info is-light is-rounded mx-1">
+                                                <a href="#Fuzz3Text">Random types of map files</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="column is-narrow is-gapless">
+                                        <div class="navbar-item is-small is-marginless">
+                                            <div class="button is-info is-light is-rounded mx-1">
+                                                <a href="#Fuzz4Text"> Random map formats and contents</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="column is-narrow is-gapless">
+                                        <div class="navbar-item is-small is-marginless">
+                                            <div class="button is-info is-light is-rounded mx-1">
+                                                <a href="#Fuzz5Text">Random action sequences</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="column is-narrow is-gapless">
+                                        <div class="navbar-item is-small is-marginless">
+                                            <div class="button is-info is-light is-rounded max-1">
+                                                <a href="#Fuzz6Text">Conclusion manual testing</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <div id="Fuzz1Fig" class="columns">
+        <div class="column">
+            <div class="notification is-info is-light">
+                <button class="delete is-small mr-2 mt-2"></button>
+                <div class="level mt-3">
+                    <div class="level-item">
+                        <div class="columns">
+                            <div class="column">
+                                <div class="image is-">
+                                    <img src="/fuzzresults_lessons/fuzz1_binary/Fuzz1_SummaryResults.png"
+                                         alt="Summary of the results of Fuzz 1" width="1280" height="695">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="level">
+                    <div class="level-item">
+                        <figcaption class="content my-1 is-italic">Fig. 1: A summary of the results of the first fuzz
+                                                                   lesson.
+                        </figcaption>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="Fuzz1Text" class="columns">
+        <div class="column">
+            <div class="card">
+                <div class="card-content">
+                    <div class="content has-text-justified">
+                        <h1 class="title has-text-info">
+                            Fuzz 1: Manual random testing with binary files and correct action sequence
+                        </h1>
+                        <a class="has-text-weight-bold has-text-info">Context</a>
+                        <p>
+                            In this stage, the maps are binary with a normal maximum size. The bytes are chosen
+                            randomly. The name of the map file is normal. We will randomly choose bytes with the
+                            <a class="is-family-code is-rounded tag has-background-info-light"
+                               href="/src/main/java/randomGenerators/map/RandomBinaryMapGenerator.java">RandomBinaryMapGenerator.generateRandomMap()</a>
+                            method. The action sequence will exist out of 5
+                            characters (randomly chosen out the valid options E, S, U, D, Q, W, L and R). It will have a
+                            normal name.
+                        </p>
+                        <a class="has has-text-weight-bold has-text-info">Configurations</a>
+                        <p>
+                            Configure the <a class="is-family-code is-rounded tag has-background-info-light"
+                                             href="/configs/Configuration.properties">Configuration.properties</a>
+                            file as followed:
+                        <div class="levels">
+                            <div class="field is-grouped is-grouped-multiline">
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            maxIterations
+                                        </div>
+                                        <div class="tag  is-info is-light">
+                                            1 000
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="tag has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            maxTime
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            900 000 (15 min)
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            typeFile
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            bin
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        </p>
+                        <a class="has-text-weight-bold has-text-info">Results</a>
+                        <p>
+                            The results are stored in the <a
+                                class="is-family-code is-rounded tag has-background-info-light"
+                                href="/fuzzresults_lessons/fuzz1_binary">
+                            fuzz1_binary</a>
+                            directory. Running the Fuzz
+                            class with the right configurations would give u something like shown in the above figure.
+                            Open the binary files in a binary editor like <a class="is-link"
+                                                                             href="https://mh-nexus.de/en/hxd/">HxD</a>
+                            to see for yourself. We can see that if the binary file has multiple lines, we get an Error
+                            reading file by
+                            readAllLines. If the binary file has one line, the program JPacman starts to read the line.
+                            If the line contains characters that are not valid, it will give another error message. We
+                            know from the given assignment text, that a text file can have multiple lines in it and
+                            still be read.
+                        </p>
+                        <p>
+                            This would give us the following informal pseudocode:
+                        <pre>
+if(file has multiple lines)
+   if(file is not a text file)
+        reject(Error reading file by readAllLines)
+if(file has one line)
+    if(file is not a text file)
+        if(file is binary file)
+            if(line is not a a valid character)
+                reject(unknown character)
+            if(line is valid character)
+                ?
+        ?
+     ?
+if(file has no lines)
+    if(file is a binary file)
+        reject(no lines)
+                    </pre>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <div id="Fuzz2Fig" class="columns">
+        <div class="column">
+            <div class="notification is-info is-light">
+                <button class="delete is-small mr-2 mt-2"></button>
+                <div class="level mt-3">
+                    <div class="level-item">
+                        <div class="columns">
+                            <div class="column">
+                                <div class="image">
+                                    <img src="/fuzzresults_lessons/fuzz2_knownCharacters/Fuzz2_SummaryResultsTotal.png"
+                                         alt="A summary of the results of the second fuzz
+                                                                  lesson.">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="level">
+                    <div class="level-item">
+                        <figcaption class="content my-1 is-italic">Fig. 2: A summary of the results of the second fuzz
+                                                                   lesson.
+                        </figcaption>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="Fuzz2Text" class="columns">
+        <div class="column">
+            <div class="card">
+                <div class="card-content">
+                    <div class="content has-text-justified">
+                        <h1 class="title has-text-info">
+                            Fuzz 2: Manual random testing of map file content with known ASCII characters
+                        </h1>
+                        <a class="has-text-weight-bold has-text-info">
+                            Context
+                        </a>
+                        <p>
+                            If I want to know if one-line binary files can be valid, I first need to know what the valid
+                            characters are. Let's make
+                            a text map that always includes one of the 128 characters of the ASCII range.
+                            We do this by using the method
+                            <a href="/src/main/java/randomGenerators/map/RandomMapGenerator.java"
+                               class="is-family-code is-rounded tag has-background-info-light">RandomTextMapGenerator.generateCustomTextMap(String
+                                                                                               mapLine)</a>
+                            . The name of the map
+                            file is normal.
+                            The action sequence will exist out of 3 valid characters in a valid sequence: Start (S) -
+                            Wait
+                            (W) - Exit (E). The name
+                            of the string will be normal.
+                        </p>
+                        <br>
+                        <a class="has-text-weight-bold has-text-info">
+                            Configurations
+                        </a>
+                        <p>
+                            Configure the <a class="is-family-code is-rounded tag has-background-info-light"
+                                             href="/configs/Configuration.properties">Configuration.properties</a>
+                            file as followed:
+                        <div class="levels">
+                            <div class="field is-grouped is-grouped-multiline mx-2">
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            customMapsNr
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            1
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            customSequenceNr
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            1
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            maxIterations
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            128
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            maxTime
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            900 000 (15 min)
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            typeFile
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            all
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </p>
+                        <br>
+                        <a class="has-text-weight-bold has-text-info">
+                            Results
+                        </a>
+                        <p>
+                            The results are stored in the directory
+                            <a href="fuzzresults_lessons/fuzz2_knownCharacters"
+                               class="is-family-code is-rounded tag has-background-info-light">fuzz2_knownCharacters</a>
+                            . A summary of the results is shown in
+                            the above figure. Note that the valid characters are all capitalized. If it is a valid file
+                            and not an empty one, look at the characters inside. If they are all valid character, look
+                            at the presence of all the needed characters. Note also that we did not test for
+                            other alphabets or characters outside the ASCII range such as emoji's.
+                        </p>
+                        <p>
+                        <div class="columns is-vcentered">
+                            <div class="column">
+                                <figure>
+                                    <div class="columns">
+                                        <div class="column">
+                                            <img src="/fuzzresults_lessons/fuzz2_knownCharacters/maps/map_1.png">
+                                        </div>
+                                        <div class="column">
+                                            <img src="/fuzzresults_lessons/fuzz2_knownCharacters/maps/map_2.png">
+                                        </div>
+                                    </div>
+                                    <figcaption>
+                                        Fig. 3: Most of the ASCII Characters are unknown characters.
+                                    </figcaption>
+                                </figure>
+                            </div>
+                            <div class="column">
+                                <figure>
+                                    <div class="columns">
+                                        <div class="column">
+                                            <img src="/fuzzresults_lessons/fuzz2_knownCharacters/maps/map_11.png">
+                                        </div>
+                                    </div>
+                                    <figcaption>
+                                        Fig. 4: Characters such as spaces and tabs results in empty text files and
+                                        therefore get the error message 'no columns'.
+                                    </figcaption>
+                                </figure>
+                            </div>
+                            <div class="column">
+                                <figure class="image">
+                                    <div class="columns">
+                                        <div class="column">
+                                            <img src="/fuzzresults_lessons/fuzz2_knownCharacters/maps/map_49.png">
+                                        </div>
+                                        <div class="column">
+                                            <img src="/fuzzresults_lessons/fuzz2_knownCharacters/maps/map_81.png">
+                                        </div>
+                                    </div>
+                                    <figcaption>
+                                        Fig. 5: Some stand-alone characters (P, M, W, F and 0) are known, but still
+                                        result in
+                                        error messages
+                                        about the map content.
+                                    </figcaption>
+                                </figure>
+                            </div>
+                        </div>
+
+
+                        </p>
+                        <p>
+                            This would give us the following informal pseudocode:
+                        </p>
+                        <pre>
+if (the file is not valid)
+    reject(Error reading file by readAllLines)
+if(the map does not contain valid characters (M, W, F, P))
+    reject(unknown character)
+if(the map does not contain character P)
+    reject(no player is set)
+if(the map does not contain character F)
+    reject(no food is set)
+                    </pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <div id="Fuzz3Fig" class="columns">
+        <div class="column">
+            <div class="notification is-info is-light">
+                <button class="delete is-small mr-2 mt-2"></button>
+                <div class="level mt-3">
+                    <div class="level-item">
+                        <div class="columns">
+                            <div class="column">
+                                <div class="image">
+                                    <img src="/fuzzresults_lessons/fuzz3_filetypes/Fuzz3_SummaryResults.png">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="level">
+                    <div class="level-item">
+                        <figcaption class="content my-1 is-italic">Fig. 6: A summary of the results of the third fuzz
+                                                                   lesson.
+                        </figcaption>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="Fuzz3Text" class="columns">
+        <div class="column">
+            <div class="card">
+                <div class="card-content">
+                    <div class="content has-text-justified">
+                        <h1 class="title has-text-info">
+                            Fuzz 3: Manual random testing of map file types
+                        </h1>
+                        <a class="has-text-weight-bold has-text-info">
+                            Context
+                        </a>
+                        <p>
+                            We still use all valid action sequence strings, since we are focussing on the map file
+                            first.
+                        </p>
+                        <p>
+                            First, we want to see if there is a difference between the allowed lines for each type.
+                        <ul>
+                            <li>
+                                We want to know if we can have a binary file type of one line that is valid. Therefore,
+                                test multiple and single character file type encoding with valid string. Those should
+                                get
+                                error no player of food instead of error reading file by readAllLines.
+                            </li>
+                            <li>
+                                If one-line binary files are valid, are there other file types that can only have
+                                one-line? Let's add some
+                                single-lined .map, .dat, .xml, .html, .xlsx, .pdf, and .csv files. Use Excel and IntelJI
+                                Idea to create those files.
+                            </li>
+                            <li>
+                                Are multiple line text files valid? Are there other file types that can have multiple
+                                lines? Let's add some
+                                multi-lined .map, .dat, .xml, .html, .xlsx, .pdf, and .csv files. Use Excel and IntelJI
+                                Idea
+                                to create those files.
+                            </li>
+                        </ul>
+                        </p>
+                        <p>
+                            Second, are there other restrictions to file types?
+                        <ul>
+                            <li>
+                                File compression: Let's add a .txt file, but modify it to a compressed .zip file. Use
+                                your
+                                operating
+                                system.
+                            </li>
+                            <li>
+                                File permission: Let's add a .map file with no , read-only and write-only permission.
+                                Try
+                                to input a hidden file.
+                                Use your operating system.
+                            </li>
+                            <li>
+                                File encryption: Let's add an encrypting algorithm, such as AES, with a password.
+                                Use
+                                tools such
+                                as <a class="is-link" href="https://veracrypt.fr/en/Downloads.html">Veracrypt</a> to
+                                create large encrypted files.
+                            </li>
+                            <li>
+                                File corruption: Add a file with an invalid extension (for example, .corrupted ) or
+                                change
+                                the encoding of a text file
+                                from UTF-8 to another one (for example, UTF-16). Use programs like <a class="is-link"
+                                                                                                      href="https://notepad-plus-plus.org/downloads/">Notepad++</a>
+                                to do so.
+                            </li>
+                            <li>
+                                File size: Let's add an empty and a massive .txt file. Use sites such as <a
+                                    class="is-link"
+                                    href="https://www.dummytextgenerator.com/">dummytextgenerator.com</a>
+                                or do this via the command line, as explained <a class="is-link"
+                                                                                 href="https://www.windows-commandline.com/how-to-create-large-dummy-file/#:~:text=echo%20%22This%20is%20just%20a%20sample%20line%20appended,a%201%20MB%20file%20dummy.txt%20within%20few%20seconds">here</a>
+                                for windows operating systems.
+                            </li>
+                            <li>
+                                File name: Let's add an emtpy name. Let's add special characters (space, @,or characters
+                                from
+                                mixed alphabets) in the name of the map file.
+                            </li>
+                        </ul>
+                        </p>
+                        <br>
+                        <a class="has-text-weight-bold has-text-info">
+                            Configurations
+                        </a>
+                        <p>
+                            If u want to use my
+                            <a class="is-family-code is-rounded tag has-background-info-light"
+                               href="/fuzzresults_lessons/fuzz3_filetypes/custom_maps">custom_maps </a>
+
+
+                            directory, copy the file in the
+
+                            <a class="is-family-code is-rounded tag has-background-info-light"
+                               href="/fuzzresults_lessons/fuzz3_filetypes/custom_maps_inputCopy_3">custom_maps_inputCopy_3</a>
+                            directory of the
+
+                            <a class="is-family-code is-rounded tag has-background-info-light"
+                               href="/fuzzresults_lessons/fuzz3_filetypes">fuzz3_filetypes</a>
+                            directory. This is to avoid that the program will move them while
+                            executing
+                            the fuzzer, and certain files will be lost during that process.
+
+                            If u copy-paste the files to maps, make sure to reconfigure permissions files.
+                            Files lose their permission while copying.
+                            U might notice that you cannot copy the file without any permissions. Since all permissions
+                            files have the same content, u can copy the read-only or write-only file twice and
+                            reconfigure
+                            one copy to no permissions.
+
+                            Make sure to run with none of the files open, otherwise you will receive an error because
+                            the application cannot
+                            move open files.
+
+
+                        </p>
+                        <p>
+                            Configure the <a class="is-family-code is-rounded tag has-background-info-light"
+                                             href="/configs/Configuration.properties">Configuration.properties</a>
+                            file as followed:
+                        <div class="levels">
+                            <div class="field is-grouped is-grouped-multiline">
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            customMapsNr
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            3
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            customSequenceNr
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            1
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            maxBinaryMapSize
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            5 000
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            maxIterations
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            37
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            maxTextMapHeight
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            100
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            maxTextMapWidth
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            100
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </p>
+                        <br>
+                        <a class="has-text-weight-bold has-text-info">
+                            Results
+                        </a>
+                        <p>
+                            The results are stored in the directory
+                            <a href="/fuzzresults_lessons/fuzz3_filetypes"
+                               class="is-family-code is-rounded tag has-background-info-light">fuzz3_filetypes</a>.
+
+                            We are going to have to put the file without permissions out of the list because it gives an
+                            error before even reaching the fuzzer.
+                        </p>
+                        <br>
+                        <div class="columns is-vcentered">
+                            <div class="column is-one-quarter"></div>
+                            <div class="column is-half">
+                                <div class="image is-3by1">
+                                    <figure>
+                                        <img src="/fuzzresults_lessons/fuzz3_filetypes/custom_maps_images/FilePermission_None_Error.png">
+
+                                    </figure>
+
+                                </div>
+                                <div class="level">
+                                    <div class="level-item">
+                                        <figcaption class="content my-1 is-italic">Fig 7: We cannot input files
+                                                                                   without any permission.
+                                        </figcaption>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="column is-one-quarter"></div>
+                        </div>
+                        <br>
+                        <p>
+                            Let's look at the other files. For the first time, the program accepted some
+                            files!
+                        <ul>
+                            <li>
+                                We know from the assignment that the program excepts single and
+                                multi-line text files.
+                                The program accepted multi-line text files, even if they had a file name
+                                that included
+                                other alphabets, spaces or special characters or if they were hidden.
+                                The program
+                                rejected the massive text files, but only because it had unknown
+                                characters
+                                in it.
+                            </li>
+                            <li>
+                                The program accepted the multiple map files, even if they were only
+                                read-only. The
+                                program rejected the single-lined map files, but only because they have
+                                missing essential
+                                characters (food or player).
+                            </li>
+                        </ul>
+                        </p>
+                        <br>
+                        <div class="columns is-vcentered">
+                            <div class="column">
+                                <figure>
+                                    <div class="columns">
+                                        <div class="column">
+                                            <img src="/fuzzresults_lessons/fuzz3_filetypes/custom_maps_images/FileEncryption.png">
+                                        </div>
+                                        <div class="column">
+                                            <img src="/fuzzresults_lessons/fuzz3_filetypes/custom_maps_images/FileType_SingleLine_Excel.png">
+                                        </div>
+                                    </div>
+                                    <figcaption>
+                                        Fig. 8: Encrypted and Excel files get an "Error reading all
+                                        lines" message.
+                                        Files that are write-only, encoded, compressed, or have the .pdf
+                                        extension, as
+                                        well as binary files with multiple lines, get the same error
+                                        message.
+                                    </figcaption>
+                                </figure>
+                            </div>
+                            <div class="column">
+                                <figure>
+                                    <div class="columns">
+                                        <div class="column">
+                                            <img src="/fuzzresults_lessons/fuzz3_filetypes/custom_maps_images/FileType_Multiline_Dat.png">
+                                        </div>
+                                        <div class="column">
+                                            <img src="/fuzzresults_lessons/fuzz3_filetypes/custom_maps_images/FileType_SingleLine_CSV.png">
+                                        </div>
+                                    </div>
+                                    <figcaption>
+                                        Fig. 9: All .csv, .html, .xml files, receive an "unknown
+                                        character" message,
+                                        even when they only contain valid characters. The same holds for
+                                        files with a
+                                        corrupted extension or multi-line .dat files.
+                                    </figcaption>
+                                </figure>
+                            </div>
+                        </div>
+                        <br>
+                        <p>
+                            Some rejected file types were:
+                        <ul>
+                            <li>
+                                Error message "Error reading file by ReadAllLines": compressed, encoded
+                                or encrypted
+                                files,
+                                write-only files, all pdf or Excel files, and multi-line binary files.
+                            </li>
+                            <li>
+                                Error message "Unknown character": all .corrupted, .csv, .html and .xml
+                                files, and
+                                multi-line binary or .dat
+                                files that have
+                                multiple lines. Note that those files were tested on being single or
+                                multiple line, and did not contain any unknown characters.
+                            </li>
+                            <li>
+                                Error message "No lines": One cannot input an empty file.
+                            </li>
+                        </ul>
+                        </p>
+                        <br>
+                        <p>
+                            This would give us the following informal pseudocode:
+                        </p>
+                        <pre>
+ if(file has not any permission)
+    cannot do input in terminal
+ if(file is compressed,not encoded with UTF-8,  encrypted, write-only, or from an invalid data type (pdf, excel or multi-line binary))
+    reject(Error reading file by ReadAllLines)
+ if(file is .csv, .html, .xml, .corrupted or multi-line .dat) || (the map does not contain valid characters (M, W, F, P))
+    reject(unknown character)
+ if(file is empty)
+    reject(No lines)
+ if(the map does not contain character P)
+    reject(no player is set)
+ if(the map does not contain character F)
+    reject(no food is set)
+ else
+    accept
+                    </pre>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <div id="Fuzz4Fig" class="columns">
+        <div class="column">
+            <div class="notification is-info is-light">
+                <button class="delete is-small mr-2 mt-2"></button>
+                <div class="level mt-3">
+                    <div class="level-item">
+                        <div class="columns">
+                            <div class="column">
+                                <div class="image">
+                                    <img src="/fuzzresults_lessons/fuzz4_validCharacterMaps/Fuzz4_SummaryResults.png"
+                                         alt="Lessons fuzz 4">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="level">
+                    <div class="level-item">
+                        <figcaption class="content my-1 is-italic">Fig. 10: A summary of the results of
+                                                                   the fourth fuzz
+                                                                   lesson.
+                        </figcaption>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="Fuzz4Text" class="columns">
+        <div class="column">
+            <div class="card">
+                <div class="card-content">
+                    <div class="content has-text-justified">
+                        <h1 class="title has-text-info">
+                            Fuzz 4: Manual random testing of file content with valid characters
+                        </h1>
+                        <a class="has-text-weight-bold has-text-info">
+                            Context
+                        </a>
+                        <p>
+                            If we have valid file types, valid characters and the same correct simple action sequence,
+                            what happens if we add a
+                            player and food?
+                            Is there anything else we definitely need in the map?
+                            Which sequences of maps are allowed?
+                            Which forms of match are allowed?
+                        </p>
+                        <br>
+                        <a class="has-text-weight-bold has-text-info">
+                            Configurations
+                        </a>
+                        <p>
+                            Configure the <a
+                                class="is-family-code is-rounded tag has-background-info-light"
+                                href="/configs/Configuration.properties">Configuration.properties</a>
+                            file as followed:
+                        <div class="levels">
+                            <div class="field is-grouped is-grouped-multiline">
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            customMapsNr
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            4
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            customSequenceNr
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            1
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            fileType
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            txt
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            maxIterations
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            250
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            maxTextMapHeight
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            20
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            maxTextMapWidth
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            20
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            maxTime
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            900 000 (15 min)
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        One could also set the value of customMapsNr to 5 if u only want to try out squared text files.
+                        For demonstration purposes, there is a
+                        <a class="is-family-code is-rounded tag has-background-info-light"
+                           href="/fuzzresults_lessons/fuzz4_validCharacterMaps/custom_maps">custom_maps </a>
+                        directory for this fuzz as well. The files are made to showcase corner cases. For using the map
+                        files, the same method holds: copy them into the
+                        <a class="is-family-code is-rounded tag has-background-info-light"
+                           href="/fuzzresults_lessons/fuzz4_validCharacterMaps/custom_maps_inputCopy_4">custom_maps_inputCopy_4</a>,
+                        and change the maxIterations and customMapsNr (to 49 and 6, respectively).
+                        </p>
+                        <br>
+                        <a class="has-text-weight-bold has-text-info">
+                            Results
+                        </a>
+                        <p> <!-- ! Hier nog een typfout in -->
+                            The logs from running the Fuzzer with customMapsNr 4, 5 and 6 are stored in the directory
+                            <a href="fuzzresults_lessons/fuzz4_validCharacterMaps"
+                               class="is-family-code is-rounded tag has-background-info-light">fuzz4_validCharacterMaps</a>
+                            .
+                        </p>
+                        <p>
+                            In the fuzz attempt with customMaps 4, almost 60% had more than one player because there
+                            were two or more players on the first line. If that was not the case, there was another
+                            mistake such as width Mismatch or no lines, ensuring that no map file was accepted by the
+                            application. To diversify the output messages, we tried fuzzing with customMaps 5, which
+                            only generates random square maps with valid characters. However, all map files were still
+                            rejected. 94 percent of them were rejected because there was more than one player. This is
+                            why we created custom maps to observe which output messages contribute to rejection and in
+                            which order.
+                        </p>
+                        <br>
+                        <div class="columns is-vcentered">
+                            <div class="column">
+                                <figure>
+                                    <div class="columns">
+                                        <div class="column">
+                                            <img src="/fuzzresults_lessons/fuzz4_validCharacterMaps/custom_maps_images/FirstLineEmpty.png">
+                                        </div>
+                                    </div>
+                                    <figcaption>
+                                        Fig. 11: An empty first line will result in the "No columns" output message.
+                                    </figcaption>
+                                </figure>
+                            </div>
+                            <div class="column">
+                                <figure>
+                                    <div class="columns">
+                                        <div class="column">
+                                            <img src="/fuzzresults_lessons/fuzz4_validCharacterMaps/custom_maps_images/LineEmpty.png">
+                                        </div>
+                                        <div class="column">
+                                            <img src="/fuzzresults_lessons/fuzz4_validCharacterMaps/custom_maps_images/LineTooShort.png">
+                                        </div>
+                                        <div class="column">
+                                            <img src="/fuzzresults_lessons/fuzz4_validCharacterMaps/custom_maps_images/LineTooLong.png">
+                                        </div>
+                                    </div>
+                                    <figcaption>
+                                        Fig. 12: Other lines that are empty are considered as lines that are too short,
+                                        and those result in the "Widths Mismatch" output message, similar to lines that
+                                        are too long.
+                                    </figcaption>
+                                </figure>
+                            </div>
+                            <div class="column">
+                                <figure>
+                                    <div class="columns">
+                                        <div class="column">
+                                            <img src="/fuzzresults_lessons/fuzz4_validCharacterMaps/custom_maps_images/NoMonster.png">
+                                        </div>
+                                    </div>
+                                    <figcaption>
+                                        Fig. 13: A map without any monsters is accepted by the application.
+                                    </figcaption>
+                                </figure>
+                            </div>
+                        </div>
+                        <br>
+                        <p>
+                            For customMaps 6, the following important output messages were observed:
+                        <ul>
+                            <li>
+                                No lines: If all rows are empty, the file is rejected (e.g., <a
+                                    class="is-family-code is-rounded tag has-background-info-light"
+                                    href="/fuzzresults_lessons/fuzz4_validCharacterMaps/custom_maps/FileEmpty.txt">
+                                FileEmpty.txt</a>).
+                            </li>
+                            <li>
+                                No columns: If the first line is empty but other rows have characters in them, the
+                                output message "No columns" will be received (e.g., <a
+                                    class="is-family-code is-rounded tag has-background-info-light"
+                                    href="/fuzzresults_lessons/fuzz4_validCharacterMaps/custom_maps/FirstLineEmpty.txt">
+                                FirstLineEmpty.txt</a>).
+                            </li>
+                            <li>
+                                More than one player: If the first line is not empty but contains more than one
+                                character P in the total map file, the output message "More than one player" will appear
+                                (e.g.,
+                                <a
+                                        class="is-family-code is-rounded tag has-background-info-light"
+                                        href="/fuzzresults_lessons/fuzz4_validCharacterMaps/custom_maps/FirstLinePlayers.txt">
+                                    FirstLinePlayers.txt</a>
+                                and
+                                <a
+                                        class="is-family-code is-rounded tag has-background-info-light"
+                                        href="/fuzzresults_lessons/fuzz4_validCharacterMaps/custom_maps/LinePlayers.txt">
+                                    LinePlayers.txt</a>
+                                ).
+                            </li>
+                            <li>
+                                Widths Mismatch: If any line is shorter or longer than the first line (even lines
+                                without
+                                characters), the output message "Widths Mismatch" is shown (e.g.,
+                                <a
+                                        class="is-family-code is-rounded tag has-background-info-light"
+                                        href="/fuzzresults_lessons/fuzz4_validCharacterMaps/custom_maps/LineEmpty.txt">
+                                    LineEmpty.txt</a>
+                                ,
+                                <a
+                                        class="is-family-code is-rounded tag has-background-info-light"
+                                        href="/fuzzresults_lessons/fuzz4_validCharacterMaps/custom_maps/LineTooLong.txt">
+                                    LineTooLong.txt</a>
+                                , and
+                                <a
+                                        class="is-family-code is-rounded tag has-background-info-light"
+                                        href="/fuzzresults_lessons/fuzz4_validCharacterMaps/custom_maps/LineTooShort.txt">
+                                    LineTooShort.txt</a>
+                                ).
+                            </li>
+                            <li>
+                                No player is set: If the total map file does not contain any character P, the output
+                                message "No player is set" is received (e.g.,
+                                <a
+                                        class="is-family-code is-rounded tag has-background-info-light"
+                                        href="/fuzzresults_lessons/fuzz4_validCharacterMaps/custom_maps/NoPlayer.txt">
+                                    NoPlayer.txt</a>
+                                ).
+                            </li>
+                            <li>
+                                No food: If the total map file does not contain any character F, the output message "No
+                                food" is received (e.g.,
+                                <a
+                                        class="is-family-code is-rounded tag has-background-info-light"
+                                        href="/fuzzresults_lessons/fuzz4_validCharacterMaps/custom_maps/NoFood.txt">
+                                    NoFood.txt</a>
+                                ).
+                            </li>
+                        </ul>
+                        </p>
+                        <p>
+                            Some map files also got accepted:
+                        <ul>
+                            <li>
+                                <a
+                                        class="is-family-code is-rounded tag has-background-info-light"
+                                        href="/fuzzresults_lessons/fuzz4_validCharacterMaps/custom_maps/NoMonster.txt">
+                                    NoMonster.txt</a>
+                                : Maps without any monsters pass, meaning a map is allowed where the player cannot die.
+                            </li>
+                            <li>
+                                <a
+                                        class="is-family-code is-rounded tag has-background-info-light"
+                                        href="/fuzzresults_lessons/fuzz4_validCharacterMaps/custom_maps/MultipleFood.txt">
+                                    MultipleFood.txt</a>
+                                and
+                                <a
+                                        class="is-family-code is-rounded tag has-background-info-light"
+                                        href="/fuzzresults_lessons/fuzz4_validCharacterMaps/custom_maps/MultipleMonsters.txt">
+                                    MultipleMonsters.txt</a>
+                                : Multiple foods or monsters in the map are not a problem.
+                            </li>
+                            <li>
+                                <a
+                                        class="is-family-code is-rounded tag has-background-info-light"
+                                        href="/fuzzresults_lessons/fuzz4_validCharacterMaps/custom_maps/Rectangular.txt">
+                                    Rectangular.txt</a>
+                                : Rectangular maps, unlike our custom square maps, are also accepted if there are no
+                                other rejected attributes.
+                            </li>
+                        </ul>
+                        </p>
+                        <br>
+                        <p>
+                            One might wonder how to determine the hierarchy of these output messages. An indication
+                            could be the occurrence percentage of the output message. For example, "Widths Mismatch" was
+                            the output message for 37% of all map files, suggesting its higher position in the
+                            hierarchy. To be sure, we combined as many error messages as possible without unnecessary
+                            duplication. Each output message was tested against all output messages below it.
+                        </p>
+                        <p>
+                            Firstly, there are some attributes of the first line that are checked:
+                        <ul>
+                            <li>
+                                No lines: If the file is empty, it is not possible to receive an error message about its
+                                content. Therefore, "No lines" is the highest in the hierarchy.
+                            </li>
+                            <li>
+                                No columns: It is not possible to have the first line empty and have two players in the
+                                first line. We did test the case where two players occurred in another line than the
+                                first
+                                line (
+                                <a
+                                        class="is-family-code is-rounded tag has-background-info-light"
+                                        href="/fuzzresults_lessons/fuzz4_validCharacterMaps/custom_maps/FirstLineEmpty_LinePlayers.txt">
+                                    FirstLineEmpty_LinePlayers.txt</a>
+                                ). To test for width Mismatch, we made the first line
+                                empty and the third line either too short or too long (
+                                <a
+                                        class="is-family-code is-rounded tag has-background-info-light"
+                                        href="/fuzzresults_lessons/fuzz4_validCharacterMaps/custom_maps/FirstLineEmpty_LineTooShort.txt">
+                                    FirstLineEmpty_LineTooShort.txt</a>
+                                and
+                                <a
+                                        class="is-family-code is-rounded tag has-background-info-light"
+                                        href="/fuzzresults_lessons/fuzz4_validCharacterMaps/custom_maps/FirstLineEmpty_LineTooLong.txt">
+                                    FirstLineEmpty_LineTooLong.txt</a>
+                                ). We also tested map files where the first line was empty but
+                                had no players, food, or monsters (
+                                <a
+                                        class="is-family-code is-rounded tag has-background-info-light"
+                                        href="/fuzzresults_lessons/fuzz4_validCharacterMaps/custom_maps/FirstLineEmpty_NoPlayer.txt">
+                                    FirstLineEmpty_NoPlayer.txt</a>
+                                ,
+                                <a
+                                        class="is-family-code is-rounded tag has-background-info-light"
+                                        href="/fuzzresults_lessons/fuzz4_validCharacterMaps/custom_maps/FirstLineEmpty_NoFood.txt">
+                                    FirstLineEmpty_NoFood.txt</a>
+                                and
+                                <a
+                                        class="is-family-code is-rounded tag has-background-info-light"
+                                        href="/fuzzresults_lessons/fuzz4_validCharacterMaps/custom_maps/FirstLineEmpty_NoMonster.txt">
+                                    FirstLineEmpty_NoMonster.txt</a>
+                                ). Except for completely empty map files, invalid map file
+                                types, and unknown characters, all map files with an empty first line received the
+                                output
+                                message "No columns," even if there were other issues with the map file's content in
+                                subsequent lines.
+                            </li>
+                            <li>
+                                More than one player (in the first line): If the first line is not empty but contains
+                                the
+                                character "P" more than once, the output message "More than one player" will always be
+                                displayed. This is true even if other lines contain more "P"s
+                                (
+                                <a
+                                        class="is-family-code is-rounded tag has-background-info-light"
+                                        href="/fuzzresults_lessons/fuzz4_validCharacterMaps/custom_maps/FirstLinePlayers_LinePlayers.txt">
+                                    FirstLinePlayers_LinePlayers.txt</a>
+                                ), are shorter (
+                                <a
+                                        class="is-family-code is-rounded tag has-background-info-light"
+                                        href="/fuzzresults_lessons/fuzz4_validCharacterMaps/custom_maps/FirstLinePlayers_LineTooShort.txt">
+                                    FirstLinePlayers_LineTooShort.txt</a>
+                                ), or
+                                longer (
+                                <a
+                                        class="is-family-code is-rounded tag has-background-info-light"
+                                        href="/fuzzresults_lessons/fuzz4_validCharacterMaps/custom_maps/FirstLinePlayers_LineTooLong.txt">
+                                    FirstLinePlayers_LineTooLong.txt</a>
+                                ). It also applies when the entire map file does not
+                                contain any "F" characters (
+                                <a
+                                        class="is-family-code is-rounded tag has-background-info-light"
+                                        href="/fuzzresults_lessons/fuzz4_validCharacterMaps/custom_maps/FirstLinePlayers_NoFood.txt">
+                                    FirstLinePlayers_NoFood.txt</a>
+                                ) or "M" characters
+                                (
+                                <a
+                                        class="is-family-code is-rounded tag has-background-info-light"
+                                        href="/fuzzresults_lessons/fuzz4_validCharacterMaps/custom_maps/FirstLinePlayers_NoMonster.txt">
+                                    FirstLinePlayers_NoMonster.txt</a>
+                                ). Logically, the combination of the first line having more
+                                than one player and the total map file having no players is not applicable.
+                            </li>
+                        </ul>
+                        </p>
+                        <br>
+                        <div class="columns is-vcentered">
+                            <div class="column is-2">
+                                <figure>
+                                    <div class="columns">
+                                        <div class="column">
+                                            <img src="/fuzzresults_lessons/fuzz4_validCharacterMaps/custom_maps_images/LineTooShort_LinePlayers.png">
+                                        </div>
+                                    </div>
+                                    <figcaption>
+                                        Fig. 14: Lines that are too short and contain two players result in the output
+                                        message "Widths Mismatch".
+                                    </figcaption>
+                                </figure>
+                            </div>
+                            <div class="column is-4">
+                                <figure>
+                                    <div class="columns">
+                                        <div class="column">
+                                            <img src="/fuzzresults_lessons/fuzz4_validCharacterMaps/custom_maps_images/LineTooLong_LinePlayers_Before.png">
+                                        </div>
+                                        <div class="column">
+                                            <img src="/fuzzresults_lessons/fuzz4_validCharacterMaps/custom_maps_images/LineTooLong_LinePlayers_On.png">
+                                        </div>
+                                        <div class="column">
+                                            <img src="/fuzzresults_lessons/fuzz4_validCharacterMaps/custom_maps_images/LineTooLong_LinePlayers_After.png">
+                                        </div>
+                                    </div>
+                                    <figcaption>
+                                        Fig. 15: Lines that are too long and contain two players result in the output
+                                        message "Widths Mismatch', whether those
+                                        two "P"s are placed before, on or after the end of the first line.
+                                    </figcaption>
+                                </figure>
+                            </div>
+                            <div class="column is-2">
+                                <figure>
+                                    <div class="columns">
+                                        <div class="column">
+                                            <img src="/fuzzresults_lessons/fuzz4_validCharacterMaps/custom_maps_images/LineTooShort_TotalPlayers_Before.png">
+                                        </div>
+                                    </div>
+                                    <figcaption>
+                                        Fig. 16: Lines that are too short and contain one P, that brings the total "P"s
+                                        to more than one, result in the output message "Widths Mismatch".
+                                    </figcaption>
+                                </figure>
+                            </div>
+                            <div class="column is-4">
+                                <figure>
+                                    <div class="columns">
+                                        <div class="column">
+                                            <img src="/fuzzresults_lessons/fuzz4_validCharacterMaps/custom_maps_images/LineTooLong_TotalPlayers_Before.png">
+                                        </div>
+                                        <div class="column">
+                                            <img src="/fuzzresults_lessons/fuzz4_validCharacterMaps/custom_maps_images/LineTooLong_TotalPlayers_On.png">
+                                        </div>
+                                        <div class="column">
+                                            <img src="/fuzzresults_lessons/fuzz4_validCharacterMaps/custom_maps_images/LineTooLong_TotalPlayers_After.png">
+                                        </div>
+                                    </div>
+                                    <figcaption>
+                                        Fig. 17: Lines that are too long and contain one P, that brings the total "P"s
+                                        to more than one, result in the output message "Widths Mismatch", whether
+                                        that P is placed before, on or after the end of the first line.
+                                    </figcaption>
+                                </figure>
+                            </div>
+                        </div>
+                        <br>
+                        <p>
+                            Next, each line is tested separately in the following order:
+                        <ul>
+                            <li>
+                                Widths Mismatch: A line can be either longer or shorter than the first line but never
+                                both at the same time. If a line is too short or too long, the output message "Widths
+                                Mismatch" will be displayed, even if the total map file does not contain any food,
+                                players, or monsters (
+                                <a
+                                        class="is-family-code is-rounded tag has-background-info-light"
+                                        href="/fuzzresults_lessons/fuzz4_validCharacterMaps/custom_maps/LineTooLong_NoFood.txt">
+                                    LineTooLong_NoFood.txt</a>
+                                ,
+                                <a
+                                        class="is-family-code is-rounded tag has-background-info-light"
+                                        href="/fuzzresults_lessons/fuzz4_validCharacterMaps/custom_maps/LineTooShort_NoFood.txt">
+                                    LineTooShort_NoFood.txt</a>
+                                ,
+                                <a
+                                        class="is-family-code is-rounded tag has-background-info-light"
+                                        href="/fuzzresults_lessons/fuzz4_validCharacterMaps/custom_maps/LineTooLong_NoPlayer.txt">
+                                    LineTooLong_NoPlayer.txt</a>
+                                ,
+                                <a
+                                        class="is-family-code is-rounded tag has-background-info-light"
+                                        href="/fuzzresults_lessons/fuzz4_validCharacterMaps/custom_maps/LineTooShort_NoPlayer.txt">
+                                    LineTooShort_NoPlayer.txt</a>
+                                ,
+                                <a
+                                        class="is-family-code is-rounded tag has-background-info-light"
+                                        href="/fuzzresults_lessons/fuzz4_validCharacterMaps/custom_maps/LineTooLong_NoMonster.txt">
+                                    LineTooLong_NoMonster.txt</a>
+                                , and
+                                <a
+                                        class="is-family-code is-rounded tag has-background-info-light"
+                                        href="/fuzzresults_lessons/fuzz4_validCharacterMaps/custom_maps/LineTooShort_NoMonster.txt">
+                                    LineTooShort_NoMonster.txt</a>
+                                ). The question of the combination of "Widths Mismatch" and
+                                "More than one player" follows. We have already seen that when there are two players in
+                                the first line, the output message "More than one player" is shown. However, what
+                                happens if a line is too short or too long, and that same line brings the total number
+                                of players to more than one? This can occur in the following ways:
+                                <ul>
+                                    <li>
+                                        The line is too short and has more than one player. Both player characters are
+                                        before
+                                        the end of the first line (
+                                        <a
+                                                class="is-family-code is-rounded tag has-background-info-light"
+                                                href="/fuzzresults_lessons/fuzz4_validCharacterMaps/custom_maps/LineTooShort_LinePlayers.txt">
+                                            LineTooShort_LinePlayers.txt</a>
+                                        ).
+                                    </li>
+                                    <li>
+                                        The line is too long and has more than one player. Both player characters can be
+                                        found
+                                        completely before the end of the first line (
+                                        <a
+                                                class="is-family-code is-rounded tag has-background-info-light"
+                                                href="/fuzzresults_lessons/fuzz4_validCharacterMaps/custom_maps/LineTooLong_LinePlayers_Before.txt">LineTooLong_LinePlayers_Before.txt</a>
+                                        ), on the
+                                        column of the end of the first line (
+                                        <a
+                                                class="is-family-code is-rounded tag has-background-info-light"
+                                                href="/fuzzresults_lessons/fuzz4_validCharacterMaps/custom_maps/LineTooLong_LinePlayers_On.txt">
+                                            LineTooLong_LinePlayers_On.txt</a>
+                                        ), or
+                                        completely
+                                        after the end of the first line (
+                                        <a
+                                                class="is-family-code is-rounded tag has-background-info-light"
+                                                href="/fuzzresults_lessons/fuzz4_validCharacterMaps/custom_maps/LineTooLong_LinePlayers_After.txt">
+                                            LineTooLong_LinePlayers_After.txt</a>
+                                        ).
+                                    </li>
+                                    <li>
+                                        The line is too short and only contains one player but brings the total players
+                                        to more
+                                        than one. That one player character is placed fully before the end of the first
+                                        line
+                                        (
+                                        <a
+                                                class="is-family-code is-rounded tag has-background-info-light"
+                                                href="/fuzzresults_lessons/fuzz4_validCharacterMaps/custom_maps/LineTooShort_TotalPlayers_Before.txt">
+                                            LineTooShort_TotalPlayers_Before.txt</a>
+                                        ).
+                                    </li>
+                                    <li>
+                                        The line is too long and only contains one player but brings the total players
+                                        to more
+                                        than one. That one player character can be placed before the end of the first
+                                        line
+                                        (
+                                        <a
+                                                class="is-family-code is-rounded tag has-background-info-light"
+                                                href="/fuzzresults_lessons/fuzz4_validCharacterMaps/custom_maps/LineTooLong_TotalPlayers_Before.txt">
+                                            LineTooLong_TotalPlayers_Before.txt</a>
+                                        ), on the column of the end of the first
+                                        line
+                                        (
+                                        <a
+                                                class="is-family-code is-rounded tag has-background-info-light"
+                                                href="/fuzzresults_lessons/fuzz4_validCharacterMaps/custom_maps/LineTooLong_TotalPlayers_On.txt">
+                                            LineTooLong_TotalPlayers_On.txt</a>
+                                        ), or after the end of the first line
+                                        (
+                                        <a
+                                                class="is-family-code is-rounded tag has-background-info-light"
+                                                href="/fuzzresults_lessons/fuzz4_validCharacterMaps/custom_maps/LineTooLong_TotalPlayers_After.txt">
+                                            LineTooLong_TotalPlayers_After.txt</a>
+                                        ).
+                                    </li>
+                                </ul>
+
+                                In these cases, the output message "Widths Mismatch" is assigned, indicating that the
+                                length of the line is calculated and compared to the length of the first line before the
+                                line is read in, and therefore the position of the extra players does not make a
+                                difference (in contradiction to testing each separate character against both criteria).
+                                All the mentioned map files receive the output message "Widths Mismatch", confirming
+                                this
+                                conclusion.
+                            </li>
+                            <li>
+                                More than one player: If there is no width Mismatch in the line, the line is read. Only
+                                when all
+                                lines are read can we be sure that the map file does not contain any food, players, or
+                                monsters.
+                                Therefore, a map file containing two players in any line but no food
+                                (
+                                <a
+                                        class="is-family-code is-rounded tag has-background-info-light"
+                                        href="/fuzzresults_lessons/fuzz4_validCharacterMaps/custom_maps/LinePlayers_NoFood.txt">
+                                    LinePlayers_NoFood.txt</a>
+                                ) or
+                                monsters (
+                                <a
+                                        class="is-family-code is-rounded tag has-background-info-light"
+                                        href="/fuzzresults_lessons/fuzz4_validCharacterMaps/custom_maps/LinePlayers_NoMonster.txt">
+                                    LinePlayers_NoMonster.txt</a>
+                                ) will always display the "More than one player"
+                                output
+                                message. As mentioned before, the combination of the output messages "More than one
+                                player" and
+                                "No player" does not make any sense.
+                            </li>
+                        </ul>
+                        </p>
+                        <br>
+                        <div class="columns">
+                            <div class="column">
+                                <figure>
+                                    <div class="columns">
+                                        <div class="column">
+                                            <img src="/fuzzresults_lessons/fuzz4_validCharacterMaps/custom_maps_images/LinePlayers_LineTooShort.png">
+                                        </div>
+                                    </div>
+                                    <figcaption>
+                                        Fig. 18: A map file where one line results in having too many players, and a
+                                        line thereafter is too short, has the output message "More than one player".
+                                    </figcaption>
+                                </figure>
+                            </div>
+                            <div class="column">
+                                <figure>
+                                    <div class="columns">
+                                        <div class="column">
+                                            <img src="/fuzzresults_lessons/fuzz4_validCharacterMaps/custom_maps_images/LineTooShort_LinePlayers.png">
+                                        </div>
+                                    </div>
+                                    <figcaption>
+                                        Fig. 19: A map file where one line is too short, and a line thereafter results
+                                        in having too many players, has the output message "Widths Mismatch".
+                                    </figcaption>
+                                </figure>
+                            </div>
+                        </div>
+                        <br>
+                        <p>
+                            Regarding this, there are some additional notes:
+                        <ul>
+                            <li>
+                                To demonstrate the importance of line order, we have added a file where one line has two
+                                players and the line after that is shorter than the first line
+                                (
+                                <a
+                                        class="is-family-code is-rounded tag has-background-info-light"
+                                        href="/fuzzresults_lessons/fuzz4_validCharacterMaps/custom_maps/LinePlayers_LineTooShort.txt">
+                                    LinePlayers_LineTooShort.txt</a>
+                                ). Even though the "Widths Mismatch" output message is
+                                higher in
+                                the hierarchy than "More than one player," it's important to keep in mind that these
+                                attributes are checked per line. If there is a line with the correct width but two
+                                players,
+                                and no incorrect attributes such as incorrect widths have occurred before that, it will
+                                result in the "More than one player" output message, even if following lines have
+                                incorrect
+                                widths.
+                            </li>
+                            <li>
+                                To demonstrate that it does not matter if a line is too short or too long, observe that
+                                the
+                                map file with both a shorter and a longer line (
+                                <a
+                                        class="is-family-code is-rounded tag has-background-info-light"
+                                        href="/fuzzresults_lessons/fuzz4_validCharacterMaps/custom_maps/LineTooShort_LineTooLong.txt">
+                                    LineTooShort_LineTooLong.txt</a>
+                                ) will also
+                                result in the "Widths Mismatch" output message.
+                            </li>
+                        </ul>
+                        </p>
+                        <br>
+                        <p>
+                            In third place, the occurrence of food and players is checked after reading all the lines.
+                        <ul>
+                            <li>
+                                No player: If there are no players or no food, the output message "No player" is
+                                displayed
+                                (
+                                <a
+                                        class="is-family-code is-rounded tag has-background-info-light"
+                                        href="/fuzzresults_lessons/fuzz4_validCharacterMaps/custom_maps/NoPlayer_NoFood.txt">
+                                    NoPlayer_NoFood.txt</a>
+                                ).
+                            </li>
+                            <li>
+                                In combinations with no monsters, the other output messages will always be shown, as
+                                only
+                                having no monsters does not result in rejection by the application
+                                (
+                                <a
+                                        class="is-family-code is-rounded tag has-background-info-light"
+                                        href="/fuzzresults_lessons/fuzz4_validCharacterMaps/custom_maps/NoPlayer_NoMonster.txt">
+                                    NoPlayer_NoMonster.txt</a>
+                                and
+                                <a
+                                        class="is-family-code is-rounded tag has-background-info-light"
+                                        href="/fuzzresults_lessons/fuzz4_validCharacterMaps/custom_maps/NoFood_NoMonster.txt">
+                                    NoFood_NoMonster.txt</a>
+                                ).
+                            </li>
+                        </ul>
+                        <br>
+                        <p>
+                            Finally, an important question is where this group of error messages fits into the existing
+                            pseudocode.
+                        <ul>
+                            <li>
+                                <a
+                                        class="is-family-code is-rounded tag has-background-info-light"
+                                        href="/fuzzresults_lessons/fuzz4_validCharacterMaps/custom_maps/EmptyFile_UnknownFileType.pdf">
+                                    EmptyFile_UnknownFileType.pdf</a>
+                                : A PDF file with no content is rejected first because it
+                                is an
+                                unknown file type, resulting in the output message "Error reading file by ReadAllLines,"
+                                instead of being rejected due to lack of content in the map file, which would trigger
+                                the
+                                "No lines" error message.
+                            </li>
+                            <li>
+                                <a
+                                        class="is-family-code is-rounded tag has-background-info-light"
+                                        href="/fuzzresults_lessons/fuzz4_validCharacterMaps/custom_maps/FirstCharacterEmpty.txt">
+                                    FirstCharacterEmpty.txt</a>
+                                : If it is not the first line that is empty but only the first
+                                character, the line is still read. The application detects a space and displays the
+                                "Unknown
+                                Character" output message.
+                            </li>
+                            <li>
+                                <a
+                                        class="is-family-code is-rounded tag has-background-info-light"
+                                        href="/fuzzresults_lessons/fuzz4_validCharacterMaps/custom_maps/RandomCharacterEmpty.txt">
+                                    RandomCharacterEmpty.txt</a>
+                                : Similarly, if the first line contains a space in a different
+                                column of the first line, it also results in the "Unknown Character" output message.
+                            </li>
+                        </ul>
+                        </p>
+                        <br>
+                        <p>
+                            In conclusion, the program first checks if there is any content at all. If there isn't, it
+                            displays the "No lines" error message. If there are lines with content but the first line is
+                            empty, the error message "No columns" is displayed. If the first line has content but
+                            contains two "P" characters, the error message "Multiple players" is displayed. Then, it
+                            checks the line width of the next line. If the map is not rectangular, it displays the
+                            "Widths Mismatch" error message. If the second line is equally long but contains multiple
+                            "P"
+                            characters, the "Multiple players" error message appears. For each subsequent line, it first
+                            checks the width and then checks if there is no more than one player. After reading the
+                            entire file, it checks if the map has at least one player. If not, the "No player is set"
+                            error message is displayed. If there is only one player but no food, the program rejects the
+                            map, showing the "No food" error message. If all these conditions are met, the program
+                            accepts the map. It's important to note that maps without any monsters also pass. In the
+                            context of the Pacman application, this means that a map is allowed where the player cannot
+                            die.
+                        </p>
+                        <br>
+                        <p>
+                            This would give us the following informal pseudocode:
+                        </p>
+                        <pre>
+if(file has not any permission)
+    cannot do input in terminal
+if(file is compressed,not encoded with UTF-8,  encrypted, write-only, or from an invalid data type (pdf, excel or multi-line binary))
+    reject(Error reading file by ReadAllLines)
+if(file is .csv, .html, .xml, .corrupted or multi-line .dat) || (the map does not contain valid characters (M, W, F, P))
+    reject(unknown character)
+if(file is empty)
+    reject(No lines)
+if(first line is empty)
+    reject(No columns)
+if(first line brings the total count of P characters to more than one)
+    reject(More than one player)
+for each (line : lines in the map file)
+    if(line is shorter than first line)
+    if(line is longer than first line)
+        reject(Widths Mismatch)
+    if(line brings the total count of P characters to more than one)
+        reject(More than one player)
+if(the map does not contain character P)
+    reject(No player is set)
+if(the map does not contain character F)
+    reject(No food)
+ else
+    accept
+                    </pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <div id="Fuzz5Text" class="columns">
+        <div class="column">
+            <div class="card">
+                <div class="card-content">
+                    <div class="content has-text-justified">
+                        <h1 class="title has-text-info">
+                            Fuzz 5: Manual random testing of action sequences
+                        </h1>
+                        <a class="has-text-weight-bold has-text-info">
+                            Context
+                        </a>
+                        <p>
+                            Using customMaps 7 and a correct action sequence string will always result in acceptation.
+                            It is now time to look at the action sequences. We know from the explanation that the only
+                            valid characters are the following:
+
+                        <ul>
+                            <li>E: Exit the game.</li>
+                            <li>Q: Quit the game.</li>
+                            <li>S: Start the game.</li>
+                            <li>W: Pause the game for fifty seconds.</li>
+                            <li>U: Move the player once cell up.</li>
+                            <li>D: Move the player once cell down.</li>
+                            <li>R: Move the player once cell to the right.</li>
+                            <li>L: Move the player once cell to the left.</li>
+                        </ul>
+                        </p>
+                        <br>
+                        <a class="has-text-weight-bold has-text-info">
+                            Fuzz Attempt Number 1: Always one exit
+                        </a>
+                        <p>
+                            Let's see which sequences of characters result in acceptation.
+                            Configure the <a
+                                class="is-family-code is-rounded tag has-background-info-light"
+                                href="/configs/Configuration.properties">Configuration.properties</a>
+                            file as followed:
+                        <div class="levels">
+                            <div class="field is-grouped is-grouped-multiline">
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            customMaps
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            7
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            customSequences
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            3
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            fileType
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            .txt
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            maxActionSequenceLength
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            4
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            maxTimeIteration
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            60 000 (1 min)
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            maxTime
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            900 000 (15 min)
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            maxWidth
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            3
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            maxHeight
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            3
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            maxIterations
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            4 096
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </p>
+                        <p>
+                            The method
+                            <a
+                                    class="is-family-code is-rounded tag has-background-info-light"
+                                    href="/src/main/java/randomGenerators/RandomActionSequenceGenerator.java">
+                                RandomActionSequenceGenerator.generateAllPossibleCombinations()
+                            </a>
+                            generates a list
+                            of all possible combinations to be made of these eight characters, for a certain length.
+                            Let's first try 4 characters at the same time. The first run I noticed that some strings
+                            slowed down the whole process immensely because the JPacman application got stuck and
+                            therefore the Fuzzer also remained in that iteration without any process. This is why I
+                            added the
+                            <a
+                                    class="is-family-code is-rounded tag has-background-info-light"
+                                    href="/src/main/java/ProcessTimeOutHandler.java">
+                                ProcessTimeOutHandler
+                            </a>
+                            class, that stops the JPacman process after a certain time. That time
+                            is specified in the
+                            <a
+                                    class="is-family-code is-rounded tag has-background-info-light"
+                                    href="/configs/Configurations.properties">
+                                configurations
+                            </a>
+                            file, namely under maxIterationTime. When that time is
+                            reached, the iteration result will get exit code -1 and output message "Time of iteration
+                            reached". During the first run, i also noticed that over 4000 iterations was too many for my
+                            memory to handle. This is why i also tried combinations of three characters first. To be
+                            certain to have some results in the report, I also decreased the total time. All this gives
+                            me the following configurations:
+                        </p>
+                        <div class="levels">
+                            <div class="field is-grouped is-grouped-multiline">
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            customMaps
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            7
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            customSequences
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            3
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            fileType
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            .txt
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            maxActionSequenceLength
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            3
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            maxTimeIteration
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            60 000 (1 min)
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            maxTime
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            900 000 (15 min)
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            maxWidth
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            3
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            maxHeight
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            3
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            maxIterations
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            512
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <p>
+                            I have noticed that strings that do not contain at least one 'E' (Exit) always crash.
+                        </p>
+                        <br>
+                        <a class="has-text-weight-bold has-text-info">
+                            Fuzz Attempt Number 4: Pairs of S and Q/E
+                        </a>
+                        <p>
+                            This is why we make an additional check in the
+                            <a
+                                    class="is-family-code is-rounded tag has-background-info-light"
+                                    href="/src/main/java/randomGenerators/RandomActionSequenceGenerator.java">
+                                generateAllPossibleCombinations()
+                            </a>
+                            method,
+                            called atLeastOneExitCheck, that is set to true for customSequence 4. There will be less
+                            combinations, which is why i decreased the maxIterations. I also noticed that 10 seconds per
+                            iteration might be a bit too optimistic, since a lot of the iteration results actually got
+                            the -1 exit code. This is why I increased the maxTimeIteration as well, to one minute:
+                            Configure the <a
+                                class="is-family-code is-rounded tag has-background-info-light"
+                                href="/configs/Configuration.properties">Configuration.properties</a>
+                            file as followed:
+                        <div class="levels">
+                            <div class="field is-grouped is-grouped-multiline">
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            customMaps
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            7
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            customSequences
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            4
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            fileType
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            .txt
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            maxActionSequenceLength
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            3
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            maxTimeIteration
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            60 000 (1 min)
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            maxTime
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            900 000 (15 min)
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            maxWidth
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            3
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            maxHeight
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            3
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            maxIterations
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            512
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </p>
+                        <p>
+                            Let's see which action sequences still crash.
+                        <ul>
+                            <li>
+                                Every start ('S') can be ended with an exit ('E') or a quit ('Q').
+                            </li>
+                            <li>
+                                Everything that is not in between one pair of 'S' and 'E' or 'Q' gets ignored. For
+                                example,
+                                'SEU' gets ignored (the player does not move up in any case), but 'SES' results in a
+                                crash
+                                because a new 'S' is started but not terminated with an exit ('E').
+                            </li>
+                            <li>
+                                One could state that therefore, every 'S' needs to be accompanied by a 'Q' or 'E'.
+                                However, this is not true for an S that is within another Start-Exit pair. This S gets
+                                ignored. For example, in the valid action sequence S - U - S - D - E - R - E: the player
+                                will move up and down, but will not move to the right. The same is true for the valid
+                                action
+                                sequence S - U - S - D - E - R: the player moves up and down, but not to the right. The
+                                second
+                                S does not need another E because it is placed within the first SE pair. In
+                                contradiction,
+                                the valid action sequence S - UD - E - S - R - E will result in the player moving up,
+                                down, and
+                                to the right. If we take away the second exit action here (S - UD - E- S - R), the
+                                program
+                                would crash. The second S is not ignored since it is placed after the first Start-Exit
+                                pair.
+                            </li>
+                            <li>
+                                Although all previous examples are illustrated with exit actions, the same holds for
+                                quit.
+                            </li>
+                        </ul>
+                        </p>
+                        <br>
+                        <a class="has-text-weight-bold has-text-info">
+                            Fuzz Attempt Number 7: Valid executed actions
+                        </a>
+                        <p>
+                            There are thus "valid substring(s)" within the actual action sequence, that are the only
+                            characters that get executed. To fullfill the requirement of each 'S' having an 'E', the
+                            boolean startWithExitCheck was introduced as an additional parameter of the
+                            <a
+                                    class="is-family-code is-rounded tag has-background-info-light"
+                                    href="/src/main/java/randomGenerators/RandomActionSequenceGenerator.java">
+                                generateAllPossibleCombinations()
+                            </a>
+                            method. Let's also lenghten our action sequences a bit. To
+                            try this out, configurate the fuzzer as followed:
+                        <div class="levels">
+                            <div class="field is-grouped is-grouped-multiline">
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            customMaps
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            7
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            customSequences
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            5
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            fileType
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            .txt
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            maxActionSequenceLength
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            4
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            maxTimeIteration
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            60 000 (1 min)
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            maxTime
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            900 000 (15 min)
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            maxWidth
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            4
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            maxHeight
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            4
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            maxIterations
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            512
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </p>
+                        <p>
+                            However, these results are still very random and take a long time to run. To have a more
+                            clear image of what causes the program to crash, we need to look within the valid substrings
+                            only now. Therefore, we are now going to try longer action sequences that start with an 'S'
+                            and end with an 'E', to check which action sequences are allowed within an active game (in
+                            such a substring) and which ones aren't. This results in the following configurations:
+                        </p>
+                        <div class="levels">
+                            <div class="field is-grouped is-grouped-multiline">
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            customMaps
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            7
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            customSequences
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            6
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            fileType
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            .txt
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            maxActionSequenceLength
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            5
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            maxTimeIteration
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            60 000 (1 min)
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            maxTime
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            900 000 (15 min)
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            maxWidth
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            5
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            maxHeight
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            5
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            maxIterations
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            512
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <p>
+                            We notice the following crashes:
+                        <ul>
+                            <li>
+                                When the game has started and not yet ended, the application will crash when a player
+                                tries to move out of the map bounds.
+                            </li>
+                            <li>
+                                When the game has started and not yet ended, the application will crash when a player
+                                tries to move to a wall cell.
+                            </li>
+                        </ul>
+                        </p>
+                        <br>
+                        <a class="has-text-weight-bold has-text-info">
+                            Fuzz Attempt Number 11: Some unsolved crashes
+                        </a>
+                        <p>
+                            Therefore, some methods were introduced in the
+                            <a
+                                    class="is-family-code is-rounded tag has-background-info-light"
+                                    href="/src/main/java/outputProviders/IterationResult.java">
+                                IterationResult
+                            </a>
+                            class to check if all moves
+                            of a particular action sequence on a particular map are valid. One could try to introduce
+                            this within our previous configuration:
+                        <div class="levels">
+                            <div class="field is-grouped is-grouped-multiline">
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            customMaps
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            7
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            customSequences
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            7
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            fileType
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            .txt
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            maxActionSequenceLength
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            5
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            maxTimeIteration
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            60 000 (1 min)
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            maxTime
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            900 000 (15 min)
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            maxWidth
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            5
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            maxHeight
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            5
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            maxIterations
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            1 000
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </p>
+                        <p>
+                            However, it looked more objective to provide action sequences where the mentioned checks are
+                            preformed, but that not necessarily begin with an 'S' and end with an 'E'. This is done by
+                            the following configurations:
+                        </p>
+                        <div class="levels">
+                            <div class="field is-grouped is-grouped-multiline">
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            customMaps
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            7
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            customSequences
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            8
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            fileType
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            .txt
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            maxActionSequenceLength
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            5
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            maxTimeIteration
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            60 000 (1 min)
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            maxTime
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            900 000 (15 min)
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            maxWidth
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            5
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            maxHeight
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            5
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            maxIterations
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            1 000
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <p>
+                            This only gave us a few crashes:
+                        <ul>
+                            <li>SWERE</li>
+                            <li>SWW*E</li>
+                            <li>SWDEE</li>
+                            <li>SLWQE</li>
+                        </ul>
+                        </p>
+                        <br>
+                        <a class="has-text-weight-bold has-text-info">
+                            Limitations and Results
+                        </a>
+                        <p>
+                            The results are stored in the
+                            <a
+                                    class="is-family-code is-rounded tag has-background-info-light"
+                                    href="/fuzzlessons/fuzz5_validActionSequences">
+                                fuzz5_validActionSequences
+                            </a>
+                            directory.
+                            The causes of these above-mentioned crashes remains unclear. One could also test mixes of
+                            incorrect maps and sequences, or action sequences that are very long or empty. On top of
+                            that, one could apply mutational fuzzing on the JPacman application.
+                        </p>
+                        <br>
+                        <p>
+                            Currently, the following pseudocode is our conclusion:
+                        </p>
+                        <pre>
+if(file has not any permission)
+    cannot do input in terminal
+if(file is compressed,not encoded with UTF-8,  encrypted, write-only, or from an invalid data type (pdf, excel or multi-line binary))
+    reject(Error reading file by ReadAllLines)
+if(file is .csv, .html, .xml, .corrupted or multi-line .dat) || (the map does not contain valid characters (M, W, F, P))
+    reject(unknown character)
+if(file is empty)
+    reject(No lines)
+if(first line is empty)
+    reject(No columns)
+if(first line brings the total count of P characters to more than one)
+    reject(More than one player)
+for each (line : lines in the map file)
+    if(line is shorter than first line)
+    if(line is longer than first line)
+        reject(Widths Mismatch)
+    if(line brings the total count of P characters to more than one)
+        reject(More than one player)
+if(the map does not contain character P)
+    reject(No player is set)
+if(the map does not contain character F)
+    reject(No food)
+if(action sequence does not contain 'E')
+    crash
+if(every 'S' in the action sequence: (does not have a corresponding 'E') || (does not have a corresponding 'Q') || (is placed within another Start-Exit or Start-Quit pair))
+    crash
+if(within every pair of 'S' and 'E', the player moves to a wall cell or out of bounds)
+    crash
+ else
+    accept
+                    </pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <div id="Fuzz6Fig" class="columns">
+        <div class="column">
+            <div class="notification is-info is-light">
+                <button class="delete is-small mr-2 mt-2"></button>
+                <div class="level mt-3">
+                    <div class="level-item">
+                        <div class="columns">
+                            <div class="column">
+                                <div class="image">
+                                    <img src="/fuzzresults_lessons/fuzz6_conclusionManualFuzzing/Results_ActionSequencesWithSW.png"
+                                         alt="Lessons fuzz 6">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="level">
+                    <div class="level-item">
+                        <figcaption class="content my-1 is-italic">
+                            Fig. 20: All crashes had an action sequence with 'SW' in it. However, most action sequences
+                            with 'SW' got accepted.
+                            Others got the exit code -1 because they contained an invalid move and thus would crash
+                            anyway.
+                        </figcaption>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="Fuzz6Text" class="columns">
+        <div class="column">
+            <div class="card">
+                <div class="card-content">
+                    <div class="content has-text-justified">
+                        <h1 class="title has-text-info">
+                            Fuzz 6: Conclusion on manual testing
+                        </h1>
+                        <a class="has-text-weight-bold has-text-info">
+                            Context
+                        </a>
+                        <p>
+                            The crashes that occur, often linked to the 'Start wait' (SW) command in action sequences,
+                            are unexplained. We need to acknowledge the limitations of our previous testing attempts as
+                            we dig deeper into the details.
+                        </p>
+                        <p>
+                            A key realization comes to light when we examine the setup using the customSequenceNr
+                            parameter set to 8. This setup involves creating a list of all possible actions sequence
+                            combinations. Those combinations grow exponentially in number when the
+                            maxActionSequenceLength increases. Soon, issues arise when this list becomes too large for
+                            the app's memory, causing it to crash with a 'java heap space' error. Even when there's
+                            enough memory available, the testing process unintentionally becomes skewed, focusing
+                            primarily on a specific subset of initial action combinations (namely, the first x items of
+                            the list, with x = maxIterations). Thus, even when we can test, we will always test the same
+                            action sequences.
+                        </p>
+                        <a class="has-text-weight-bold has-text-info">
+                            Configurations
+                        </a>
+                        <p>
+                            To gain a complete and unbiased understanding of these recurring crashes, we propose
+                            selecting random action sequences from the list without having to generate the entire list.
+                            This approach is made possible by introducing the customSequenceNr = 9 parameter, allowing
+                            us to test longer and more complex action sequences. In order to obtain a full image, we
+                            will also expand the dimensions of the map. Configure the <a
+                                class="is-family-code is-rounded tag has-background-info-light"
+                                href="/configs/Configuration.properties">Configuration.properties</a>
+                            file as followed:
+                        <div class="levels">
+                            <div class="field is-grouped is-grouped-multiline">
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            customMaps
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            7
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            customSequences
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            9
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            fileType
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            .txt
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            maxActionSequenceLength
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            10
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            maxTimeIteration
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            120 000 (2 min)
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            maxTime
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            600 000 (10 min)
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            maxWidth
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            10
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            maxHeight
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            10
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="tag is-small has-addons is-paddingless">
+                                        <div class="tag is-info">
+                                            maxIterations
+                                        </div>
+                                        <div class="tag is-info is-light">
+                                            1 000
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        As per the assignment's requirements, our fuzzer subjects the JPacman application to a series of
+                        random action sequences paired with valid maps over a 10-minute period. It is noteworthy that
+                        our initial 10-minute attempt resulted in only one crash. To expand our insights further, we
+                        repeated the process using the same parameters. Although we've set the maxIterations parameter
+                        to 1000, it's important to recognize this time constraint will most likely lead to the test
+                        concluding before reaching that maximum iteration count.
+                        </p>
+                        <a class="has-text-weight-bold has-text-info">
+                            Results
+                        </a>
+                        <br>
+                        <div class="columns is-vcentered">
+                            <div class="column">
+                                <figure>
+                                    <div class="columns">
+                                        <div class="column">
+                                            <img
+                                                    src="/fuzzresults_lessons/fuzz6_conclusionManualFuzzing/Fuzz1_Map131.png">
+                                        </div>
+                                    </div>
+                                    <figcaption>
+                                        Fig. 21: In the initial attempt of running the JPacman application, only one
+                                        input combination crashed.
+                                    </figcaption>
+                                </figure>
+                            </div>
+                            <div class="column">
+                                <figure>
+                                    <div class="columns">
+                                        <div class="column">
+                                            <img src="/fuzzresults_lessons/fuzz6_conclusionManualFuzzing/Fuzz2_Map140.png">
+                                        </div>
+                                        <div class="column">
+                                            <img src="/fuzzresults_lessons/fuzz6_conclusionManualFuzzing/Fuzz2_Map171.png">
+                                        </div>
+                                        <div class="column">
+                                            <img src="/fuzzresults_lessons/fuzz6_conclusionManualFuzzing/Fuzz2_Map206.png">
+                                        </div>
+                                    </div>
+                                    <figcaption>
+                                        Fig. 22: There were three crashes in the second fuzz attempt.
+                                    </figcaption>
+                                </figure>
+                            </div>
+                        </div>
+                        <br>
+                        <p>
+                            The logs from running the fuzzer twice with this particular configuration are saved within
+                            the directory
+                            <a class="is-family-code is-rounded tag has-background-info-light"
+                               href="/fuzzresults/fuzz6_conclusionManualFuzzing/logs">
+                                fuzz6_conclusionManualFuzzing/logs
+                            </a>
+                            .
+                            Additionally, the following maps are stored in
+                            <a class="is-family-code is-rounded tag has-background-info-light"
+                               href="/fuzzresults/fuzz6_conclusionManualFuzzing/maps">
+                                fuzz6_conclusionManualFuzzing/maps
+                            </a>
+                            : all crashed inputs, all inputs with exit code -1
+                            (since they would normally crash) and the accepted inputs that had an action sequence with
+                            'SW' in it. There were no rejected maps. In total, there were 553 combinations tested. We
+                            can see that all crashed has 'SW' in their action sequence, but not all action sequences
+                            that contain the start-wait actions crash.
+                        </p>
+                        <p>
+                            After extensively testing the JPacman application manually, I'm now focusing on solving
+                            those recurring crashes. Despite careful testing, some crashes still occur without clear
+                            reasons. I'm switching to mutational testing to address this. This approach automates input
+                            creation and explores a wider range of combinations, including ones that manual testing
+                            might miss. It's also faster. With mutational testing, I aim to uncover the reasons behind
+                            these crashes faster and ensure the JPacman application works reliably.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br>
+</div>
+
+<!-- Footer -->
+<br>
+<footer class="footer" id="footer">
+    <div class="content has-text-centered">
+        <p>
+            <strong>JPacman Fuzz</strong> by Luna Geens as part of an assignment for the <a
+                href="https://ansymore.uantwerpen.be/courses/software-testing">Software Testing
+                                                                               Course</a> of
+                                          the <a href="https://www.uantwerpen.be/en/">University of
+                                                                                      Antwerp</a>.
+                                          Find the source code of the
+                                          JPacman Fuzzer on my <a
+                href="https://github.com/lunageens/JPacmanFuzz">Github</a>.
+        </p>
+        <figure>
+            <img height="50" src="../../../../../../dist/img/Logo_Univ_Antwerpen.svg"
+                 width="50" alt="Logo of University of Antwerp">
+            <img height="50" src="../../../../../../dist/img/Logo_Bulma.svg" width="30" alt="Logo of Bulma">
+            <figcaption>
+                Website made with Bulma for the University of Antwerp.
+            </figcaption>
+        </figure>
+    </div>
+</footer>
+
+<script>
+
+    // Function to hide the message
+    function hideMessage() {
+        const message = document.getElementById("message");
+        message.style.display = "none";
+    }
+
+    // Function to handle the exit button click
+    function handleExitButtonClick() {
+        hideMessage();
+        localStorage.setItem("hideMessage", "true");
+    }
+
+    // Wait for the document to finish loading
+    document.addEventListener("DOMContentLoaded", function () {
+        const exitButton = document.getElementById("message-exit-button");
+        // Check if the message should be hidden
+        if (localStorage.getItem("hideMessage") === "true") {
+            hideMessage();
+        }
+        // Add a click event listener to the exit button
+        exitButton.addEventListener("click", handleExitButtonClick);
+        // Remove the "hideMessage" flag from local storage on page reload
+        window.addEventListener("beforeunload", function () {
+            localStorage.removeItem("hideMessage");
+        });
+
+        // for the summary images
+
+        (document.querySelectorAll('.notification .delete') || []).forEach(($delete) => {
+            const $notification = $delete.parentNode;
+
+            $delete.addEventListener('click', () => {
+                $notification.parentNode.removeChild($notification);
+            });
+        });
+    });
+
+</script>
+</body>

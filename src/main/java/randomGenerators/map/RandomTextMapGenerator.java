@@ -6,8 +6,12 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
+import java.util.stream.IntStream;
+
+import static java.lang.String.valueOf;
 
 /**
  * This class generates random text-based maps based on the RandomMapGenerator class.
@@ -29,7 +33,7 @@ public class RandomTextMapGenerator extends MapGenerator {
     /**
      * Valid characters that are allowed in a map.
      */
-    private List<Character> validChar;
+    private static List<Character> validChar;
 
     /**
      * Constructs a RandomTextMapGenerator with the specified maximum height and width.
@@ -50,28 +54,13 @@ public class RandomTextMapGenerator extends MapGenerator {
     }
 
     /**
-     * Generates a random text-based map file.
-     *
-     * @return The file path of the generated text-based map file.
+     * Creates a new .txt document in the actual maps directory with the map name, and stores the file path of
+     * that document in a string.
+     * @param fileName  The name of the file that will be created, with extension.
+     * @param lines A list of strings, where each string is a row in the map.
+     * @return A string, that is the file path of the newly generated .txt file that has those lines as text.
      */
-    @Override
-    public String generateRandomMap() {
-        List<String> lines = new ArrayList<>();
-        Random random = new Random();
-
-        int mapHeight = random.nextInt(maxHeight);
-        int mapWidth = random.nextInt(maxWidth);
-
-        for (int row = 0; row < mapHeight; row++) {
-            StringBuilder line = new StringBuilder();
-            for (int column = 0; column < mapWidth; column++) {
-                char c = (char) (random.nextInt(26) + 'a');
-                line.append(c);
-            }
-            lines.add(line.toString());
-        }
-
-        @SuppressWarnings("DuplicatedCode") String fileName = generateRandomMapFileName(".txt");
+    public static String writeMapAway(List<String> lines, String fileName) {
         String filePath = FileHandler.actualMapsDirectoryPath + '\\' + fileName;
 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
@@ -87,6 +76,35 @@ public class RandomTextMapGenerator extends MapGenerator {
     }
 
     /**
+     * Generates a random text-based map file with ASCII characters.
+     *
+     * @return The file path of the generated text-based map file.
+     */
+    @Override
+    public String generateRandomMap() {
+        List<String> lines = new ArrayList<>();
+
+        // map size
+        Random random = new Random();
+        int mapHeight = random.nextInt(maxHeight);
+        int mapWidth = random.nextInt(maxWidth);
+
+        // map content
+        for (int row = 0; row < mapHeight; row++) {
+            StringBuilder line = new StringBuilder();
+            for (int column = 0; column < mapWidth; column++) {
+                char c = (char) (random.nextInt(26) + 'a');
+                line.append(c);
+            }
+            lines.add(line.toString());
+        }
+
+        // write away
+        String filePath = writeMapAway(lines, generateRandomMapFileName(".txt"));
+        return filePath;
+    }
+
+    /**
      * Get a one-line text map, with the characters specified in the string.
      *
      * @param mapLine
@@ -95,20 +113,14 @@ public class RandomTextMapGenerator extends MapGenerator {
      * @return String FilePath of the created textfile.
      */
     public String generateCustomTextMapOneLine(String mapLine) {
-        String fileName = generateRandomMapFileName(".txt");
-        String filePath = FileHandler.actualMapsDirectoryPath + '\\' + fileName;
+        List<String> lines = new ArrayList<>();
 
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
+        // map content
+        lines.add(mapLine);
 
-            writer.write(mapLine);
-            writer.newLine();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
+        // write away
+        String filePath = writeMapAway(lines, generateRandomMapFileName(".txt"));
         return filePath;
-
     }
 
     /**
@@ -133,20 +145,8 @@ public class RandomTextMapGenerator extends MapGenerator {
             lines.add(line.toString());
         }
 
-        // Name the file and find the path.
-        @SuppressWarnings("DuplicatedCode") String fileName = generateRandomMapFileName(".txt");
-        String filePath = FileHandler.actualMapsDirectoryPath + '\\' + fileName;
-
-        // Write the random content to the file.
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
-            for (String line : lines) {
-                writer.write(line);
-                writer.newLine();
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
+        // write away
+        String filePath = writeMapAway(lines, generateRandomMapFileName(".txt"));
         return filePath;
     }
 
@@ -156,6 +156,7 @@ public class RandomTextMapGenerator extends MapGenerator {
      * If justOnePlayerCheck is true, the P can only occur in the map once.
      * If foodPresentCheck is true, the F can only occur in the map one or more.
      * Else, the number of times that each valid character occurs in the map is also randomly chosen.
+     * This method does not use the checkMap() method because it will alter the map until it passes all checks.
      *
      * @param justOnePlayerCheck
      *         True if the map can only have one P in it
@@ -168,7 +169,9 @@ public class RandomTextMapGenerator extends MapGenerator {
      */
     public String generateRandomValidCharRectangularTextMap(boolean justOnePlayerCheck, boolean foodPresentCheck, boolean sizeCheck) {
         List<String> lines = new ArrayList<>();
+
         boolean invalidMap = true; // Keep generating until map is valid.
+
         while (invalidMap) {
             lines = new ArrayList<>(); // Reset lines to empty list each time we try to make valid map.
             Random random = new Random();
@@ -262,19 +265,131 @@ public class RandomTextMapGenerator extends MapGenerator {
             invalidMap = (justOnePlayerCheck && !justOnePlayer) || (foodPresentCheck && !foodPresent); // If we need to check, check if the map is valid.
         }
 
-        /* Name the file and find the path */
-        @SuppressWarnings("DuplicatedCode") String fileName = generateRandomMapFileName(".txt");
-        String filePath = FileHandler.actualMapsDirectoryPath + '\\' + fileName;
-
-        /* Write the random content to the file */
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
-            for (String line : lines) {
-                writer.write(line);
-                writer.newLine();
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    return filePath;
+        /* Write valid map away */
+        String filePath = writeMapAway(lines, generateRandomMapFileName(".txt"));
+        return filePath;
     }
+
+    /**
+     * This method mutates a map and writes the original and all mutated maps away. The mutating is done by
+     * taking each separate character in the map and replacing it with other each valid character. Thus, for each character
+     * in the map, there are  mutated versions of the map where, in that exact position, the map contains any other
+     * valid character ('P', 'F', 'W', 'E', 'M') that was not there originally. If the map is still valid, the map is
+     * written away.
+     *
+     * @param originalFilePath
+     *         FilePath of original map file to mutate, relative to the project.
+     *
+     * @return List of filepaths of original (in original fuzzlessons input directory) and newly created mutated maps (in actual maps directory).
+     */
+    public List<String> mutateMap(String originalFilePath) {
+        List<String> validFilePaths = new ArrayList<>();
+
+        // * read original map and write it away
+        // ? delete it from intial map (needed - no, directly moved to error directory i think, see end fuzzer ?)
+        String mapContent = FileHandler.getFileText(originalFilePath);
+        if (mapContent == null) {
+            System.out.println("There was an error during the reading of the initial map or the initial map was empty.");
+            return validFilePaths; // Return an empty list if reading was unsuccessful.
+        }
+        List<String> mapLines = Arrays.asList(mapContent.split("\\n"));
+        if (!checkMap(mapLines, true, true, true)) {
+            System.out.println("Original map does not meet criteria.");
+            return validFilePaths; // Return an empty list if original map does not meet criteria.
+            // ?  Should we return empty list in this case, not sure.
+        }
+        // do not forget to first add original map if this is not the case
+        validFilePaths.add(originalFilePath); // I think now it gets automatically moved out of the original location
+
+        // * For each map character, replace it with each validChar and check. Write away if passed checks.
+        // for each row
+        for (int rowIndex = 0; rowIndex < mapLines.size(); rowIndex++) {
+            String row = mapLines.get(rowIndex);
+            for (int columnIndex = 0; columnIndex < row.length(); columnIndex++) {
+                char initialChar = row.charAt(columnIndex);
+                for (char newChar : validChar) {
+                    if (newChar != initialChar) {
+                        // * Get new map
+                        // copy old map
+                        List<String> mutatedMapLines = new ArrayList<>(mapLines);
+                        // mutate the correct row
+                        StringBuilder builder = new StringBuilder(row);
+                        builder.setCharAt(columnIndex, newChar);
+                        String alteredRow = builder.toString();
+                        // replace altered row with original
+                        mutatedMapLines.set(rowIndex, alteredRow);
+                        // * Check new map. If check is passed, write away
+                        if (checkMap(mutatedMapLines, false, true, true)) {
+                            String filePath = writeMapAway(mutatedMapLines, generateRandomMapFileName(".txt"));
+                            validFilePaths.add(filePath);
+                        }
+                    }
+                }
+            }
+        }
+        return validFilePaths;
+    }
+
+    /**
+     * Checks if a map meets the specified conditions.
+     *
+     * @param mapLines
+     *         The lines representing the map.
+     * @param sizeCheck
+     *         True if the map is not empty and if all columns are equal length, all rows as well.
+     * @param justOnePlayerCheck
+     *         True if the map can only have one 'P' in it.
+     * @param foodPresentCheck
+     *         True if the map should have at least one 'F' in it.
+     *
+     * @return True if the map is valid according to the specified conditions.
+     */
+    private boolean checkMap(List<String> mapLines, boolean sizeCheck, boolean justOnePlayerCheck, boolean foodPresentCheck) {
+        boolean validSize = true;
+        boolean validContent = true;
+
+        // get sizes. Check if they are 0 < size < max. Each column must have equal width.
+        // check number of rows first
+        int numberOfRows = mapLines.size();
+        if (!((0 < numberOfRows) && (numberOfRows < maxHeight))) {
+            validSize = false;
+        }
+        // number of columns
+        for (String line : mapLines) {  // remove new lines characters for correct measurement
+            String newLine = line.replaceAll("\\r|\\n", "");
+            mapLines.set(mapLines.indexOf(line), newLine);
+        }
+        int referenceLength = mapLines.get(0).length();
+        if (!((0 < referenceLength) && (referenceLength < maxWidth))) {
+            validSize = false;
+        }
+        for (String line : mapLines) {
+            int lineLength = line.length();
+            if (!(referenceLength == lineLength)) {
+                validSize = false;
+                break;
+            }
+        }
+
+        // count player and food
+        long playerCount = 0;
+        long foodCount = 0;
+        for (String line : mapLines) {
+            IntStream charactersLine = line.chars(); // char values as numbers of this line
+            // filter on numbers = char value of P --> players on the line. Count the elements of that list and add to count
+            playerCount += charactersLine.filter(c -> c == 'P').count();
+            IntStream charactersLine2 = line.chars(); // char values as numbers of this line
+            foodCount += charactersLine2.filter(c -> c == 'F').count();
+        }
+        if (!(playerCount == 1)) {
+            validContent = false;
+        }
+        if (!(foodCount >= 1)) {
+            validContent = false;
+        }
+
+        return validSize && validContent;
+    }
+
 }
+

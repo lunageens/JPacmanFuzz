@@ -202,6 +202,8 @@ public class FileHandler {
      */
     public static String logFullHistoryHTMLWelcomeFilePath = logFullHistoryHTMLDirectoryPath + "welcomePage.html";
 
+    // Variables: others (fuzzAttemptNr)
+
     /**
      * Count the amount of times the fuzzer has run.
      *
@@ -344,21 +346,22 @@ public class FileHandler {
 
     /***
      * Gives the full text of the text file
-     * @param filePath Relative filepath
+     * @param filePath Relative filepath to project, without extension.
      * @return String full text of file
      */
-    // Not sure of this works? I think it does not.
     public static String getFileText(String filePath) {
-        StringBuilder fileText = new StringBuilder();
-        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                fileText.append(line);
-            }
+        String projectDir = System.getProperty("user.dir");
+        Path fullFilePath = Paths.get(projectDir, filePath); // From relative to full path
+
+        try {
+            byte[] fileBytes = Files.readAllBytes(fullFilePath);
+            String fileText = new String(fileBytes);
+            return fileText;
         } catch (IOException e) {
             e.printStackTrace();
+            return null;
         }
-        return fileText.toString();
+
     }
 
     /**

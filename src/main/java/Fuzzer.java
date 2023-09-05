@@ -14,13 +14,24 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.IntStream;
 
-// TODO Functionality and website documentation fuzz 6 mutation fuzzing.
+/**
+ * ! Note:
+ * If u want to run the jpacman application for a particular map and
+ * action sequence, without reporting, follow these steps:
+ * <p>
+ * 1) save the map under C:/ST/JPacmanFuzz/NameOfTheMap.txt
+ * 2) open the terminal and navigate to this project
+ * 3) run the following command:
+ * java -jar jpacman-3.0.1.jar NameOfTheMap.txt SSE
+ * SSE is an example. Any other action sequence can be used
+ * 4) Commands to retrieve the exit code depends on which terminal and which
+ * operating sequence you are using.
+ * Printing exit code of last process ran in Windows powershell:
+ * echo $LastExitCode
+ */
 
 /**
  * The Fuzzer class is the main class that runs the fuzzing process.
@@ -37,13 +48,23 @@ public class Fuzzer {
      * Number of iterations the fuzz should do (how many times to run the program with another unique random map file
      * and action sequence). Specified in configurations file.
      */
-    private static final int MAX_ITERATIONS = configFileReader.getMaxIterations();
+    private static int MAX_ITERATIONS = configFileReader.getMaxIterations();
 
     /**
      * If the program reaches this amount of time before doing all the specified iterations, we should also
      * stop fuzzing. Specified in configurations file.
      */
     private static final long TIME_BUDGET_MS = configFileReader.getMaxTime();
+
+    /**
+     * The copies of the original maps and the mutated versions in one list. Only used in mutational testing.
+     */
+    private static List<String> combinedMaps;
+
+    /**
+     * The copies of the original action sequence and the mutated version in one list. Only used in mutational testing.
+     */
+    private static List<String> combinedSequences;
 
     /**
      * The main entry point of the fuzzing process.
@@ -70,16 +91,31 @@ public class Fuzzer {
         Map<Integer, List<IterationResult>> iterationResultsByErrorCode = new HashMap<>();
         Map<String, List<IterationResult>> iterationResultsByOutputMessage = new HashMap<>();
 
-        /* * Get the maps and output messages first from the custom and then if additional random is needed */
+        /* * Get the maps, action sequences and output messages first from the custom and then if additional random is needed */
         // In case of custom maps or sequence, Add your custom map file paths to this list
         // If 0 or not implemented, nothing is added.
         // Do this last -> otherwise not correct directories and handlers
         List<String> customMaps = getCustomMaps(configFileReader.getCustomMapsNr());
         List<String> customMapsAttributes = getCustomAttributesLog(configFileReader.getCustomMapsNr());
         List<String> customSequences = getCustomSequences(configFileReader.getCustomSequenceNr());
+        // If one want to mutate maps or action sequences, use the original other input. See combine method for more information.
+        if (configFileReader.getCombinedCustomMapsAndSequences()) {
+            if (configFileReader.getCustomMapsNr() == 8 && configFileReader.getCustomSequenceNr() == 10) {
+                combineMapsAndSequences(customMaps, customSequences);
+                customMaps = combinedMaps;
+                customSequences = combinedSequences;
+            } else {
+                System.out.println("One cannot combine unmutated maps and action sequences in a meaningful way. " +
+                        "Please put customMapsNr = 8 and customSequenceNr = 10.");
+            }
+        }
+        if (configFileReader.getMaxCustomIterations()) { // Added this. In case max iterations = number of custom maps and sequences
+            MAX_ITERATIONS = Math.max(customMaps.size(), customSequences.size());
+        }
+
         /* ! For each iteration with max_iterations */
         for (int i = 0; i < MAX_ITERATIONS; i++) {    // How many times does a random file and sequence has to be created?
-            // Use custom sequences and maps if asked. Otherwise, generate randomly.
+            // * Use custom sequences and maps if asked. Otherwise, generate randomly.
             String mapFilePath;
             String actionSequence;
             if (customMaps.isEmpty()) {
@@ -94,9 +130,9 @@ public class Fuzzer {
                 actionSequence = randomActionSequenceGenerator.generateRandomActionSequence();
             }
 
-            // Check combo map and actions if needed
+            // * Check combo map and actions if needed
             boolean isValidMove = true;
-            if (IntStream.of(7, 8, 9).anyMatch(j -> configFileReader.getCustomSequenceNr() == j)) { // Checks for out of bounds and monster
+            if (IntStream.of(7, 8, 9, 10).anyMatch(j -> configFileReader.getCustomSequenceNr() == j)) { // Checks for out of bounds and monster
                 isValidMove = IterationResult.isValidMove(mapFilePath, actionSequence);
             }
 
@@ -134,12 +170,10 @@ public class Fuzzer {
                 List<IterationResult> outputMessageResults = iterationResultsByOutputMessage.getOrDefault(iterationResult.getOutputMessages(), new ArrayList<>());
                 outputMessageResults.add(iterationResult);
                 iterationResultsByOutputMessage.put(iterationResult.getOutputMessages(), outputMessageResults);
-
                 // Move map to correct permanent directory if needed.
                 // Do not use get path method cuz already changed
                 DirectoryHandler.moveMapFileToErrorDirectory(mapFilePath, iterationResult.getErrorCode());
-            } catch (IOException |
-                     InterruptedException e) {
+            } catch (IOException | InterruptedException e) {
                 System.out.println("Exception during process building.");
                 e.printStackTrace();
             }
@@ -152,6 +186,7 @@ public class Fuzzer {
                 break;
             }
         }
+
         /* * Generate logs and clean up directories if needed*/
         logFileHandler.generateActualLogs(iterationResults, iterationResultsByErrorCode, iterationResultsByOutputMessage, elapsedTime);
         if (FileHandler.cleanDirectories) {
@@ -162,7 +197,6 @@ public class Fuzzer {
             logFileHandler.generateOverviewLogs(iterationResults, iterationResultsByErrorCode, iterationResultsByOutputMessage, elapsedTime);
         }
     }
-
 
     /**
      * Executes JPacman with the given map file and action sequence.
@@ -211,6 +245,8 @@ public class Fuzzer {
      *     <li>Case 7: Write text files with only valid characters in it (P, M, O, W, F). The map is squared.</li>
      *     The map holds exactly one player. The map holds at least one food. The map does not contain one or more empty lines.
      *     These maps should all be accepted.</li>
+     *     <li>Case 8: Takes the first map that is stored in the directory fuzzresults_lessons/fuzz7_mutationalFuzzing/custom_maps_inputCopy.
+     *     Will mutate each character of this map with each valid character of the pacman game.</li>
      * </ul>
      *
      * @param customNr
@@ -263,8 +299,8 @@ public class Fuzzer {
                 }
             }
             case 6 -> { // Try valid character maps of all forms and content, using the corner cases map files of custom_maps directory of fuzz 4 (.../fuzzresults_lessons/fuzz4_validCharacterMaps/custom_maps_inputCopy_4).
-                DirectoryHandler search = new DirectoryHandler();
-                List<String> filePaths = search.getFilesInDirectory("custom_maps_inputCopy_4");
+                DirectoryHandler searcher = new DirectoryHandler();
+                List<String> filePaths = searcher.getFilesInDirectory("custom_maps_inputCopy_4");
                 customMaps.addAll(filePaths);
             }
             case 7 -> { // Try valid character maps, only squared, as many as specified max in configs, and checked for player food and size
@@ -276,6 +312,21 @@ public class Fuzzer {
                     customMaps.add(
                             randomTextMapGenerator.generateRandomValidCharRectangularTextMap(true, true, false));
                 }
+            }
+            case 8 -> { // Mutate one original map that is stored in directory, write all mutated versions away and
+                // store their filepaths.
+                DirectoryHandler searcher = new DirectoryHandler();
+                List<String> filePaths = searcher.getFilesInDirectory("custom_maps_inputCopy_7");
+                if (filePaths.size() > 1) {
+                    System.out.println("One can only mutate one map at a time. The first map is used.");
+                }
+                RandomTextMapGenerator randomTextMapGenerator = new RandomTextMapGenerator(
+                        FileReaderManager.getInstance().getConfigReader().getMaxTextMapHeight(),
+                        FileReaderManager.getInstance().getConfigReader().getMaxTextMapWidth()
+                );
+                String firstFilePath = FileHandler.normalizeFilePath(filePaths.get(0), true, true);
+                List<String> mutatedMapFilePaths = randomTextMapGenerator.mutateMap(firstFilePath);
+                customMaps.addAll(mutatedMapFilePaths);
             }
             default -> { // Nothing to add
             }
@@ -350,35 +401,35 @@ public class Fuzzer {
      *     <li>Case 1: For all files made, add a valid custom action sequence (SWE Start - Wait - Exit)</li>
      *     <li>Case 2: For all files made, add a random valid custom action sequence (with a valid length)</li>
      *     <li>Case 3: For the max length specified in the configuration file, add all possible combinations of that length
-     *     that can be made with the valid action sequence characters (S, E, S, Q, U, D, L, R).</li>
+     *     that can be made with the valid action sequence characters (S, E, W, Q, U, D, L, R).</li>
      *     <li>Case 4: For the max length specified in the configuration file, add all possible combinations of that length
-     *     that can be made with the valid action sequence characters (S, E, S, Q, U, D, L, R). However, only possible
+     *     that can be made with the valid action sequence characters (S, E, W, Q, U, D, L, R). However, only possible
      *     combinations that have at least one time the character 'E' in it will be tested. </li>
      *     <li>Case 5: For the max length specified in the configuration file, add all possible combinations of that length
-     *     that can be made with the valid action sequence characters (S, E, S, Q, U, D, L, R). However, only possible
+     *     that can be made with the valid action sequence characters (S, E, W, Q, U, D, L, R). However, only possible
      *     combinations that have at least one time the character 'E' in it will be tested. Also, if the character 'S'
      *     is present, the character 'E' will be on one of the string characters after the 'S'.</li>
      *     <li>Case 6: For the max length specified in the configuration file, add all possible combinations of that length
-     *     that can be made with the valid action sequence characters (S, E, S, Q, U, D, L, R). However, only possible
+     *     that can be made with the valid action sequence characters (S, E, W, Q, U, D, L, R). However, only possible
      *     combinations that have at least one time the character 'E' in it will be tested. Also, if the character 'S'
      *     is present, the character 'E' will be on one of the string characters after the 'S'. On top of that, each string
      *     starts with an 'S' and ends with an 'E'.</li>
      *     <li>Case 7: For the max length specified in the configuration file, add all possible combinations of that length
-     *     that can be made with the valid action sequence characters (S, E, S, Q, U, D, L, R). However, only possible
+     *     that can be made with the valid action sequence characters (S, E, W, Q, U, D, L, R). However, only possible
      *     combinations that have at least one time the character 'E' in it will be tested. Also, if the character 'S'
      *     is present, the character 'E' will be on one of the string characters after the 'S'. On top of that, each string
      *     starts with an 'S' and ends with an 'E'. Actions (up, left, down, right) with that 'S' and 'E' will be checked:
      *     the player will not move out of the bounds of the map and will also not move to a wall cell. If that is the case,
      *     the iteration result will get the exit code -1 and an indicating output message. </li>
      *     <li>Case 8: For the max length specified in the configuration file, add all possible combinations of that length
-     *     that can be made with the valid action sequence characters (S, E, S, Q, U, D, L, R). However, only possible
+     *     that can be made with the valid action sequence characters (S, E, W, Q, U, D, L, R). However, only possible
      *     combinations that have at least one time the character 'E' in it will be tested. Also, if the character 'S'
      *     is present, the character 'E' will be on one of the string characters after the 'S'. Actions (up, left, down, right) with that 'S' and 'E' will be checked:
      *     the player will not move out of the bounds of the map and will also not move to a wall cell. If that is the case,
      *     the iteration result will get the exit code -1 and an indicating output message. The first ?MAX_ITERATIONS items of the list of possible combinations
      *     will be executed. </li>
      *     <li>Case 9: For the max length specified in the configuration file, add possible combinations of that length
-     *     that can be made with the valid action sequence characters (S, E, S, Q, U, D, L, R). However, only possible
+     *     that can be made with the valid action sequence characters (S, E, W, Q, U, D, L, R). However, only possible
      *     combinations that have at least one time the character 'E' in it will be tested. Also, if the character 'S'
      *     is present, the character 'E' will be on one of the string characters after the 'S'.
      *     Actions (up, left, down, right) with that 'S' and 'E' will be checked:
@@ -386,6 +437,9 @@ public class Fuzzer {
      *     the iteration result will get the exit code -1 and an indicating output message.
      *     For each execution (specified in ?MAX_ITERATIONS variable),
      *     an item of the list of all possible combinations will be picked randomly. </li>
+     *     <li>Case 10: Takes the first line of the text file stored in the location fuzzresults_lessons/fuzz7_mutationalFuzzing/
+     *     custom_actionSequences_inputCopy_7. Will consider this first line as an action sequence. Will replace each
+     *     character of this string with each other valid action sequence character (S, E, W, Q, U, D, L, R) in turn.  </li>
      *     <li>Default: Nothing to add</li>
      * </ul>
      *
@@ -433,19 +487,85 @@ public class Fuzzer {
                     customSequences.add(customSequence);
                 }
             }
-            case 9:
+            case 9: {
                 while (customSequences.size() < MAX_ITERATIONS) {
                     String randomCombination = RandomActionSequenceGenerator.generateRandomCombination(
                             FileReaderManager.getInstance().getConfigReader().getMaxActionSequenceLength(),
                             true, true);
                     customSequences.add(randomCombination);
                 }
+            }
+            case 10: {
+                //! Hardcoded filepath here
+                String filePath = "fuzzresults_lessons/fuzz7_mutationalFuzzing/custom_actionSequences_inputCopy_7";
+                String fileText = FileHandler.getFileText(filePath);
+                String[] lines = fileText.split("/n");
+                String actionSequence;
+                if (lines == null) {
+                    System.out.println("The file was empty or there was an error while reading the file.");
+                    actionSequence = "";
+                } else {
+                    if (lines.length > 1) {
+                        System.out.println("There were multiple lines in the action sequence file. The first one was used.");
+                    }
+                    actionSequence = lines[0];
+                }
+                List<String> mutatedActionSequences = RandomActionSequenceGenerator.mutateActionSequence(actionSequence);
+                customSequences.addAll(mutatedActionSequences);
+            }
             default: { // Nothing to add
                 break;
             }
         }
         return customSequences;
     }
+
+    /**
+     * Firstly, the original map and action sequences gets paired.
+     * All mutated versions of the map first gets paired with the original action sequence.
+     * Then, all mutated versions of the action sequences gets paired with the original map.
+     * The combinedMaps and combinedSequences are a list that contains all copies of the original and the mutated
+     * versions in that particular order.
+     *
+     * @param customMaps
+     *         List of the original map and all its mutated versions.
+     * @param customSequences
+     *         List of the original customSequences and all its mutated versions.
+     */
+    private static void combineMapsAndSequences(List<String> customMaps, List<String> customSequences) {
+        combinedMaps = new ArrayList<>();
+        combinedSequences = new ArrayList<>();
+        String originalMap = customMaps.get(0);
+        String originalSequence = customSequences.get(0);
+        // for every mutated map, copy the original action sequence
+        for (String map : customMaps) {
+            combinedMaps.add(map); // first one will be the original map and original sequence
+            combinedSequences.add(originalSequence);
+        }
+
+        // we cannot just add original map for each action sequence -> we will not be able to move to correct directory, ...
+        // thus, make copy of original map
+        String mapContent = FileHandler.getFileText(originalMap);
+        List<String> lines = Arrays.asList(mapContent.split("\\n"));
+        for (String line : lines) {  // remove new lines characters for correct measurement
+            String newLine = line.replaceAll("\\r|\\n", "");
+            lines.set(lines.indexOf(line), newLine);
+        }
+
+        // for every mutated action sequence, copy the original map
+        for (String sequence : customSequences) {
+            if (sequence != originalSequence) {// if the original and the mutated action sequence are the same, we already added this to the list.
+                // make copy of original map
+                String filePath = RandomTextMapGenerator.writeMapAway(lines, MapGenerator.generateRandomMapCopyFileName(".txt"));
+                combinedMaps.add(filePath);
+                combinedSequences.add(sequence);
+            }
+        }
+    }
+
 }
+
+
+
 
 

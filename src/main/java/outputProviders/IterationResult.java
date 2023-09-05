@@ -1,5 +1,6 @@
 package outputProviders;
 
+import managers.FileReaderManager;
 import organizers.FileHandler;
 
 import java.io.BufferedReader;
@@ -172,7 +173,6 @@ public class IterationResult {
         return customAttribute;
     }
 
-
     /**
      * Checks for each the action sequence if this is a possible move within the map: when the game has already
      * started, and has not ended yet, the player does not move to a wall cell or outside the bounds of the
@@ -216,7 +216,7 @@ public class IterationResult {
 
     /**
      * From a full action sequence, get the strings that actually are executed (Starting with
-     * the last S and ending with the first E).
+     * the last S and ending with the first E, or Q if customSequencesNR= 10).
      *
      * @param input
      *         The full action sequence.
@@ -224,24 +224,50 @@ public class IterationResult {
      * @return A list of strings that are executed.
      */
     public static List<String> extractSubstrings(String input) {
-        List<String> substrings = new ArrayList<>();
-        int prevEIndex = -1; // Initialize the previous "E" index to -1
 
-        for (int i = 0; i < input.length(); i++) {
-            if (input.charAt(i) == 'S') {
-                for (int j = i + 1; j < input.length(); j++) {
-                    if (input.charAt(j) == 'E') {
-                        if (prevEIndex == -1 || i > prevEIndex) { // no previous E found or S is after the previous E
-                            substrings.add(input.substring(i, j + 1));
-                        }
-                        prevEIndex = j; // Update the previous "E" index
-                        break;
-                    }
+        List<String> executedActionSequences = new ArrayList<>();
+        StringBuilder currentActionSequence = new StringBuilder();
+        boolean gameActive = false;
+        boolean canEndWithQuit = FileReaderManager.getInstance().getConfigReader().getCustomSequenceNr() == 10;
+
+        for (char action : input.toCharArray()) {
+
+            // if the action is an S
+            if (action == 'S') {
+                gameActive = true; // set game to active
+                currentActionSequence.append(action); // append any S to current action sequence
+            }
+            // if the action is an E
+            else if (action == 'E') {
+                if (gameActive) {
+                    gameActive = false;
+                    currentActionSequence.append(action); // append any E to current action sequence
+                    executedActionSequences.add(currentActionSequence.toString()); // add the current action sequence to the list of executed action sequences
+                    currentActionSequence.setLength(0); // reset the current action sequence
+                }
+            }
+            // if the action is a Q.
+            else if (action == 'Q') {
+                if (gameActive && canEndWithQuit) {
+                    gameActive = false;
+                    currentActionSequence.append(action); // append any Q to current action sequence
+                    executedActionSequences.add(currentActionSequence.toString()); // add the current action sequence to the list of executed action sequences
+                    currentActionSequence.setLength(0); // reset the current action sequence
+                } else if (gameActive = true && !canEndWithQuit) {
+                    currentActionSequence.append(action); // append any Q to current action sequence
+                }
+            }
+            // if the action not an S, E or Q.
+            else {
+                if (gameActive) {
+                    currentActionSequence.append(action); // append any other action to current action sequence
                 }
             }
         }
-        return substrings;
+
+        return executedActionSequences;
     }
+
 
     /**
      * Makes a map that stores each char at its x and y coordinate, from a .txt file that
@@ -315,4 +341,5 @@ public class IterationResult {
         }
         return new int[]{playerRow, playerCol};
     }
+
 }
