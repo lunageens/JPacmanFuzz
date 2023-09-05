@@ -150,7 +150,7 @@ public class IterationResultsFormatter {
 
     /**
      * Default values of getFormattedFuzzAttemptNr()
-     *
+     * @param fuzzAttemptNr The fuzz attempt number that needs formatting, as String.
      * @return String Fuzz attempt nr without titles, with replaced commas and newlines, and a comma appended thereafter.
      */
     public static String getFormattedFuzzAttemptNr(String fuzzAttemptNr) {
